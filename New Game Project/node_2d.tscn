@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkqwb46i84qlr"]
+
+[ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_gh7am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od7co"]
+size = Vector2(43.75, 56.5)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(7.62939e-06, -6)
+scale = Vector2(0.508333, 0.439189)
+texture = ExtResource("1_gh7am")
+offset = Vector2(16, 16)
+hframes = 10
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(7.125, -1.75)
+shape = SubResource("RectangleShape2D_od7co")
