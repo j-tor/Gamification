@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_rh17t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03gse"]
-size = Vector2(7, 22)
+size = Vector2(17, 22)
 
 [sub_resource type="Animation" id="Animation_bx8yn"]
 length = 0.001
