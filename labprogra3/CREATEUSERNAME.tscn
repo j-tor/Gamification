@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddkg0f7fj7yeh"]
+
+[ext_resource type="Texture2D" uid="uid://d2invhxny7dcq" path="res://imagen fondo log in.png" id="1_jrpm6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 823.0
+offset_bottom = 643.0
+texture = ExtResource("1_jrpm6")
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 325.0
+offset_right = 776.0
+offset_bottom = 619.0
+scale = Vector2(0.90535, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="LABELUSERNAME" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "CHOOSE USERNAME:"
+
+[node name="TextEdit" type="TextEdit" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+
+[node name="LABELUSERNAME2" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "DESCRIPTION: USER NAME MUST HAVE A MINIMUM OF 6 LETTERS, IN WHICH IT MUST HAVE A NUMBER"
+
+[node name="ACEPT" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+text = "ACEPT"
+
+[node name="BACK LOGIN" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+text = "BACK LOGIN"
