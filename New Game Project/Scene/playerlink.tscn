@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_rh17t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03gse"]
-size = Vector2(12, 19)
+size = Vector2(12, 14)
 
 [sub_resource type="Animation" id="Animation_bx8yn"]
 length = 0.001
@@ -142,7 +142,7 @@ hframes = 10
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-17, 20.5)
+position = Vector2(-17, 23)
 shape = SubResource("RectangleShape2D_03gse")
 one_way_collision_margin = 0.0
 
