@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://xb3cqe3r1i8i"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_aydvr"]
+[ext_resource type="Script" path="res://Scene/CharacterBody2D.gd" id="1_aydvr"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="2_skpph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6w36"]

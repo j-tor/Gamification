@@ -15,9 +15,13 @@ func updateAnimation():
 	elif velocity.x > 0 : direction = "Right"
 	elif velocity.y < 0 : direction = "Up"
 	elif velocity.y > 0 : direction = "Down"
+	else:animations.stop()
+	
+	
 	
 	
 	animations.play("run"+direction)
+	
 	
 	
 
