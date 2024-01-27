@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkqwb46i84qlr"]
 
 [ext_resource type="Texture2D" uid="uid://cyrm1dwuih0la" path="res://img/Links House Tiles.png" id="1_n0yph"]
-[ext_resource type="PackedScene" uid="uid://xb3cqe3r1i8i" path="res://Scene/playerlinkupdate.tscn" id="2_gr0xm"]
+[ext_resource type="PackedScene" uid="uid://xb3cqe3r1i8i" path="res://Scene/Players-NPC/playerlinkupdate.tscn" id="2_gr0xm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mutgl"]
 texture = ExtResource("1_n0yph")
