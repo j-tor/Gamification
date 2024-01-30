@@ -29,3 +29,11 @@ func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
 	updateAnimation()
+
+
+func _on_regreso_area_entered(area):
+	if area.is_in_group("player"):
+		get_tree().get_nodes_in_group("Game")[0].siguiente_nivel="mundo1"
+		get_tree().get_nodes_in_group("Game")[0].ubicacion = Vector2(86,-938)
+		get_tree().get_nodes_in_group("Game")[0]._verificar_nivel()
+		get_tree().get_nodes_in_group("casa")[0].queue_free()

@@ -1,27 +1,33 @@
 extends Node2D
 
 @onready var GAME = $"."
-@onready var animacion =  $ColorRect/AnimationPlayer
+@onready var animacion =  $AnimationPlayer
+var ubicacion = Vector2(86,-925)
 
 var siguiente_nivel
-var mundo1 = preload("res://mundo.tscn").instantiate()
-var casa = preload("res://Scene/castillo.tscn").instantiate()
+var nuevo_nivel
+
+var mundo1 = preload("res://mundo.tscn")
+var casa = preload("res://Scene/castillo.tscn")
 
 func _ready():
-	GAME.add_child(mundo1)
+	var nivel = mundo1.instantiate()
+	add_child(nivel)
 
 func _verficar_nivel():
 	match siguiente_nivel:
 		"castillo":
-			siguiente_nivel = casa
+			nuevo_nivel = casa
+		"mundo1":
+			nuevo_nivel= mundo1
 	animacion.play("saliendo")
 
 func _siguiente_nivel():
-	var nivel = siguiente_nivel
-	GAME.add_child(nivel)
+	var level = nuevo_nivel.instantiate()
+	get_tree().get_nodes_in_group("GAME")[0].call_deferred("add_child",level)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "saliendo":
-		$ColorRect/AnimationPlayer.play("entrando")
-	if anim_name == "entrando":
+		$AnimationPlayer.play("entrando")
+	if anim_name == "entrando": 
 		_siguiente_nivel()
