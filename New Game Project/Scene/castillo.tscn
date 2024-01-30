@@ -29461,7 +29461,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_blp7c")
 sources/2 = SubResource("TileSetAtlasSource_e44u0")
 
-[node name="Castillo" type="Node2D"]
+[node name="Castillo" type="Node2D" groups=["GAME"]]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_top = 1.0
