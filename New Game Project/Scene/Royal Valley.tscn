@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://brkulm2nc0anx"]
+[gd_scene load_steps=12 format=3 uid="uid://brkulm2nc0anx"]
 
+[ext_resource type="Script" path="res://Scene/Royal Valley.gd" id="1_jgail"]
 [ext_resource type="Texture2D" uid="uid://cvyds6hrtko5w" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Royal Valley.png" id="1_kyj47"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="2_g4pgd"]
 
@@ -9299,7 +9300,10 @@ size = Vector2(52.5, 131)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgksk"]
 size = Vector2(46.5, 137)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orwft"]
+
+[node name="Node2D" type="Node2D" groups=["royal"]]
+script = ExtResource("1_jgail")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1.0
@@ -9365,3 +9369,13 @@ shape = SubResource("RectangleShape2D_lgksk")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(260, 514)
 shape = SubResource("RectangleShape2D_5wvp5")
+
+[node name="Area2D" type="Area2D" parent="." groups=["royal"]]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(261, 43)
+shape = SubResource("RectangleShape2D_orwft")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

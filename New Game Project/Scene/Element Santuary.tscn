@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxa44n81806h5"]
+[gd_scene load_steps=9 format=3 uid="uid://bxa44n81806h5"]
 
+[ext_resource type="Script" path="res://Scrips/Element Santuary.gd" id="1_8ula4"]
 [ext_resource type="Texture2D" uid="uid://dgufxed4tv5jp" path="res://img/Elemental Sanctuary.png" id="1_abs3t"]
 [ext_resource type="Texture2D" uid="uid://ooox1v73o2di" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Elemental Sanctuary.png" id="2_w7uqg"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="3_f8rub"]
@@ -32945,7 +32946,11 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_o0w3h")
 sources/3 = SubResource("TileSetAtlasSource_lnr5m")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbxng"]
+size = Vector2(49, 16)
+
+[node name="Node2D" type="Node2D" groups=["element"]]
+script = ExtResource("1_8ula4")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8efsk")
@@ -32967,7 +32972,17 @@ offset_right = -75.0
 offset_bottom = 92.0
 
 [node name="playerlink" parent="." instance=ExtResource("3_f8rub")]
-position = Vector2(579, 117)
+position = Vector2(600, 1924)
 
 [node name="Camera2D" type="Camera2D" parent="playerlink"]
 zoom = Vector2(3, 3)
+
+[node name="Regreso" type="Area2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionRegreso" type="CollisionShape2D" parent="Regreso"]
+position = Vector2(580, 80)
+shape = SubResource("RectangleShape2D_hbxng")
+
+[connection signal="area_entered" from="Regreso" to="." method="_on_regreso_area_entered"]
