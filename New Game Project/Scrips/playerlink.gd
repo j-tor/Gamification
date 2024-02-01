@@ -9,10 +9,8 @@ var objeto = false
 func get_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_dir * speed
-	if mover == true:
-		if objeto == true:
-			if Input.is_action_just_pressed("tecla_f"):
-				mover = false
+	
+				
 	
 func updateAnimation():
 	
@@ -37,6 +35,15 @@ func updateAnimation():
 	
 
 func _physics_process(delta):
+	if mover == true:
+		if objeto == true:
+			if Input.is_action_just_pressed("ui_accept"):
+				$Macro.visible = true
+				Main._dialogo()
+				$Macro/Control.ingresar_dialogo()
+				mover = false
+				print(" acepto con f")
+				
 	get_input()
 	move_and_collide(velocity * delta)
 	updateAnimation()
@@ -52,11 +59,17 @@ func _on_regreso_area_entered(area):
 
 
 func _on_detec_obj_area_entered(area):
-	if area.is_in_grup("objeto"):
+	$Macro/Control/Label.text = str(area.name)
+	if area.is_in_group("objeto"):
+		Main.nombre_objeto = area.name
 		objeto = true
+		print("adentro",area.name)
+		
+	
 	
 
 
 func _on_detec_obj_area_exited(area):
-	if area.is_in_grup("objeto"):
+	if area.is_in_group("objeto"):
 		objeto = false
+		print("afuera")

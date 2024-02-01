@@ -29487,7 +29487,7 @@ layer_1/tile_data = PackedInt32Array(3538961, 917506, 20, 3604497, 917506, 21, 3
 [node name="playerlink" parent="." instance=ExtResource("3_273rn")]
 position = Vector2(314, 1366)
 
-[node name="Camera2D" type="Camera2D" parent="playerlink"]
+[node name="Camera2D2" type="Camera2D" parent="playerlink"]
 show_behind_parent = true
 zoom = Vector2(3, 3)
 limit_left = 0
