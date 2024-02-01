@@ -5,6 +5,45 @@
 [ext_resource type="AudioStream" uid="uid://clnh514tjfxex" path="res://Music/Attack3.ogg" id="3_fq661"]
 [ext_resource type="Texture2D" uid="uid://df3yj63gh1527" path="res://img/cursor.png" id="4_j180d"]
 
+[sub_resource type="Animation" id="Animation_2vkse"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("atacando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [23]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ataque:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fq661")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ataque:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_j28tg"]
 resource_name = "batalla"
 tracks/0/type = "value"
@@ -55,45 +94,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_2vkse"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("atacando:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [23]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ataque:stream")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_fq661")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ataque:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_2lys6"]
 resource_name = "parado"
 length = 3.0
@@ -124,8 +124,8 @@ size = Vector2(34.5, 46)
 [node name="Node2D" type="Node2D"]
 
 [node name="atacando" type="Sprite2D" parent="."]
-position = Vector2(-7, 19)
-scale = Vector2(1.53824, 1.72333)
+position = Vector2(-24.3124, 9.81244)
+scale = Vector2(1.94559, 1.96833)
 texture = ExtResource("1_vcta1")
 flip_h = true
 hframes = 7
@@ -151,13 +151,13 @@ position = Vector2(2.75, 6)
 shape = SubResource("RectangleShape2D_ic1lf")
 
 [node name="cursor" type="Sprite2D" parent="."]
-position = Vector2(-60, 12)
+position = Vector2(-94, 11)
 scale = Vector2(0.29375, 0.2625)
 texture = ExtResource("4_j180d")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -29.0
-offset_top = -51.0
+offset_left = -67.0
+offset_top = -52.0
 offset_right = 15.0
 offset_bottom = -45.0
 auto_translate = false

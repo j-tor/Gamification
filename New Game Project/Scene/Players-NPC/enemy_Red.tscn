@@ -84,7 +84,7 @@ size = Vector2(74, 60)
 script = ExtResource("1_c1kdy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(152, 141.394)
+position = Vector2(-38, -6.60582)
 scale = Vector2(3.51768, 4.0292)
 texture = ExtResource("1_5nejp")
 hframes = 13
@@ -93,10 +93,10 @@ vframes = 5
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Node2D"]
-offset_left = 145.0
-offset_top = 154.0
-offset_right = 182.0
-offset_bottom = 177.0
+offset_left = -45.0
+offset_top = 6.0002
+offset_right = -8.0
+offset_bottom = 29.0002
 text = "2
 "
 
@@ -106,14 +106,14 @@ libraries = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 96.0
-offset_top = 97.3942
-offset_right = 195.0
-offset_bottom = 124.394
+offset_left = -94.0
+offset_top = -50.6056
+offset_right = 5.0
+offset_bottom = -23.6058
 show_percentage = false
 
 [node name="Cursor" type="Sprite2D" parent="."]
-position = Vector2(234, 172)
+position = Vector2(44, 24.0002)
 rotation = 6.28319
 scale = Vector2(0.659377, 0.560798)
 texture = ExtResource("2_lsbqa")
