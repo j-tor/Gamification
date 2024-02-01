@@ -151,20 +151,23 @@ position = Vector2(2.75, 6)
 shape = SubResource("RectangleShape2D_ic1lf")
 
 [node name="cursor" type="Sprite2D" parent="."]
-position = Vector2(-94, 11)
-scale = Vector2(0.29375, 0.2625)
+visible = false
+position = Vector2(-125, 19)
+scale = Vector2(0.560938, 0.546875)
 texture = ExtResource("4_j180d")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -67.0
-offset_top = -52.0
-offset_right = 15.0
-offset_bottom = -45.0
+modulate = Color(1, 0.113725, 0.0313726, 1)
+offset_left = -40.0
+offset_top = -51.0
+offset_right = 42.0
+offset_bottom = -44.0
 auto_translate = false
 localize_numeral_system = false
 show_percentage = false
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
