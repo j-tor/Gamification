@@ -5,6 +5,7 @@ var speed =280
 @onready var animations = $AnimationPlayer
 var mover = true
 var objeto = false
+var ruleta = false
 
 func get_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -42,17 +43,27 @@ func _physics_process(delta):
 				Main._dialogo()
 				$Macro/Control.ingresar_dialogo()
 				mover = false
-				print(" acepto con f")
-	if objeto == true:
-		if Input.is_action_just_pressed("ui_accept"):
-			
-			
-				print(" acepto con f rueleta ")
+				print(" Reproducir Dialogo")
+		if ruleta == true:
+			pass
+			#if Input.is_action_just_pressed("ui_accept"):
+					#$"../Entrada a ruleta/Ruelta".play("Ruleta")
+					#print("Rueleta corriendo ")
+			#elif  Input.is_action_just_pressed("ui_cancel"):
+				#$"../Entrada a ruleta/Ruelta".stop()
+				#print("Rueleta Stop ")
+				
 	get_input()
 	move_and_collide(velocity * delta)
 	updateAnimation()
 	
-
+func dialogodezona():
+	$Macro.visible = true
+	Main._dialogo()
+	$Macro/Control.ingresar_dialogo()
+	mover = false
+	print(" Reproducir Dialogo")
+	
 
 func _on_regreso_area_entered(area):
 	if area.is_in_group("player"):
@@ -70,7 +81,7 @@ func _on_detec_obj_area_entered(area):
 		print("adentro ",area.name)
 		
 	if area.is_in_group("Ruleta"):
-		objeto = true
+		ruleta = true
 		print("adentro ",area.name)
 	
 	
