@@ -12,6 +12,7 @@ var casa = preload("res://Scene/castillo.tscn")
 var Royal = preload("res://Scene/Royal Valley.tscn")
 var Element = preload("res://Scene/Element Santuary.tscn")
 var ruleta = preload("res://RuletaPrincipal.tscn")
+var Icezone = preload("res://Scene/Ice zone.tscn")
 
 func _ready():
 	var nivel = mundo1.instantiate()
@@ -29,6 +30,8 @@ func _verficar_nivel():
 			nuevo_nivel= Element
 		"Ruleta":
 			nuevo_nivel= ruleta
+		"IceZone":
+			nuevo_nivel= Icezone
 	animacion.play("saliendo")
 
 func _siguiente_nivel():
