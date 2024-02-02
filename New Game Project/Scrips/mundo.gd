@@ -32,8 +32,8 @@ func _on_element_area_entered(area):
 
 func _on_entrada_a_ruleta_area_entered(area):
 		if area.is_in_group("Ruleta"):
-			if Input.is_action_just_pressed("ui_accept"):
-				$"Entrada a ruleta/Ruelta".play("Ruleta");
+			#if Input.is_action_just_pressed("ui_accept"):
+				#$"Entrada a ruleta/Ruelta".play("Ruleta");
 				print(" entreo")
 			
 			

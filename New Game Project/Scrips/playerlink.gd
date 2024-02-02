@@ -45,13 +45,16 @@ func _physics_process(delta):
 				mover = false
 				print(" Reproducir Dialogo")
 		if ruleta == true:
-			pass
-			#if Input.is_action_just_pressed("ui_accept"):
-					#$"../Entrada a ruleta/Ruelta".play("Ruleta")
-					#print("Rueleta corriendo ")
-			#elif  Input.is_action_just_pressed("ui_cancel"):
-				#$"../Entrada a ruleta/Ruelta".stop()
-				#print("Rueleta Stop ")
+			
+			if Input.is_action_just_pressed("interact"):
+					$"../Entrada a ruleta/Ruelta"._reproducir()
+					print("Rueleta corriendo ")
+			if  Input.is_action_just_pressed("ui_cancel"):
+						$Macro.visible = true
+						Main._game()
+						Main._dialogo()
+						$Macro/Control.ingresar_dialogo()
+						print("Rueleta Stop 3")
 				
 	get_input()
 	move_and_collide(velocity * delta)
@@ -81,6 +84,7 @@ func _on_detec_obj_area_entered(area):
 		print("adentro ",area.name)
 		
 	if area.is_in_group("Ruleta"):
+		Main.nombre_objeto = area.name
 		ruleta = true
 		print("adentro ",area.name)
 	
