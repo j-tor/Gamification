@@ -172,8 +172,8 @@ position = Vector2(-17, 20)
 shape = SubResource("RectangleShape2D_l2850")
 
 [node name="Detec_obj" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 48
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detec_obj"]
 position = Vector2(-17, 25)
@@ -220,6 +220,10 @@ anchor_bottom = 11.2
 offset_right = 40.0
 offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 
 [connection signal="area_entered" from="Detec_obj" to="." method="_on_detec_obj_area_entered"]
 [connection signal="area_exited" from="Detec_obj" to="." method="_on_detec_obj_area_exited"]

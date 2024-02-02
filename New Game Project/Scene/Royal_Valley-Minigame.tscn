@@ -3784,8 +3784,8 @@ text = "b"
 
 [node name="r_c" type="Button" parent="."]
 offset_left = 103.0
-offset_top = 359.0
-offset_right = 212.0
+offset_top = 362.0
+offset_right = 213.0
 offset_bottom = 399.0
 text = "c"
 
@@ -3811,7 +3811,7 @@ offset_bottom = 162.379
 text = "Porque la gallina cruzo la calle
 a) tenia huevos 
 b) para legara al otro lado 
-c) no se juan"
+c) Sepa judas"
 
 [node name="cursor_A" type="Sprite2D" parent="."]
 visible = false

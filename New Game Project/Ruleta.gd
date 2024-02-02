@@ -6,6 +6,7 @@ var girar=false
 @onready var rotacion=$"."
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("esta abierta ")
 	girar=false
 	pass # Replace with function body.
 

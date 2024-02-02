@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://u7xnxhshu1v2" path="res://Ruleta.tscn" id="1_0m5yn"]
 [ext_resource type="PackedScene" uid="uid://bspl0enyqnp53" path="res://flecha.tscn" id="2_q6s7v"]
-[ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="3_awfk0"]
+[ext_resource type="Texture2D" uid="uid://d34flhk4vacxq" path="res://img/hielo.png" id="3_y5ef6"]
 
 [node name="Node2D" type="Node2D" groups=["Ruleta"]]
+position = Vector2(55, 64)
+scale = Vector2(1.04, 1)
 
 [node name="Node2D" parent="." instance=ExtResource("1_0m5yn")]
 position = Vector2(561, 311)
@@ -18,6 +20,7 @@ offset_top = 91.0
 offset_right = 337.0
 offset_bottom = 143.0
 text = "Iniciar"
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -25,8 +28,8 @@ autostart = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(555, 297)
 
-[node name="playerlink" parent="." instance=ExtResource("3_awfk0")]
-position = Vector2(41, 970)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_y5ef6")
 
 [connection signal="pressed" from="btIniciar" to="Node2D" method="_on_bt_iniciar_pressed"]
 [connection signal="timeout" from="Timer" to="Node2D" method="_on_timer_timeout"]
