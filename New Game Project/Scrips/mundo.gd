@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	pass
+	$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
 
 
 func _process(delta):
@@ -43,3 +43,11 @@ func _on_entrada_a_ruleta_area_entered(area):
 			#if Input.is_action_just_pressed("ui_accept"):
 				
 	
+
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("player"):
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Icezone"
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("mundo")[0].queue_free()
