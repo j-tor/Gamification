@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfgcvsg4nfg4w"]
+
+[ext_resource type="Texture2D" uid="uid://cpw8mubcrkws4" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_t3j2i"]
+[ext_resource type="Script" path="res://saver.gd" id="1_t88pk"]
+[ext_resource type="Script" path="res://Button.gd" id="3_o1puc"]
+[ext_resource type="Script" path="res://Button_Login.gd" id="3_wnkll"]
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t88pk")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_right = 1147.0
+offset_bottom = 643.0
+texture = ExtResource("1_t3j2i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 296.0
+offset_top = 338.0
+offset_right = 946.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextEdit2" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+placeholder_text = "USERNAME"
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+placeholder_text = "PASSWORD"
+
+[node name="Button_Login" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 368.0
+offset_top = 464.0
+offset_right = 861.0
+offset_bottom = 523.0
+theme_override_font_sizes/font_size = 37
+text = "LOGIN"
+script = ExtResource("3_wnkll")
+
+[node name="Button_CreateUser" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 357.0
+offset_top = 526.0
+offset_right = 858.0
+offset_bottom = 595.0
+theme_override_font_sizes/font_size = 37
+text = "CREATE USER"
+script = ExtResource("3_o1puc")
+
+[connection signal="pressed" from="Button_Login" to="Button_Login" method="_on_pressed"]
+[connection signal="pressed" from="Button_CreateUser" to="Button_CreateUser" method="_on_pressed"]
