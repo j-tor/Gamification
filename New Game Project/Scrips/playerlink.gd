@@ -45,7 +45,9 @@ func _physics_process(delta):
 				print(" acepto con f")
 	if objeto == true:
 		if Input.is_action_just_pressed("ui_accept"):
-				print(" acepto con f")
+			
+			
+				print(" acepto con f rueleta ")
 	get_input()
 	move_and_collide(velocity * delta)
 	updateAnimation()
