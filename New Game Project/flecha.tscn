@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bspl0enyqnp53"]
+
+[ext_resource type="Texture2D" uid="uid://bi2d21kcrvvm" path="res://img/flecha.png" id="1_puegd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqjnd"]
+size = Vector2(292, 19.5)
+
+[node name="Area2D" type="Area2D" groups=["Categoria"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(531, 264)
+scale = Vector2(4.36, 3.36)
+texture = ExtResource("1_puegd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(428, 258.25)
+shape = SubResource("RectangleShape2D_pqjnd")
