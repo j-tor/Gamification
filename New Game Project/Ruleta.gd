@@ -20,6 +20,7 @@ func _process(delta):
 		rotacion.rotation_degrees+=velocidad
 	else:
 		girar=false
+		print("color escogido")
 	pass
 
 
