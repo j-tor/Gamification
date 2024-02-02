@@ -1,5 +1,5 @@
 extends Control
-
+var change_scene = load("res://mundo.tscn")
 var username = ""
 const SAVEFILE = "user://SAVEFILE.save"
 
@@ -8,10 +8,12 @@ var game_data=[{
 	"pass":"admin"
 }]
 
+@onready var POPUP = $Window
 
 
 func _ready():
 	_loaddata()
+	POPUP.show()
 	return true
 	
 func _loaddata(): 
@@ -46,6 +48,7 @@ func _on_button_login_pressed():
 		if(game_data[n].user == $TextEdit.text):
 			if(game_data[n].pass == $TextEdit.text):
 				print("Login Exitoso")
+				get_tree().change_scene_to_packed(change_scene)
 			
 	
 

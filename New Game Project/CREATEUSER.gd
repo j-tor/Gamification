@@ -20,10 +20,7 @@ func _loaddata():
 		
 	else:
 		game_data = file.get_var()
-		game_data.append({
-	"user":"r",
-	"pass":"r"
-})
+		
 	return true
 	
 func _savedate():
