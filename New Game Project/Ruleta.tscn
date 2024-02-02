@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://u7xnxhshu1v2"]
+[gd_scene load_steps=7 format=3 uid="uid://dfo7l51uoysx0"]
 
 [ext_resource type="Script" path="res://Ruleta.gd" id="1_vn1l2"]
 [ext_resource type="Texture2D" uid="uid://mshtuqnwxp23" path="res://img/pixil-frame-0.png" id="2_r2te4"]
