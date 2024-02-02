@@ -1,5 +1,8 @@
 extends Node2D
 
+var coloractual=""
+var primera =false
+var colorescogidos=[]
 var velocidad=15
 var girar=false
 @onready var timer=$"../Timer"
@@ -17,10 +20,21 @@ func _process(delta):
 		girar=false
 		timer.stop()
 	if girar:
-		rotacion.rotation_degrees+=velocidad
+		if len(colorescogidos) != 4:
+			rotacion.rotation_degrees+=velocidad 
+			primera=true
 	else:
 		girar=false
-		print("color escogido")
+		if primera:
+			if !colorescogidos.has(coloractual):
+				print("color escogido")
+				colorescogidos.append(coloractual)
+				print(colorescogidos)
+				primera=false
+			else:
+				velocidad=randf_range(10,15)
+				rotacion.rotation_degrees+=velocidad 
+				timer.start()
 	pass
 
 
@@ -35,19 +49,23 @@ func _on_timer_timeout():
 
 func _on_area_2d_area_entered(area):
 	print("Rojo")
+	coloractual="Rojo"
 	pass # Replace with function body.
 
 
 func _on_area_2d_2_area_entered(area):
 	print("Verde")
+	coloractual="Verde"
 	pass # Replace with function body.
 
 
 func _on_area_2d_3_area_entered(area):
 	print("Amarillo")
+	coloractual="Amarillo"
 	pass # Replace with function body.
 
 
 func _on_area_2d_4_area_entered(area):
 	print("Azul")
+	coloractual="Azul"
 	pass # Replace with function body.
