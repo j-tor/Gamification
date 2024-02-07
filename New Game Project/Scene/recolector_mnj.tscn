@@ -5,53 +5,66 @@
 [ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
-size = Vector2(321, 20)
+size = Vector2(1140.5, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh6ri"]
-size = Vector2(20, 160)
+size = Vector2(66, 636)
 
 [node name="Recolector_MNJ" type="Node" groups=["MiniRecolector"]]
 
 [node name="Bosque" type="Sprite2D" parent="."]
-position = Vector2(161, 89.5)
-scale = Vector2(0.25, 0.248611)
+position = Vector2(574, 328)
+scale = Vector2(0.8895, 0.890278)
 texture = ExtResource("1_lamyc")
 
 [node name="Player" parent="." instance=ExtResource("1_jk5hu")]
-position = Vector2(161, 160)
+position = Vector2(558, 506)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1.00463, 0.960904)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(160.5, 177)
+position = Vector2(586, 617)
 shape = SubResource("RectangleShape2D_6gcob")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(160, 9)
+position = Vector2(570.357, -40.5868)
 shape = SubResource("RectangleShape2D_6gcob")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-9, 93)
+position = Vector2(-19, 331)
 shape = SubResource("RectangleShape2D_vh6ri")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(330, 97)
+position = Vector2(1174, 323)
 shape = SubResource("RectangleShape2D_vh6ri")
 
 [node name="Spawner" parent="." instance=ExtResource("3_vcnif")]
-position = Vector2(298, 60)
+position = Vector2(1085, 43)
 
 [node name="Spawner2" parent="." instance=ExtResource("3_vcnif")]
-position = Vector2(245, 61)
+position = Vector2(711, 46)
 
 [node name="Spawner3" parent="." instance=ExtResource("3_vcnif")]
-position = Vector2(194, 62)
+position = Vector2(593, 44)
 
 [node name="Spawner4" parent="." instance=ExtResource("3_vcnif")]
-position = Vector2(144, 62)
+position = Vector2(478, 47)
 
 [node name="Spawner5" parent="." instance=ExtResource("3_vcnif")]
-position = Vector2(95, 62)
+position = Vector2(228, 51)
 
 [node name="Spawner6" parent="." instance=ExtResource("3_vcnif")]
-position = Vector2(44, 61)
+position = Vector2(365, 48)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 322)
+
+[node name="Spawner7" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(100, 51)
+
+[node name="Spawner8" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(959, 45)
+
+[node name="Spawner9" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(838, 45)

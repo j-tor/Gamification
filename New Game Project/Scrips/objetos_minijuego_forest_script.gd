@@ -19,4 +19,4 @@ func _on_body_entered(body):
 		else:
 			body.morirse()
 func _process(delta):
-	position.y +=1
+	position.y +=3

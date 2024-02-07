@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed := 100
+var speed := 300
 @onready var animated_sprite_2d = $AnimatedSprite2D
 const JUMP_VELOCITY = -400.0
 
@@ -29,12 +29,12 @@ func _physics_process(delta):
 	
 	if apresteSalto !=0:
 		velocity.y =0
-		velocity.y -= apresteSalto * 200
+		velocity.y -= apresteSalto * 400
 	
 	
 	
 	if !is_on_floor():
-		velocity.y +=10
+		velocity.y +=20
 	move_and_slide()
 	if velocity.x !=0: 
 		animated_sprite_2d.play("run")

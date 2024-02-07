@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cxg8lr6imv6gy" path="res://img/Assets/Jugador/run/player-run-6.png" id="12_3xrmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7frr"]
-size = Vector2(17, 19)
+size = Vector2(87.0144, 115.498)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w47kr"]
 animations = [{
@@ -78,12 +78,14 @@ animations = [{
 script = ExtResource("1_45xq2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(-8.5, 3.5)
+scale = Vector2(1.06879, 0.756604)
 shape = SubResource("RectangleShape2D_c7frr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1, -16)
+scale = Vector2(5.16667, 3.87725)
 sprite_frames = SubResource("SpriteFrames_w47kr")
 animation = &"idle"
 autoplay = "idle"
