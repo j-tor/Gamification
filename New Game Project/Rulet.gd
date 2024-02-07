@@ -4,30 +4,36 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func playing():
 	$AnimationPlayer.play("Role")
-	car()
+	roling()
 	
-func car():
+func roling():
 	while ($AnimationPlayer.is_playing()):
 		await get_tree().create_timer(1).timeout 
-		if(!Main.GreeGame && $Sprite2D.get_frame()==0):
+		var current_frame = $Sprite2D.get_frame()
+		if (current_frame == 0 && Main.BlueGame==false):
 			print("Minijuego Politica")
 			print("Blue")
-			Main.GreeGame=true
+			Main.BlueGame = true
 			$AnimationPlayer.pause()
-		elif(!Main.pinkGame && $Sprite2D.get_frame()==1):
-			print("Minijuego Cincia")
+			Main.rulet=true
+			break  
+		elif (current_frame == 1 && Main.pinkGame==false):
+			print("Minijuego Ciencia")
 			print("Pink")
-			Main.pinkGame=true
+			Main.pinkGame = true
 			$AnimationPlayer.pause()
-		elif(!Main.pinkGame && $Sprite2D.get_frame()==2):
-			print("Minijuego Cincia")
+			break  
+		elif (current_frame == 2 && Main.yellowGame==false):
+			print("Minijuego Ciencia")
 			print("Yellow")
-			Main.pinkGame=true
+			Main.yellowGame = true
 			$AnimationPlayer.pause()
-		elif(!Main.GreeGame && $Sprite2D.get_frame()==3):
-			print("Minijuego Cincia")
+			break 
+		elif (current_frame == 3 && Main.GreeGame==false):
+			print("Minijuego Ciencia")
 			print("Verde")
-			Main.GreeGame=true
+			Main.GreeGame = true
+			Main.rulet=true
 			$AnimationPlayer.pause()
-
+			break
 

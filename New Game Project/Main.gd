@@ -8,6 +8,8 @@ var juego
 #dialogos
 var GreeGame=false
 var pinkGame=false
+var BlueGame=false
+var yellowGame=false
 
 var nombre_objeto
 
