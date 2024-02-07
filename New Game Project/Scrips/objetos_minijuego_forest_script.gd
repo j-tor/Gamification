@@ -18,5 +18,8 @@ func _on_body_entered(body):
 			body.subirScore()
 		else:
 			body.morirse()
+		$Sprite.hide()
+		$CollisionShape2D.hide()
+		
 func _process(delta):
 	position.y +=3
