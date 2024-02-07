@@ -10,7 +10,7 @@ size = Vector2(321, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh6ri"]
 size = Vector2(20, 160)
 
-[node name="Recolector_MNJ" type="Node"]
+[node name="Recolector_MNJ" type="Node" groups=["MiniRecolector"]]
 
 [node name="Bosque" type="Sprite2D" parent="."]
 position = Vector2(161, 89.5)

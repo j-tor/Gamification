@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxa44n81806h5"]
+[gd_scene load_steps=10 format=3 uid="uid://bxa44n81806h5"]
 
 [ext_resource type="Script" path="res://Scrips/Element Santuary.gd" id="1_8ula4"]
 [ext_resource type="Texture2D" uid="uid://dgufxed4tv5jp" path="res://img/Elemental Sanctuary.png" id="1_abs3t"]
@@ -32949,6 +32949,9 @@ sources/3 = SubResource("TileSetAtlasSource_lnr5m")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbxng"]
 size = Vector2(49, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0p24"]
+radius = 35.1283
+
 [node name="Node2D" type="Node2D" groups=["element"]]
 script = ExtResource("1_8ula4")
 
@@ -32985,4 +32988,13 @@ collision_mask = 255
 position = Vector2(580, 80)
 shape = SubResource("RectangleShape2D_hbxng")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 132
+collision_mask = 132
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(584, 701)
+shape = SubResource("CircleShape2D_u0p24")
+
 [connection signal="area_entered" from="Regreso" to="." method="_on_regreso_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

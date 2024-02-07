@@ -13,6 +13,7 @@ var Royal = preload("res://Scene/Royal Valley.tscn")
 var Element = preload("res://Scene/Element Santuary.tscn")
 var ruleta = preload("res://RuletaPrincipal.tscn")
 var Icezone = preload("res://Scene/Ice zone.tscn")
+var MiniJuegoRecolector = preload("res://Scene/recolector_mnj.tscn")
 func _ready():
 	var nivel = mundo1.instantiate()
 	add_child(nivel)
@@ -31,6 +32,8 @@ func _verficar_nivel():
 			nuevo_nivel= ruleta
 		"Icezone":
 			nuevo_nivel = Icezone
+		"MiniRecolector":
+			nuevo_nivel = MiniJuegoRecolector
 	animacion.play("saliendo")
 
 func _siguiente_nivel():
