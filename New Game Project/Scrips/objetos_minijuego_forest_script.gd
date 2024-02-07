@@ -23,3 +23,4 @@ func _on_body_entered(body):
 		
 func _process(delta):
 	position.y +=3
+s
