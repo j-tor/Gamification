@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_cancel"): 
 		_parar()
 		print("Rueleta Stop 2 ")
-		
+		Main.rulet=true
 		#$AnimationPlayer.stop()
 		
 func _reproducir():

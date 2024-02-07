@@ -6,17 +6,20 @@ var objetivo_player  = 1
 var banco
 var juego
 #dialogos
+var GreeGame=false
+var pinkGame=false
 
 var nombre_objeto
 
 var dialogo_objeto = []
-
+var rulet=false
 
 # Called when the node enters the scene tree for the first time.
 
 func _game():
 	randomize()
 	_dialogo()
+	
 
 func _dialogo():
 
@@ -44,4 +47,4 @@ func _dialogo():
 				#"color azul",#1
 				#"Regresa despues. . . . . . ."#2
 			]
-			
+			rulet=false

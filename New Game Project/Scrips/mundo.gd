@@ -2,7 +2,8 @@ extends Node2D
 
 func _ready():
 	$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
-
+	
+		
 
 func _process(delta):
 	pass
