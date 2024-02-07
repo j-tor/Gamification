@@ -53,14 +53,17 @@ func _physics_process(delta):
 					
 					$"../Entrada a ruleta/Node2D".visible=true
 					Main.rulet=true
+					print(Main.rulet)
 			if  Input.is_action_just_pressed("ui_cancel"):
-						$Macro.visible = true
-						Main._game()
-						Main._dialogo()
+						#$Macro.visible = true
+						#Main._game()
+						#Main._dialogo()	
+						$"../Entrada a ruleta/Node2D".hide()
 						if Main.rulet==true:
-							$"../Entrada a ruleta/Node2D".visible=false
+							
 							Main.rulet=false
-						$Macro/Control.ingresar_dialogo()
+							print(Main.rulet)
+						#$Macro/Control.ingresar_dialogo()
 						print("Rueleta Stop 3")
 				
 	get_input()
