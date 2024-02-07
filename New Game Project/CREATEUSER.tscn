@@ -58,4 +58,30 @@ offset_bottom = 551.0
 theme_override_font_sizes/font_size = 37
 text = "CREATE"
 
+[node name="Window" type="Window" parent="."]
+position = Vector2i(450, 162)
+size = Vector2i(300, 250)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Error"
+
+[node name="Button" type="Button" parent="Window"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -31.0
+offset_right = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Accept"
+
 [connection signal="pressed" from="Button_Create" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Window/Button" to="." method="_on_button_pressed"]
