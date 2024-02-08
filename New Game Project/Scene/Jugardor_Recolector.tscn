@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfqwnca0i1w3n"]
+[gd_scene load_steps=14 format=3 uid="uid://bfqwnca0i1w3n"]
 
 [ext_resource type="Script" path="res://Scrips/Jugardor_Recolector.gd" id="1_45xq2"]
 [ext_resource type="Texture2D" uid="uid://c8j3y3kt5t4uq" path="res://img/Assets/Jugador/hurt/player-hurt-1.png" id="1_bfaok"]
 [ext_resource type="Texture2D" uid="uid://vg4ka2f8syfy" path="res://img/Assets/Jugador/hurt/player-hurt-2.png" id="2_l6fm3"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="5_mu2s5"]
+[ext_resource type="AudioStream" uid="uid://bfxyvwlq50kbm" path="res://img/Assets/Sonidos/Collect_Point_01.mp3" id="5_tsuhv"]
+[ext_resource type="AudioStream" uid="uid://br55ug50rt33e" path="res://img/Assets/Sonidos/Explosion_00.mp3" id="6_cpefq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7frr"]
 size = Vector2(87.0144, 115.498)
@@ -76,8 +78,16 @@ scale = Vector2(1.06879, 0.756604)
 shape = SubResource("RectangleShape2D_c7frr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 texture_filter = 1
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_w47kr")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
+
+[node name="SubirSonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tsuhv")
+
+[node name="morirSonido" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("6_cpefq")

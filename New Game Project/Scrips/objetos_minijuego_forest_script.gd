@@ -2,6 +2,8 @@ extends Area2D
 
 var esManzana = false 
 var spriteDeEnemigo = preload("res://img/Assets/spike.png")
+
+var Speed :=2.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if randf() >.5:
@@ -22,4 +24,4 @@ func _on_body_entered(body):
 		$CollisionShape2D.hide()
 		
 func _process(delta):
-	position.y +=3
+	position.y +=Speed

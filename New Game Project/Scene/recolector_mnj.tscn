@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc8cr6r6vn4hw"]
+[gd_scene load_steps=13 format=3 uid="uid://dc8cr6r6vn4hw"]
 
 [ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
+[ext_resource type="Script" path="res://Scrips/recolector_mnj.gd" id="1_vaqgv"]
 [ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
+[ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
+[ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
 size = Vector2(1140.5, 62)
@@ -10,7 +13,21 @@ size = Vector2(1140.5, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh6ri"]
 size = Vector2(66, 636)
 
+[sub_resource type="LabelSettings" id="LabelSettings_k5fwq"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsqyw"]
+line_spacing = 4.0
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nf2c"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_emwtt"]
+font_size = 64
+
 [node name="Recolector_MNJ" type="Node" groups=["MiniRecolector"]]
+script = ExtResource("1_vaqgv")
 
 [node name="Bosque" type="Sprite2D" parent="."]
 position = Vector2(574, 328)
@@ -68,3 +85,78 @@ position = Vector2(959, 45)
 
 [node name="Spawner9" parent="." instance=ExtResource("3_vcnif")]
 position = Vector2(838, 45)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 540.0
+offset_top = 44.0
+offset_right = 577.0
+offset_bottom = 132.0
+text = "0"
+label_settings = SubResource("LabelSettings_k5fwq")
+
+[node name="DeathScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("5_vffmg")
+
+[node name="MsgLabel" type="Label" parent="DeathScreen"]
+offset_left = 432.0
+offset_top = 150.0
+offset_right = 726.0
+offset_bottom = 238.0
+text = "PERDISTE"
+label_settings = SubResource("LabelSettings_bsqyw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeathScreen"]
+offset_left = 446.0
+offset_top = 207.0
+offset_right = 779.0
+offset_bottom = 334.0
+
+[node name="Label" type="Label" parent="DeathScreen/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_5nf2c")
+
+[node name="FinalScore" type="Label" parent="DeathScreen/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_emwtt")
+
+[node name="ReiniciarButton" type="Button" parent="DeathScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REINICIAR"
+
+[node name="SalirButton2" type="Button" parent="DeathScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 14.0
+offset_right = 197.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SALIR"
+
+[node name="JuegoSonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yry4o")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="playedDied" from="Player" to="." method="_on_player_played_died"]
+[connection signal="scoreUP" from="Player" to="." method="_on_player_score_up"]
+[connection signal="pressed" from="DeathScreen/ReiniciarButton" to="DeathScreen" method="_on_reiniciar_button_pressed"]
+[connection signal="pressed" from="DeathScreen/SalirButton2" to="." method="_on_salir_button_2_pressed"]
