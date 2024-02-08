@@ -46,8 +46,8 @@ func _dialogo():
 			]
 		"Entrada a ruleta":
 			dialogo_objeto = [
-				"Zona de "+banco,#0
-				#"color azul",#1
+				"Biembenido a la Ruleta del saber ",#0
+				"para girar presione F ",#1
 				#"Regresa despues. . . . . . ."#2
 			]
 			rulet=false

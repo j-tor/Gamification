@@ -2,46 +2,49 @@ extends Node2D
 
 func _ready():
 	$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
-	
-		
 
 func _process(delta):
 	pass
 
 func _on_portal_1_area_entered(area):
 	if area.is_in_group("player"):
-		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "castillo"
-		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-		get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		if Main.yellowGame==true:
+			$"Element/Salida hacia Element".show()
+			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "castillo"
+			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+			get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		else :
+			$"Element/Salida hacia Element".show()
 
 
 func _on_royal_area_entered(area):
 	if area.is_in_group("player"):
-		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "royal"
-		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-		get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		if Main.GreeGame==true:
+			$"Royal/Entrada a Royal".show()
+			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "royal"
+			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+			get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		else :
+			$"Royal/Entrada a Royal".hide()
 
 
 
 func _on_element_area_entered(area):
 	if area.is_in_group("player"):
-		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "element"
-		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-		get_tree().get_nodes_in_group("mundo")[0].queue_free()
- 
+		if Main.pinkGame==true:
+			$"Elemental Santuary/Entrada a Satuary".show()
+			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "element"
+			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+			get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		else :
+			$"Elemental Santuary/Entrada a Satuary".hide()
+
 
 
 func _on_entrada_a_ruleta_area_entered(area):
 		if area.is_in_group("Ruleta"):
-			#if Input.is_action_just_pressed("ui_accept"):
-				#$"Entrada a ruleta/Ruelta".play("Ruleta");
-				print(" entreo")
 			
-			
-			#get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Ruleta"
-			#get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel
-			#get_tree().get_nodes_in_group("mundo")[0].queue_free()
-			#if Input.is_action_just_pressed("ui_accept"):
+			print(" entreo")
 				
 	
 
@@ -49,6 +52,11 @@ func _on_entrada_a_ruleta_area_entered(area):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
-		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Icezone"
-		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-		get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		if Main.BlueGame==true:
+			$"Ice zone/Entrada a Ice zone".show()
+			$"Ice zone/TileMap".show()
+			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Icezone"
+			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+			get_tree().get_nodes_in_group("mundo")[0].queue_free()
+		else :
+			$"Ice zone/Entrada a Ice zone".hide()
