@@ -10,6 +10,7 @@ var GreeGame=false
 var pinkGame=false
 var BlueGame=false
 var yellowGame=false
+var Vida_base=0
 
 var nombre_objeto
 
