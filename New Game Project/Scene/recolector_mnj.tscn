@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc8cr6r6vn4hw"]
+[gd_scene load_steps=18 format=3 uid="uid://dc8cr6r6vn4hw"]
 
 [ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
@@ -25,6 +25,22 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_emwtt"]
 font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hxmg"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ih0u"]
+font_size = 20
+font_color = Color(0.976471, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_us7n5"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_swtts"]
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxo1d"]
+font_size = 34
 
 [node name="Recolector_MNJ" type="Node" groups=["MiniRecolector"]]
 script = ExtResource("1_vaqgv")
@@ -156,7 +172,87 @@ stream = ExtResource("6_yry4o")
 volume_db = -10.0
 autoplay = true
 
+[node name="Questionario" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="Questionario" type="Label" parent="Questionario"]
+offset_left = 26.0
+offset_top = 138.0
+offset_right = 1131.0
+offset_bottom = 349.0
+label_settings = SubResource("LabelSettings_3hxmg")
+
+[node name="Aviso" type="Label" parent="Questionario"]
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 877.0
+offset_bottom = 104.0
+text = "El bosque encantado  te ha otorgado otra oportunidad, Si te equivocas pierdes 20 puntos, 
+si respondes correctamente ganas 15 puntos.
+Mucha suerte!. "
+label_settings = SubResource("LabelSettings_4ih0u")
+
+[node name="RespuestaA" type="Button" parent="Questionario"]
+offset_left = 204.0
+offset_top = 441.0
+offset_right = 303.0
+offset_bottom = 516.0
+text = "A)"
+
+[node name="RespuestaB" type="Button" parent="Questionario"]
+offset_left = 383.0
+offset_top = 443.0
+offset_right = 482.0
+offset_bottom = 518.0
+text = "B)"
+
+[node name="RespuestaC" type="Button" parent="Questionario"]
+offset_left = 630.0
+offset_top = 439.0
+offset_right = 729.0
+offset_bottom = 514.0
+text = "C)"
+
+[node name="RespuestaD" type="Button" parent="Questionario"]
+offset_left = 837.0
+offset_top = 441.0
+offset_right = 936.0
+offset_bottom = 516.0
+text = "D)"
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="WinScreen"]
+offset_left = 423.0
+offset_top = 311.0
+offset_right = 726.0
+offset_bottom = 399.0
+text = "Ganastes!"
+label_settings = SubResource("LabelSettings_us7n5")
+
+[node name="Label2" type="Label" parent="WinScreen"]
+offset_left = 426.0
+offset_top = 237.0
+offset_right = 545.0
+offset_bottom = 292.0
+text = "Score:  "
+label_settings = SubResource("LabelSettings_swtts")
+
+[node name="Label3" type="Label" parent="WinScreen"]
+offset_left = 541.0
+offset_top = 240.0
+offset_right = 607.0
+offset_bottom = 304.0
+text = "0"
+label_settings = SubResource("LabelSettings_gxo1d")
+
 [connection signal="playedDied" from="Player" to="." method="_on_player_played_died"]
 [connection signal="scoreUP" from="Player" to="." method="_on_player_score_up"]
 [connection signal="pressed" from="DeathScreen/ReiniciarButton" to="DeathScreen" method="_on_reiniciar_button_pressed"]
 [connection signal="pressed" from="DeathScreen/SalirButton2" to="." method="_on_salir_button_2_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaA" to="." method="_on_respuesta_a_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaB" to="." method="_on_respuesta_b_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaC" to="." method="_on_respuesta_c_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaD" to="." method="_on_respuesta_d_pressed"]

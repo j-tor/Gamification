@@ -50,8 +50,8 @@ func subirScore():
 	print("subir up")
 	$SubirSonido.play()
 	emit_signal("scoreUP")
+
 func morirse():
-	print("Ay me mori")
 	$morirSonido.play()
 	animated_sprite_2d.play("hurt")
 	emit_signal("playedDied")
