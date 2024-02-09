@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cryqc1yuabkca"]
+[gd_scene load_steps=23 format=3 uid="uid://cryqc1yuabkca"]
 
 [ext_resource type="Script" path="res://Scrips/Preguntas-Royal_Valley.gd" id="1_jol31"]
 [ext_resource type="Texture2D" uid="uid://b4csl2byla2rd" path="res://img/Mobile - Fire Emblem Heroes - Dragons Gate.png" id="2_y7w4b"]
-[ext_resource type="Texture2D" uid="uid://dr76yfk3of4xw" path="res://img/Slim.png" id="3_25727"]
 [ext_resource type="PackedScene" uid="uid://difcwu8gt56yf" path="res://Scene/Players-NPC/player_atack.tscn" id="3_b12i4"]
+[ext_resource type="Texture2D" uid="uid://duc7oaa6fk3b8" path="res://img/34764.png" id="3_il4p2"]
 [ext_resource type="Texture2D" uid="uid://df3yj63gh1527" path="res://img/cursor.png" id="4_y8x4t"]
 [ext_resource type="Script" path="res://Scene/Players-NPC/player_atack.gd" id="5_nyxgq"]
 
@@ -3741,6 +3741,96 @@ texture = ExtResource("2_y7w4b")
 [sub_resource type="TileSet" id="TileSet_e5apc"]
 sources/0 = SubResource("TileSetAtlasSource_4te55")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cl4t"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(0, 116, 52, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk6fj"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(52, 116, 52, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x6lv"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(0, 174, 52, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kukkp"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(52, 174, 52, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvb75"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(56, 0, 56, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blhpv"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(0, 0, 56, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s684t"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(112, 0, 56, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oupgl"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(168, 0, 56, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asqh8"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(224, 0, 56, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a43ky"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(280, 0, 56, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekpxt"]
+atlas = ExtResource("3_il4p2")
+region = Rect2(336, 0, 56, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ce33r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cl4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk6fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x6lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kukkp")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvb75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blhpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s684t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oupgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asqh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a43ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekpxt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r40o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fm0oi"]
@@ -3777,34 +3867,52 @@ offset_right = 699.0
 offset_bottom = 27.0
 
 [node name="r_a" type="Button" parent="."]
-offset_left = 193.293
-offset_top = 212.414
-offset_right = 302.293
-offset_bottom = 344.414
+offset_left = 265.854
+offset_top = 264.828
+offset_right = 296.854
+offset_bottom = 295.828
 text = "a"
-icon = ExtResource("3_25727")
 flat = true
 expand_icon = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="r_a"]
+position = Vector2(-43.5366, 19.2069)
+scale = Vector2(1.77395, 1.57015)
+sprite_frames = SubResource("SpriteFrames_ce33r")
+animation = &"idle"
+flip_h = true
 
 [node name="r_b" type="Button" parent="."]
-offset_left = 45.7317
-offset_top = 271.724
-offset_right = 161.731
-offset_bottom = 364.724
+offset_left = 138.0
+offset_top = 285.0
+offset_right = 175.0
+offset_bottom = 322.0
 text = "b"
-icon = ExtResource("3_25727")
 flat = true
 expand_icon = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="r_b"]
+position = Vector2(-41.4634, 22.069)
+scale = Vector2(1.77395, 1.57015)
+sprite_frames = SubResource("SpriteFrames_ce33r")
+animation = &"idle"
+flip_h = true
+
 [node name="r_c" type="Button" parent="."]
-offset_left = 82.9268
-offset_top = 341.379
-offset_right = 220.927
-offset_bottom = 448.379
+offset_left = 159.756
+offset_top = 374.483
+offset_right = 200.756
+offset_bottom = 405.483
 text = "c"
-icon = ExtResource("3_25727")
 flat = true
 expand_icon = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="r_c"]
+position = Vector2(-40.2439, 17.2414)
+scale = Vector2(1.77395, 1.57015)
+sprite_frames = SubResource("SpriteFrames_ce33r")
+animation = &"idle"
+flip_h = true
 
 [node name="Titulo" type="Label" parent="."]
 offset_left = 50.0

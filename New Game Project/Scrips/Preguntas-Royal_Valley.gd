@@ -10,8 +10,11 @@ func _ready():
 	randomize()
 	preguntar()
 	$Node2D.position=Vector2(536,316)
-	
-	
+	$r_a/AnimatedSprite2D.play("idle")
+	$r_b/AnimatedSprite2D.play("idle")
+	$r_c/AnimatedSprite2D.play("idle")
+	if $Node2D.position==Vector2(536,316):
+		$r_a/AnimatedSprite2D.play("idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +24,11 @@ func _process(delta):
 	
 
 func preguntar():
+	if $Node2D2/ProgressBar.value >= 100:
+				print("Barra llena")
+	$r_a/AnimatedSprite2D.play("idle")
+	$r_b/AnimatedSprite2D.play("idle")
+	$r_c/AnimatedSprite2D.play("idle")
 	$Node2D.update_progressbar()
 	$cursor_A.visible = false
 	$cursor_B.visible = false
@@ -74,8 +82,9 @@ es la tierra):
 		$r_c.text = "C"	
 
 func responder():
-	if $Node2D2/ProgressBar.value >= 100:
-				print("Barra llena")
+	if $Node2D.position==Vector2(536,316):
+		$r_a/AnimatedSprite2D.play("idle")
+	
 		
 	if pregunta_numero == 0:
 		if respuesta == 1:
@@ -84,6 +93,7 @@ func responder():
 		elif respuesta == 2:
 			$Resultado.text = "Correcto"
 			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+		elif  respuesta == 3:
 			$Resultado.text = "incorecto"
 			$Node2D.vida -= damage
 
@@ -97,6 +107,7 @@ func responder():
 		elif  respuesta == 3:
 			$Resultado.text = "Correcto"
 			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+			
 			
 	if pregunta_numero == 2:
 		if respuesta == 1:
@@ -138,6 +149,10 @@ func _on_r_a_pressed():
 	preguntar()
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
+	$r_a/AnimatedSprite2D.play("damage")
+	
+
+
 
 
 func _on_r_b_pressed():
@@ -147,6 +162,7 @@ func _on_r_b_pressed():
 	preguntar()
 	$cursor_B.visible = true
 	$Node2D.position=Vector2(536,316)
+	
 
 func _on_r_c_pressed():
 	$Node2D._animacion_ataque()
@@ -171,6 +187,7 @@ func _on_r_b_button_up():
 func _on_r_a_button_up():
 	$cursor_A.visible = false
 	$Node2D.position=Vector2(536,316)
+	
 
 func _on_r_c_focus_entered():
 	$cursor_C.visible = true
