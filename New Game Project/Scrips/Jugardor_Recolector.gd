@@ -21,8 +21,6 @@ func imput(event):
 
 func _init():
 	pass
-
-
 func _physics_process(delta):
 	var inputVel = Input.get_axis("ui_left","ui_right")
 	var apresteSalto = Input.get_action_raw_strength("ui_accept") 
@@ -55,3 +53,6 @@ func morirse():
 	$morirSonido.play()
 	animated_sprite_2d.play("hurt")
 	emit_signal("playedDied")
+
+func gano():
+	animated_sprite_2d.play("win")
