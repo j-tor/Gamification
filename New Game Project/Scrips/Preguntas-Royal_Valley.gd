@@ -29,6 +29,11 @@ func _process(delta):
 func preguntar():
 	if $Node2D2/ProgressBar.value >= 100:
 				print("Barra llena")
+				# de aqui a:
+				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
+				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()
+				# hasta aqui son lo que debes poner para que te mande al otro lado 
 	$r_a/AnimatedSprite2D.play("idle")
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")

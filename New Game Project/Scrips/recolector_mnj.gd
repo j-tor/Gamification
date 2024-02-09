@@ -161,7 +161,7 @@ func _Validar_Estado():
 
 
 func _on_regresar_pressed():
-	
-		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="element"
-		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-		get_tree().get_nodes_in_group("MiniRecolector")[0].queue_free()
+	get_tree().paused = false
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="element"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("MiniRecolector")[0].queue_free()
