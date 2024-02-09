@@ -14,7 +14,10 @@ func _ready():
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")
 	if $Node2D.position==Vector2(536,316):
+		#$r_a/AnimatedSprite2D.stop("damage")
 		$r_a/AnimatedSprite2D.play("idle")
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -149,7 +152,7 @@ func _on_r_a_pressed():
 	preguntar()
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
-	$r_a/AnimatedSprite2D.play("damage")
+	$r_a/Skull._damage()
 	
 
 
@@ -162,7 +165,7 @@ func _on_r_b_pressed():
 	preguntar()
 	$cursor_B.visible = true
 	$Node2D.position=Vector2(536,316)
-	
+	$r_b/Skull._damage()
 
 func _on_r_c_pressed():
 	$Node2D._animacion_ataque()
@@ -171,7 +174,7 @@ func _on_r_c_pressed():
 	preguntar()
 	$cursor_C.visible = true
 	$Node2D.position=Vector2(536,316)
-	
+	$r_c/Skull._damage()
 	
 
 func _on_r_c_button_up():
@@ -202,4 +205,9 @@ func _on_r_b_focus_entered():
 func _on_r_a_focus_entered():
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
+
+
+func _on_damage_animation_finished():
+	$r_a/AnimatedSprite2D.play("idle")
+	
 

@@ -181,6 +181,7 @@ shape = SubResource("SegmentShape2D_n0svv")
 one_way_collision_margin = 0.0
 
 [node name="Macro" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Macro" groups=["macro"]]
 layout_mode = 3
