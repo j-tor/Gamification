@@ -1,44 +1,58 @@
 extends Node2D
 
+#Animacion del link que hace las preguntas
 @onready var animationsEnemy = $Enemy/AnimatedSprite2D
+#Burbujita de texto (solo la imagen)
 @onready var bubbledialog = $Sprite2D
+#Texto dentro de la burbujita
 @onready var bubbleText = $Sprite2D/RichTextLabel
 
+#Points son los 4 puntos de colores que se usan para seleccionar la respuesta
 @onready var Point_1 = $Point1
 @onready var Point_2 = $Point2
 @onready var Point_3 = $Point3
 @onready var Point_4 = $Point4
 
+#Options, son los 4 textos donde cada uno tiene 1 opcion de las respuestas de una pregunta
 @onready var Option_1 = $Option1
 @onready var Option_2 = $Option2
 @onready var Option_3 = $Option3
 @onready var Option_4 = $Option4
-# Called when the node enters the scene tree for the first time.
+
+
+#El player, lo llamo para saber si esta sobre una respuesta
 @onready var Player = $playerlink
 
+#cheque, es el cheque verde que se muestra cuando se responde bien
 @onready var cheque = $cheque
+# Es la x que se muestra cuando se responde mal
 @onready var equis = $twitter
 
+# El corazon 1 y 2, el 3ro no lo necesito porque cuando solo queda ese y se falla de un solo
+# perdemos
 @onready var Heart2 = $Heart2
 @onready var Heart3 = $Heart3
 
-var AnswerColor = ""
-var actualMoment = 0 
-var ResponseColor = ""
-var hearts = 3
+
+var AnswerColor = "" #Color de respuesta, puede ser r g b o p
+var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
+var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
+var hearts = 3 # el numero de corazones que tenemos al inicio
 
 func _ready():
+	#Todo esto se ejecuta al inicio, reiniciamos el tiempo
+	#establecemos el primer momento (que es Inicio {0})
+	# iniciamos la animacion del link que habla y decimos que aun no se muestra el cheque
+	# o la x
 	Time_Reset()
 	changeMoment(actualMoment)
 	animationsEnemy.play()
 	cheque.hide()
 	equis.hide()
-	#bubbledialog.hide()
-	
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#establezco las variables del tiempo
 var seconds=0
 var minutes=0
 var Dseconds=10
@@ -46,10 +60,13 @@ var Dminutes=0
 
 
 func _process(delta):
-	#print(Player.get_position())
 	pass
 
 
+#esta funcion se ejecuta cada segundo, es para determinar el tiempo que ha pasado
+#y cada 10 segundos verifica si se quedo sin vidas y si no 
+#entonces se hace un cambio de momento pasamos de 
+# Inicio a Pregunta y de Pregunta a Respuesta y luego devuelta a Pregunta
 func _on_timer_timeout():
 	if seconds == 0:
 		if minutes > 0: 
@@ -66,59 +83,63 @@ func _on_timer_timeout():
 		HeartsChanger()
 		Time_Reset()
 		
+	$Label.text = str(minutes)+" : "+str(seconds) #Con esto pongo el temporizador en la izquierda arriba
 	
-	$Label.text = str(minutes)+" : "+str(seconds)
-	
-	pass # Replace with function body.
+	pass 
 
+#esta funcion determina cuantos corazones hay que mostrar
 func HeartsChanger():
 	if hearts == 2:
 		Heart3.hide()
 	elif hearts == 1:
 		Heart2.hide()
 
+#Reinicia el tiempo despues de 10 segundos
 func Time_Reset():
 	seconds=Dseconds
 	minutes=Dminutes
 
+#Oculta la X y el Cheque despues de ya mostrarlos
 func ResetChecker():
 	cheque.hide()
 	equis.hide()
 
-func _on_collision_shape_2d_child_entered_tree(node):
-	print("rojo")
-	pass # Replace with function body.
 
 
 
-
+#Cuando el usuario se mete al circulo rojo se ejecuta esta funcion
 func _on_area_2d_body_entered(body):
 	
 	print("rojo")
 	ResponseColor = "r"
-	pass # Replace with function body.
+	pass 
 
-
+#Cuando el usuario se mete al circulo verde se ejecuta esta funcion
 func _on_area_2d_2_body_entered(body):
 	print("verde")
 	ResponseColor = "g"
-	pass # Replace with function body.
+	pass 
 
-
+#Cuando el usuario se mete al circulo azul se ejecuta esta funcion
 func _on_area_2d_3_body_entered(body):
 	print("azul")
 	ResponseColor = "b"
-	pass # Replace with function body.
+	pass 
 
-
+#Cuando el usuario se mete al circulo morado se ejecuta esta funcion
 func _on_area_2d_4_body_entered(body):
 	print("morado")
 	ResponseColor = "p"
-	pass # Replace with function body.
+	pass 
 
 
-#Momento impar - instrucciones o respuesta correcta
-#Momento par - Tiempo para seleccionar respuesta
+#En la siguiente funcion se establecen las preguntas, las 4 opciones y la respuesta para lo 10 momentos que existen
+#El momento 0 es el inicio 
+#(los return no hacen nada)
+
+#Momento Inicio (0) - instrucciones 
+#Momento Preguntas(1,3,5,7,9) - Tiempo para seleccionar respuesta
+#Momento respuestas(2,4,6,8,10) - Tiempo donde se dice si la respuesta es correcta o incorrecta
 func changeMoment(decimal):
 	if decimal == 0:   #INICIO
 		bubbleText.text = "Bienvenido a las tumbas del conocimiento, te hare unas preguntas y deberas moverte de lugar para responderlas."
