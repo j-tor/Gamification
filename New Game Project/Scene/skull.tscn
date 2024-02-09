@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bw57hlikvgg7u"]
 
-[ext_resource type="Script" path="res://Skull.gd" id="1_waejl"]
+[ext_resource type="Script" path="res://Scrips/Skull.gd" id="1_waejl"]
 [ext_resource type="Texture2D" uid="uid://duc7oaa6fk3b8" path="res://img/34764.png" id="2_0libf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y13to"]

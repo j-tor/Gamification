@@ -5,7 +5,7 @@ extends Sprite2D
 @onready var seleccion_objetivo = Vector2()
 var enemigo = ""
 
-var damage = 1
+var damage = 5
 var vida = 20
 
 # Called when the node enters the scene tree for the first time.

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
 [ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
 [ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
-[ext_resource type="Script" path="res://WinScreen.gd" id="7_4qb6s"]
+[ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
 size = Vector2(1140.5, 62)
@@ -227,7 +227,7 @@ text = "D)"
 [node name="WinScreen" type="CanvasLayer" parent="."]
 process_mode = 3
 visible = false
-script = ExtResource("7_4qb6s")
+script = ExtResource("7_llotk")
 
 [node name="Label" type="Label" parent="WinScreen"]
 offset_left = 427.0

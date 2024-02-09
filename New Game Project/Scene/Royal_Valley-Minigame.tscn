@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cryqc1yuabkca"]
+[gd_scene load_steps=32 format=3 uid="uid://cryqc1yuabkca"]
 
 [ext_resource type="Script" path="res://Scrips/Preguntas-Royal_Valley.gd" id="1_jol31"]
 [ext_resource type="Texture2D" uid="uid://b4csl2byla2rd" path="res://img/Mobile - Fire Emblem Heroes - Dragons Gate.png" id="2_y7w4b"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://duc7oaa6fk3b8" path="res://img/34764.png" id="3_il4p2"]
 [ext_resource type="Texture2D" uid="uid://bujgx3wldge37" path="res://img/Untitled.png" id="3_p5ljq"]
 [ext_resource type="Texture2D" uid="uid://df3yj63gh1527" path="res://img/cursor.png" id="4_y8x4t"]
-[ext_resource type="PackedScene" path="res://Scene/skull.tscn" id="5_efx8y"]
+[ext_resource type="PackedScene" uid="uid://bw57hlikvgg7u" path="res://Scene/skull.tscn" id="5_efx8y"]
 [ext_resource type="Script" path="res://Scene/Players-NPC/player_atack.gd" id="5_nyxgq"]
+[ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="9_y8if4"]
+[ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="10_l8a66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4te55"]
 texture = ExtResource("2_y7w4b")
@@ -6102,6 +6104,19 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_fm0oi"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_qq77a"]
+line_spacing = 4.0
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_3f1ci"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_8i5lj"]
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwxh7"]
+font_size = 34
+
 [node name="Node2D" type="Node2D" groups=["MiniGameCastillo"]]
 scale = Vector2(1.64, 1.45)
 script = ExtResource("1_jol31")
@@ -6245,6 +6260,93 @@ flip_h = true
 position = Vector2(536, 316)
 script = ExtResource("5_nyxgq")
 
+[node name="DeathScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("9_y8if4")
+
+[node name="MsgLabel" type="Label" parent="DeathScreen"]
+offset_left = 435.0
+offset_top = 221.0
+offset_right = 761.0
+offset_bottom = 320.0
+text = "PERDISTE"
+label_settings = SubResource("LabelSettings_qq77a")
+
+[node name="ReiniciarButton" type="Button" parent="DeathScreen"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REINICIAR"
+
+[node name="SalirButton2" type="Button" parent="DeathScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 27.0
+offset_right = 89.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SALIR"
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("10_l8a66")
+
+[node name="Label" type="Label" parent="WinScreen"]
+offset_left = 419.0
+offset_top = 222.0
+offset_right = 722.0
+offset_bottom = 310.0
+text = "Ganastes!"
+label_settings = SubResource("LabelSettings_3f1ci")
+
+[node name="Label2" type="Label" parent="WinScreen"]
+visible = false
+offset_left = 426.0
+offset_top = 237.0
+offset_right = 545.0
+offset_bottom = 292.0
+text = "Score:  "
+label_settings = SubResource("LabelSettings_8i5lj")
+
+[node name="Label3" type="Label" parent="WinScreen"]
+visible = false
+offset_left = 541.0
+offset_top = 240.0
+offset_right = 607.0
+offset_bottom = 304.0
+text = "0"
+label_settings = SubResource("LabelSettings_cwxh7")
+
+[node name="regresar" type="Button" parent="WinScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 1.0
+offset_right = 83.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Regresar"
+
 [connection signal="button_up" from="r_a" to="." method="_on_r_a_button_up"]
 [connection signal="focus_entered" from="r_a" to="." method="_on_r_a_focus_entered"]
 [connection signal="pressed" from="r_a" to="." method="_on_r_a_pressed"]
@@ -6254,3 +6356,6 @@ script = ExtResource("5_nyxgq")
 [connection signal="button_up" from="r_c" to="." method="_on_r_c_button_up"]
 [connection signal="focus_entered" from="r_c" to="." method="_on_r_c_focus_entered"]
 [connection signal="pressed" from="r_c" to="." method="_on_r_c_pressed"]
+[connection signal="pressed" from="DeathScreen/ReiniciarButton" to="DeathScreen" method="_on_reiniciar_button_pressed"]
+[connection signal="pressed" from="DeathScreen/SalirButton2" to="." method="_on_salir_button_2_pressed"]
+[connection signal="pressed" from="WinScreen/regresar" to="." method="_on_regresar_pressed"]

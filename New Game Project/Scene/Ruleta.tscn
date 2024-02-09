@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://u7xnxhshu1v2"]
 
-[ext_resource type="Script" path="res://Ruleta.gd" id="1_vn1l2"]
-[ext_resource type="Texture2D" uid="uid://mshtuqnwxp23" path="res://img/pixil-frame-0.png" id="2_r2te4"]
+[ext_resource type="Script" path="res://Scrips/Ruleta.gd" id="1_shi08"]
+[ext_resource type="Texture2D" uid="uid://mshtuqnwxp23" path="res://img/pixil-frame-0.png" id="2_nd587"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_61ww4"]
 a = Vector2(-11, -111)
@@ -21,12 +21,12 @@ b = Vector2(16, -98)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 0)
-script = ExtResource("1_vn1l2")
+script = ExtResource("1_shi08")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8.58307e-06, -24.25)
 scale = Vector2(5.46, 5.515)
-texture = ExtResource("2_r2te4")
+texture = ExtResource("2_nd587")
 
 [node name="Area2D" type="Area2D" parent="."]
 

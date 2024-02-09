@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkqwb46i84qlr"]
 
-[ext_resource type="Script" path="res://Ruelta.gd" id="1_ms8t3"]
+[ext_resource type="Script" path="res://Scrips/Ruelta.gd" id="1_ms8t3"]
 [ext_resource type="Texture2D" uid="uid://b6dhomxvkj4rl" path="res://img/Captura de pantalla 2024-02-01 181738.png" id="2_kq4id"]
 
 [sub_resource type="Animation" id="Animation_b75b3"]
@@ -45,6 +45,7 @@ _data = {
 script = ExtResource("1_ms8t3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(415.5, 348.5)
 scale = Vector2(0.170125, 0.144444)
 texture = ExtResource("2_kq4id")

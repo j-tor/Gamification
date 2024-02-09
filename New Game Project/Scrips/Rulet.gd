@@ -7,6 +7,7 @@ func playing():
 	await get_tree().create_timer(3).timeout
 	roling()
 	
+	
 func _process(delta):
 	#if Input.is_action_just_pressed("interact"):
 		#$AnimationPlayer.play("Role")

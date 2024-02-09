@@ -2,7 +2,7 @@ extends Node2D
 
 var pregunta_numero
 var respuesta
-var damage = 1
+var damage = 5
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,11 +29,7 @@ func _process(delta):
 func preguntar():
 	if $Node2D2/ProgressBar.value >= 100:
 				print("Barra llena")
-				# de aqui a:
-				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
-				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()
-				# hasta aqui son lo que debes poner para que te mande al otro lado 
+				$WinScreen.show()
 	$r_a/AnimatedSprite2D.play("idle")
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")
@@ -42,7 +38,7 @@ func preguntar():
 	$cursor_B.visible = false
 	$cursor_C.visible = false
 	$Node2D.position=Vector2(536,316)
-	pregunta_numero = randi() % 5
+	pregunta_numero = randi() % 4
 	print(respuesta)
 	if pregunta_numero == 0:
 		print("Pregunta 1")
@@ -216,3 +212,17 @@ func _on_damage_animation_finished():
 	$r_a/AnimatedSprite2D.play("idle")
 	
 
+
+
+func _on_regresar_pressed():
+				#get_tree().paused = false
+				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
+				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()
+
+
+func _on_salir_button_2_pressed():
+				#get_tree().paused = false
+				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
+				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()
