@@ -28,6 +28,7 @@ func _animacion_ataque():
 	#self.global_position.y = seleccion_objetivo.global_position.y + 100
 func update_progressbar():
 		$ProgressBar.value = vida * 100/ Vida_maxima
+		
 
 
 

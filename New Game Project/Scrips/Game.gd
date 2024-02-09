@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var GAME = $"."
 @onready var animacion =  $AnimationPlayer
-var ubicacion = Vector2(86,-925)
+var ubicacion = Vector2(172,1533)
 
 var siguiente_nivel
 var nuevo_nivel
@@ -13,7 +13,7 @@ var Royal = preload("res://Scene/Royal Valley.tscn")
 var Element = preload("res://Scene/Element Santuary.tscn")
 var ruleta = preload("res://RuletaPrincipal.tscn")
 var Icezone = preload("res://Scene/Ice zone.tscn")
-
+var MiniJuegoRecolector = preload("res://Scene/recolector_mnj.tscn")
 func _ready():
 	var nivel = mundo1.instantiate()
 	add_child(nivel)
@@ -30,8 +30,10 @@ func _verficar_nivel():
 			nuevo_nivel= Element
 		"Ruleta":
 			nuevo_nivel= ruleta
-		"IceZone":
-			nuevo_nivel= Icezone
+		"Icezone":
+			nuevo_nivel = Icezone
+		"MiniRecolector":
+			nuevo_nivel = MiniJuegoRecolector
 	animacion.play("saliendo")
 
 func _siguiente_nivel():

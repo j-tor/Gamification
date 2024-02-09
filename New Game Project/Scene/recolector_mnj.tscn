@@ -1,0 +1,258 @@
+[gd_scene load_steps=18 format=3 uid="uid://dc8cr6r6vn4hw"]
+
+[ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
+[ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
+[ext_resource type="Script" path="res://Scrips/recolector_mnj.gd" id="1_vaqgv"]
+[ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
+[ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
+[ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
+size = Vector2(1140.5, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh6ri"]
+size = Vector2(66, 636)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5fwq"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsqyw"]
+line_spacing = 4.0
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nf2c"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_emwtt"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hxmg"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ih0u"]
+font_size = 20
+font_color = Color(0.976471, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_us7n5"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_swtts"]
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxo1d"]
+font_size = 34
+
+[node name="Recolector_MNJ" type="Node" groups=["MiniRecolector"]]
+script = ExtResource("1_vaqgv")
+
+[node name="Bosque" type="Sprite2D" parent="."]
+position = Vector2(574, 328)
+scale = Vector2(0.8895, 0.890278)
+texture = ExtResource("1_lamyc")
+
+[node name="Player" parent="." instance=ExtResource("1_jk5hu")]
+position = Vector2(558, 506)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1.00463, 0.960904)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(586, 617)
+shape = SubResource("RectangleShape2D_6gcob")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(570.357, -40.5868)
+shape = SubResource("RectangleShape2D_6gcob")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-19, 331)
+shape = SubResource("RectangleShape2D_vh6ri")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1174, 323)
+shape = SubResource("RectangleShape2D_vh6ri")
+
+[node name="Spawner" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(1085, 43)
+
+[node name="Spawner2" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(711, 46)
+
+[node name="Spawner3" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(593, 44)
+
+[node name="Spawner4" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(478, 47)
+
+[node name="Spawner5" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(228, 51)
+
+[node name="Spawner6" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(365, 48)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 322)
+
+[node name="Spawner7" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(100, 51)
+
+[node name="Spawner8" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(959, 45)
+
+[node name="Spawner9" parent="." instance=ExtResource("3_vcnif")]
+position = Vector2(838, 45)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 540.0
+offset_top = 44.0
+offset_right = 577.0
+offset_bottom = 132.0
+text = "0"
+label_settings = SubResource("LabelSettings_k5fwq")
+
+[node name="DeathScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("5_vffmg")
+
+[node name="MsgLabel" type="Label" parent="DeathScreen"]
+offset_left = 432.0
+offset_top = 150.0
+offset_right = 726.0
+offset_bottom = 238.0
+text = "PERDISTE"
+label_settings = SubResource("LabelSettings_bsqyw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeathScreen"]
+offset_left = 446.0
+offset_top = 207.0
+offset_right = 779.0
+offset_bottom = 334.0
+
+[node name="Label" type="Label" parent="DeathScreen/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_5nf2c")
+
+[node name="FinalScore" type="Label" parent="DeathScreen/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_emwtt")
+
+[node name="ReiniciarButton" type="Button" parent="DeathScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REINICIAR"
+
+[node name="SalirButton2" type="Button" parent="DeathScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 14.0
+offset_right = 197.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SALIR"
+
+[node name="JuegoSonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yry4o")
+volume_db = -10.0
+autoplay = true
+
+[node name="Questionario" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="Questionario" type="Label" parent="Questionario"]
+offset_left = 26.0
+offset_top = 138.0
+offset_right = 1131.0
+offset_bottom = 349.0
+label_settings = SubResource("LabelSettings_3hxmg")
+
+[node name="Aviso" type="Label" parent="Questionario"]
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 877.0
+offset_bottom = 104.0
+text = "El bosque encantado  te ha otorgado otra oportunidad, Si te equivocas pierdes 20 puntos, 
+si respondes correctamente ganas 15 puntos.
+Mucha suerte!. "
+label_settings = SubResource("LabelSettings_4ih0u")
+
+[node name="RespuestaA" type="Button" parent="Questionario"]
+offset_left = 204.0
+offset_top = 441.0
+offset_right = 303.0
+offset_bottom = 516.0
+text = "A)"
+
+[node name="RespuestaB" type="Button" parent="Questionario"]
+offset_left = 383.0
+offset_top = 443.0
+offset_right = 482.0
+offset_bottom = 518.0
+text = "B)"
+
+[node name="RespuestaC" type="Button" parent="Questionario"]
+offset_left = 630.0
+offset_top = 439.0
+offset_right = 729.0
+offset_bottom = 514.0
+text = "C)"
+
+[node name="RespuestaD" type="Button" parent="Questionario"]
+offset_left = 837.0
+offset_top = 441.0
+offset_right = 936.0
+offset_bottom = 516.0
+text = "D)"
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="WinScreen"]
+offset_left = 423.0
+offset_top = 311.0
+offset_right = 726.0
+offset_bottom = 399.0
+text = "Ganastes!"
+label_settings = SubResource("LabelSettings_us7n5")
+
+[node name="Label2" type="Label" parent="WinScreen"]
+offset_left = 426.0
+offset_top = 237.0
+offset_right = 545.0
+offset_bottom = 292.0
+text = "Score:  "
+label_settings = SubResource("LabelSettings_swtts")
+
+[node name="Label3" type="Label" parent="WinScreen"]
+offset_left = 541.0
+offset_top = 240.0
+offset_right = 607.0
+offset_bottom = 304.0
+text = "0"
+label_settings = SubResource("LabelSettings_gxo1d")
+
+[connection signal="playedDied" from="Player" to="." method="_on_player_played_died"]
+[connection signal="scoreUP" from="Player" to="." method="_on_player_score_up"]
+[connection signal="pressed" from="DeathScreen/ReiniciarButton" to="DeathScreen" method="_on_reiniciar_button_pressed"]
+[connection signal="pressed" from="DeathScreen/SalirButton2" to="." method="_on_salir_button_2_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaA" to="." method="_on_respuesta_a_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaB" to="." method="_on_respuesta_b_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaC" to="." method="_on_respuesta_c_pressed"]
+[connection signal="pressed" from="Questionario/RespuestaD" to="." method="_on_respuesta_d_pressed"]

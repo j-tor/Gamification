@@ -178,7 +178,6 @@ shape = SubResource("SegmentShape2D_n0svv")
 one_way_collision_margin = 0.0
 
 [node name="Macro" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Macro" groups=["macro"]]
 layout_mode = 3
@@ -197,6 +196,8 @@ anchor_right = 24.65
 anchor_bottom = 13.525
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 30
 text = "hola"
 metadata/_edit_use_anchors_ = true

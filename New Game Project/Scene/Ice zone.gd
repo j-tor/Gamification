@@ -14,6 +14,6 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
-		get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(86,-925)
+		get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(1207,-529)
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-		get_tree().get_nodes_in_group("IceZone")[0].queue_free()
+		get_tree().get_nodes_in_group("Icezone")[0].queue_free()

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://b606xqy74j51i"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://bkqwb46i84qlr"]
+>>>>>>> parent of dfa9603 (Merge branch 'main' into mariabranch)
 
 [ext_resource type="Texture2D" uid="uid://cyrm1dwuih0la" path="res://img/Links House Tiles.png" id="1_n0yph"]
 [ext_resource type="PackedScene" uid="uid://xb3cqe3r1i8i" path="res://Scene/Players-NPC/playerlinkupdate.tscn" id="2_gr0xm"]
@@ -683,7 +687,7 @@ texture_region_size = Vector2i(15, 15)
 [sub_resource type="TileSet" id="TileSet_fw8h2"]
 sources/0 = SubResource("TileSetAtlasSource_mutgl")
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fw8h2")
