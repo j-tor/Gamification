@@ -13,9 +13,16 @@ var Royal = preload("res://Scene/Royal Valley.tscn")
 var Element = preload("res://Scene/Element Santuary.tscn")
 var ruleta = preload("res://RuletaPrincipal.tscn")
 var Icezone = preload("res://Scene/Ice zone.tscn")
+<<<<<<< Updated upstream
+=======
+var MiniJuegoRecolector = preload("res://Scene/recolector_mnj.tscn")
+var MiniGameCastillo = preload("res://Scene/Royal_Valley-Minigame.tscn")
+var login = preload("res://LOGIN.tscn")
+>>>>>>> Stashed changes
 
 func _ready():
 	var nivel = mundo1.instantiate()
+	##var nivel = login.instantiate()
 	add_child(nivel)
 
 func _verficar_nivel():
@@ -24,6 +31,8 @@ func _verficar_nivel():
 			nuevo_nivel = casa
 		"mundo1":
 			nuevo_nivel= mundo1
+		"login":
+			nuevo_nivel= login
 		"royal":
 			nuevo_nivel = Royal
 		"element":

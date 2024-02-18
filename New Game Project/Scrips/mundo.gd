@@ -1,8 +1,13 @@
 extends Node2D
 
 func _ready():
+<<<<<<< Updated upstream
 	pass
 
+=======
+	##$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
+	statues()
+>>>>>>> Stashed changes
 
 func _process(delta):
 	pass
