@@ -5,7 +5,7 @@ extends Sprite2D
 @onready var seleccion_objetivo = Vector2()
 var enemigo = ""
 
-var damage = 1
+var damage = 5
 var vida = 20
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +16,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	
+	
 		if Main.ataque_jugador == true:
 			_seleccionar_objetivo()
 			_animacion_ataque()

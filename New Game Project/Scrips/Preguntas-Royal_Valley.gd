@@ -2,7 +2,7 @@ extends Node2D
 
 var pregunta_numero
 var respuesta
-var damage = 1
+var damage = 5
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +14,10 @@ func _ready():
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")
 	if $Node2D.position==Vector2(536,316):
+		#$r_a/AnimatedSprite2D.stop("damage")
 		$r_a/AnimatedSprite2D.play("idle")
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +29,7 @@ func _process(delta):
 func preguntar():
 	if $Node2D2/ProgressBar.value >= 100:
 				print("Barra llena")
+				$WinScreen.show()
 	$r_a/AnimatedSprite2D.play("idle")
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")
@@ -34,7 +38,7 @@ func preguntar():
 	$cursor_B.visible = false
 	$cursor_C.visible = false
 	$Node2D.position=Vector2(536,316)
-	pregunta_numero = randi() % 5
+	pregunta_numero = randi() % 4
 	print(respuesta)
 	if pregunta_numero == 0:
 		print("Pregunta 1")
@@ -149,7 +153,7 @@ func _on_r_a_pressed():
 	preguntar()
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
-	$r_a/AnimatedSprite2D.play("damage")
+	$r_a/Skull._damage()
 	
 
 
@@ -162,7 +166,7 @@ func _on_r_b_pressed():
 	preguntar()
 	$cursor_B.visible = true
 	$Node2D.position=Vector2(536,316)
-	
+	$r_b/Skull._damage()
 
 func _on_r_c_pressed():
 	$Node2D._animacion_ataque()
@@ -171,7 +175,7 @@ func _on_r_c_pressed():
 	preguntar()
 	$cursor_C.visible = true
 	$Node2D.position=Vector2(536,316)
-	
+	$r_c/Skull._damage()
 	
 
 func _on_r_c_button_up():
@@ -203,3 +207,22 @@ func _on_r_a_focus_entered():
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
 
+
+func _on_damage_animation_finished():
+	$r_a/AnimatedSprite2D.play("idle")
+	
+
+
+
+func _on_regresar_pressed():
+				#get_tree().paused = false
+				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
+				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()
+
+
+func _on_salir_button_2_pressed():
+				#get_tree().paused = false
+				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
+				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()

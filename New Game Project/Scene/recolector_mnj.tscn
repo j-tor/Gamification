@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dc8cr6r6vn4hw"]
+[gd_scene load_steps=19 format=3 uid="uid://dc8cr6r6vn4hw"]
 
 [ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
 [ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
 [ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
+[ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
 size = Vector2(1140.5, 62)
@@ -52,6 +53,7 @@ texture = ExtResource("1_lamyc")
 
 [node name="Player" parent="." instance=ExtResource("1_jk5hu")]
 position = Vector2(558, 506)
+collision_mask = 133
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(1.00463, 0.960904)
@@ -61,7 +63,7 @@ position = Vector2(586, 617)
 shape = SubResource("RectangleShape2D_6gcob")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(570.357, -40.5868)
+position = Vector2(574.341, -22.8951)
 shape = SubResource("RectangleShape2D_6gcob")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
@@ -69,7 +71,7 @@ position = Vector2(-19, 331)
 shape = SubResource("RectangleShape2D_vh6ri")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1174, 323)
+position = Vector2(1170.58, 294.514)
 shape = SubResource("RectangleShape2D_vh6ri")
 
 [node name="Spawner" parent="." instance=ExtResource("3_vcnif")]
@@ -140,6 +142,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_emwtt")
 
 [node name="ReiniciarButton" type="Button" parent="DeathScreen"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -159,10 +162,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = 14.0
-offset_right = 197.0
-offset_bottom = 80.0
+offset_left = -68.0
+offset_top = 27.0
+offset_right = 89.0
+offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "SALIR"
@@ -222,13 +225,15 @@ offset_bottom = 516.0
 text = "D)"
 
 [node name="WinScreen" type="CanvasLayer" parent="."]
+process_mode = 3
 visible = false
+script = ExtResource("7_llotk")
 
 [node name="Label" type="Label" parent="WinScreen"]
-offset_left = 423.0
-offset_top = 311.0
-offset_right = 726.0
-offset_bottom = 399.0
+offset_left = 427.0
+offset_top = 295.0
+offset_right = 730.0
+offset_bottom = 383.0
 text = "Ganastes!"
 label_settings = SubResource("LabelSettings_us7n5")
 
@@ -248,6 +253,23 @@ offset_bottom = 304.0
 text = "0"
 label_settings = SubResource("LabelSettings_gxo1d")
 
+[node name="regresar" type="Button" parent="WinScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 54.0
+offset_right = 76.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Regresar"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1468, 346)
+
 [connection signal="playedDied" from="Player" to="." method="_on_player_played_died"]
 [connection signal="scoreUP" from="Player" to="." method="_on_player_score_up"]
 [connection signal="pressed" from="DeathScreen/ReiniciarButton" to="DeathScreen" method="_on_reiniciar_button_pressed"]
@@ -256,3 +278,4 @@ label_settings = SubResource("LabelSettings_gxo1d")
 [connection signal="pressed" from="Questionario/RespuestaB" to="." method="_on_respuesta_b_pressed"]
 [connection signal="pressed" from="Questionario/RespuestaC" to="." method="_on_respuesta_c_pressed"]
 [connection signal="pressed" from="Questionario/RespuestaD" to="." method="_on_respuesta_d_pressed"]
+[connection signal="pressed" from="WinScreen/regresar" to="." method="_on_regresar_pressed"]

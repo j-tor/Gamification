@@ -6,6 +6,7 @@ var scoreJugador :=0
 var RespuestaCorecta= " "
 var RespuestaJugador= " "
 var numero=10
+var win=0
 func _ready():
 	$JuegoSonido.play()
 	Player.connect("scoreUp",subirScore)
@@ -14,6 +15,7 @@ func _ready():
 func subirScore():
 	scoreJugador+=1
 	$ScoreLabel.text = str(scoreJugador)
+	
 
 func morir():
 	if scoreJugador<0:
@@ -31,29 +33,28 @@ func _on_player_played_died():
 		numero =randi() %5
 		print(numero)
 		if numero==0:
-			$Questionario/Questionario.text = "2.⁠ ⁠El renacimiento supone una época de absolutismo y nacionalismos, como el nacimiento de fuertes
-			monarquías europeas centralizadas como:
-			A) Grecia. B) Inglaterra. C) Yugoslavia. D) Egipto"
-			RespuestaCorecta= "Inglaterra"
+			$Questionario/Questionario.text = "Uno de los siguientes personajes fue el encargado de pintar la capilla Sixtina:
+A) Miguel Ángel. B) Donatello. C) Leonardo Da Vinci. D) Francis Bacon"
+			RespuestaCorecta= "Miguel Ángel"
 		if numero==1:
-			$Questionario/Questionario.text="Resurge el interés por Grecia y Roma, junto al declive del sistema feudal, el crecimiento del comercio e
-			innovaciones entre las que mencionamos:
-			A) La imprenta y la brújula. B) La rueda y la escritura C) Las máquinas de vapor y la producción en masa. D) La pólvora y La rueda"
-			RespuestaCorecta= "La imprenta y la brújula"
+			$Questionario/Questionario.text="Genio del renacimiento que esculpió el Moisés, el David y la Pietá:
+A) Miguel Ángel Buonarroti. B) Leonardo Da Vinci. C) Rafael Sanzio. D) Galileo Galilei"
+			RespuestaCorecta= "Miguel Ángel Buonarroti"
 		if numero==2:
-			$Questionario/Questionario.text = "La toma de Constantinopla supone un bloqueo comercial entre Europa y Asia (la ruta de la seda) y ocurrió
-			en lo que hoy es actualmente:
-			A) Eslovaquia. B) Estambul en Turquía. C) Mesopotamia. D) Jerusalén"
-			RespuestaCorecta= "Estambul en Turquía"
+			$Questionario/Questionario.text = "Durante el renacimiento el estilo artístico que impregnó el arte, la filosofía, la pintura escritura fue el:
+A) El Gótico. B) El barroco. C) el clasicismo. D) Romanticismo"
+			RespuestaCorecta= "El barroco"
 		if numero==3:
-			$Questionario/Questionario.text = "Antes de la consolidación del estado moderno, Italia estuvo divida en pequeñas ciudades-estado
-			normalmente enfrentadas entre si, como es el caso de:
-			A) Florencia-Napoli. B) Ámsterdam-Cracovia. C) Reims-Colonia. D) Milán-Lourdes."
-			RespuestaCorecta= "Florencia-Napoli"
+			$Questionario/Questionario.text = "Durante el renacimiento surge una nueva visión del hombre, que se vio reflejada en el arte, en la política
+y en las ciencias sociales y humanas, a lo que se denomina:
+A) Antropocentrismo. B) Humanismo. C) Paradigma antropológico. D) Teocentrismo."
+			RespuestaCorecta= "Humanismo"
 		if numero==4: 
-			$Questionario/Questionario.text = "Después del feudalismo medieval acudimos al surgimiento de una nueva clase social conocida como la:
-			A) La monarquía. B) El mercantilismo. C) La burguesía. D) El proletariado"
-			RespuestaCorecta= "La burguesía"
+			$Questionario/Questionario.text = "Cuatro genios del renacimiento (Leonardo, Donatello, Rafael y Michelangelo) han sido llevados a la
+pantalla en los comics de:
+A) Las tortugas ninjas. B) Los caballeros del Zodiaco. C) Los cuatro fantásticos. D) Los antagonistas de
+Attack Titan"
+			RespuestaCorecta= "Las tortugas ninjas"
 		$Questionario.show()
 		get_tree().paused = true 
 		
@@ -62,68 +63,74 @@ func _on_player_played_died():
 func _on_player_score_up():
 	scoreJugador+=3
 	$ScoreLabel.text = str(scoreJugador)
+	if scoreJugador>=100:
+		print("Gano")
+		get_tree().paused = true 
+		$WinScreen.show()
+		$Player.gano()
+		$WinScreen/Label3.text = str(scoreJugador)
 
 
 func _on_salir_button_2_pressed():
-	get_tree().quit()
-	#get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "royal"
-	#get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-	#get_tree().get_nodes_in_group("MiniRecolector")[0].queue_free()
+	get_tree().paused = false
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="element"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("MiniRecolector")[0].queue_free()
 
 
 func _on_respuesta_a_pressed():
 	if numero==0:
-		RespuestaJugador="Grecia"
+		RespuestaJugador="Miguel Ángel"
 	elif numero==1:
-		RespuestaJugador="La imprenta y la brújula"
+		RespuestaJugador="Miguel Ángel Buonarroti"
 	elif numero==2:
-		RespuestaJugador="Eslovaquia"
+		RespuestaJugador="El Gótico"
 	elif numero==3:
-		RespuestaJugador=" Florencia-Napoli"
+		RespuestaJugador="Antropocentrismo"
 	elif numero==4:
-		RespuestaJugador="La monarquía"
+		RespuestaJugador="Las tortugas ninjas"
 	_Validar_Estado()
 
 
 func _on_respuesta_b_pressed():
 	if numero==0:
-		RespuestaJugador="Inglaterra"
+		RespuestaJugador="Donatello"
 	elif numero==1:
-		RespuestaJugador="La rueda y la escritura"
+		RespuestaJugador="Leonardo Da Vinci"
 	elif numero==2:
-		RespuestaJugador="Estambul en Turquía"
+		RespuestaJugador="El barroco"
 	elif numero==3:
-		RespuestaJugador="Ámsterdam-Cracovia"
+		RespuestaJugador="Humanismo"
 	elif numero==4:
-		RespuestaJugador="El mercantilismo"
+		RespuestaJugador="Los caballeros del Zodiaco"
 	_Validar_Estado()
 
 
 func _on_respuesta_c_pressed():
 	if numero==0:
-		RespuestaJugador="Yugoslavia"
+		RespuestaJugador="Leonardo Da Vinci."
 	elif numero==1:
-		RespuestaJugador="Las máquinas de vapor y la producción en masa"
+		RespuestaJugador="Rafael Sanzio"
 	elif numero==2:
-		RespuestaJugador="Mesopotamia"
+		RespuestaJugador="el clasicismo"
 	elif numero==3:
-		RespuestaJugador="Reims-Colonia"
+		RespuestaJugador="Paradigma antropológico"
 	elif numero==4:
-		RespuestaJugador="La burguesía"
+		RespuestaJugador="Los cuatro fantásticos."
 	_Validar_Estado()
 
 
 func _on_respuesta_d_pressed():
 	if numero==0:
-		RespuestaJugador="Egipto"
+		RespuestaJugador="Francis Bacon"
 	elif numero==1:
-		RespuestaJugador="La pólvora y La rueda"
+		RespuestaJugador="Galileo Galilei"
 	elif numero==2:
-		RespuestaJugador="Jerusalén"
+		RespuestaJugador="Romanticismo"
 	elif numero==3:
-		RespuestaJugador="Milán-Lourdes"
+		RespuestaJugador="Teocentrismo"
 	elif numero==4:
-		RespuestaJugador="El proletariado"
+		RespuestaJugador="Los antagonistas de Attack Titan"
 	_Validar_Estado()
 
 
@@ -142,3 +149,19 @@ func _Validar_Estado():
 	get_tree().paused = false 
 	if scoreJugador<0:
 		$Player.morirse()
+	if scoreJugador>=100:
+		print("Gano")
+		$WinScreen.show()
+		get_tree().paused = true 
+		$Player.gano()
+		$WinScreen/Label3.text = str(scoreJugador)
+		$Player.position = Vector2(1490,333)
+		win= 1
+
+
+
+func _on_regresar_pressed():
+	get_tree().paused = false
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="element"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("MiniRecolector")[0].queue_free()

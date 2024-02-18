@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqipqcqoxqo1q"]
+[gd_scene load_steps=10 format=3 uid="uid://dqipqcqoxqo1q"]
 
 [ext_resource type="Script" path="res://Scene/castillo.gd" id="1_k8d8o"]
 [ext_resource type="Texture2D" uid="uid://ooox1v73o2di" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Elemental Sanctuary.png" id="1_odcwe"]
@@ -29464,6 +29464,9 @@ sources/2 = SubResource("TileSetAtlasSource_e44u0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5swc2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vslov"]
+size = Vector2(32, 41)
+
 [node name="Castillo" type="Node2D" groups=["castillo"]]
 script = ExtResource("1_k8d8o")
 
@@ -29504,4 +29507,13 @@ collision_mask = 255
 position = Vector2(297, 1408)
 shape = SubResource("RectangleShape2D_5swc2")
 
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 132
+collision_mask = 132
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(294, 63.5)
+shape = SubResource("RectangleShape2D_vslov")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

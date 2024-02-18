@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b17urj0uub2uw"]
 
-[ext_resource type="Script" path="res://Rulet.gd" id="1_6h0oo"]
+[ext_resource type="Script" path="res://Scrips/Rulet.gd" id="1_6h0oo"]
 [ext_resource type="Texture2D" uid="uid://6jovsr7frnu6" path="res://img/pixilart-sprite.png" id="2_82g5v"]
 
 [sub_resource type="Animation" id="Animation_sab3f"]
@@ -52,7 +52,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-99.5625, -25.4375)
-scale = Vector2(0.395125, 0.370875)
+position = Vector2(-90.1594, -17.4906)
+scale = Vector2(0.583188, 0.529812)
 texture = ExtResource("2_82g5v")
 hframes = 4
