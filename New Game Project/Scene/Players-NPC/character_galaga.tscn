@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw88mibqsgstl"]
+[gd_scene load_steps=7 format=3 uid="uid://cw88mibqsgstl"]
 
 [ext_resource type="Script" path="res://Scrips/character_galaga.gd" id="1_odkju"]
 [ext_resource type="Texture2D" uid="uid://biotpmfadfpt" path="res://img/Arcade - Galaga - General Sprites.png" id="1_sqelu"]
+[ext_resource type="PackedScene" uid="uid://fv6yrdn33phy" path="res://Scene/spawner_reply.tscn" id="3_wabyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lsegb"]
 atlas = ExtResource("1_sqelu")
@@ -18,7 +19,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterGalaga" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdb6i"]
+size = Vector2(41, 27)
+
+[node name="CharacterGalagaPlayer" type="CharacterBody2D"]
 script = ExtResource("1_odkju")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -26,3 +30,9 @@ position = Vector2(-9.53674e-07, 0)
 scale = Vector2(2.7, 1.8125)
 sprite_frames = SubResource("SpriteFrames_jo0eq")
 animation = &"Galaga"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_mdb6i")
+
+[node name="SpawnerReplyGeneretor" parent="." instance=ExtResource("3_wabyf")]

@@ -8,7 +8,6 @@ func _ready():
 	$Timer.wait_time = randf_range(2,4)
 	$Timer.start()
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -22,7 +21,6 @@ func _on_timer_timeout():
 	#coleccionable.Speed = Speed
 	#coleccionable.show()
 	#add_child(coleccionable)
-	
 func _NuevoDisparo():
 	var coleccionable = ObjetoReply.instantiate()
 	coleccionable.Speed = Speed

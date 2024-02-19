@@ -11,8 +11,6 @@ func _ready():
 func _process(delta):
 	pass
 	position.y -=Speed
-
-
 func _on_body_entered(body):
 	pass
 	if body.is_in_group("Pregunta1"):

@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://i2r6pf1ak4nu"]
+[gd_scene load_steps=7 format=3 uid="uid://i2r6pf1ak4nu"]
 
 [ext_resource type="Script" path="res://Scrips/galaga_main.gd" id="1_pkta6"]
 [ext_resource type="Texture2D" uid="uid://c5hwh065ngxi7" path="res://img/FondoGalaga.jpg" id="1_silyk"]
 [ext_resource type="PackedScene" uid="uid://cw88mibqsgstl" path="res://Scene/Players-NPC/character_galaga.tscn" id="2_wxp3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73miy"]
+size = Vector2(92, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ti1t"]
+size = Vector2(774, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr7yj"]
+size = Vector2(43, 352)
 
 [node name="GalagaMain" type="Node2D"]
 script = ExtResource("1_pkta6")
@@ -24,23 +33,68 @@ offset_right = 612.0
 offset_bottom = 99.0
 
 [node name="Opcion1" type="Button" parent="PreguntasGame"]
-offset_left = 71.0
-offset_top = 195.0
-offset_right = 175.0
-offset_bottom = 275.0
+offset_left = 57.0
+offset_top = 201.0
+offset_right = 161.0
+offset_bottom = 281.0
 text = "1)"
 
 [node name="Opcion2" type="Button" parent="PreguntasGame"]
-offset_left = 223.0
-offset_top = 188.0
-offset_right = 327.0
-offset_bottom = 272.0
+offset_left = 158.0
+offset_top = 194.0
+offset_right = 262.0
+offset_bottom = 278.0
 text = "2)"
 
 [node name="Opcion3" type="Button" parent="PreguntasGame"]
-offset_left = 365.0
-offset_top = 193.0
-offset_right = 474.0
-offset_bottom = 269.0
+offset_left = 280.0
+offset_top = 203.0
+offset_right = 389.0
+offset_bottom = 279.0
 text = "3)
 "
+
+[node name="Entered1" type="StaticBody2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Entered1"]
+position = Vector2(104, 246.5)
+shape = SubResource("RectangleShape2D_73miy")
+
+[node name="Opcion4" type="Button" parent="PreguntasGame"]
+offset_left = 424.0
+offset_top = 217.0
+offset_right = 502.0
+offset_bottom = 279.0
+text = "4)"
+
+[node name="Entered2" type="StaticBody2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PreguntasGame/Entered2"]
+position = Vector2(208, 247)
+shape = SubResource("RectangleShape2D_73miy")
+
+[node name="Entered3" type="StaticBody2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PreguntasGame/Entered3"]
+position = Vector2(330, 244)
+shape = SubResource("RectangleShape2D_73miy")
+
+[node name="Entered4" type="StaticBody2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PreguntasGame/Entered4"]
+position = Vector2(468, 251)
+shape = SubResource("RectangleShape2D_73miy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(323, 646)
+shape = SubResource("RectangleShape2D_8ti1t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-15, 467)
+shape = SubResource("RectangleShape2D_qr7yj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(638, 469)
+shape = SubResource("RectangleShape2D_qr7yj")
