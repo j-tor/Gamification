@@ -9,10 +9,10 @@ func _process(delta):
 
 func statues():
 	if Main.GreeGame==false||Main.pinkGame==false||Main.BlueGame==false||Main.yellowGame==false:
-		pass#$"Elemental Santuary/Sprite2D".hide()
-		#$Royal/Sprite2D.hide()
-		#$Element/Sprite2D.hide()
-		#$"Ice zone/Sprite2D".hide()
+		$"Elemental Santuary/Sprite2D".hide()
+		$Royal/Sprite2D.hide()
+		$Element/Sprite2D.hide()
+		$"Ice zone/Sprite2D".hide()
 	elif (Main.yellowGame==true):
 		$"Elemental Santuary/Sprite2D".show()
 	elif (Main.BlueGame==true):
@@ -20,7 +20,7 @@ func statues():
 	elif (Main.pinkGame==true):
 		$Element/Sprite2D.show()
 	elif (Main.GreeGame==true):
-		$Royal/Sprite2D.show()	
+		$Royal/Sprite2D.show()
 
 func _on_portal_1_area_entered(area):
 	if area.is_in_group("player"):

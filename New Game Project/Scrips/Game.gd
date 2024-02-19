@@ -15,8 +15,10 @@ var ruleta = preload("res://Scene/RuletaPrincipal.tscn")
 var Icezone = preload("res://Scene/Ice zone.tscn")
 var MiniJuegoRecolector = preload("res://Scene/recolector_mnj.tscn")
 var MiniGameCastillo = preload("res://Scene/Royal_Valley-Minigame.tscn")
+var login = preload("res://LOGIN.tscn")
 func _ready():
 	var nivel = mundo1.instantiate()
+	##var nivel = login.instantiate()
 	add_child(nivel)
 
 func _verficar_nivel():

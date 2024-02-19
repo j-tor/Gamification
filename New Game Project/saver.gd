@@ -51,6 +51,8 @@ func _on_button_login_pressed():
 			if(game_data[n].pass == $TextEdit.text):
 				$Window/RichTextLabel.text="Login Exitoso"
 				print("Login Exitoso")
+				var login = preload("res://LOGIN.tscn")
+				login.instantiate()
 				break;
 				
 	POPUP.show()
