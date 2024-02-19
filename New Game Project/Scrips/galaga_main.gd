@@ -2,9 +2,18 @@ extends Node2D
 
 var numero=0
 var respuestaCorrecta="A"
+var respuestaPlayer=" "
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#pass # Replace with function body.
+	pass # Replace with function body.
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _CreatePregunta():
 	numero =randi() %5
 	print(numero)
 	if numero==0:
@@ -31,7 +40,24 @@ se posiciona en la política. D) La política desaparece"
 			respuestaCorrecta="La Iglesia pierde el papel rector en la política."
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _on_collision_shape_2d_child_entered_tree(node):
+	#no se de que es esto xd
 	pass
+
+
+func _on_pregunta_1_area_entered(area):
+	print("Entre a pregunta 1")
+	if numero==1:
+		respuestaPlayer=" "
+
+
+func _on_pregunta_2_area_entered(area):
+	print("Entre a pregunta 2")
+
+
+func _on_pregunta_3_area_entered(area):
+	print("Entre a pregunta 3")
+
+
+func _on_pregunta_4_area_entered(area):
+		print("Entre a pregunta 4")

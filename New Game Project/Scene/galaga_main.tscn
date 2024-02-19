@@ -1,14 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://i2r6pf1ak4nu"]
+[gd_scene load_steps=11 format=3 uid="uid://i2r6pf1ak4nu"]
 
 [ext_resource type="Script" path="res://Scrips/galaga_main.gd" id="1_pkta6"]
 [ext_resource type="Texture2D" uid="uid://c5hwh065ngxi7" path="res://img/FondoGalaga.jpg" id="1_silyk"]
 [ext_resource type="PackedScene" uid="uid://cw88mibqsgstl" path="res://Scene/Players-NPC/character_galaga.tscn" id="2_wxp3n"]
+[ext_resource type="PackedScene" uid="uid://fv6yrdn33phy" path="res://Scene/spawner_reply.tscn" id="4_dww2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jc52"]
+size = Vector2(93, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nfvi"]
+size = Vector2(74, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxdxg"]
+size = Vector2(103.5, 70.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ys4l"]
+size = Vector2(98, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s4lb"]
+size = Vector2(592, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imiqk"]
+size = Vector2(71, 224.5)
 
 [node name="GalagaMain" type="Node2D"]
 script = ExtResource("1_pkta6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(307, 437)
+position = Vector2(301, 355)
 scale = Vector2(0.953125, 0.618847)
 texture = ExtResource("1_silyk")
 
@@ -31,16 +50,75 @@ offset_bottom = 275.0
 text = "1)"
 
 [node name="Opcion2" type="Button" parent="PreguntasGame"]
-offset_left = 223.0
-offset_top = 188.0
-offset_right = 327.0
-offset_bottom = 272.0
+offset_left = 184.0
+offset_top = 198.0
+offset_right = 288.0
+offset_bottom = 282.0
 text = "2)"
 
 [node name="Opcion3" type="Button" parent="PreguntasGame"]
-offset_left = 365.0
+offset_left = 321.0
 offset_top = 193.0
-offset_right = 474.0
+offset_right = 430.0
 offset_bottom = 269.0
 text = "3)
 "
+
+[node name="Pregunta1" type="Area2D" parent="PreguntasGame" groups=["Pregunta1"]]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Pregunta1"]
+position = Vector2(118, 238)
+shape = SubResource("RectangleShape2D_4jc52")
+
+[node name="Pregunta2" type="Area2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Pregunta2"]
+position = Vector2(223, 231)
+shape = SubResource("RectangleShape2D_5nfvi")
+
+[node name="Pregunta3" type="Area2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Pregunta3"]
+position = Vector2(376, 234)
+shape = SubResource("RectangleShape2D_vxdxg")
+
+[node name="Opcion4" type="Button" parent="PreguntasGame"]
+offset_left = 467.0
+offset_top = 205.0
+offset_right = 566.0
+offset_bottom = 277.0
+text = "4)"
+
+[node name="Pregunta4" type="Area2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Pregunta4"]
+position = Vector2(524, 240)
+shape = SubResource("RectangleShape2D_2ys4l")
+
+[node name="SpawnerReply" parent="." instance=ExtResource("4_dww2f")]
+position = Vector2(103, 607)
+
+[node name="Soporte bajo" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Soporte bajo"]
+visibility_layer = 0
+position = Vector2(305, 670)
+shape = SubResource("RectangleShape2D_0s4lb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Soporte bajo"]
+position = Vector2(-34, 533)
+shape = SubResource("RectangleShape2D_imiqk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Soporte bajo"]
+position = Vector2(639, 534)
+shape = SubResource("RectangleShape2D_imiqk")
+
+[connection signal="area_entered" from="PreguntasGame/Pregunta1" to="." method="_on_pregunta_1_area_entered"]
+[connection signal="child_entered_tree" from="PreguntasGame/Pregunta1/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="area_entered" from="PreguntasGame/Pregunta2" to="." method="_on_pregunta_2_area_entered"]
+[connection signal="area_entered" from="PreguntasGame/Pregunta3" to="." method="_on_pregunta_3_area_entered"]
+[connection signal="area_entered" from="PreguntasGame/Pregunta4" to="." method="_on_pregunta_4_area_entered"]
