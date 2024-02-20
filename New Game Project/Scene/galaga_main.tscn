@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://i2r6pf1ak4nu"]
+[gd_scene load_steps=10 format=3 uid="uid://i2r6pf1ak4nu"]
 
 [ext_resource type="Script" path="res://Scrips/galaga_main.gd" id="1_pkta6"]
 [ext_resource type="Texture2D" uid="uid://c5hwh065ngxi7" path="res://img/FondoGalaga.jpg" id="1_silyk"]
@@ -7,11 +7,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73miy"]
 size = Vector2(92, 75)
 
+[sub_resource type="LabelSettings" id="LabelSettings_vqp62"]
+font_size = 48
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ti1t"]
 size = Vector2(774, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr7yj"]
 size = Vector2(43, 352)
+
+[sub_resource type="LabelSettings" id="LabelSettings_depv0"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_fphrx"]
+font_size = 48
 
 [node name="GalagaMain" type="Node2D"]
 script = ExtResource("1_pkta6")
@@ -27,10 +36,10 @@ position = Vector2(307, 606)
 [node name="PreguntasGame" type="CanvasLayer" parent="."]
 
 [node name="Pregunta" type="Label" parent="PreguntasGame"]
-offset_left = 5.0
-offset_top = 13.0
-offset_right = 612.0
-offset_bottom = 99.0
+offset_left = 3.0
+offset_top = 62.0
+offset_right = 610.0
+offset_bottom = 148.0
 
 [node name="Opcion1" type="Button" parent="PreguntasGame"]
 offset_left = 57.0
@@ -54,12 +63,6 @@ offset_bottom = 279.0
 text = "3)
 "
 
-[node name="Entered1" type="StaticBody2D" parent="PreguntasGame"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Entered1"]
-position = Vector2(104, 246.5)
-shape = SubResource("RectangleShape2D_73miy")
-
 [node name="Opcion4" type="Button" parent="PreguntasGame"]
 offset_left = 424.0
 offset_top = 217.0
@@ -67,23 +70,37 @@ offset_right = 502.0
 offset_bottom = 279.0
 text = "4)"
 
-[node name="Entered2" type="StaticBody2D" parent="PreguntasGame"]
+[node name="Entered1" type="Area2D" parent="PreguntasGame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreguntasGame/Entered1"]
+position = Vector2(104, 246.5)
+shape = SubResource("RectangleShape2D_73miy")
+
+[node name="Entered2" type="Area2D" parent="PreguntasGame"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PreguntasGame/Entered2"]
 position = Vector2(208, 247)
 shape = SubResource("RectangleShape2D_73miy")
 
-[node name="Entered3" type="StaticBody2D" parent="PreguntasGame"]
+[node name="Entered3" type="Area2D" parent="PreguntasGame"]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="PreguntasGame/Entered3"]
 position = Vector2(330, 244)
 shape = SubResource("RectangleShape2D_73miy")
 
-[node name="Entered4" type="StaticBody2D" parent="PreguntasGame"]
+[node name="Entered4" type="Area2D" parent="PreguntasGame"]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="PreguntasGame/Entered4"]
 position = Vector2(468, 251)
 shape = SubResource("RectangleShape2D_73miy")
+
+[node name="LabelPoints" type="Label" parent="PreguntasGame"]
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 203.0
+offset_bottom = 84.0
+text = "Points: 0"
+label_settings = SubResource("LabelSettings_vqp62")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -98,3 +115,27 @@ shape = SubResource("RectangleShape2D_qr7yj")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(638, 469)
 shape = SubResource("RectangleShape2D_qr7yj")
+
+[node name="FinalGame" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="FinalGame"]
+offset_left = 131.0
+offset_top = 109.0
+offset_right = 471.0
+offset_bottom = 209.0
+text = "GANASTES!"
+label_settings = SubResource("LabelSettings_depv0")
+
+[node name="ganastespoints" type="Label" parent="FinalGame"]
+offset_left = 214.0
+offset_top = 235.0
+offset_right = 427.0
+offset_bottom = 332.0
+label_settings = SubResource("LabelSettings_fphrx")
+
+[connection signal="area_entered" from="PreguntasGame/Entered1" to="." method="_on_entered_1_area_entered"]
+[connection signal="child_entered_tree" from="PreguntasGame/Entered1/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="area_entered" from="PreguntasGame/Entered2" to="." method="_on_entered_2_area_entered"]
+[connection signal="area_entered" from="PreguntasGame/Entered3" to="." method="_on_entered_3_area_entered"]
+[connection signal="area_entered" from="PreguntasGame/Entered4" to="." method="_on_entered_4_area_entered"]

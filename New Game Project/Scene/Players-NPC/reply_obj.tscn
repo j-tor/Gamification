@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://dyd1rd45xpk4j" path="res://img/torpedo.png" id="2_rjf43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxpck"]
-size = Vector2(2, 26)
+size = Vector2(51, 113)
 
 [node name="ReplyObj" type="Area2D" groups=["Cohete"]]
 collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_a1gt3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["cohete"]]
 position = Vector2(-1.00001, 39)
 scale = Vector2(6.925, 4.34559)
 texture = ExtResource("2_rjf43")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(3, 32)
 shape = SubResource("RectangleShape2D_jxpck")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
