@@ -51,6 +51,7 @@ func _on_button_login_pressed():
 			if(game_data[n].pass == $TextEdit.text):
 				$Window/RichTextLabel.text="Login Exitoso"
 				print("Login Exitoso")
+				
 				var login = preload("res://LOGIN.tscn")
 				login.instantiate()
 				break;
@@ -66,5 +67,7 @@ func _on_button_pressed():
 	if $Window/RichTextLabel.text=="Login Exitoso":
 		var change_scene2 = load("res://mundo.tscn")
 		get_tree().change_scene_to_packed(change_scene2)
+		change_scene2.instantiate()
 	POPUP.hide()
+		
 	pass # Replace with function body.

@@ -27,18 +27,25 @@ func roling():
 				Main.BlueGame = true
 				$AnimationPlayer.pause()
 				Main.rulet=true
+				$"../.."._statues()
+				$Sprite2D2.show()
+				
+				$Label.text =="verde"
+				$Label.show()
 				break  
 			elif (current_frame == 1 and not Main.pinkGame):
 				print("Minijuego Ciencia")
 				print("Pink")
 				Main.pinkGame = true
 				$AnimationPlayer.pause()
+				$"../.."._statues()
 				break  
 			elif (current_frame == 2 and not Main.yellowGame):
 				print("Minijuego Ciencia")
 				print("Yellow")
 				Main.yellowGame = true
 				$AnimationPlayer.pause()
+				$"../.."._statues()
 				break 
 			elif (current_frame == 3 and not Main.GreeGame):
 				print("Minijuego Ciencia")
@@ -46,6 +53,9 @@ func roling():
 				Main.GreeGame = true
 				Main.rulet=true
 				$AnimationPlayer.pause()
+				$"../.."._statues()
+				$Sprite2D2.show()
+				$Label.text =="verde"
 				break
 
 

@@ -47,10 +47,11 @@ func _physics_process(delta):
 		if ruleta == true:
 			
 			if Input.is_action_just_pressed("interact"):
+					
 					$"../Entrada a ruleta/Ruelta"._reproducir()
 					print("Rueleta corriendo ")
 					$"../Entrada a ruleta/Node2D".playing()
-					$"..".statues()
+
 					$"../Entrada a ruleta/Node2D".visible=true
 					Main.rulet=true
 					print(Main.rulet)
@@ -59,7 +60,8 @@ func _physics_process(delta):
 						#Main._game()
 						#Main._dialogo()	
 						$"../Entrada a ruleta/Node2D".hide()
-						$"..".statues()
+						
+
 						if Main.rulet==true:
 							
 							Main.rulet=false

@@ -41,13 +41,13 @@ func _dialogo():
 		"Entradas":
 			dialogo_objeto = [
 				"Esta cerrado. . . . . . . . . .",#0
-				"Tinnes que cumplir con la mision de la ruleta antes",#1
+				"Tienes que cumplir con la mision de la ruleta antes",#1
 				"Regresa despues. . . . . . ."#2
 			]
 		"Entrada a ruleta":
 			dialogo_objeto = [
-				"Biembenido a la Ruleta del saber ",#0
+				"Bienvenido a la Ruleta del saber ",#0
 				"para girar presione F ",#1
-				#"Regresa despues. . . . . . ."#2
+				"Regresar preciona E. . . . . . ."#2
 			]
 			rulet=false
