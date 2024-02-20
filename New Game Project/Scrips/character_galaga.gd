@@ -27,8 +27,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Click_Derecho"):
 		print("Apreto?")
-		
+		$AnimatedSprite2D.play("Lanzar")
 		$SpawnerReplyGeneretor._NuevoDisparo()
+	#else:
+	#	$AnimatedSprite2D.play("Normal")
+		#$AnimatedSprite2D.play("Normal")
 		#$"."._NuevoDisparo()
 		#$".".position = $"." .position
 		#$"../SpawnerReply"._NuevoDisparo()

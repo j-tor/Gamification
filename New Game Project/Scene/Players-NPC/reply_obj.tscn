@@ -1,23 +1,132 @@
-[gd_scene load_steps=4 format=3 uid="uid://csxpuwujmwbw4"]
+[gd_scene load_steps=19 format=3 uid="uid://csxpuwujmwbw4"]
 
 [ext_resource type="Script" path="res://Scrips/ReplyObj.gd" id="1_a1gt3"]
-[ext_resource type="Texture2D" uid="uid://dyd1rd45xpk4j" path="res://img/torpedo.png" id="2_rjf43"]
+[ext_resource type="Texture2D" uid="uid://bo4x0fn1v4wuh" path="res://img/Freezebie.png" id="2_1wtbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxpck"]
-size = Vector2(51, 113)
+size = Vector2(67.5, 58.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwpmc"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(2, 111, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4psi5"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(18, 111, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6d0a"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(34, 111, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pbm"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(92, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6rce"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(119, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16pbk"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(146, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edyfc"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(173, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mroxy"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(200, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqq4w"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(227, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugbcm"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(254, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_own6i"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(281, 111, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhx5h"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(304, 110, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojhtk"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(324, 110, 26, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q46n"]
+atlas = ExtResource("2_1wtbg")
+region = Rect2(350, 110, 26, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rm3eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwpmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4psi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6d0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3pbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6rce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16pbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edyfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mroxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqq4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugbcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_own6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhx5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojhtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q46n")
+}],
+"loop": true,
+"name": &"lanzado",
+"speed": 100.0
+}]
 
 [node name="ReplyObj" type="Area2D" groups=["Cohete"]]
 collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_a1gt3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["cohete"]]
-position = Vector2(-1.00001, 39)
-scale = Vector2(6.925, 4.34559)
-texture = ExtResource("2_rjf43")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 32)
+position = Vector2(15.25, 15.75)
 shape = SubResource("RectangleShape2D_jxpck")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 14)
+scale = Vector2(2.36538, 2.46)
+sprite_frames = SubResource("SpriteFrames_rm3eo")
+animation = &"lanzado"
+autoplay = "lanzado"
+frame_progress = 0.333333
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
