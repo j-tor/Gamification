@@ -4,6 +4,7 @@ var numero=0
 var respuestaCorrecta=" "
 var respuestaPlayer=" "
 var points=0
+var lastentered=10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -47,6 +48,7 @@ func _CreatePregunta():
 
 func _on_entered_1_area_entered(area):
 	print("Entre a pregunta 1")
+	lastentered=1
 	if numero==0:
 		respuestaPlayer="Monarquía absoluta"
 	elif numero==1:
@@ -62,6 +64,7 @@ func _on_entered_1_area_entered(area):
 
 func _on_entered_2_area_entered(area):
 	print("Entre a pregunta 2")
+	lastentered=2
 	if numero==0:
 		respuestaPlayer="Tiranía republicana"
 	elif numero==1:
@@ -81,28 +84,56 @@ func _validacion():
 	if respuestaPlayer == respuestaCorrecta:    
 		print("¡Correcto!")
 		_CreatePregunta()
-		points+=20
-		
+		points+=20 
+		print("El ultimo entered es: "+str(lastentered))
+		if lastentered==1:
+			$PreguntasGame/Explosion1.show()
+			$PreguntasGame/Explosion1.play("Explosion")
+			await get_tree().create_timer(0.5).timeout
+			$PreguntasGame/Explosion1.stop()
+			$PreguntasGame/Explosion1.hide()
+		elif lastentered==2:
+			$PreguntasGame/Explosion2.show()
+			$PreguntasGame/Explosion2.play("Explosion")
+			await get_tree().create_timer(0.5).timeout
+			$PreguntasGame/Explosion2.stop()
+			$PreguntasGame/Explosion2.hide()
+		elif lastentered==3:
+			$PreguntasGame/Explosion3.show()
+			$PreguntasGame/Explosion3.play("Explosion")
+			await get_tree().create_timer(0.5).timeout
+			$PreguntasGame/Explosion3.stop()
+			$PreguntasGame/Explosion3.hide()
+		elif lastentered==4:
+			$PreguntasGame/Explosion4.show()
+			$PreguntasGame/Explosion4.play("Explosion")
+			await get_tree().create_timer(0.5).timeout
+			$PreguntasGame/Explosion4.stop()
+			$PreguntasGame/Explosion4.hide()
 	else:
 		print("¡Incorrecto!")
 		points-=20
 		
 	$PreguntasGame/LabelPoints.text= "Points: "+str(points)
 	if points>=100:
-		get_tree().paused = true 
+		#get_tree().paused = true 
+		$CharacterGalaga._Win()
 		$PreguntasGame.hide()
 		$FinalGame.show()
 		$FinalGame/ganastespoints.text="Points: "+str(points)
 	elif points<0:
-		get_tree().paused = true 
+		#get_tree().paused = true
+		$CharacterGalaga._Lose()
 		$PreguntasGame.hide()
 		$FinalGame.show()
 		$FinalGame/Label.text="Perdistes!"
 		$FinalGame/ganastespoints.text="Points: "+str(points)
+		 
 
 
 func _on_entered_3_area_entered(area):
 	print("Entre a pregunta 3")
+	lastentered=3
 	if numero==0:
 		respuestaPlayer="Democracia participativa"
 	elif numero==1:
@@ -119,6 +150,7 @@ se posiciona en la política"
 
 func _on_entered_4_area_entered(area):
 	print("Entre a pregunta 4")
+	lastentered=4
 	if numero==0:
 		respuestaPlayer="Liberalismo político"
 	elif numero==1:

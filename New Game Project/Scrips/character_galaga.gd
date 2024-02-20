@@ -1,13 +1,19 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _Lose():
+	$AnimatedSprite2D.play("lose")
+	SPEED=0
 
+func _Win():
+	$AnimatedSprite2D.play("win")
+	SPEED=0
 func _physics_process(delta):
 	# Add the gravity.
 	var inputVel = Input.get_axis("ui_left","ui_right")
@@ -27,8 +33,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Click_Derecho"):
 		print("Apreto?")
-		$AnimatedSprite2D.play("Lanzar")
-		$SpawnerReplyGeneretor._NuevoDisparo()
+		if SPEED!=0:
+			$AnimatedSprite2D.play("Lanzar")
+			$SpawnerReplyGeneretor._NuevoDisparo()
 	#else:
 	#	$AnimatedSprite2D.play("Normal")
 		#$AnimatedSprite2D.play("Normal")
