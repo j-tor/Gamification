@@ -52,9 +52,13 @@ func _on_button_login_pressed():
 				$Window/RichTextLabel.text="Login Exitoso"
 				print("Login Exitoso")
 				
-				var change_scene2 = load("res://mundo.tscn")
-				get_tree().change_scene_to_packed(change_scene2)
-				change_scene2.instantiate()
+				#var change_scene2 = load("res://mundo.tscn")
+				#get_tree().change_scene_to_packed(change_scene2)
+				#change_scene2.instantiate()
+				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
+				get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
+				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				get_tree().get_nodes_in_group("Login")[0].queue_free()
 				break;
 				
 	POPUP.show()

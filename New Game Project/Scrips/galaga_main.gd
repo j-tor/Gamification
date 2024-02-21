@@ -222,3 +222,9 @@ func _on_entered_4_area_entered(area):
 	elif numero==4:
 		respuestaPlayer="La política desaparece."
 	_validacion()
+
+
+func _on_button_pressed():
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="Icezone"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("Galaga")[0].queue_free()

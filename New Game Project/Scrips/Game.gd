@@ -16,6 +16,8 @@ var Icezone = preload("res://Scene/Ice zone.tscn")
 var MiniJuegoRecolector = preload("res://Scene/recolector_mnj.tscn")
 var MiniGameCastillo = preload("res://Scene/Royal_Valley-Minigame.tscn")
 var login = preload("res://LOGIN.tscn")
+var GalagaGame = preload("res://Scene/galaga_main.tscn")
+var EleccionGame = preload("res://Scene/juego_1.tscn")
 func _ready():
 	#var nivel = mundo1.instantiate()
 	var nivel = login.instantiate()
@@ -39,6 +41,12 @@ func _verficar_nivel():
 			nuevo_nivel = MiniJuegoRecolector
 		"MiniGameCastillo":
 			nuevo_nivel = MiniGameCastillo
+		"Login":
+			nuevo_nivel=login
+		"Galaga":
+			nuevo_nivel=GalagaGame
+		"EleccionGame":
+			nuevo_nivel= EleccionGame
 	animacion.play("saliendo")
 
 func _siguiente_nivel():

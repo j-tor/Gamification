@@ -2476,7 +2476,7 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_fphrx"]
 font_size = 48
 
-[node name="GalagaMain" type="Node2D"]
+[node name="GalagaMain" type="Node2D" groups=["Galaga"]]
 script = ExtResource("1_pkta6")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2661,6 +2661,14 @@ offset_right = 427.0
 offset_bottom = 332.0
 label_settings = SubResource("LabelSettings_fphrx")
 
+[node name="Button" type="Button" parent="FinalGame"]
+offset_left = 275.0
+offset_top = 546.0
+offset_right = 575.0
+offset_bottom = 652.0
+text = "Regresar
+"
+
 [node name="AudioExplocion" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_d1yjt")
 
@@ -2672,3 +2680,4 @@ stream = ExtResource("7_chqmw")
 [connection signal="area_entered" from="PreguntasGame/Entered2" to="." method="_on_entered_2_area_entered"]
 [connection signal="area_entered" from="PreguntasGame/Entered3" to="." method="_on_entered_3_area_entered"]
 [connection signal="area_entered" from="PreguntasGame/Entered4" to="." method="_on_entered_4_area_entered"]
+[connection signal="pressed" from="FinalGame/Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvmxtu0rysfsn"]
+[gd_scene load_steps=9 format=3 uid="uid://cvmxtu0rysfsn"]
 
 [ext_resource type="Texture2D" uid="uid://d34flhk4vacxq" path="res://img/hielo.png" id="1_4y2ic"]
 [ext_resource type="Script" path="res://Scene/Ice zone.gd" id="1_flqld"]
@@ -1684,6 +1684,9 @@ size = Vector2(160, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgqfx"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_103gp"]
+b = Vector2(0, 11)
+
 [node name="Node2D" type="Node2D" groups=["Icezone"]]
 script = ExtResource("1_flqld")
 
@@ -1734,4 +1737,13 @@ collision_mask = 132
 position = Vector2(328, 53)
 shape = SubResource("RectangleShape2D_hgqfx")
 
+[node name="Ida a game" type="Area2D" parent="."]
+collision_layer = 133
+collision_mask = 133
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ida a game"]
+position = Vector2(327, 249)
+shape = SubResource("SegmentShape2D_103gp")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Ida a game" to="." method="_on_ida_a_game_area_entered"]

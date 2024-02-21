@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Button.gd" id="3_o1puc"]
 [ext_resource type="Script" path="res://Button_Login.gd" id="3_wnkll"]
 
-[node name="Login" type="Control"]
+[node name="Login" type="Control" groups=["Login"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
