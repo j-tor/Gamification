@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw1p7560p8a6y"]
 
+[ext_resource type="Script" path="res://saver.gd" id="1_qy5mt"]
 [ext_resource type="Texture2D" uid="uid://cpw8mubcrkws4" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_t3j2i"]
-[ext_resource type="Script" path="res://saver.gd" id="1_t88pk"]
 [ext_resource type="Script" path="res://Button.gd" id="3_o1puc"]
 [ext_resource type="Script" path="res://Button_Login.gd" id="3_wnkll"]
 
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t88pk")
+script = ExtResource("1_qy5mt")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2

@@ -22,6 +22,7 @@ func _physics_process(delta):
 		
 func _reproducir():
 	$AnimationPlayer.play("Ruleta")
+	$"../../CanvasLayer/Zona".text ="verde"
 	
 	
 func _parar():

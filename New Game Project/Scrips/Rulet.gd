@@ -29,9 +29,8 @@ func roling():
 				Main.rulet=true
 				$"../.."._statues()
 				$Sprite2D2.show()
-				
-				$Label.text =="verde"
-				$Label.show()
+				$"../../CanvasLayer/Zona".set_text("verde")
+			
 				break  
 			elif (current_frame == 1 and not Main.pinkGame):
 				print("Minijuego Ciencia")
@@ -39,6 +38,8 @@ func roling():
 				Main.pinkGame = true
 				$AnimationPlayer.pause()
 				$"../.."._statues()
+				
+				
 				break  
 			elif (current_frame == 2 and not Main.yellowGame):
 				print("Minijuego Ciencia")
@@ -46,6 +47,8 @@ func roling():
 				Main.yellowGame = true
 				$AnimationPlayer.pause()
 				$"../.."._statues()
+				
+		
 				break 
 			elif (current_frame == 3 and not Main.GreeGame):
 				print("Minijuego Ciencia")
@@ -55,7 +58,9 @@ func roling():
 				$AnimationPlayer.pause()
 				$"../.."._statues()
 				$Sprite2D2.show()
-				$Label.text =="verde"
+				$"../../CanvasLayer/Zona".set_text("verde")
+				#$CanvasLayer/Zona.show()
+				#$CanvasLayer.show()
 				break
 
 
