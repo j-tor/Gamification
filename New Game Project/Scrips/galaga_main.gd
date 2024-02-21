@@ -5,6 +5,10 @@ var respuestaCorrecta=" "
 var respuestaPlayer=" "
 var points=0
 var lastentered=10
+var cantidadchoques1=0
+var cantidadchoques2=0
+var cantidadchoques3=0
+var cantidadchoques4=0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -39,7 +43,7 @@ func _CreatePregunta():
 			$PreguntasGame/Pregunta.text = "Aparece el realismo político, que se basaba en un orden establecido, explicación de un sistema y recomendaciones de cómo gobernar:\nA) Tomás Moro. B) Jean Bodín. C) Nicolás Maquiavelo. D) Erasmo de Rotterdam."
 			respuestaCorrecta = "Nicolas Maquiavelo"
 		4:
-			$PreguntasGame/Pregunta.text = "Terminada la Edad Media, en el contexto de la política resulta que:\nA) La Iglesia resalta su poder. B) La Iglesia pierde el papel rector en la política. C) La Iglesia evangélica se posiciona en la política. D) La política desaparece."
+			$PreguntasGame/Pregunta.text = "Terminada la Edad Media, en el contexto de la política resulta que:\nA) La Iglesia resalta su poder. B) La Iglesia pierde el papel rector en la política. \nC) La Iglesia evangélica se posiciona en la política. D) La política desaparece."
 			respuestaCorrecta = "La Iglesia pierde el papel rector en la política"
 
 
@@ -86,6 +90,7 @@ func _validacion():
 		_CreatePregunta()
 		points+=20 
 		print("El ultimo entered es: "+str(lastentered))
+		$AudioExplocion.play()
 		if lastentered==1:
 			$PreguntasGame/Explosion1.show()
 			$PreguntasGame/Explosion1.play("Explosion")
@@ -113,7 +118,61 @@ func _validacion():
 	else:
 		print("¡Incorrecto!")
 		points-=20
-		
+		if lastentered==1:
+			cantidadchoques1+=1
+			if cantidadchoques1==1:
+				$PreguntasGame/Tiro1.play("ObjCon1Freezebie")
+			elif cantidadchoques1==2:
+				$PreguntasGame/Tiro1.play("ObjCon2Freezebie")
+			elif cantidadchoques1==3:
+				$PreguntasGame/Tiro1.play("ObjCon3Freezebie")
+			elif cantidadchoques1==4:
+				$PreguntasGame/Tiro1.play("ObjCon4Freezebie")
+			elif cantidadchoques1==5:
+				$PreguntasGame/Tiro1.play("TiroBlanco")
+				cantidadchoques1==0
+		elif lastentered==2:
+			cantidadchoques2+=1
+			if cantidadchoques2==1:
+				$PreguntasGame/Tiro2.play("ObjCon1Freezebie")
+			elif cantidadchoques2==2:
+				$PreguntasGame/Tiro2.play("ObjCon2Freezebie")
+			elif cantidadchoques2==3:
+				$PreguntasGame/Tiro2.play("ObjCon3Freezebie")
+			elif cantidadchoques2==4:
+				$PreguntasGame/Tiro2.play("ObjCon4Freezebie")
+			elif cantidadchoques2==5:
+				$PreguntasGame/Tiro2.play("TiroBlanco")
+				cantidadchoques2==0
+		elif lastentered==3:
+			cantidadchoques3+=1
+			if cantidadchoques3==1:
+				$PreguntasGame/Tiro3.play("ObjCon1Freezebie")
+			elif cantidadchoques3==2:
+				$PreguntasGame/Tiro3.play("ObjCon2Freezebie")
+			elif cantidadchoques3==3:
+				$PreguntasGame/Tiro3.play("ObjCon3Freezebie")
+			elif cantidadchoques3==4:
+				$PreguntasGame/Tiro3.play("ObjCon4Freezebie")
+			elif cantidadchoques3==5:
+				$PreguntasGame/Tiro3.play("TiroBlanco")
+				cantidadchoques3==0
+			
+		elif lastentered==4:
+			cantidadchoques4+=1
+			if cantidadchoques4==1:
+				$PreguntasGame/Tiro4.play("ObjCon1Freezebie")
+			elif cantidadchoques4==2:
+				$PreguntasGame/Tiro4.play("ObjCon2Freezebie")
+			elif cantidadchoques4==3:
+				$PreguntasGame/Tiro4.play("ObjCon3Freezebie")
+			elif cantidadchoques4==4:
+				$PreguntasGame/Tiro4.play("ObjCon4Freezebie")
+			elif cantidadchoques4==5:
+				$PreguntasGame/Tiro4.play("TiroBlanco")
+				cantidadchoques4==0
+			
+		$AudioLosePoints.play()
 	$PreguntasGame/LabelPoints.text= "Points: "+str(points)
 	if points>=100:
 		#get_tree().paused = true 
@@ -128,7 +187,8 @@ func _validacion():
 		$FinalGame.show()
 		$FinalGame/Label.text="Perdistes!"
 		$FinalGame/ganastespoints.text="Points: "+str(points)
-		 
+	if cantidadchoques1==0:
+		$PreguntasGame/Tiro1.play("normal")
 
 
 func _on_entered_3_area_entered(area):
