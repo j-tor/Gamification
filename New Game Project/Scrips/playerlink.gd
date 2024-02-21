@@ -45,29 +45,30 @@ func _physics_process(delta):
 				mover = false
 				print(" Reproducir Dialogo")
 		if ruleta == true:
-			
-			if Input.is_action_just_pressed("interact"):
-					
-					$"../Entrada a ruleta/Ruelta"._reproducir()
-					print("Rueleta corriendo ")
-					$"../Entrada a ruleta/Node2D".playing()
-
-					$"../Entrada a ruleta/Node2D".visible=true
-					Main.rulet=true
-					print(Main.rulet)
-			if  Input.is_action_just_pressed("ui_cancel"):
-						#$Macro.visible = true
-						#Main._game()
-						#Main._dialogo()	
-						$"../Entrada a ruleta/Node2D".hide()
-						
-
-						if Main.rulet==true:
+				if Input.is_action_just_pressed("interact"):
+						if ruleta == true:
+							$"../Entrada a ruleta/Ruelta"._reproducir()
+							print("Rueleta corriendo ")
+							$"../Entrada a ruleta/Node2D".playing()
+							$"../Entrada a ruleta/Node2D".visible=true
 							
 							Main.rulet=false
 							print(Main.rulet)
-						#$Macro/Control.ingresar_dialogo()
-						print("Rueleta Stop 3")
+						else:
+							print(Main.rulet+"nada")
+				if  Input.is_action_just_pressed("ui_cancel"):
+							#$Macro.visible = true
+							#Main._game()
+							#Main._dialogo()	
+							$"../Entrada a ruleta/Node2D".hide()
+							
+
+							if Main.rulet==true:
+								
+								Main.rulet=false
+								print(Main.rulet)
+							#$Macro/Control.ingresar_dialogo()
+							print("Rueleta Stop 3")
 				
 	get_input()
 	move_and_collide(velocity * delta)
@@ -107,10 +108,18 @@ func _on_detec_obj_area_exited(area):
 	if area.is_in_group("objeto"):
 		objeto = false
 		print("afuera")
+	if area.is_in_group("Ruleta"):
+		ruleta = false
+		print("afuera ruleta")
+		
+		
 
 
 func _on_area_2d_2_area_entered(area):
 	if area.is_in_group("objeto"):
 		objeto = false
 		print("afuera")
+	if area.is_in_group("Ruleta"):
+		ruleta = false
+		print("afuera ruleta")	
 		

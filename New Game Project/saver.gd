@@ -52,8 +52,9 @@ func _on_button_login_pressed():
 				$Window/RichTextLabel.text="Login Exitoso"
 				print("Login Exitoso")
 				
-				var login = preload("res://LOGIN.tscn")
-				login.instantiate()
+				var change_scene2 = load("res://mundo.tscn")
+				get_tree().change_scene_to_packed(change_scene2)
+				change_scene2.instantiate()
 				break;
 				
 	POPUP.show()

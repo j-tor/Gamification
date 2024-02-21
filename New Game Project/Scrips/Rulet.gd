@@ -3,6 +3,8 @@ extends Node2D
 var playedFrames = [] 
 # Called when the node enters the scene tree for the first time.
 func playing():
+	$Sprite2D2.hide()
+	$Zona.hide()
 	$AnimationPlayer.play("Role")
 	await get_tree().create_timer(3).timeout
 	roling()
@@ -29,17 +31,18 @@ func roling():
 				Main.rulet=true
 				$"../.."._statues()
 				$Sprite2D2.show()
-				$"../../CanvasLayer/Zona".set_text("verde")
-			
+				$Zona.show()
+				$Zona.text = "El trubunal lento...(politica)"
 				break  
 			elif (current_frame == 1 and not Main.pinkGame):
-				print("Minijuego Ciencia")
+				print("Minijuego Arte")
 				print("Pink")
 				Main.pinkGame = true
 				$AnimationPlayer.pause()
 				$"../.."._statues()
-				
-				
+				$Sprite2D2.show()
+				$Zona.show()
+				$Zona.text = "Arte venenoso...(Arte)"
 				break  
 			elif (current_frame == 2 and not Main.yellowGame):
 				print("Minijuego Ciencia")
@@ -47,20 +50,20 @@ func roling():
 				Main.yellowGame = true
 				$AnimationPlayer.pause()
 				$"../.."._statues()
-				
-		
+				$Sprite2D2.show()
+				$Zona.show()
+				$Zona.text = "Casticiencia...(Ciencia)"
 				break 
 			elif (current_frame == 3 and not Main.GreeGame):
-				print("Minijuego Ciencia")
+				print("Minijuego Historia")
 				print("Verde")
 				Main.GreeGame = true
 				Main.rulet=true
 				$AnimationPlayer.pause()
 				$"../.."._statues()
 				$Sprite2D2.show()
-				$"../../CanvasLayer/Zona".set_text("verde")
-				#$CanvasLayer/Zona.show()
-				#$CanvasLayer.show()
+				$Zona.show()
+				$Zona.text = "El Mago Sabio...(Historia)"
 				break
 
 

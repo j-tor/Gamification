@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
+	#$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
 	_statues()
 
 func _process(delta):
@@ -23,6 +23,7 @@ func _statues():
 		$"Entrada a ruleta/Element".show()
 	if (Main.GreeGame==true):
 		$"Entrada a ruleta/Royal".show()
+
 
 func _on_portal_1_area_entered(area):
 	if area.is_in_group("player"):
@@ -64,6 +65,10 @@ func _on_element_area_entered(area):
 
 func _on_entrada_a_ruleta_area_entered(area):
 		if area.is_in_group("Ruleta"):
+			if Input.is_action_just_pressed("interact"):
+						$"Entrada a ruleta/Node2D"._reproducir()
+						print("Rueleta corriendo ")
+						$"Entrada a ruleta/Node2D".playing()
 			
 			print(" entreo")
 				
