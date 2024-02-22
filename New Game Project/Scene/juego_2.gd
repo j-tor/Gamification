@@ -7,12 +7,8 @@ extends Node2D
 #Texto dentro de la burbujita
 @onready var bubbleText = $Sprite2D/RichTextLabel
 
-#Points son los 4 puntos de colores que se usan para seleccionar la respuesta
-@onready var Point_1 = $Point1
-@onready var Point_2 = $Point2
-@onready var Point_3 = $Point3
-@onready var Point_4 = $Point4
-
+var Matriz = [[0,0,0],[0,0,0],[0,0,0]]
+var ActualPlayer = 1
 #Options, son los 4 textos donde cada uno tiene 1 opcion de las respuestas de una pregunta
 @onready var Option_1 = $Option1
 @onready var Option_2 = $Option2
@@ -23,10 +19,9 @@ extends Node2D
 #El player, lo llamo para saber si esta sobre una respuesta
 @onready var Player = $playerlink
 
-#cheque, es el cheque verde que se muestra cuando se responde bien
-@onready var cheque = $cheque
-# Es la x que se muestra cuando se responde mal
-@onready var equis = $twitter
+
+
+@onready var equis = $equis
 
 # El corazon 1 y 2, el 3ro no lo necesito porque cuando solo queda ese y se falla de un solo
 # perdemos
@@ -38,7 +33,32 @@ var AnswerColor = "" #Color de respuesta, puede ser r g b o p
 var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
 var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
 var hearts = 3 # el numero de corazones que tenemos al inicio
-
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		print(event.position)
+		if (163 <=event.position.x  and event.position.x <= 283) and (69 <= event.position.y and event.position.y <= 158):
+			# Espacio 1
+			print("Clic en el espacio 1")
+			Matriz[0][0]=ActualPlayer
+		elif (283 <=event.position.x  and event.position.x <= 385) and (69 <= event.position.y and event.position.y <= 158):
+			print("Clic en el espacio 2")
+		elif (385 <=event.position.x  and event.position.x <= 502) and (69 <= event.position.y and event.position.y <= 158):
+			print("Clic en el espacio 3")
+		elif (163 <=event.position.x  and event.position.x <= 283) and (158 <= event.position.y and event.position.y <= 265):
+			# Espacio 1
+			print("Clic en el espacio 4")
+		elif (283 <=event.position.x  and event.position.x <= 385) and (158 <= event.position.y and event.position.y <= 265):
+			print("Clic en el espacio 5")
+		elif (385 <=event.position.x  and event.position.x <= 502) and (158 <= event.position.y and event.position.y <= 265):
+			print("Clic en el espacio 6")
+		elif (163 <=event.position.x  and event.position.x <= 283) and (265 <= event.position.y and event.position.y <= 360):
+			# Espacio 1
+			print("Clic en el espacio 7")
+		elif (283 <=event.position.x  and event.position.x <= 385) and (265 <= event.position.y and event.position.y <= 360):
+			print("Clic en el espacio 8")
+		elif (385 <=event.position.x  and event.position.x <= 502) and (265 <= event.position.y and event.position.y <= 360):
+			print("Clic en el espacio 9")
+	
 func _ready():
 	#Todo esto se ejecuta al inicio, reiniciamos el tiempo
 	#establecemos el primer momento (que es Inicio {0})
@@ -47,7 +67,7 @@ func _ready():
 	Time_Reset()
 	changeMoment(actualMoment)
 	animationsEnemy.play()
-	cheque.hide()
+	
 	equis.hide()
 	pass # Replace with function body.
 
@@ -87,6 +107,7 @@ func _on_timer_timeout():
 	
 	pass 
 
+
 #esta funcion determina cuantos corazones hay que mostrar
 func HeartsChanger():
 	if hearts == 2:
@@ -100,9 +121,40 @@ func Time_Reset():
 	minutes=Dminutes
 
 #Oculta la X y el Cheque despues de ya mostrarlos
-func ResetChecker():
-	cheque.hide()
-	equis.hide()
+#func ResetChecker():
+func matrizView_updater():
+	for i in range(len(Matriz)):
+		for j in range(len(Matriz[0])):
+			
+
+func verificar_ganador():
+	# Verificar filas
+	for fila in Matriz:
+		if fila.count(1) == 3:  # Si todas las celdas son 1 (jugador X)
+			return 1
+		elif fila.count(2) == 3:  # Si todas las celdas son 2 (jugador O)
+			return 2
+
+	# Verificar columnas
+	for j in range(3):
+		if Matriz[0][j] == Matriz[1][j] == Matriz[2][j] == 1:
+			return 1
+		elif Matriz[0][j] == Matriz[1][j] == Matriz[2][j] == 2:
+			return 2
+
+	# Verificar diagonales
+	if Matriz[0][0] == Matriz[1][1] == Matriz[2][2] == 1:
+		return 1
+	elif Matriz[0][0] == Matriz[1][1] == Matriz[2][2] == 2:
+		return 2
+	elif Matriz[0][2] == Matriz[1][1] == Matriz[2][0] == 1:
+		return 1
+	elif Matriz[0][2] == Matriz[1][1] == Matriz[2][0] == 2:
+		return 2
+
+	return 0  # No hay ganador
+
+			
 
 
 
@@ -142,7 +194,7 @@ func _on_area_2d_4_body_entered(body):
 #Momento respuestas(2,4,6,8,10) - Tiempo donde se dice si la respuesta es correcta o incorrecta
 func changeMoment(decimal):
 	if decimal == 0:   #INICIO
-		bubbleText.text = "Bienvenido a las tumbas del conocimiento, te hare unas preguntas y deberas moverte de lugar para responderlas."
+		bubbleText.text = "Bienvenido al combate por el conocimiento, te hare unas preguntas y responder bien te dara la oportunidad de enfretarme en un juego de Tic Tac"
 		
 		Option_1.text = ""
 		Option_2.text = ""
@@ -157,15 +209,15 @@ func changeMoment(decimal):
 		Option_2.text = "El mercantilismo"
 		Option_3.text = "La burguesía"
 		Option_4.text = "El proletariado"
-		ResetChecker()
+	
 		return "001"
 	elif decimal == 2: 
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (La burguesía)"
-			cheque.show()
+		
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es La burguesía"
-			equis.show()
+		
 			hearts-=1
 			
 		Option_1.text = ""
@@ -182,13 +234,13 @@ monarquías europeas centralizadas como:"
 		Option_2.text = "Inglaterra"
 		Option_3.text = "Yugoslavia"
 		Option_4.text = "Egipto"
-		ResetChecker()
+	
 		return "011"
 	elif decimal == 4:
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (Inglaterra)"
-			cheque.show()
+
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (Inglaterra)"
 			hearts-=1
@@ -209,17 +261,17 @@ normalmente enfrentadas entre si, como es el caso de:"
 		Option_2.text = "Ámsterdam-Cracovia"
 		Option_3.text = "Reims-Colonia"
 		Option_4.text = "Milán-Lourdes"
-		ResetChecker()
+	
 		return "101"
 	elif decimal == 6:
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (Florencia-Napoli)"
-			cheque.show()
+		
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (Florencia-Napoli)"
 			hearts-=1
-			equis.show()
+			
 		
 		Option_1.text = ""
 		Option_2.text = ""
@@ -236,14 +288,13 @@ en lo que hoy es actualmente:"
 		Option_2.text = "Estambul en Turquía"
 		Option_3.text = "Mesopotamia"
 		Option_4.text = "Jerusalén"
-		ResetChecker()
+
 		return "111"
 	elif decimal == 8:
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (Estambul en Turquía)"
-			actualMoment=-2
-			cheque.show()
+			
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (Estambul en Turquía)"
 			hearts-=1
@@ -264,13 +315,13 @@ innovaciones entre las que mencionamos:"
 		Option_2.text = "La rueda y la escritura"
 		Option_3.text = "Las máquinas y la producción"
 		Option_4.text = "La pólvora y La rueda"
-		ResetChecker()
+	
 		return "111"
 	elif decimal == 10:
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (La imprenta y la brújula)"
-			cheque.show()
+		
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (La imprenta y la brújula)"
 			hearts-=1
@@ -282,18 +333,19 @@ innovaciones entre las que mencionamos:"
 		
 		return "111"
 	elif decimal == -1:
-		equis.hide()
+
 		bubbleText.text = "Perdiste, te quedaste sin vidas"
 		
 		
 		return "111"
-	elif decimal == -2:
-		equis.hide()
-		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas"
-		
-		
-		return "111"
 	else:
-		ResetChecker()
+		
 		return "NA"
 	pass
+
+
+
+
+func _on_option_1_gui_input(event):
+	print("clicked")
+	pass # Replace with function body.
