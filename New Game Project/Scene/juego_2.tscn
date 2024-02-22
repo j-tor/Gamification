@@ -1,15 +1,18 @@
-[gd_scene load_steps=36 format=3 uid="uid://dds88f6glrxx8"]
+[gd_scene load_steps=39 format=3 uid="uid://dds88f6glrxx8"]
 
 [ext_resource type="Script" path="res://Scene/juego_2.gd" id="1_7xd65"]
 [ext_resource type="Texture2D" uid="uid://bcexrlgb48ciu" path="res://img/BaseJuego2.png" id="2_ax0by"]
 [ext_resource type="Texture2D" uid="uid://dg1v2fnvl6h36" path="res://img/1.jpg" id="2_qv0uc"]
 [ext_resource type="Texture2D" uid="uid://ceb6o756838uk" path="res://img/blue-comic-halftone-background-free-vector.jpg" id="4_4suve"]
+[ext_resource type="Texture2D" uid="uid://bkkj7pjebopaa" path="res://img/goal-flag-260nw-382824406.png" id="4_74ajv"]
+[ext_resource type="Script" path="res://Scene/Players-NPC/playerlink22.gd" id="7_8kaga"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="7_mw00q"]
 [ext_resource type="Texture2D" uid="uid://bn1mau86pxk5" path="res://img/link.png" id="8_hb1it"]
 [ext_resource type="Texture2D" uid="uid://dcyuiac0oi1oi" path="res://img/DialogJuego2.jpg" id="10_hsckm"]
 [ext_resource type="Texture2D" uid="uid://dgk3ah5r2s3of" path="res://img/twitter.png" id="10_r6rcg"]
 [ext_resource type="Texture2D" uid="uid://bd6ktiqway4cr" path="res://img/PanelPreguntas.jpg" id="11_obqbf"]
 [ext_resource type="Texture2D" uid="uid://bjrrexwf2k6i8" path="res://img/heart.png" id="12_ro8fi"]
+[ext_resource type="Texture2D" uid="uid://b1e18mjl5hax7" path="res://img/heart2.png" id="12_tpg1s"]
 [ext_resource type="Texture2D" uid="uid://bl8i8i2xr8ldp" path="res://img/Red_circle.svg.png" id="12_w2x2p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tl2c"]
@@ -49193,12 +49196,6 @@ texture = ExtResource("2_ax0by")
 sources/2 = SubResource("TileSetAtlasSource_wcu4m")
 sources/1 = SubResource("TileSetAtlasSource_0tl2c")
 
-[sub_resource type="LabelSettings" id="LabelSettings_8lncs"]
-font_size = 11
-font_color = Color(1, 0.85098, 1, 1)
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8i33x"]
 atlas = ExtResource("8_hb1it")
 region = Rect2(9, 1142, 32, 30)
@@ -49308,20 +49305,23 @@ animations = [{
 [sub_resource type="Theme" id="Theme_55wqi"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5183k"]
-a = Vector2(-34, 70)
+a = Vector2(-33, -49)
 b = Vector2(-34, 162)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ci4hs"]
 a = Vector2(86, 88)
-b = Vector2(88, 179)
+b = Vector2(87, 286)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vnoc0"]
 a = Vector2(-30, 76)
-b = Vector2(53, 76)
+b = Vector2(328, 76)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_a555f"]
 a = Vector2(-30, 153)
-b = Vector2(51, 154)
+b = Vector2(311, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv1px"]
+size = Vector2(34, 142)
 
 [node name="Juego2" type="Node2D"]
 script = ExtResource("1_7xd65")
@@ -49331,25 +49331,26 @@ tile_set = SubResource("TileSet_aa5cc")
 format = 2
 layer_0/tile_data = PackedInt32Array(-196618, 2, 0, -131082, 2, 1, -65546, 4128769, 189, -10, 4128769, 190, 65526, 4128769, 191, 131062, 4128769, 192, 196598, 4128769, 193, 262134, 4128769, 194, 327670, 4128769, 195, 393206, 4128769, 196, 458742, 4128769, 192, 524278, 4128769, 193, 589814, 4128769, 194, 655350, 4128769, 195, 720886, 4128769, 196, -196617, 65538, 0, -131081, 65538, 1, -65545, 4784129, 190, -9, 4784129, 191, 65527, 4784129, 192, 131063, 4784129, 193, 196599, 4784129, 192, 262135, 4784129, 193, 327671, 4784129, 192, 393207, 4784129, 193, 458743, 4784129, 190, 524279, 4784129, 191, 589815, 4849665, 191, 655351, 4849665, 192, 720887, 4849665, 193, -196616, 131074, 0, -131080, 131074, 1, -65544, 4849665, 190, -8, 4849665, 191, 65528, 4849665, 192, 131064, 4849665, 193, 196600, 4849665, 192, 262136, 4849665, 193, 327672, 4849665, 192, 393208, 4849665, 193, 458744, 4849665, 190, 524280, 4849665, 191, 589816, 4915201, 191, 655352, 4915201, 192, 720888, 4915201, 193, -196615, 196610, 0, -131079, 196610, 1, -65543, 4784129, 190, -7, 4784129, 191, 65529, 4784129, 192, 131065, 4784129, 190, 196601, 4784129, 191, 262137, 4784129, 192, 327673, 4915201, 192, 393209, 4915201, 193, 458745, 4784129, 191, 524281, 4784129, 192, 589817, 4784129, 191, 655353, 4784129, 192, 720889, 4784129, 193, -196614, 262146, 0, -131078, 262146, 1, -65542, 4849665, 190, -6, 4849665, 191, 65530, 4849665, 192, 131066, 4849665, 190, 196602, 4849665, 191, 262138, 4849665, 192, 327674, 4784129, 192, 393210, 4784129, 193, 458746, 4849665, 191, 524282, 4849665, 192, 589818, 4849665, 191, 655354, 4849665, 192, 720890, 4849665, 193, -196613, 327682, 0, -131077, 327682, 1, -65541, 4915201, 190, -5, 4915201, 191, 65531, 4915201, 192, 131067, 4915201, 190, 196603, 4915201, 191, 262139, 4915201, 192, 327675, 4784129, 192, 393211, 4784129, 190, 458747, 4784129, 191, 524283, 4784129, 192, 589819, 4915201, 191, 655355, 4915201, 192, 720891, 4915201, 193, -196612, 393218, 0, -131076, 393218, 1, -65540, 4915201, 191, -4, 4849665, 190, 65532, 4849665, 191, 131068, 4784129, 190, 196604, 4784129, 191, 262140, 4784129, 190, 327676, 4784129, 191, 393212, 4784129, 192, 458748, 4849665, 191, 524284, 4849665, 192, 589820, 4784129, 191, 655356, 4784129, 192, 720892, 4784129, 193, -196611, 458754, 0, -131075, 458754, 1, -65539, 4784129, 190, -3, 4915201, 190, 65533, 4915201, 191, 131069, 4849665, 190, 196605, 4849665, 191, 262141, 4849665, 190, 327677, 4849665, 191, 393213, 4849665, 192, 458749, 4915201, 191, 524285, 4915201, 192, 589821, 4849665, 191, 655357, 4849665, 192, 720893, 4849665, 193, -196610, 524290, 0, -131074, 524290, 1, -65538, 4849665, 190, -2, 4849665, 191, 65534, 4849665, 192, 131070, 4915201, 190, 196606, 4915201, 191, 262142, 4915201, 190, 327678, 4915201, 191, 393214, 4915201, 192, 458750, 4784129, 191, 524286, 4784129, 192, 589822, 4915201, 191, 655358, 4915201, 192, 720894, 4915201, 193, -196609, 589826, 0, -131073, 589826, 1, -65537, 4915201, 190, -1, 4915201, 191, 65535, 4915201, 192, 131071, 4915201, 193, 196607, 4849665, 190, 262143, 4784129, 190, 327679, 4784129, 191, 393215, 4784129, 192, 458751, 4849665, 191, 524287, 4849665, 192, 589823, 4784129, 191, 655359, 4784129, 192, 720895, 4784129, 193, -262144, 655362, 0, -196608, 655362, 1, -131072, 4784129, 191, -65536, 4784129, 192, 0, 4784129, 193, 65536, 4980737, 193, 131072, 4915201, 190, 196608, 4849665, 190, 262144, 4849665, 191, 327680, 4849665, 192, 393216, 4915201, 191, 458752, 4915201, 192, 524288, 4849665, 191, 589824, 4849665, 192, 655360, 4849665, 193, -262143, 720898, 0, -196607, 720898, 1, -131071, 4784129, 190, -65535, 4784129, 191, 1, 4784129, 192, 65537, 4718593, 193, 131073, 4915201, 190, 196609, 4915201, 190, 262145, 4915201, 191, 327681, 4915201, 192, 393217, 4915201, 192, 458753, 4784129, 191, 524289, 4915201, 191, 589825, 4915201, 192, 655361, 4915201, 193, -262142, 786434, 0, -196606, 786434, 1, -131070, 4849665, 190, -65534, 4849665, 191, 2, 4849665, 192, 65538, 4784129, 193, 131074, 4784129, 190, 196610, 4784129, 191, 262146, 4784129, 192, 327682, 4784129, 193, 393218, 4849665, 190, 458754, 4849665, 191, 524290, 4784129, 191, 589826, 4784129, 192, 655362, 4784129, 193, -262141, 851970, 0, -196605, 851970, 1, -131069, 4915201, 190, -65533, 4915201, 191, 3, 4915201, 192, 65539, 4849665, 193, 131075, 4849665, 190, 196611, 4849665, 191, 262147, 4849665, 192, 327683, 4849665, 193, 393219, 4915201, 190, 458755, 4915201, 191, 524291, 4849665, 191, 589827, 4849665, 192, 655363, 4849665, 193, -262140, 917506, 0, -196604, 917506, 1, -131068, 4784129, 190, -65532, 4784129, 191, 4, 4784129, 192, 65540, 4784129, 190, 131076, 4784129, 191, 196612, 4784129, 192, 262148, 4784129, 190, 327684, 4784129, 191, 393220, 4784129, 190, 458756, 4784129, 191, 524292, 4784129, 192, 589828, 4915201, 192, 655364, 4915201, 193, -262139, 983042, 0, -196603, 983042, 1, -131067, 4849665, 190, -65531, 4849665, 191, 5, 4849665, 192, 65541, 4849665, 190, 131077, 4849665, 191, 196613, 4849665, 192, 262149, 4849665, 190, 327685, 4849665, 191, 393221, 4849665, 190, 458757, 4849665, 191, 524293, 4849665, 192, 589829, 4784129, 192, 655365, 4784129, 193, -262138, 1048578, 0, -196602, 1048578, 1, -131066, 4456449, 191, -65530, 4456449, 192, 6, 4456449, 193, 65542, 4915201, 190, 131078, 4915201, 191, 196614, 4915201, 192, 262150, 4915201, 190, 327686, 4915201, 191, 393222, 4915201, 190, 458758, 4915201, 191, 524294, 4456449, 191, 589830, 4456449, 192, 655366, 4456449, 193, -262137, 1114114, 0, -196601, 1114114, 1, -131065, 4521985, 191, -65529, 4521985, 192, 7, 4521985, 193, 65543, 4915201, 191, 131079, 4915201, 192, 196615, 4915201, 193, 262151, 4784129, 191, 327687, 4784129, 192, 393223, 4784129, 190, 458759, 4784129, 191, 524295, 4521985, 191, 589831, 4521985, 192, 655367, 4521985, 193, -262136, 1179650, 0, -196600, 1179650, 1, -131064, 4587521, 191, -65528, 4587521, 192, 8, 4587521, 193, 65544, 4849665, 193, 131080, 4849665, 193, 196616, 4849665, 190, 262152, 4849665, 191, 327688, 4849665, 192, 393224, 4849665, 190, 458760, 4849665, 191, 524296, 4587521, 191, 589832, 4587521, 192, 655368, 4587521, 193, -262135, 1245186, 0, -196599, 1245186, 1, -131063, 4653057, 191, -65527, 4653057, 192, 9, 4653057, 193, 65545, 4915201, 193, 131081, 4915201, 193, 196617, 4915201, 190, 262153, 4915201, 191, 327689, 4915201, 192, 393225, 4915201, 190, 458761, 4915201, 191, 524297, 4653057, 191, 589833, 4653057, 192, 655369, 4653057, 193, -262134, 1310722, 0, -196598, 1310722, 1, -131062, 4718593, 191, -65526, 4718593, 192, 10, 4718593, 193, 65546, 4980737, 193, 131082, 4980737, 193, 196618, 4980737, 190, 262154, 4980737, 191, 327690, 4980737, 192, 393226, 4980737, 193, 458762, 4980737, 191, 524298, 4718593, 191, 589834, 4718593, 192, 655370, 4718593, 193, 524299, 4718593, 191, 589835, 4718593, 192, 655371, 4718593, 193)
 
+[node name="Meta" type="Sprite2D" parent="."]
+position = Vector2(-115, 54)
+scale = Vector2(0.132692, 0.137868)
+texture = ExtResource("4_74ajv")
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-63, 43)
 scale = Vector2(0.122, 0.126068)
 texture = ExtResource("4_4suve")
 
 [node name="playerlink" parent="." instance=ExtResource("7_mw00q")]
-position = Vector2(52, 62)
-script = null
+position = Vector2(109, 56)
+
+[node name="playerlink2" parent="." instance=ExtResource("7_mw00q")]
+position = Vector2(110, 6)
+script = ExtResource("7_8kaga")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = -152.0
-offset_top = -19.0
-offset_right = -103.0
-offset_bottom = 4.0
-text = "dadda"
-label_settings = SubResource("LabelSettings_8lncs")
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 position = Vector2(8, 73)
@@ -49360,8 +49361,8 @@ editor_draw_drag_margin = true
 [node name="Enemy" type="CharacterBody2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(140, 59)
-scale = Vector2(1.65625, 1.73333)
+position = Vector2(158, 53)
+scale = Vector2(1.39062, 1.43333)
 sprite_frames = SubResource("SpriteFrames_lkojn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -49387,8 +49388,8 @@ fit_content = true
 
 [node name="equis" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-100, 10)
-scale = Vector2(0.102143, 0.100747)
+position = Vector2(3.00001, 50)
+scale = Vector2(0.381927, 0.351578)
 texture = ExtResource("10_r6rcg")
 
 [node name="equis2" type="Sprite2D" parent="."]
@@ -49500,15 +49501,15 @@ position = Vector2(-113, 14)
 shape = SubResource("SegmentShape2D_5183k")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-235, -92)
+position = Vector2(89, -124)
 shape = SubResource("SegmentShape2D_ci4hs")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-111, -102)
+position = Vector2(-123, 43)
 shape = SubResource("SegmentShape2D_vnoc0")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-16, -183)
+position = Vector2(-120, -184)
 shape = SubResource("SegmentShape2D_a555f")
 
 [node name="Heart1" type="Sprite2D" parent="."]
@@ -49526,24 +49527,37 @@ position = Vector2(124, -11.7225)
 scale = Vector2(0.07, 0.0608071)
 texture = ExtResource("12_ro8fi")
 
+[node name="Heart4" type="Sprite2D" parent="."]
+position = Vector2(-148, -12)
+scale = Vector2(0.07, 0.0590591)
+texture = ExtResource("12_tpg1s")
+
+[node name="Heart5" type="Sprite2D" parent="."]
+position = Vector2(-128, -12)
+scale = Vector2(0.07, 0.0590591)
+texture = ExtResource("12_tpg1s")
+
+[node name="Heart6" type="Sprite2D" parent="."]
+position = Vector2(-108, -12)
+scale = Vector2(0.07, 0.0590591)
+texture = ExtResource("12_tpg1s")
+
 [node name="Panel" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(14, 59)
-scale = Vector2(0.150293, 0.104188)
+position = Vector2(9, 44)
+scale = Vector2(0.150293, 0.132094)
 texture = ExtResource("11_obqbf")
 
 [node name="Option1" type="RichTextLabel" parent="."]
-visible = false
-offset_left = -115.0
-offset_top = 18.0
-offset_right = 144.0
-offset_bottom = 92.0
+offset_left = -119.0
+offset_top = 13.0
+offset_right = 140.0
+offset_bottom = 87.0
 scale = Vector2(0.46, 0.46)
 theme_override_font_sizes/normal_font_size = 0
 text = "Option 1"
 
 [node name="Option2" type="RichTextLabel" parent="."]
-visible = false
 offset_left = -115.0
 offset_top = 61.0
 offset_right = 137.0
@@ -49552,7 +49566,6 @@ scale = Vector2(0.46, 0.46)
 text = "Option 2"
 
 [node name="Option3" type="RichTextLabel" parent="."]
-visible = false
 offset_left = 15.0
 offset_top = 62.0
 offset_right = 306.0
@@ -49561,7 +49574,6 @@ scale = Vector2(0.46, 0.46)
 text = "Option 3"
 
 [node name="Option4" type="RichTextLabel" parent="."]
-visible = false
 offset_left = 18.0
 offset_top = 16.0
 offset_right = 285.0
@@ -49569,5 +49581,15 @@ offset_bottom = 99.0
 scale = Vector2(0.46, 0.46)
 text = "Option 4"
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-115, 50)
+shape = SubResource("RectangleShape2D_rv1px")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="focus_entered" from="Option1" to="." method="_on_option_1_focus_entered"]
 [connection signal="gui_input" from="Option1" to="." method="_on_option_1_gui_input"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="child_entered_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]

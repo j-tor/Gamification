@@ -8,13 +8,13 @@ var ruleta = false
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("moveright"):
+	if Input.is_action_pressed("moveright2"):
 		velocity.x += 1
-	if Input.is_action_pressed("moveleft"):
+	if Input.is_action_pressed("moveleft2"):
 		velocity.x -= 1
-	if Input.is_action_pressed("movedown"):
+	if Input.is_action_pressed("movedown2"):
 		velocity.y += 1
-	if Input.is_action_pressed("moveup"):
+	if Input.is_action_pressed("moveup2"):
 		velocity.y -= 1
 
 

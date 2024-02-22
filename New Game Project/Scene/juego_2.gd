@@ -7,8 +7,24 @@ extends Node2D
 #Texto dentro de la burbujita
 @onready var bubbleText = $Sprite2D/RichTextLabel
 
+@onready var player1 = $playerlink
+@onready var player2 = $playerlink2
+
+
+@onready var PanelPre = $Panel
+
 var Matriz = [[0,0,0],[0,0,0],[0,0,0]]
-var ActualPlayer = 1
+var ActualPlayer = 0
+@onready var MatrizGraficaEquis = [[$equis, $equis2, $equis3], [$equis4, $equis5, $equis6],
+[$equis7, $equis8, $equis9]]
+
+@onready var MatrizGraficaCero = [[$cero, $cero2, $cero3],[$cero4, $cero5, $cero6],[$cero7, $cero8, $cero9]]
+
+var TurnoX0 = false
+var SeMueve = false
+var SePregunta = false
+var SeCuenta = false
+
 #Options, son los 4 textos donde cada uno tiene 1 opcion de las respuestas de una pregunta
 @onready var Option_1 = $Option1
 @onready var Option_2 = $Option2
@@ -27,37 +43,52 @@ var ActualPlayer = 1
 # perdemos
 @onready var Heart2 = $Heart2
 @onready var Heart3 = $Heart3
-
+@onready var Heart5 = $Heart5
+@onready var Heart6 = $Heart6
 
 var AnswerColor = "" #Color de respuesta, puede ser r g b o p
 var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
 var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
 var hearts = 3 # el numero de corazones que tenemos al inicio
+var hearts2 = 3
+
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
 		print(event.position)
-		if (163 <=event.position.x  and event.position.x <= 283) and (69 <= event.position.y and event.position.y <= 158):
-			# Espacio 1
-			print("Clic en el espacio 1")
-			Matriz[0][0]=ActualPlayer
-		elif (283 <=event.position.x  and event.position.x <= 385) and (69 <= event.position.y and event.position.y <= 158):
-			print("Clic en el espacio 2")
-		elif (385 <=event.position.x  and event.position.x <= 502) and (69 <= event.position.y and event.position.y <= 158):
-			print("Clic en el espacio 3")
-		elif (163 <=event.position.x  and event.position.x <= 283) and (158 <= event.position.y and event.position.y <= 265):
-			# Espacio 1
-			print("Clic en el espacio 4")
-		elif (283 <=event.position.x  and event.position.x <= 385) and (158 <= event.position.y and event.position.y <= 265):
-			print("Clic en el espacio 5")
-		elif (385 <=event.position.x  and event.position.x <= 502) and (158 <= event.position.y and event.position.y <= 265):
-			print("Clic en el espacio 6")
-		elif (163 <=event.position.x  and event.position.x <= 283) and (265 <= event.position.y and event.position.y <= 360):
-			# Espacio 1
-			print("Clic en el espacio 7")
-		elif (283 <=event.position.x  and event.position.x <= 385) and (265 <= event.position.y and event.position.y <= 360):
-			print("Clic en el espacio 8")
-		elif (385 <=event.position.x  and event.position.x <= 502) and (265 <= event.position.y and event.position.y <= 360):
-			print("Clic en el espacio 9")
+		if SePregunta:
+			if (136 <=event.position.x  and event.position.x <= 585) and (121 <= event.position.y and event.position.y <= 266):
+				ResponseColor="r"
+				actualMoment+=1
+				changeMoment(actualMoment)
+			elif (593 <=event.position.x  and event.position.x <= 1056) and (121 <= event.position.y and event.position.y <= 266):
+				ResponseColor="b"
+				actualMoment+=1
+				changeMoment(actualMoment)
+			
+			elif (136 <=event.position.x  and event.position.x <= 585) and (281 <= event.position.y and event.position.y <= 421):
+				ResponseColor="g"
+				actualMoment+=1
+				changeMoment(actualMoment)
+			elif (593 <=event.position.x  and event.position.x <= 1056) and (281 <= event.position.y and event.position.y <= 421):
+				ResponseColor="p"
+				actualMoment+=1
+				changeMoment(actualMoment)
+		#elif (283 <=event.position.x  and event.position.x <= 385) and (158 <= event.position.y and event.position.y <= 265):
+			#print("Clic en el espacio 5")
+			#Matriz[1][1]=ActualPlayer
+		#elif (385 <=event.position.x  and event.position.x <= 502) and (158 <= event.position.y and event.position.y <= 265):
+			#print("Clic en el espacio 6")
+			#Matriz[1][2]=ActualPlayer
+		#elif (163 <=event.position.x  and event.position.x <= 283) and (265 <= event.position.y and event.position.y <= 360):
+			## Espacio 1
+			#Matriz[2][0]=ActualPlayer
+			#print("Clic en el espacio 7")
+		#elif (283 <=event.position.x  and event.position.x <= 385) and (265 <= event.position.y and event.position.y <= 360):
+			#print("Clic en el espacio 8")
+			#Matriz[2][1]=ActualPlayer
+		#elif (385 <=event.position.x  and event.position.x <= 502) and (265 <= event.position.y and event.position.y <= 360):
+			#print("Clic en el espacio 9")
+			#Matriz[2][2]=ActualPlayer
 	
 func _ready():
 	#Todo esto se ejecuta al inicio, reiniciamos el tiempo
@@ -88,6 +119,30 @@ func _process(delta):
 #entonces se hace un cambio de momento pasamos de 
 # Inicio a Pregunta y de Pregunta a Respuesta y luego devuelta a Pregunta
 func _on_timer_timeout():
+
+
+	if(!SeMueve):
+		player1.position.x = 110
+		player1.position.y = 56
+		player2.position.x = 110
+		player2.position.y = 6
+
+
+	var ganador = verificar_ganador()
+	
+	if ganador == 1:
+		print("¡El jugador X ha ganado!")
+	elif ganador == 2:
+		print("¡El jugador O ha ganado!")
+	else:
+		print("No hay un ganador todavía.")
+	
+	
+	if(SeCuenta):
+		bubbleText.text = str(seconds)
+	
+	
+	
 	if seconds == 0:
 		if minutes > 0: 
 			minutes -=1 
@@ -96,14 +151,24 @@ func _on_timer_timeout():
 	if seconds > 0:
 		seconds-=1
 	else: 
-		actualMoment+=1
-		if hearts == 0: 
+	
+		if !(SeMueve or SePregunta):
+			actualMoment+=1
+		
+		if hearts == 0 or  hearts2 == 0: 
 			actualMoment=-1
+			
 		changeMoment(actualMoment)
 		HeartsChanger()
-		Time_Reset()
+		HeartsChanger2()
+		if(!SeCuenta):
+			
+			Time_Reset()
+		else:
+			
+			seconds=3
 		
-	$Label.text = str(minutes)+" : "+str(seconds) #Con esto pongo el temporizador en la izquierda arriba
+
 	
 	pass 
 
@@ -114,6 +179,13 @@ func HeartsChanger():
 		Heart3.hide()
 	elif hearts == 1:
 		Heart2.hide()
+		
+#esta funcion determina cuantos corazones hay que mostrar
+func HeartsChanger2():
+	if hearts2 == 2:
+		Heart6.hide()
+	elif hearts2 == 1:
+		Heart5.hide()
 
 #Reinicia el tiempo despues de 10 segundos
 func Time_Reset():
@@ -125,6 +197,10 @@ func Time_Reset():
 func matrizView_updater():
 	for i in range(len(Matriz)):
 		for j in range(len(Matriz[0])):
+			if(Matriz[i][j]==2): 
+				MatrizGraficaEquis[i][j].show()
+			if(Matriz[i][j]==1): 
+				MatrizGraficaCero[i][j].show()
 			
 
 func verificar_ganador():
@@ -137,19 +213,19 @@ func verificar_ganador():
 
 	# Verificar columnas
 	for j in range(3):
-		if Matriz[0][j] == Matriz[1][j] == Matriz[2][j] == 1:
+		if Matriz[0][j] == 1 and Matriz[1][j] == 1 and Matriz[2][j] == 1:
 			return 1
-		elif Matriz[0][j] == Matriz[1][j] == Matriz[2][j] == 2:
+		elif Matriz[0][j] == 2 and Matriz[1][j] == 2 and Matriz[2][j] == 2:
 			return 2
 
 	# Verificar diagonales
-	if Matriz[0][0] == Matriz[1][1] == Matriz[2][2] == 1:
+	if Matriz[0][0] == 1 and Matriz[1][1] == 1 and Matriz[2][2] == 1:
 		return 1
-	elif Matriz[0][0] == Matriz[1][1] == Matriz[2][2] == 2:
+	elif Matriz[0][0] == 2 and Matriz[1][1] == 2 and Matriz[2][2] == 2:
 		return 2
-	elif Matriz[0][2] == Matriz[1][1] == Matriz[2][0] == 1:
+	elif Matriz[0][2] == 1 and Matriz[1][1] == 1 and Matriz[2][0] == 1:
 		return 1
-	elif Matriz[0][2] == Matriz[1][1] == Matriz[2][0] == 2:
+	elif Matriz[0][2] == 2 and Matriz[1][1] == 2 and Matriz[2][0] == 2:
 		return 2
 
 	return 0  # No hay ganador
@@ -161,30 +237,30 @@ func verificar_ganador():
 
 #Cuando el usuario se mete al circulo rojo se ejecuta esta funcion
 func _on_area_2d_body_entered(body):
+	if SeMueve:
+		if(body.name == "playerlink"):
+			ActualPlayer=1
+			actualMoment+=1
+		if(body.name == "playerlink2"):
+			ActualPlayer=2
+			actualMoment+=1
+		changeMoment(actualMoment)
+	pass 
+
+func PanelShow():
+	PanelPre.show()
+	Option_1.show()
+	Option_2.show()
+	Option_3.show()
+	Option_4.show()
 	
-	print("rojo")
-	ResponseColor = "r"
-	pass 
-
-#Cuando el usuario se mete al circulo verde se ejecuta esta funcion
-func _on_area_2d_2_body_entered(body):
-	print("verde")
-	ResponseColor = "g"
-	pass 
-
-#Cuando el usuario se mete al circulo azul se ejecuta esta funcion
-func _on_area_2d_3_body_entered(body):
-	print("azul")
-	ResponseColor = "b"
-	pass 
-
-#Cuando el usuario se mete al circulo morado se ejecuta esta funcion
-func _on_area_2d_4_body_entered(body):
-	print("morado")
-	ResponseColor = "p"
-	pass 
-
-
+func PanelHide():
+	PanelPre.hide()
+	Option_1.hide()
+	Option_2.hide()
+	Option_3.hide()
+	Option_4.hide()
+		
 #En la siguiente funcion se establecen las preguntas, las 4 opciones y la respuesta para lo 10 momentos que existen
 #El momento 0 es el inicio 
 #(los return no hacen nada)
@@ -194,56 +270,51 @@ func _on_area_2d_4_body_entered(body):
 #Momento respuestas(2,4,6,8,10) - Tiempo donde se dice si la respuesta es correcta o incorrecta
 func changeMoment(decimal):
 	if decimal == 0:   #INICIO
-		bubbleText.text = "Bienvenido al combate por el conocimiento, te hare unas preguntas y responder bien te dara la oportunidad de enfretarme en un juego de Tic Tac"
+		bubbleText.text = "Bienvenidos al combate por el conocimiento, hare una cuenta regresiva y deberan correr a la meta para tener la oportunidad de responder mis preguntas"
 		
 		Option_1.text = ""
 		Option_2.text = ""
 		Option_3.text = ""
 		Option_4.text = ""
+		
+		
 		return "000"
-	elif decimal == 1: # Preg 1
-		AnswerColor = "b"
-		bubbleText.text = "Después del feudalismo medieval acudimos al surgimiento de una nueva clase social conocida como la: " 
-		
-		Option_1.text = "La monarquía"
-		Option_2.text = "El mercantilismo"
-		Option_3.text = "La burguesía"
-		Option_4.text = "El proletariado"
-	
+	elif decimal == 1: # Conteo
+		SeCuenta=true
+
 		return "001"
-	elif decimal == 2: 
-		if ResponseColor == AnswerColor:
-			bubbleText.text = "Respuesta Correcta (La burguesía)"
+	elif decimal == 2: #Ya
+		SeCuenta=false
+		bubbleText.text = "Ya!"
+		SeMueve=true
 		
-		else: 
-			bubbleText.text = "Incorrecto, la respuesta es La burguesía"
-		
-			hearts-=1
-			
-		Option_1.text = ""
-		Option_2.text = ""
-		Option_3.text = ""
-		Option_4.text = ""
 		return "010"
-	elif decimal == 3: # Preg 2
-		AnswerColor = "g"
-		bubbleText.text = "El renacimiento supone una época de absolutismo y nacionalismos, como el nacimiento de fuertes
-monarquías europeas centralizadas como:"
+	elif decimal == 3: # Preg 1
+		SeMueve=false
+		SePregunta=true
+		PanelShow()
 		
-		Option_1.text = "Grecia"
-		Option_2.text = "Inglaterra"
-		Option_3.text = "Yugoslavia"
-		Option_4.text = "Egipto"
-	
+		AnswerColor = "p"
+		bubbleText.text = "Player "+str(ActualPlayer)+", Filósofos que postulan las ideas innatas en el sujeto:"
+		
+		Option_1.text = "Empiristas"
+		Option_2.text = "Idealistas"
+		Option_3.text = "Racionalistas"
+		Option_4.text = "Innatistas"
+	#
 		return "011"
-	elif decimal == 4:
-		
+	elif decimal == 4: #Resp 1
+		SePregunta=false
+		PanelHide()
 		if ResponseColor == AnswerColor:
-			bubbleText.text = "Respuesta Correcta (Inglaterra)"
+			bubbleText.text = "Respuesta Correcta (Racionalistas)"
 
 		else: 
-			bubbleText.text = "Incorrecto, la respuesta es (Inglaterra)"
-			hearts-=1
+			bubbleText.text = "Incorrecto, la respuesta es (Racionalistas)"
+			if ActualPlayer == 1:
+				hearts-=1
+			else:
+				hearts2-=1
 			equis.show()
 			
 		Option_1.text = ""
@@ -252,52 +323,43 @@ monarquías europeas centralizadas como:"
 		Option_4.text = ""
 		
 		return "100"
-	elif decimal == 5: # Preg 3
-		AnswerColor = "r"
-		bubbleText.text = "Antes de la consolidación del estado moderno, Italia estuvo divida en pequeñas ciudades-estado
-normalmente enfrentadas entre si, como es el caso de:"
-		
-		Option_1.text = "Florencia-Napoli"
-		Option_2.text = "Ámsterdam-Cracovia"
-		Option_3.text = "Reims-Colonia"
-		Option_4.text = "Milán-Lourdes"
-	
-		return "101"
-	elif decimal == 6:
-		
-		if ResponseColor == AnswerColor:
-			bubbleText.text = "Respuesta Correcta (Florencia-Napoli)"
-		
-		else: 
-			bubbleText.text = "Incorrecto, la respuesta es (Florencia-Napoli)"
-			hearts-=1
-			
-		
-		Option_1.text = ""
-		Option_2.text = ""
-		Option_3.text = ""
-		Option_4.text = ""
-		
-		return "110"
-	elif decimal == 7:# Preg 4
-		AnswerColor = "g"
-		bubbleText.text = "La toma de Constantinopla supone un bloqueo comercial entre Europa y Asia (la ruta de la seda) y ocurrió
-en lo que hoy es actualmente:"
-		
-		Option_1.text = "Eslovaquia"
-		Option_2.text = "Estambul en Turquía"
-		Option_3.text = "Mesopotamia"
-		Option_4.text = "Jerusalén"
+	elif decimal == 5: # Conteo
+		equis.hide()
+		SeCuenta=true
 
-		return "111"
-	elif decimal == 8:
+		return "001"
+	elif decimal == 6: #Ya
+		SeCuenta=false
+		bubbleText.text = "Ya!"
+		SeMueve=true
 		
+		return "010"
+	elif decimal == 7: # Preg 1
+		SeMueve=false
+		SePregunta=true
+		PanelShow()
+		
+		AnswerColor = "p"
+		bubbleText.text = "Player "+str(ActualPlayer)+", De los siguientes filósofos selecciones el que no se considera Racionalista:"
+		
+		Option_1.text = "David Hume"
+		Option_2.text = "John Locke"
+		Option_3.text = "Nicolas Malebranch"
+		Option_4.text = "Francis Bacon"
+	#
+		return "011"
+	elif decimal == 8: #Resp 1
+		SePregunta=false
+		PanelHide()
 		if ResponseColor == AnswerColor:
-			bubbleText.text = "Respuesta Correcta (Estambul en Turquía)"
-			
+			bubbleText.text = "Respuesta Correcta (Nicolas Malebranch)"
+
 		else: 
-			bubbleText.text = "Incorrecto, la respuesta es (Estambul en Turquía)"
-			hearts-=1
+			bubbleText.text = "Incorrecto, la respuesta es (Nicolas Malebranch)"
+			if ActualPlayer == 1:
+				hearts-=1
+			else:
+				hearts2-=1
 			equis.show()
 			
 		Option_1.text = ""
@@ -305,36 +367,133 @@ en lo que hoy es actualmente:"
 		Option_3.text = ""
 		Option_4.text = ""
 		
-		return "111"
-	elif decimal == 9:# Preg 5
-		AnswerColor = "r"
-		bubbleText.text = "Resurge el interés por Grecia y Roma, junto al declive del sistema feudal, el crecimiento del comercio e
-innovaciones entre las que mencionamos:"
+		return "100"
+	elif decimal == 9: # Conteo
+		equis.hide()
+		SeCuenta=true
+
+		return "001"
+	elif decimal == 10: #Ya
+		SeCuenta=false
+		bubbleText.text = "Ya!"
+		SeMueve=true
 		
-		Option_1.text = "La imprenta y la brújula"
-		Option_2.text = "La rueda y la escritura"
-		Option_3.text = "Las máquinas y la producción"
-		Option_4.text = "La pólvora y La rueda"
+		return "010"
+	elif decimal == 11: # Preg 1
+		SeMueve=false
+		SePregunta=true
+		PanelShow()
+		
+		AnswerColor = "b"
+		bubbleText.text = "Player "+str(ActualPlayer)+", Es la doctrina que establece que todos nuestros conocimientos provienen de la razón:"
+		
+		Option_1.text = "Empirismo"
+		Option_2.text = "Criticismo"
+		Option_3.text = "Epistemología"
+		Option_4.text = "Racionalismo"
+	#
+		return "011"
+	elif decimal == 12: #Resp 1
+		SePregunta=false
+		PanelHide()
+		if ResponseColor == AnswerColor:
+			bubbleText.text = "Respuesta Correcta (Racionalismo)"
+
+		else: 
+			bubbleText.text = "Incorrecto, la respuesta es (Racionalismo)"
+			if ActualPlayer == 1:
+				hearts-=1
+			else:
+				hearts2-=1
+			equis.show()
+			
+		Option_1.text = ""
+		Option_2.text = ""
+		Option_3.text = ""
+		Option_4.text = ""
+		
+		return "100"
+	elif decimal == 13: # Conteo
+		equis.hide()
+		SeCuenta=true
+
+		return "001"
+	elif decimal == 14: #Ya
+		SeCuenta=false
+		bubbleText.text = "Ya!"
+		SeMueve=true
+		
+		return "010"
+	elif decimal == 15: # Preg 1
+		SeMueve=false
+		SePregunta=true
+		PanelShow()
+		
+		AnswerColor = "b"
+		bubbleText.text = "Player "+str(ActualPlayer)+", Uno de los siguientes filósofos, postula las ideas innatas en el sujeto:"
+		
+		Option_1.text = "Leibniz"
+		Option_2.text = "George Berkeley"
+		Option_3.text = "David Hume"
+		Option_4.text = "Hipatía"
+	#
+		return "011"
+	elif decimal == 16: #Resp 1
+		SePregunta=false
+		PanelHide()
+		if ResponseColor == AnswerColor:
+			bubbleText.text = "Respuesta Correcta (Leibniz)"
+
+		else: 
+			bubbleText.text = "Incorrecto, la respuesta es (Leibniz)"
+			if ActualPlayer == 1:
+				hearts-=1
+			else:
+				hearts2-=1
+			equis.show()
+			
+		Option_1.text = ""
+		Option_2.text = ""
+		Option_3.text = ""
+		Option_4.text = ""
+		
+		return "100"
 	
-		return "111"
-	elif decimal == 10:
+	elif decimal == 16: #Resp 1
+		equis.hide()
+		if hearts == hearts2:
+			bubbleText.text = "Tenemos un empate, ahora regresan a Inicio"
+		if hearts > hearts2:
+			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
+		if hearts < hearts2:
+			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
 		
-		if ResponseColor == AnswerColor:
-			bubbleText.text = "Respuesta Correcta (La imprenta y la brújula)"
-		
-		else: 
-			bubbleText.text = "Incorrecto, la respuesta es (La imprenta y la brújula)"
-			hearts-=1
-			equis.show()
-		Option_1.text = ""
-		Option_2.text = ""
-		Option_3.text = ""
-		Option_4.text = ""
-		
-		return "111"
+		return "100"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	elif decimal == -1:
 
-		bubbleText.text = "Perdiste, te quedaste sin vidas"
+		if hearts == hearts2:
+			bubbleText.text = "Tenemos un empate, ahora regresan a Inicio"
+		if hearts > hearts2:
+			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
+		if hearts < hearts2:
+			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
 		
 		
 		return "111"
@@ -348,4 +507,13 @@ innovaciones entre las que mencionamos:"
 
 func _on_option_1_gui_input(event):
 	print("clicked")
+	pass # Replace with function body.
+
+
+
+
+
+
+
+func _on_option_1_focus_entered():
 	pass # Replace with function body.
