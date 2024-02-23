@@ -59,8 +59,7 @@ func _on_button_2_pressed()-> void :
 		game_data.append({"user":$TextEdit2.text, "pass":$TextEdit.text})
 		_savedate()
 		$Window/RichTextLabel.text = "Usuario Creado"
-		
-		
+		_Salir()
 	POPUP.show()
 
 	
@@ -75,3 +74,9 @@ func _on_button_pressed():
 	POPUP.hide()
 	
 	pass # Replace with function body.
+func _Salir():
+	pass
+	#get_tree().paused = false
+	#get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="VideoIntroduccion"
+	#get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	#get_tree().get_nodes_in_group("crearUsuario")[0].queue_free()

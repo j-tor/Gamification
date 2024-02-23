@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0guc8wefk0jp"]
+
+[ext_resource type="VideoStream" path="res://img/VideoIntro.ogv" id="1_7cibr"]
+[ext_resource type="Script" path="res://Scene/VideoStreamPlayer.gd" id="2_ea47h"]
+
+[node name="NodoBaseVideoIntroduccion" type="Control" groups=["VideoIntroduccion"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_7cibr")
+autoplay = true
+expand = true
+script = ExtResource("2_ea47h")

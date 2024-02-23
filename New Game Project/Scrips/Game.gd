@@ -18,6 +18,9 @@ var MiniGameCastillo = preload("res://Scene/Royal_Valley-Minigame.tscn")
 var login = preload("res://LOGIN.tscn")
 var GalagaGame = preload("res://Scene/galaga_main.tscn")
 var EleccionGame = preload("res://Scene/juego_1.tscn")
+
+var VideoIntro = preload("res://Scene/nodo_base_video_introduccion.tscn")
+var CreateaUser = preload("res://CREATEUSER.tscn")
 func _ready():
 	#var nivel = mundo1.instantiate()
 	var nivel = login.instantiate()
@@ -47,6 +50,10 @@ func _verficar_nivel():
 			nuevo_nivel=GalagaGame
 		"EleccionGame":
 			nuevo_nivel= EleccionGame
+		"VideoIntroduccion":
+			nuevo_nivel=VideoIntro
+		"crearUsuario":
+			nuevo_nivel= CreateaUser
 	animacion.play("saliendo")
 
 func _siguiente_nivel():
