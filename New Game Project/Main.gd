@@ -89,8 +89,9 @@ func _dialogo():
 						
 		"Bruja":
 			dialogo_objeto = [
-					"He preparado dos caldos con el conocimiento Epistemefigther que te ayudaran en el siguiente combate.",#0
-					"El caldo azul de brindara todo el conocimiento Racionalizta",#1
-					"El caldo Rojo de brindara todo el conocimiento Empirista",#2
-					"Elije sabiamente cual tomar.....",#3
+					"He preparado dos caldos con el conocimiento Epistemefigther.",#0
+					"Estos caldos te van ayudar en tu siguiente combate.",#1
+					"El caldo azul de brindara todo el conocimiento Racionalizta",#2
+					"El caldo Rojo de brindara todo el conocimiento Empirista",#3
+					"Elije sabiamente cual tomar.....",#4
 					]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://do6ekgwn7qnko"]
 
 [ext_resource type="Script" path="res://Scrips/Rulet.gd" id="1_6h0oo"]
-[ext_resource type="Texture2D" path="res://img/pixilart-sprite.png" id="2_82g5v"]
+[ext_resource type="Texture2D" uid="uid://6jovsr7frnu6" path="res://img/pixilart-sprite.png" id="2_82g5v"]
 
 [sub_resource type="Animation" id="Animation_sab3f"]
 length = 0.001

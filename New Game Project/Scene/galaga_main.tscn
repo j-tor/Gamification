@@ -1,10 +1,10 @@
 [gd_scene load_steps=31 format=3 uid="uid://5yah34y3amht"]
 
 [ext_resource type="Script" path="res://Scrips/galaga_main.gd" id="1_pkta6"]
-[ext_resource type="PackedScene" path="res://Scene/Players-NPC/character_galaga.tscn" id="2_wxp3n"]
-[ext_resource type="Texture2D" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Minish Forest Minish Path.png" id="3_dx18c"]
-[ext_resource type="Texture2D" path="res://img/diana-bomerang.png" id="4_f62it"]
-[ext_resource type="Texture2D" path="res://img/Explocion.png" id="5_su34v"]
+[ext_resource type="PackedScene" uid="uid://cw88mibqsgstl" path="res://Scene/Players-NPC/character_galaga.tscn" id="2_wxp3n"]
+[ext_resource type="Texture2D" uid="uid://die04l15574j2" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Minish Forest Minish Path.png" id="3_dx18c"]
+[ext_resource type="Texture2D" uid="uid://d2qxmiq1t2xme" path="res://img/diana-bomerang.png" id="4_f62it"]
+[ext_resource type="Texture2D" uid="uid://sp7ofmoo0yqj" path="res://img/Explocion.png" id="5_su34v"]
 [ext_resource type="AudioStream" uid="uid://br55ug50rt33e" path="res://img/Assets/Sonidos/Explosion_00.mp3" id="6_d1yjt"]
 [ext_resource type="AudioStream" uid="uid://bfxyvwlq50kbm" path="res://img/Assets/Sonidos/Collect_Point_01.mp3" id="7_chqmw"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqit84eq7pmnw"]
 
 [ext_resource type="Script" path="res://CREATEUSER.gd" id="1_notm8"]
-[ext_resource type="Texture2D" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_u7ic6"]
+[ext_resource type="Texture2D" uid="uid://cpw8mubcrkws4" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_u7ic6"]
 
 [node name="CreateUser" type="Control" groups=["crearUsuario"]]
 layout_mode = 3

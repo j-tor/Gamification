@@ -3026,6 +3026,11 @@ layer_1/y_sort_enabled = true
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(1310728, 196613, 536870932, 1376264, 196613, 536870931, 1441800, 196613, 536870930, 1507336, 196613, 536870929, 1310729, 262149, 536870932, 1376265, 262149, 536870931, 1441801, 262149, 536870930, 1507337, 262149, 536870929, 786439, 393216, 9, 786440, 458752, 9, 786441, 524288, 9, 851975, 393216, 536870921, 851976, 458752, 536870921, 851977, 524288, 536870921)
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(132, 80)
+sprite_frames = SubResource("SpriteFrames_fbdri")
+frame_progress = 0.117926
+
 [node name="playerlink" parent="." instance=ExtResource("4_tbwb7")]
 position = Vector2(153, 277)
 
@@ -3039,12 +3044,8 @@ limit_right = 270
 limit_bottom = 410
 editor_draw_limits = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(132, 80)
-sprite_frames = SubResource("SpriteFrames_fbdri")
-frame_progress = 0.117926
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(186.5, 74.75)
 scale = Vector2(2.5625, 2.07895)
 sprite_frames = SubResource("SpriteFrames_52kb6")
@@ -3067,8 +3068,8 @@ position = Vector2(103, 120)
 shape = SubResource("CircleShape2D_4eyre")
 
 [node name="Bruja" type="Area2D" parent="." groups=["objeto"]]
-collision_layer = 48
-collision_mask = 48
+collision_layer = 49
+collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bruja"]
 position = Vector2(135, 85)
