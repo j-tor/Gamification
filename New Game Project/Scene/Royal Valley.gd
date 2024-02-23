@@ -20,4 +20,7 @@ func _on_area_2d_area_entered(area):
 
 
 func _on_area_2d_2_area_entered(area):
-	pass # Replace with function body.
+	if area.is_in_group("player"):
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="EleccionGame"
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("royal")[0].queue_free()
