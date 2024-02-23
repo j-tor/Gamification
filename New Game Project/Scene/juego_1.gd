@@ -38,7 +38,7 @@ var AnswerColor = "" #Color de respuesta, puede ser r g b o p
 var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
 var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
 var hearts = 3 # el numero de corazones que tenemos al inicio
-
+var regresarInicio=false
 func _ready():
 	#Todo esto se ejecuta al inicio, reiniciamos el tiempo
 	#establecemos el primer momento (que es Inicio {0})
@@ -77,8 +77,12 @@ func _on_timer_timeout():
 		seconds-=1
 	else: 
 		actualMoment+=1
-		if hearts == 0: 
-			actualMoment=-1
+		if !regresarInicio: 
+			if hearts == 0: 
+				actualMoment=-1
+				regresarInicio=true
+		else: 
+			actualMoment=-2
 		changeMoment(actualMoment)
 		HeartsChanger()
 		Time_Reset()
@@ -285,15 +289,24 @@ innovaciones entre las que mencionamos:"
 		
 		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
 		return "111"
+	elif decimal == 11:
+		
+		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
+		var change_scene2 = load("res://mundo.tscn")
+		get_tree().change_scene_to_packed(change_scene2)
+		change_scene2.instantiate()
+		return "111"
 	elif decimal == -1:
 		equis.hide()
-		bubbleText.text = "Perdiste, te quedaste sin vidas"
-		
+		bubbleText.text = "Perdiste, te quedaste sin vidas, vuelves a la Ruleta"
+	
 		
 		return "111"
 	elif decimal == -2:
 		equis.hide()
-		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas"
+		var change_scene2 = load("res://mundo.tscn")
+		get_tree().change_scene_to_packed(change_scene2)
+		change_scene2.instantiate()
 		
 		
 		return "111"

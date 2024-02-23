@@ -51,6 +51,7 @@ var actualMoment = 0  # el momento actual, determina si estamos en el inicio, un
 var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
 var hearts = 3 # el numero de corazones que tenemos al inicio
 var hearts2 = 3
+var regresarInicio=false
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
@@ -155,8 +156,14 @@ func _on_timer_timeout():
 		if !(SeMueve or SePregunta):
 			actualMoment+=1
 		
-		if hearts == 0 or  hearts2 == 0: 
-			actualMoment=-1
+		if !regresarInicio: 
+			if hearts == 0 or  hearts2 == 0: 
+				actualMoment=-1
+				regresarInicio=true
+		else: 
+			actualMoment=-2
+		
+		
 			
 		changeMoment(actualMoment)
 		HeartsChanger()
@@ -467,9 +474,20 @@ func changeMoment(decimal):
 			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
 		if hearts < hearts2:
 			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
-		
-		return "100"
 	
+		return "100"
+	elif decimal == 17: #Resp 1
+		equis.hide()
+		if hearts == hearts2:
+			bubbleText.text = "Tenemos un empate, ahora regresan a Inicio"
+		if hearts > hearts2:
+			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
+		if hearts < hearts2:
+			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
+		var change_scene2 = load("res://mundo.tscn")
+		get_tree().change_scene_to_packed(change_scene2)
+		change_scene2.instantiate()
+		return "100"	
 	
 	
 	
@@ -495,6 +513,19 @@ func changeMoment(decimal):
 		if hearts < hearts2:
 			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
 		
+		
+		return "111"
+	elif decimal == -2:
+
+		if hearts == hearts2:
+			bubbleText.text = "Tenemos un empate, ahora regresan a Inicio"
+		if hearts > hearts2:
+			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
+		if hearts < hearts2:
+			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
+		var change_scene2 = load("res://mundo.tscn")
+		get_tree().change_scene_to_packed(change_scene2)
+		change_scene2.instantiate()
 		
 		return "111"
 	else:
