@@ -478,15 +478,14 @@ func changeMoment(decimal):
 		return "100"
 	elif decimal == 17: #Resp 1
 		equis.hide()
+		print("AAAAAAAAAAAAAAAa")
 		if hearts == hearts2:
-			bubbleText.text = "Tenemos un empate, ahora regresan a Inicio"
+			bubbleText.text = "ATenemos un empate, ahora regresan a Inicio"
 		if hearts > hearts2:
 			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
 		if hearts < hearts2:
 			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
-		var change_scene2 = load("res://mundo.tscn")
-		get_tree().change_scene_to_packed(change_scene2)
-		change_scene2.instantiate()
+		
 		return "100"	
 	
 	
@@ -516,17 +515,17 @@ func changeMoment(decimal):
 		
 		return "111"
 	elif decimal == -2:
-
+		print("AAAAAAAAAAAAAAAa")
 		if hearts == hearts2:
-			bubbleText.text = "Tenemos un empate, ahora regresan a Inicio"
+			bubbleText.text = "ATenemos un empate, ahora regresan a Inicio"
 		if hearts > hearts2:
 			bubbleText.text = "Jugador 1 Gana, ahora regresan a Inicio "
 		if hearts < hearts2:
 			bubbleText.text = "Jugador 2 Gana, ahora regresan a Inicio"
+		
 		var change_scene2 = load("res://mundo.tscn")
 		get_tree().change_scene_to_packed(change_scene2)
 		change_scene2.instantiate()
-		
 		return "111"
 	else:
 		
