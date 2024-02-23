@@ -93,3 +93,9 @@ func _on_entrada_them_ruleta_area_entered(area):
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "EleccionBando"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("mundo")[0].queue_free()
+
+
+func _on_entrar_wicth_area_entered(area):
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "royal"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("mundo")[0].queue_free()

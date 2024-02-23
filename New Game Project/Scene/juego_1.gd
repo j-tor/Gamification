@@ -33,7 +33,8 @@ extends Node2D
 @onready var Heart2 = $Heart2
 @onready var Heart3 = $Heart3
 
-
+var RespuestasCorrectas=0
+var RespuestasIncorrectas=0
 var AnswerColor = "" #Color de respuesta, puede ser r g b o p
 var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
 var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
@@ -60,7 +61,9 @@ var Dminutes=0
 
 
 func _process(delta):
-	pass
+	if(RespuestasCorrectas==7):
+		_Ganastes()
+	
 
 
 #esta funcion se ejecuta cada segundo, es para determinar el tiempo que ha pasado
@@ -166,6 +169,7 @@ func changeMoment(decimal):
 	elif decimal == 2: 
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (La burguesía)"
+			RespuestasCorrectas+=1
 			cheque.show()
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es La burguesía"
@@ -192,6 +196,7 @@ monarquías europeas centralizadas como:"
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (Inglaterra)"
+			RespuestasCorrectas+=1
 			cheque.show()
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (Inglaterra)"
@@ -219,6 +224,7 @@ normalmente enfrentadas entre si, como es el caso de:"
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (Florencia-Napoli)"
+			RespuestasCorrectas+=1
 			cheque.show()
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (Florencia-Napoli)"
@@ -246,6 +252,7 @@ en lo que hoy es actualmente:"
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (Estambul en Turquía)"
+			RespuestasCorrectas+=1
 			actualMoment=-2
 			cheque.show()
 		else: 
@@ -274,6 +281,7 @@ innovaciones entre las que mencionamos:"
 		
 		if ResponseColor == AnswerColor:
 			bubbleText.text = "Respuesta Correcta (La imprenta y la brújula)"
+			RespuestasCorrectas+=1
 			cheque.show()
 		else: 
 			bubbleText.text = "Incorrecto, la respuesta es (La imprenta y la brújula)"
@@ -315,7 +323,9 @@ innovaciones entre las que mencionamos:"
 		return "NA"
 	pass
 
-
+func _Ganastes():
+	bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
+	$Button.show()
 func _on_button_pressed():
 	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="royal"
 	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
