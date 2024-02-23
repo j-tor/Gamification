@@ -292,9 +292,9 @@ innovaciones entre las que mencionamos:"
 	elif decimal == 11:
 		
 		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
-		var change_scene2 = load("res://mundo.tscn")
-		get_tree().change_scene_to_packed(change_scene2)
-		change_scene2.instantiate()
+		#var change_scene2 = load("res://mundo.tscn")
+		#get_tree().change_scene_to_packed(change_scene2)
+		#change_scene2.instantiate()
 		return "111"
 	elif decimal == -1:
 		equis.hide()
@@ -304,9 +304,9 @@ innovaciones entre las que mencionamos:"
 		return "111"
 	elif decimal == -2:
 		equis.hide()
-		var change_scene2 = load("res://mundo.tscn")
-		get_tree().change_scene_to_packed(change_scene2)
-		change_scene2.instantiate()
+		#var change_scene2 = load("res://mundo.tscn")
+		#get_tree().change_scene_to_packed(change_scene2)
+		#change_scene2.instantiate()
 		
 		
 		return "111"
@@ -314,3 +314,9 @@ innovaciones entre las que mencionamos:"
 		ResetChecker()
 		return "NA"
 	pass
+
+
+func _on_button_pressed():
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="royal"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("EleccionGame")[0].queue_free()

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://tjoa2ddr3skp" path="res://img/Point3.png" id="5_3n4ml"]
 [ext_resource type="Texture2D" uid="uid://bs1ha81bvcmt2" path="res://img/Bubble.png" id="5_nuxe0"]
 [ext_resource type="Texture2D" uid="uid://ck7rrjcjqkpbw" path="res://img/Point4.png" id="6_uuxa1"]
-[ext_resource type="Texture2D" path="res://img/Zelda3Sheet1_scaled_5x_minified.png" id="8_6hkcm"]
+[ext_resource type="Texture2D" uid="uid://bem4q36oflnvp" path="res://img/Zelda3Sheet1_scaled_5x_minified.png" id="8_6hkcm"]
 [ext_resource type="Texture2D" uid="uid://dgk3ah5r2s3of" path="res://img/twitter.png" id="10_r0rgh"]
 [ext_resource type="Texture2D" uid="uid://d2tcb6f0tce1g" path="res://img/cheque.png" id="11_hyx7s"]
 [ext_resource type="Texture2D" uid="uid://bjrrexwf2k6i8" path="res://img/heart.png" id="12_e0cvs"]
@@ -413,7 +413,7 @@ radius = 14.0357
 [sub_resource type="CircleShape2D" id="CircleShape2D_340mr"]
 radius = 15.1327
 
-[node name="Juego1" type="Node2D"]
+[node name="Juego1" type="Node2D" groups=["EleccionGame"]]
 script = ExtResource("1_5qrih")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -586,6 +586,13 @@ position = Vector2(124, -11.7225)
 scale = Vector2(0.07, 0.0608071)
 texture = ExtResource("12_e0cvs")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 96.0
+offset_top = 142.0
+offset_right = 173.0
+offset_bottom = 173.0
+text = "Regresar"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="child_entered_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
@@ -593,3 +600,4 @@ texture = ExtResource("12_e0cvs")
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_4_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
