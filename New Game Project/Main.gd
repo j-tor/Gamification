@@ -6,6 +6,7 @@ var objetivo_player  = 1
 var banco
 var juego
 var bando=""
+var bruja=false
 #dialogos
 var color 
 var GreeGame=false
@@ -32,9 +33,8 @@ func _game():
 
 func _dialogo():
 	if bando == "Racionalista" || bando == "Empirista":
-		color = true
-		
-		
+
+		seleccionado = true
 	else:
 		color =false
 	
@@ -59,13 +59,13 @@ func _dialogo():
 					"Has elejido el camino Empirista. . . . . . . . . .",#0
 					"Dirigete al castillo para el combate por el conocimiento",#1
 					]
-
-			else:
+				
+			elif bando=="":
 				dialogo_objeto = [
 					"Sopa del conocimiento Empirista. . . . . . ",#0
 					"Habla con la buja para poder tomarla. . . .",#1
 					]
-			if  seleccionado== true:
+			if seleccionado == true && color==true :
 				dialogo_objeto = [
 						"Ya elejiste el bando. . . . . . ",#0
 						]
@@ -75,13 +75,14 @@ func _dialogo():
 					"Has elejido el camino Racionalista. . . . . . . . . .",#0
 					"Dirigete al castillo para el combate por el conocimiento",#1
 					]
-				
-			else:
+
+			elif bando=="":
 				dialogo_objeto = [
 					"Sopa del conocimiento Racionalista. . . . . . ",#0
 					"Habla con la buja para poder tomarla. . . .",#1
 					]
-			if  seleccionado== true:
+				
+			if seleccionado == true && color==true :
 				dialogo_objeto = [
 						"Ya elejiste el bando. . . . . . ",#0
 						]

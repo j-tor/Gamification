@@ -40,3 +40,8 @@ func update_progressbar():
 func _on_button_pressed():
 	Input.action_press("ui_accept")
 	
+
+
+func _on_animation_player_animation_finished(anim_name):
+	$"../r_b/Skull"._ready()
+	pass # Replace with function body.

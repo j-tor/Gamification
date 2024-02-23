@@ -33,7 +33,7 @@ func _on_animation_player_animation_finished(anim_name):
 			get_tree().get_nodes_in_group(str(enemigo))[0].damage_recibido = damage
 			get_tree().get_nodes_in_group(str(enemigo))[0].vida -= damage
 			get_tree().get_nodes_in_group(str(enemigo))[0]._damage()
-			$".".global_position = Vector2(955,307)
+			$".".global_position = Vector2(536,316)
 			$AnimationPlayer.play("parado")
 			Main.ataque_jugador = false
 

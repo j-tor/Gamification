@@ -97,6 +97,7 @@ func responder():
 		elif respuesta == 2:
 			$Resultado.text = "Correcto"
 			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+			$r_b/Skull.dead()
 		elif  respuesta == 3:
 			$Resultado.text = "incorecto"
 			$Node2D.vida -= damage
@@ -111,6 +112,7 @@ func responder():
 		elif  respuesta == 3:
 			$Resultado.text = "Correcto"
 			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+			$r_c/Skull.dead()
 			
 			
 	if pregunta_numero == 2:
@@ -120,6 +122,7 @@ func responder():
 		elif respuesta == 2:
 			$Resultado.text = "Correcto"
 			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+			$r_b/Skull.dead()
 		elif  respuesta == 3:
 			$Resultado.text = "incorecto"
 			$Node2D.vida -= damage
@@ -130,7 +133,8 @@ func responder():
 			$Node2D.vida -= damage
 		elif respuesta == 2:
 			$Resultado.text = "Correcto"
-			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+			$Node2D2/ProgressBar.value += 1 * 100/ 6
+			$r_b/Skull.dead()
 		elif  respuesta == 3:
 			$Resultado.text = "incorecto"
 			$Node2D.vida -= damage
@@ -141,7 +145,8 @@ func responder():
 			$Node2D.vida -= damage
 		elif respuesta == 2:
 			$Resultado.text = "Correcto"
-			$Node2D2/ProgressBar.value += 1 * 100/ 6 
+			$Node2D2/ProgressBar.value += 1 * 100/ 6
+			$r_b/Skull.dead()
 		elif  respuesta == 3:
 			$Resultado.text = "incorecto"
 			$Node2D.vida -= damage
@@ -154,6 +159,8 @@ func _on_r_a_pressed():
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
 	$r_a/Skull._damage()
+		
+	
 	
 
 
@@ -167,6 +174,10 @@ func _on_r_b_pressed():
 	$cursor_B.visible = true
 	$Node2D.position=Vector2(536,316)
 	$r_b/Skull._damage()
+	
+	if pregunta_numero==0 && respuesta == 2|| pregunta_numero==2 && respuesta == 2 ||pregunta_numero==3 && respuesta == 2||pregunta_numero==4 && respuesta == 2:
+			$r_b/Skull.dead()
+	
 
 func _on_r_c_pressed():
 	$Node2D._animacion_ataque()
@@ -176,6 +187,8 @@ func _on_r_c_pressed():
 	$cursor_C.visible = true
 	$Node2D.position=Vector2(536,316)
 	$r_c/Skull._damage()
+	if pregunta_numero==1 && respuesta == 3:
+			$r_c/Skull.dead()
 	
 
 func _on_r_c_button_up():
@@ -216,6 +229,7 @@ func _on_damage_animation_finished():
 
 func _on_regresar_pressed():
 				#get_tree().paused = false
+				Main.Vida_base+=20
 				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
 				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()

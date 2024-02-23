@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://difcwu8gt56yf"]
+[gd_scene load_steps=11 format=3 uid="uid://difcwu8gt56yf"]
 
 [ext_resource type="Texture2D" uid="uid://cwpmfk3jp23ot" path="res://img/2 Link - Copy.png" id="1_vcta1"]
+[ext_resource type="Script" path="res://Scene/Players-NPC/player_atack.gd" id="1_vmcxh"]
 [ext_resource type="Script" path="res://Scrips/atacandoplayer.gd" id="2_he5xf"]
 [ext_resource type="AudioStream" uid="uid://clnh514tjfxex" path="res://Music/Attack3.ogg" id="3_fq661"]
 [ext_resource type="Texture2D" uid="uid://df3yj63gh1527" path="res://img/cursor.png" id="4_j180d"]
@@ -122,6 +123,7 @@ _data = {
 size = Vector2(34.5, 46)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_vmcxh")
 
 [node name="atacando" type="Sprite2D" parent="."]
 position = Vector2(-24.3124, 9.81244)
@@ -181,3 +183,9 @@ offset_bottom = 31.0
 [node name="Button" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Atack"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(980, 502)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="atacando" method="_on_animation_player_animation_finished"]

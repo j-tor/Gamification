@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bw57hlikvgg7u"]
+[gd_scene load_steps=23 format=3 uid="uid://cbgg3hpiagfxf"]
 
 [ext_resource type="Script" path="res://Scrips/Skull.gd" id="1_waejl"]
-[ext_resource type="Texture2D" uid="uid://duc7oaa6fk3b8" path="res://img/34764.png" id="2_0libf"]
+[ext_resource type="Texture2D" path="res://img/34764.png" id="2_0libf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y13to"]
 atlas = ExtResource("2_0libf")
@@ -26,6 +26,30 @@ region = Rect2(114, 180, 57, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r771c"]
 atlas = ExtResource("2_0libf")
 region = Rect2(171, 180, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tqya"]
+atlas = ExtResource("2_0libf")
+region = Rect2(0, 252, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o512t"]
+atlas = ExtResource("2_0libf")
+region = Rect2(64, 252, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3chku"]
+atlas = ExtResource("2_0libf")
+region = Rect2(390, 260, 65, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bueu0"]
+atlas = ExtResource("2_0libf")
+region = Rect2(520, 260, 65, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5dff"]
+atlas = ExtResource("2_0libf")
+region = Rect2(455, 260, 65, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tum1"]
+atlas = ExtResource("2_0libf")
+region = Rect2(585, 260, 65, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5crnb"]
 atlas = ExtResource("2_0libf")
@@ -82,6 +106,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3tqya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o512t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3chku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bueu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5dff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tum1")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5crnb")
 }, {
 "duration": 1.0,
@@ -114,9 +161,7 @@ script = ExtResource("1_waejl")
 position = Vector2(57.25, 50.5)
 scale = Vector2(1.92105, 1.65)
 sprite_frames = SubResource("SpriteFrames_nxgqc")
-animation = &"damage"
-frame = 5
-frame_progress = 1.0
+animation = &"idle"
 flip_h = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -40,7 +40,7 @@ func updateAnimation():
 func _physics_process(delta):
 	if mover == true:
 		
-		if objeto == true:
+		if objeto == true :
 			if Input.is_action_just_pressed("ui_accept"):
 				$Macro.visible = true
 				Main._dialogo()
@@ -48,11 +48,11 @@ func _physics_process(delta):
 				print(" Reproducir Dialogo")
 				#if bruja == true:
 					#Main.bando="Racionalista"
-				if bando == false:
+				if Main.bruja ==true:
 					bruja = true
-
-				else:
-					bruja = false
+				if Main.seleccionado==true:
+					Main.color = true
+			
 
 				
 				
@@ -112,6 +112,7 @@ func _on_detec_obj_area_entered(area):
 	if area.is_in_group("Bruja"):
 		objeto = true
 		bando = true
+		bruja=true
 		Main.nombre_objeto = area.name
 		print("Adentro ",area.name)
 		
@@ -139,6 +140,7 @@ func _on_detec_obj_area_entered(area):
 		print("Adentro ",area.name)
 	print(Main.bando)
 	print(bruja)
+	print(Main.bruja)
 	print("bruja")
 	print(bando)
 	print("bando")

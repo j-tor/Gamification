@@ -180,6 +180,7 @@ func _validacion():
 		$PreguntasGame.hide()
 		$FinalGame.show()
 		$FinalGame/ganastespoints.text="Points: "+str(points)
+		Main.Vida_base+=20
 	elif points<0:
 		#get_tree().paused = true
 		$CharacterGalaga._Lose()

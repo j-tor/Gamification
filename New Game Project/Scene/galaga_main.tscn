@@ -2500,6 +2500,7 @@ position = Vector2(492, 561)
 
 [node name="ColorRect" type="ColorRect" parent="PreguntasGame"]
 anchors_preset = -1
+anchor_top = -0.100309
 anchor_right = 0.227431
 anchor_bottom = -0.100309
 offset_left = -7.0
@@ -2511,6 +2512,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Pregunta" type="Label" parent="PreguntasGame"]
 anchors_preset = -1
+anchor_top = -0.0216049
 anchor_right = 0.0520833
 anchor_bottom = -0.0216049
 offset_left = 8.0

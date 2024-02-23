@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw1p7560p8a6y"]
+[gd_scene load_steps=5 format=3 uid="uid://bstro0ag02dsd"]
 
 [ext_resource type="Script" path="res://saver.gd" id="1_qy5mt"]
-[ext_resource type="Texture2D" uid="uid://cpw8mubcrkws4" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_t3j2i"]
+[ext_resource type="Texture2D" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_t3j2i"]
 [ext_resource type="Script" path="res://Button.gd" id="3_o1puc"]
 [ext_resource type="Script" path="res://Button_Login.gd" id="3_wnkll"]
 
