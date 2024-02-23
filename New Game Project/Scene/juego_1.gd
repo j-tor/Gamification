@@ -281,6 +281,10 @@ innovaciones entre las que mencionamos:"
 		Option_4.text = ""
 		
 		return "111"
+	elif decimal == 11:
+		
+		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
+		return "111"
 	elif decimal == -1:
 		equis.hide()
 		bubbleText.text = "Perdiste, te quedaste sin vidas"
