@@ -6,6 +6,8 @@ var speed =280
 var mover = true
 var objeto = false
 var ruleta = false
+var bando = false
+var bruja = false
 
 func get_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -37,13 +39,23 @@ func updateAnimation():
 
 func _physics_process(delta):
 	if mover == true:
+		
 		if objeto == true:
 			if Input.is_action_just_pressed("ui_accept"):
 				$Macro.visible = true
 				Main._dialogo()
 				$Macro/Control.ingresar_dialogo()
-				mover = false
 				print(" Reproducir Dialogo")
+				#if bruja == true:
+					#Main.bando="Racionalista"
+				if bando == false:
+					bruja = true
+
+				else:
+					bruja = false
+
+				
+				
 		if ruleta == true:
 				if Input.is_action_just_pressed("interact"):
 						if ruleta == true:
@@ -95,31 +107,83 @@ func _on_detec_obj_area_entered(area):
 	if area.is_in_group("objeto"):
 		Main.nombre_objeto = area.name
 		objeto = true
-		print("adentro ",area.name)
+		print("Adentro ",area.name)
+		
+	if area.is_in_group("Bruja"):
+		objeto = true
+		bando = true
+		Main.nombre_objeto = area.name
+		print("Adentro ",area.name)
+		
 		
 	if area.is_in_group("Ruleta"):
 		Main.nombre_objeto = area.name
 		ruleta = true
-		print("adentro ",area.name)
+		print("Adentro ",area.name)
+		
+	if area.is_in_group("Empirista"):
+		objeto =true
+		Main.nombre_objeto = area.name
+		if bruja ==true:
+			Main.bando="Empirista"
+		print(Main.bando)
+		
+		print("Adentro ",area.name)
+		
+	if area.is_in_group("Racionalista"):
+		objeto = true
+		Main.nombre_objeto = area.name
+		if bruja ==true:
+			Main.bando="Racionalista"
+		print(Main.bando)
+		print("Adentro ",area.name)
+	print(Main.bando)
+	print(bruja)
+	print("bruja")
+	print(bando)
+	print("bando")
 	
 	
 
 func _on_detec_obj_area_exited(area):
 	if area.is_in_group("objeto"):
 		objeto = false
-		print("afuera")
+		print("Afuera")
 	if area.is_in_group("Ruleta"):
 		ruleta = false
-		print("afuera ruleta")
+		print("Afuera ruleta")
+		
+	if area.is_in_group("Empirista"):
+		objeto = false
+		Main.nombre_objeto = area.name
+		print("Afuera ",area.name)
+		
+	if area.is_in_group("Racionalista"):
+		objeto = false
+		Main.nombre_objeto = area.name
+		print("Afuera ",area.name)
+		
+	if area.is_in_group("Bruja"):
+		objeto = true
+
+		bando=true
+		Main.nombre_objeto = area.name
+		print("Afuera ",area.name)
+		print(bando)
 		
 		
 
 
 func _on_area_2d_2_area_entered(area):
-	if area.is_in_group("objeto"):
+	if area.is_in_groupx("objeto"):
 		objeto = false
 		print("afuera")
 	if area.is_in_group("Ruleta"):
 		ruleta = false
-		print("afuera ruleta")	
+		print("afuera ruleta")
+		
+	if area.is_in_group("Empirista"):
+		print("afuera")
+	if area.is_in_group("Racionalista"):
+		print("afuera")
 		

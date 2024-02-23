@@ -2477,7 +2477,9 @@ font_size = 64
 font_size = 48
 
 [node name="GalagaMain" type="Node2D" groups=["Galaga"]]
+position = Vector2(1, 0)
 script = ExtResource("1_pkta6")
+metadata/_edit_horizontal_guides_ = [192.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_p8h4q")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc48nr5i0jpn0"]
+[gd_scene load_steps=20 format=3 uid="uid://cc48nr5i0jpn0"]
 
 [ext_resource type="Texture2D" uid="uid://da7vx1echyuik" path="res://img/TMC_Syrup_the_Witch's_Hut_Interior.png" id="1_1djkm"]
 [ext_resource type="Script" path="res://Scene/Witchcave.gd" id="1_at7ab"]
@@ -3002,6 +3002,15 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jo868"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4eyre"]
+radius = 11.0454
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vemtm"]
+height = 34.0
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_at7ab")
 
@@ -3038,3 +3047,25 @@ position = Vector2(186.5, 74.75)
 scale = Vector2(2.5625, 2.07895)
 sprite_frames = SubResource("SpriteFrames_52kb6")
 frame_progress = 0.510271
+
+[node name="Empirista" type="Area2D" parent="." groups=["Empirista", "objeto"]]
+collision_layer = 49
+collision_mask = 49
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Empirista"]
+position = Vector2(168, 120)
+shape = SubResource("CircleShape2D_jo868")
+
+[node name="Racionalista" type="Area2D" parent="." groups=["Racionalista", "objeto"]]
+collision_layer = 49
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Racionalista"]
+position = Vector2(103, 120)
+shape = SubResource("CircleShape2D_4eyre")
+
+[node name="Bruja" type="Area2D" parent="." groups=["objeto"]]
+collision_layer = 49
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bruja"]
+position = Vector2(135, 85)
+shape = SubResource("CapsuleShape2D_vemtm")
