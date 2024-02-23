@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b17urj0uub2uw"]
+[gd_scene load_steps=6 format=3 uid="uid://do6ekgwn7qnko"]
 
 [ext_resource type="Script" path="res://Scrips/Rulet.gd" id="1_6h0oo"]
-[ext_resource type="Texture2D" uid="uid://6jovsr7frnu6" path="res://img/pixilart-sprite.png" id="2_82g5v"]
+[ext_resource type="Texture2D" path="res://img/pixilart-sprite.png" id="2_82g5v"]
 
 [sub_resource type="Animation" id="Animation_sab3f"]
 length = 0.001
@@ -41,7 +41,7 @@ _data = {
 "Role": SubResource("Animation_vf5bt")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 position = Vector2(305, 215)
 script = ExtResource("1_6h0oo")
 
