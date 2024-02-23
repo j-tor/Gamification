@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var speed =280
-
 @onready var animations = $AnimationPlayer
 var mover = true
 var objeto = false
@@ -10,10 +9,18 @@ var bando = false
 var bruja = false
 
 func get_input():
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_dir * speed
-	
-				
+	velocity = Vector2.ZERO
+	if Input.is_action_pressed("moveright"):
+		velocity.x += 1
+	if Input.is_action_pressed("moveleft"):
+		velocity.x -= 1
+	if Input.is_action_pressed("movedown"):
+		velocity.y += 1
+	if Input.is_action_pressed("moveup"):
+		velocity.y -= 1
+
+
+	velocity = velocity.normalized() * speed	
 	
 func updateAnimation():
 	

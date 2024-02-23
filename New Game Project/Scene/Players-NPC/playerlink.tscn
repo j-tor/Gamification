@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxtcub1fb3p5u"]
+[gd_scene load_steps=17 format=3 uid="uid://dxtcub1fb3p5u"]
 
 [ext_resource type="Script" path="res://Scrips/playerlink.gd" id="1_0bc7g"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_rh17t"]
@@ -9,6 +9,7 @@
 size = Vector2(12, 10)
 
 [sub_resource type="Animation" id="Animation_bx8yn"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,6 +40,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_6m3id"]
+resource_name = "new_animation"
+
 [sub_resource type="Animation" id="Animation_imhk1"]
 resource_name = "runDown"
 length = 0.9
@@ -66,7 +70,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.1, 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(-0.1, 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [50, 59, 51, 52, 53, 54, 55, 56, 59]
@@ -106,7 +110,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_m35oc"]
 resource_name = "runWalk"
-length = 4.5
+length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -115,16 +119,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.2, 3.2, 4.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 1, 0]
+"values": [0, 2, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gbglr"]
 _data = {
 "RESET": SubResource("Animation_bx8yn"),
 "idle": SubResource("Animation_jdvej"),
+"new_animation": SubResource("Animation_6m3id"),
 "runDown": SubResource("Animation_imhk1"),
 "runLeft": SubResource("Animation_pj5j0"),
 "runRight": SubResource("Animation_ccm4e"),
