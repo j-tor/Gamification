@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bfqwnca0i1w3n"]
+[gd_scene load_steps=29 format=3 uid="uid://b1nar1rwb850"]
 
 [ext_resource type="Script" path="res://Scrips/Jugardor_Recolector.gd" id="1_45xq2"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="5_mu2s5"]

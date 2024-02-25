@@ -102,6 +102,7 @@ func dialogodezona():
 	
 
 func _on_regreso_area_entered(area):
+	print(Main.Vida_base)
 	if area.is_in_group("player"):
 		get_tree().get_nodes_in_group("Game")[0].siguiente_nivel="mundo1"
 		get_tree().get_nodes_in_group("Game")[0].ubicacion = Vector2(86,-938)

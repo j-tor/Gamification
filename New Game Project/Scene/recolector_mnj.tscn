@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://dc8cr6r6vn4hw"]
+[gd_scene load_steps=21 format=3 uid="uid://dc8cr6r6vn4hw"]
 
-[ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
+[ext_resource type="PackedScene" uid="uid://b1nar1rwb850" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
 [ext_resource type="Script" path="res://Scrips/recolector_mnj.gd" id="1_vaqgv"]
-[ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
+[ext_resource type="PackedScene" uid="uid://bcfo22irc4gkq" path="res://Scene/spawner.tscn" id="3_vcnif"]
 [ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
 [ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
 [ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]
+[ext_resource type="Texture2D" uid="uid://0aymlpe7vpd8" path="res://img/PC Computer - Paper Lily - Lights - Prologue.png" id="8_rpeth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
 size = Vector2(1140.5, 62)
@@ -48,6 +49,15 @@ font_size = 54
 
 [node name="Recolector_MNJ" type="Node" groups=["MiniRecolector"]]
 script = ExtResource("1_vaqgv")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(580, 326)
+rotation = -0.863938
+color = Color(0, 0, 0, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(1, 0)
+energy = 0.43
 
 [node name="Bosque" type="Sprite2D" parent="."]
 position = Vector2(574, 328)
@@ -175,62 +185,67 @@ process_mode = 3
 visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="Questionario"]
-offset_left = 10.0
-offset_top = 112.0
-offset_right = 1114.0
-offset_bottom = 395.0
-color = Color(0, 0, 0, 1)
+visible = false
+offset_top = 127.0
+offset_right = 1133.0
+offset_bottom = 410.0
+color = Color(0, 0, 0, 0.380392)
 
 [node name="ColorRect" type="ColorRect" parent="Questionario"]
+visible = false
 offset_left = -6.0
 offset_top = 8.0
-offset_right = 881.0
-offset_bottom = 107.0
-color = Color(0, 0, 0, 1)
+offset_right = 877.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 0.513726)
 
 [node name="Questionario" type="Label" parent="Questionario"]
-offset_left = 13.0
-offset_top = 111.0
-offset_right = 1118.0
-offset_bottom = 322.0
+offset_left = 8.0
+offset_top = 125.0
+offset_right = 1113.0
+offset_bottom = 336.0
 label_settings = SubResource("LabelSettings_3hxmg")
 
 [node name="Aviso" type="Label" parent="Questionario"]
-offset_left = 12.0
-offset_top = 8.0
-offset_right = 875.0
-offset_bottom = 98.0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 873.0
+offset_bottom = 102.0
 text = "El bosque encantado  te ha otorgado otra oportunidad, Si te equivocas pierdes 20 puntos, 
 si respondes correctamente ganas 15 puntos.
 Mucha suerte!. "
 label_settings = SubResource("LabelSettings_4ih0u")
 
 [node name="RespuestaA" type="Button" parent="Questionario"]
-offset_left = 227.0
-offset_top = 405.0
-offset_right = 326.0
-offset_bottom = 480.0
+offset_left = 273.0
+offset_top = 418.0
+offset_right = 318.0
+offset_bottom = 457.0
+scale = Vector2(2, 2)
 text = "A)"
 
 [node name="RespuestaB" type="Button" parent="Questionario"]
-offset_left = 378.0
-offset_top = 405.0
-offset_right = 477.0
-offset_bottom = 480.0
+offset_left = 393.0
+offset_top = 418.0
+offset_right = 437.0
+offset_bottom = 458.0
+scale = Vector2(2, 2)
 text = "B)"
 
 [node name="RespuestaC" type="Button" parent="Questionario"]
-offset_left = 617.0
-offset_top = 413.0
-offset_right = 716.0
-offset_bottom = 488.0
+offset_left = 651.0
+offset_top = 415.0
+offset_right = 696.0
+offset_bottom = 455.0
+scale = Vector2(2, 2)
 text = "C)"
 
 [node name="RespuestaD" type="Button" parent="Questionario"]
-offset_left = 830.0
-offset_top = 416.0
-offset_right = 929.0
-offset_bottom = 491.0
+offset_left = 774.0
+offset_top = 414.0
+offset_right = 819.0
+offset_bottom = 454.0
+scale = Vector2(2, 2)
 text = "D)"
 
 [node name="Label" type="Label" parent="Questionario"]
@@ -300,6 +315,13 @@ offset_right = 1112.0
 offset_bottom = 94.0
 text = "Puntos:"
 label_settings = SubResource("LabelSettings_8qfc2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1145, 2290)
+scale = Vector2(7.68753, 6.92802)
+color = Color(1, 1, 1, 0.403922)
+texture = ExtResource("8_rpeth")
+offset = Vector2(7, 0)
 
 [connection signal="playedDied" from="Player" to="." method="_on_player_played_died"]
 [connection signal="scoreUP" from="Player" to="." method="_on_player_score_up"]

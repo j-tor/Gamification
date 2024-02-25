@@ -140,8 +140,9 @@ func _Validar_Estado():
 	if(RespuestaJugador==RespuestaCorecta):
 		print("entro a respuesta correcta")
 		scoreJugador+=15
-		
+		$PointLight2D.show()
 	else:
+		$PointLight2D.show()
 		print("entro a incorrecta")
 		scoreJugador-=20
 	$Questionario.hide()
@@ -157,6 +158,7 @@ func _Validar_Estado():
 		$WinScreen/Label3.text = str(scoreJugador)
 		$Player.position = Vector2(1490,333)
 		win= 1
+		Main.Vida_base+=20
 
 
 

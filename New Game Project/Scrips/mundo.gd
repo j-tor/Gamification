@@ -1,6 +1,22 @@
 extends Node2D
 
 func _ready():
+	if Main.Vida_base >= 19 && Main.Vida_base < 40 :
+		$playerlink/Camera2D2/Heart1.frame=0
+	elif Main.Vida_base >= 40 && Main.Vida_base < 60:
+		$playerlink/Camera2D2/Heart1.frame=0
+		$playerlink/Camera2D2/Heart2.frame=0
+	elif Main.Vida_base >= 60 && Main.Vida_base < 80:
+		$playerlink/Camera2D2/Heart1.frame=0
+		$playerlink/Camera2D2/Heart2.frame=0
+		$playerlink/Camera2D2/Heart3.frame=0
+	elif Main.Vida_base >= 80:
+		$playerlink/Camera2D2/Heart1.frame=0
+		$playerlink/Camera2D2/Heart2.frame=0
+		$playerlink/Camera2D2/Heart3.frame=0
+		$playerlink/Camera2D2/Heart4.frame=0
+	else:
+		print("nose")
 	#$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
 	_statues()
 

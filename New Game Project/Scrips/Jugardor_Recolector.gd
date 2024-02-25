@@ -50,6 +50,7 @@ func subirScore():
 	emit_signal("scoreUP")
 
 func morirse():
+	$"../PointLight2D".hide()
 	$morirSonido.play()
 	animated_sprite_2d.play("hurt")
 	emit_signal("playedDied")

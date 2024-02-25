@@ -6,7 +6,7 @@ func playing():
 	$Sprite2D2.hide()
 	$Zona.hide()
 	$AnimationPlayer.play("Role")
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(0.1).timeout
 	roling()
 	
 	
@@ -32,7 +32,7 @@ func roling():
 				$"../.."._statues()
 				$Sprite2D2.show()
 				$Zona.show()
-				$Zona.text = "El trubunal lento...(politica)"
+				$Zona.text = "El tribunal lento...(politica)"
 				break  
 			elif (current_frame == 1 and not Main.pinkGame):
 				print("Minijuego Arte")
@@ -67,3 +67,8 @@ func roling():
 				break
 
 
+
+
+func _on_button_pressed():
+	playing()
+	pass # Replace with function body.
