@@ -19,6 +19,8 @@ func _ready():
 		print("nose")
 	#$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
 	_statues()
+	
+	
 
 func _process(delta):
 	
@@ -112,7 +114,7 @@ func _on_entrada_them_ruleta_area_entered(area):
 
 
 func _on_entrar_wicth_area_entered(area):
-	
+	if Main.Vida_base >= 80:
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "EleccionBando"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("mundo")[0].queue_free()

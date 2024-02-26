@@ -16,6 +16,7 @@ var yellowGame=false
 var Vida_base=20
 
 
+
 var nombre_objeto
 
 var dialogo_objeto = []
