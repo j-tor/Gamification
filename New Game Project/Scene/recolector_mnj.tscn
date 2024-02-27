@@ -26,7 +26,7 @@ font_size = 64
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_3hxmg"]
-font_size = 18
+font_size = 23
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ih0u"]
 font_size = 20
@@ -202,9 +202,12 @@ color = Color(0, 0, 0, 0.513726)
 [node name="Questionario" type="Label" parent="Questionario"]
 offset_left = 8.0
 offset_top = 125.0
-offset_right = 1113.0
-offset_bottom = 336.0
+offset_right = 1241.0
+offset_bottom = 269.0
+text = "Durante el renacimiento el estilo artístico que impregnó el arte, la filosofía, la pintura escritura fue el:
+A) El Gótico. B) El barroco. C) el clasicismo. D) Romanticismo"
 label_settings = SubResource("LabelSettings_3hxmg")
+autowrap_mode = 2
 
 [node name="Aviso" type="Label" parent="Questionario"]
 offset_left = 10.0
@@ -217,38 +220,39 @@ Mucha suerte!. "
 label_settings = SubResource("LabelSettings_4ih0u")
 
 [node name="RespuestaA" type="Button" parent="Questionario"]
-offset_left = 273.0
-offset_top = 418.0
-offset_right = 318.0
-offset_bottom = 457.0
+offset_left = 274.0
+offset_top = 276.0
+offset_right = 319.0
+offset_bottom = 315.0
 scale = Vector2(2, 2)
 text = "A)"
 
 [node name="RespuestaB" type="Button" parent="Questionario"]
-offset_left = 393.0
-offset_top = 418.0
-offset_right = 437.0
-offset_bottom = 458.0
+offset_left = 453.0
+offset_top = 279.0
+offset_right = 497.0
+offset_bottom = 319.0
 scale = Vector2(2, 2)
 text = "B)"
 
 [node name="RespuestaC" type="Button" parent="Questionario"]
-offset_left = 651.0
-offset_top = 415.0
-offset_right = 696.0
-offset_bottom = 455.0
+offset_left = 624.0
+offset_top = 274.0
+offset_right = 669.0
+offset_bottom = 314.0
 scale = Vector2(2, 2)
 text = "C)"
 
 [node name="RespuestaD" type="Button" parent="Questionario"]
-offset_left = 774.0
-offset_top = 414.0
-offset_right = 819.0
-offset_bottom = 454.0
+offset_left = 775.0
+offset_top = 272.0
+offset_right = 820.0
+offset_bottom = 312.0
 scale = Vector2(2, 2)
 text = "D)"
 
 [node name="Label" type="Label" parent="Questionario"]
+visible = false
 offset_left = 17.0
 offset_top = 370.0
 offset_right = 506.0
@@ -317,7 +321,7 @@ text = "Puntos:"
 label_settings = SubResource("LabelSettings_8qfc2")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-1145, 2290)
+position = Vector2(-1119, 2298)
 scale = Vector2(7.68753, 6.92802)
 color = Color(1, 1, 1, 0.403922)
 texture = ExtResource("8_rpeth")

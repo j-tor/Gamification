@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://5yah34y3amht"]
+[gd_scene load_steps=35 format=3 uid="uid://5yah34y3amht"]
 
 [ext_resource type="Script" path="res://Scrips/galaga_main.gd" id="1_pkta6"]
 [ext_resource type="PackedScene" uid="uid://cw88mibqsgstl" path="res://Scene/Players-NPC/character_galaga.tscn" id="2_wxp3n"]
@@ -2330,6 +2330,18 @@ texture = ExtResource("3_dx18c")
 [sub_resource type="TileSet" id="TileSet_p8h4q"]
 sources/0 = SubResource("TileSetAtlasSource_k4lhf")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4aeux"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_11sj6"]
+offsets = PackedFloat32Array(0.665789, 0.7, 0.786842, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.328947, 0.328947, 0.328947, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a6pa4"]
+gradient = SubResource("Gradient_11sj6")
+fill_from = Vector2(0.632479, 0)
+fill_to = Vector2(0.641026, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbkxe"]
 atlas = ExtResource("4_f62it")
 region = Rect2(1000, 0, 1000, 1000)
@@ -2476,6 +2488,9 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_fphrx"]
 font_size = 48
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6rpli"]
+light_mode = 1
+
 [node name="GalagaMain" type="Node2D" groups=["Galaga"]]
 position = Vector2(29, 17.0002)
 script = ExtResource("1_pkta6")
@@ -2496,9 +2511,16 @@ position = Vector2(875, 0)
 [node name="CharacterGalaga" parent="." instance=ExtResource("2_wxp3n")]
 position = Vector2(492, 561)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_4aeux")
+position = Vector2(532.438, 80.1248)
+scale = Vector2(18.1113, 4.12109)
+texture = SubResource("GradientTexture2D_a6pa4")
+
 [node name="PreguntasGame" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="PreguntasGame"]
+visible = false
 anchors_preset = -1
 anchor_left = -0.0338542
 anchor_top = -0.100309
@@ -2520,6 +2542,7 @@ offset_left = 36.0
 offset_top = 72.0002
 offset_right = 643.0
 offset_bottom = 158.0
+text = "asdasdasd"
 metadata/_edit_use_anchors_ = true
 
 [node name="Tiro1" type="AnimatedSprite2D" parent="PreguntasGame"]
@@ -2579,10 +2602,10 @@ position = Vector2(930, 183)
 shape = SubResource("RectangleShape2D_73miy")
 
 [node name="LabelPoints" type="Label" parent="PreguntasGame"]
-offset_left = 87.0
-offset_top = 11.0002
-offset_right = 283.0
-offset_bottom = 91.0002
+offset_left = 47.0
+offset_top = -3.0
+offset_right = 243.0
+offset_bottom = 77.0
 text = "Points: 0"
 label_settings = SubResource("LabelSettings_vqp62")
 metadata/_edit_use_anchors_ = true
@@ -2666,43 +2689,30 @@ position = Vector2(1086, 314)
 shape = SubResource("RectangleShape2D_qr7yj")
 
 [node name="FinalGame" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="FinalGame"]
-anchors_preset = -1
-anchor_left = -0.0373264
-anchor_top = -0.169753
-anchor_right = 0.329861
-anchor_bottom = -0.00617322
-offset_left = 31.0
-offset_top = 117.0
-offset_right = 768.0
-offset_bottom = 377.0
-color = Color(0.156863, 0.156863, 0.156863, 0.466667)
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="FinalGame"]
-offset_left = 380.0
-offset_top = 70.0
-offset_right = 720.0
-offset_bottom = 170.0
+offset_left = 381.0
+offset_top = 29.0
+offset_right = 721.0
+offset_bottom = 129.0
 text = "GANASTES!"
 label_settings = SubResource("LabelSettings_depv0")
 metadata/_edit_use_anchors_ = true
 
 [node name="ganastespoints" type="Label" parent="FinalGame"]
-offset_left = 440.0
-offset_top = 162.0
-offset_right = 653.0
-offset_bottom = 259.0
+offset_left = 433.0
+offset_top = 127.0
+offset_right = 646.0
+offset_bottom = 224.0
 label_settings = SubResource("LabelSettings_fphrx")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="FinalGame"]
-offset_left = 435.0
-offset_top = 294.0
-offset_right = 527.0
-offset_bottom = 325.0
+material = SubResource("CanvasItemMaterial_6rpli")
+offset_left = 431.0
+offset_top = 265.0
+offset_right = 523.0
+offset_bottom = 296.0
 scale = Vector2(2.5, 2.5)
 text = "Regresar"
 metadata/_edit_use_anchors_ = true

@@ -13,7 +13,7 @@ var GreeGame=false
 var pinkGame=false
 var BlueGame=false
 var yellowGame=false
-var Vida_base=20
+var Vida_base=0
 
 
 

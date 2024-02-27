@@ -3,9 +3,9 @@ extends Node2D
 #Animacion del link que hace las preguntas
 @onready var animationsEnemy = $Enemy/AnimatedSprite2D
 #Burbujita de texto (solo la imagen)
-@onready var bubbledialog = $Sprite2D
+@onready var bubbledialog = $PointLight2D/Sprite2D
 #Texto dentro de la burbujita
-@onready var bubbleText = $Sprite2D/RichTextLabel
+@onready var bubbleText = $PointLight2D/Sprite2D/RichTextLabel
 
 #Points son los 4 puntos de colores que se usan para seleccionar la respuesta
 @onready var Point_1 = $Point1
@@ -305,8 +305,11 @@ innovaciones entre las que mencionamos:"
 		#change_scene2.instantiate()
 		return "111"
 	elif decimal == -1:
+		$Button/Label.text = "PERDISTE!"
 		equis.hide()
-		bubbleText.text = "Perdiste, te quedaste sin vidas, vuelves a la Ruleta"
+		$Button.show()
+		$PointLight2D/Sprite2D.hide()
+		bubbleText.text = "te quedaste sin vidas, vuelves a la Ruleta"
 	
 		
 		return "111"
@@ -324,7 +327,11 @@ innovaciones entre las que mencionamos:"
 	pass
 
 func _Ganastes():
+	$Button/Label.text = "GANASTE!"
+	$PointLight2D/Sprite2D.hide()
+	Main.Vida_base+=20
 	bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
+	$Button.show()
 	$Button.show()
 func _on_button_pressed():
 	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="royal"
