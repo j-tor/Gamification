@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+var elecionPLayer="Empirista"
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var countdown_timer = 3
@@ -9,7 +9,10 @@ var countdown_timer = 3
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	pass
+	if elecionPLayer=="Racionalista":
+		$AnimatedSprite2D.play("normal")
+	elif elecionPLayer=="Empirista":
+		$AnimatedSprite2D.play("normalempi")
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -24,11 +27,17 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		if direction>0:
-			$AnimatedSprite2D.play("run")
+			if elecionPLayer=="Racionalista":
+				$AnimatedSprite2D.play("run")
+			elif elecionPLayer=="Empirista":
+				$AnimatedSprite2D.play("runempi")
 			$AnimatedSprite2D.flip_h=false
 		elif direction<0:
 			$AnimatedSprite2D.flip_h =true
-			$AnimatedSprite2D.play("run")
+			if elecionPLayer=="Racionalista":
+				$AnimatedSprite2D.play("run")
+			elif elecionPLayer=="Empirista":
+				$AnimatedSprite2D.play("runempi")
 			
 		
 		velocity.x = direction * SPEED
@@ -36,7 +45,10 @@ func _physics_process(delta):
 		#print(direction)
 	else:
 		if direction==0:
-			$AnimatedSprite2D.play("normal")
+			if elecionPLayer=="Racionalista":
+				$AnimatedSprite2D.play("normal")
+			elif elecionPLayer=="Empirista":
+				$AnimatedSprite2D.play("normalempi")
 			$AnimatedSprite2D.flip_h=false
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

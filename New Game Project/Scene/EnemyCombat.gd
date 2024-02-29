@@ -1,4 +1,6 @@
 extends CharacterBody2D
+#empiristas con vestimenta roja y racionalistas con vestimenta blanca
+var elecionPLayer="Empirista"
 
 #rango 260-350 
 var SPEED = randi_range(180,320)
@@ -19,6 +21,7 @@ var puntoPLayer=0;
 var puntosEnemy=0
 var RoundsPlayer=0
 var RoundsEnemy=0
+var correctplayer
 # Get the gravity from the project settings to be synced with RigidBody nodes.d
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -29,7 +32,13 @@ func _physics_process(delta):
 	if position.y < 600:
 		position.y += 5
 	if estadoCorrer==true:
-		$AnimatedSprite2D.play("run")
+		#if elecionPLayer=="Racionalista":
+		if correctplayer=="Empirista":
+			$AnimatedSprite2D.play("run")
+		elif correctplayer=="Racionalista":
+			$AnimatedSprite2D.play("runracio")
+		#elif elecionPLayer=="Empirista":
+		#	pass
 		velocity.x = direction * SPEED
 		move_and_slide()
 	_Correrstop()
@@ -47,6 +56,14 @@ func _on_area_2d_area_entered(area):
 	#ED)
 	
 func _ready():
+	if elecionPLayer=="Racionalista":
+		correctplayer="Empirista"
+	elif elecionPLayer=="Empirista":
+		correctplayer="Racionalista"
+	if correctplayer=="Empirista":
+		$AnimatedSprite2D.play("idle")
+	elif correctplayer=="Racionalista":
+		$AnimatedSprite2D.play("idleracio")
 	Intruciones()
 	ManagerGame()
 	pass
@@ -64,11 +81,17 @@ func ManagerGame():
 	if position.y < 600:
 		position.y += 5
 	if estadoCorrer==true:
-		$AnimatedSprite2D.play("run")
+		if correctplayer=="Empirista":
+			$AnimatedSprite2D.play("run")
+		elif correctplayer=="Racionalista":
+			$AnimatedSprite2D.play("runracio")
 		velocity.x = direction * SPEED
 		move_and_slide()
 	else:
-		$AnimatedSprite2D.play("idle")
+		if correctplayer=="Empirista":
+			$AnimatedSprite2D.play("idle")
+		elif correctplayer=="Racionalista":
+			$AnimatedSprite2D.play("idleracio")
 	_Correrstop()
 	
 	if Round==1 || Round==2 || Round==3 || Round==4|| Round==5:
@@ -81,7 +104,10 @@ func ManagerGame():
 			$"../Questions".show()
 			Respondio=true
 		elif Gano=="Enemy" && RespondioEnemy==false:
-			$AnimatedSprite2D.play("idle")
+			if correctplayer=="Empirista":
+				$AnimatedSprite2D.play("idle")
+			elif correctplayer=="Racionalista":
+				$AnimatedSprite2D.play("idleracio")
 			$"../Informacion/Inforound".text="Eligiendo..."
 			$"../Informacion/Segundos".text=" "
 			$"../Informacion/Round".text=" "
@@ -118,7 +144,10 @@ func _on_timer_timeout():
 func _Correrstop():
 	if position.x<613:
 		estadoCorrer=false
+	if correctplayer=="Empirista":
 		$AnimatedSprite2D.play("idle")
+	elif correctplayer=="Racionalista":
+		$AnimatedSprite2D.play("idleracio")
 
 func QuestionDo():
 	numero = randi() % 7
@@ -299,7 +328,10 @@ func ValiarEleccion():
 
 func reiniciar():
 	estadoCorrer=false
-	$AnimatedSprite2D.play("idle")
+	if correctplayer=="Empirista":
+		$AnimatedSprite2D.play("idle")
+	elif correctplayer=="Racionalista":
+		$AnimatedSprite2D.play("idleracio")
 	$".".position= Vector2(1122,601)
 	$"../player".position= Vector2(26,568.499)
 	$"../StaticBody2D/CollisionStopPlayer".position=Vector2(80,505)
@@ -342,3 +374,6 @@ func siguienteRound():
 			$"../Informacion/EnemyPuntos2".text=" "
 			$"../Informacion/PlayerPuntos".text=" "
 			get_tree().paused = true
+
+#if correctplayer=="Empirista":
+#	elif correctplayer=="Racionalista":
