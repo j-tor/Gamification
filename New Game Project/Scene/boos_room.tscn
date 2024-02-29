@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://d260wsc2cfcp7"]
+[gd_scene load_steps=17 format=3 uid="uid://sdadifpjtvtj"]
 
 [ext_resource type="Texture2D" uid="uid://cv1ahdjdtmdca" path="res://img/battle state.png" id="1_etwyb"]
-[ext_resource type="PackedScene" uid="uid://f7oaqjckcd7u" path="res://Scene/skeletron_boss.tscn" id="1_wo2nc"]
-[ext_resource type="PackedScene" uid="uid://d2hfi23c24do0" path="res://Scene/player.tscn" id="2_jq1tv"]
-[ext_resource type="PackedScene" uid="uid://dqn85g2jwxw2k" path="res://LibroObj.tscn" id="4_p80jk"]
+[ext_resource type="PackedScene" path="res://Scene/skeletron_boss.tscn" id="1_wo2nc"]
+[ext_resource type="PackedScene" path="res://Scene/player.tscn" id="2_jq1tv"]
+[ext_resource type="PackedScene" path="res://LibroObj.tscn" id="4_p80jk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8gtg"]
 texture = ExtResource("1_etwyb")

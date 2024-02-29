@@ -1,6 +1,19 @@
 extends Node2D
 
 func _ready():
+	if Main.bando=="Empirista":
+		$playerlink/Camera2D2/Empirista.show()
+	elif Main.bando=="Racionalista":
+		$playerlink/Camera2D2/Racionalista.show()
+	else:
+		$playerlink/Camera2D2/Empirista.hide()
+		$playerlink/Camera2D2/Racionalista.hide()
+	if Main.Velocidad >= 20:
+		$playerlink/Camera2D2/Velocidad_aumentada.play()
+		$playerlink/Camera2D2/Velocidad_aumentada.show()
+	else:
+		$playerlink/Camera2D2/Velocidad_aumentada.hide()
+	
 	if Main.Vida_base >= 19 && Main.Vida_base < 40 :
 		$playerlink/Camera2D2/Heart1.frame=0
 	elif Main.Vida_base >= 40 && Main.Vida_base < 60:
@@ -23,7 +36,11 @@ func _ready():
 	
 
 func _process(delta):
-	
+	if Main.Velocidad >= 20:
+		$playerlink/Camera2D2/Velocidad_aumentada.play()
+		$playerlink/Camera2D2/Velocidad_aumentada.show()
+	else:
+		$playerlink/Camera2D2/Velocidad_aumentada.hide()
 	_statues()
 	pass
 

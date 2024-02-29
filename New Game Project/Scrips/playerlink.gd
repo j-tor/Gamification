@@ -10,13 +10,13 @@ var bruja = false
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("moveright"):
+	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
-	if Input.is_action_pressed("moveleft"):
+	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
-	if Input.is_action_pressed("movedown"):
+	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
-	if Input.is_action_pressed("moveup"):
+	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
 
 
@@ -152,6 +152,7 @@ func _on_detec_obj_area_entered(area):
 	print("bruja")
 	print(bando)
 	print("bando")
+	print(Main.Velocidad)
 	
 	
 

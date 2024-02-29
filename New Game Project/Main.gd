@@ -14,7 +14,7 @@ var pinkGame=false
 var BlueGame=false
 var yellowGame=false
 var Vida_base=0
-
+var Velocidad=0
 
 
 var nombre_objeto
@@ -95,4 +95,9 @@ func _dialogo():
 					"El caldo azul de brindara todo el conocimiento Racionalizta",#2
 					"El caldo Rojo de brindara todo el conocimiento Empirista",#3
 					"Elije sabiamente cual tomar.....",#4
+					]
+		"ghost":
+			dialogo_objeto = [
+					"Te encuentras en el Royal valey.",#0
+					"Por tu valentia ahora tienes mas Velocidad.",#1
 					]

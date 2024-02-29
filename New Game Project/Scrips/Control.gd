@@ -29,7 +29,13 @@ func ingresar_dialogo():
 		var duracion = velocidad * Main.dialogo_objeto[numero_dialogo].length()
 		tween.tween_property(texto,"visible_ratio",1.00,velocidad * duracion)
 		tween.tween_callback(_final)
+		match Main.nombre_objeto:
+			"ghost":
+				$Sprite2D2.show()
+				Main.Velocidad=20
+			
 	else:
+		$Sprite2D2.hide()
 		print("entro a mover")
 		control = false
 		$"../..".mover = true
