@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqn85g2jwxw2k"]
+
+[ext_resource type="Texture2D" uid="uid://nwuqqffgr44a" path="res://img/libros.png" id="1_04tpo"]
+[ext_resource type="Script" path="res://LibroObj.gd" id="1_q2qpl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n384h"]
+atlas = ExtResource("1_04tpo")
+region = Rect2(253, 104, 18, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gulpv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n384h")
+}],
+"loop": true,
+"name": &"libro",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfge6"]
+size = Vector2(79, 68)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_q2qpl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(45.0192, 36.4925)
+scale = Vector2(4.66453, 3.1606)
+sprite_frames = SubResource("SpriteFrames_gulpv")
+animation = &"libro"
+autoplay = "libro"
+
+[node name="Entered" type="Area2D" parent="."]
+collision_layer = 11
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entered"]
+position = Vector2(44.5, 37)
+shape = SubResource("RectangleShape2D_kfge6")
+
+[connection signal="area_entered" from="Entered" to="." method="_on_entered_area_entered"]
+[connection signal="body_entered" from="Entered" to="." method="_on_entered_body_entered"]
