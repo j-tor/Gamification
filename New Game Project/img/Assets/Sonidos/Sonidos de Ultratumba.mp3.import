@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7jp82o5ai5ek"
+path="res://.godot/imported/Sonidos de Ultratumba.mp3-c38b2e343ee2b656231c8dc8486e1eaa.mp3str"
+
+[deps]
+
+source_file="res://img/Assets/Sonidos/Sonidos de Ultratumba.mp3"
+dest_files=["res://.godot/imported/Sonidos de Ultratumba.mp3-c38b2e343ee2b656231c8dc8486e1eaa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

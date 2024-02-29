@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpr8qnffhmw6m"
+path="res://.godot/imported/SFII_22 - Three.wav-8680a375b3df1d2292ef4985ecb1e35c.sample"
+
+[deps]
+
+source_file="res://img/Assets/Sonidos/SFII_22 - Three.wav"
+dest_files=["res://.godot/imported/SFII_22 - Three.wav-8680a375b3df1d2292ef4985ecb1e35c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

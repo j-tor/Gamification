@@ -1,0 +1,159 @@
+[gd_scene load_steps=16 format=3 uid="uid://dsj4bnp0hhana"]
+
+[ext_resource type="Script" path="res://Scrips/Royal Guard.gd" id="1_g822u"]
+[ext_resource type="Texture2D" uid="uid://cskgckv7l48a" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Royal Guards (1) (1).png" id="2_ur1ls"]
+[ext_resource type="Texture2D" uid="uid://dvftfeuxpxmg0" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Royal GuardsLefth.png" id="3_tl4dj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ekk"]
+atlas = ExtResource("2_ur1ls")
+region = Rect2(100, 0, 25, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8hc8"]
+atlas = ExtResource("2_ur1ls")
+region = Rect2(75, 0, 25, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vatro"]
+atlas = ExtResource("2_ur1ls")
+region = Rect2(148, 0, 25, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flytx"]
+atlas = ExtResource("2_ur1ls")
+region = Rect2(173, 0, 25, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wu16"]
+atlas = ExtResource("2_ur1ls")
+region = Rect2(198, 0, 25, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwxen"]
+atlas = ExtResource("3_tl4dj")
+region = Rect2(235, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7wyh"]
+atlas = ExtResource("3_tl4dj")
+region = Rect2(259, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sekme"]
+atlas = ExtResource("3_tl4dj")
+region = Rect2(283, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyvfn"]
+atlas = ExtResource("2_ur1ls")
+region = Rect2(0, 0, 57, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrj0j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ekk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8hc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ekk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8hc8")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vatro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flytx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wu16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flytx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vatro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wu16")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwxen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7wyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sekme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwxen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7wyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sekme")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyvfn")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ekk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xrem"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vrxl"]
+radius = 27.0
+
+[node name="Royal Guard" type="CharacterBody2D"]
+script = ExtResource("1_g822u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(186, 106)
+sprite_frames = SubResource("SpriteFrames_hrj0j")
+animation = &"Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(188, 108)
+shape = SubResource("CapsuleShape2D_0xrem")
+
+[node name="Caballero" type="Area2D" parent="."]
+collision_layer = 184
+collision_mask = 184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caballero"]
+light_mask = 97
+visibility_layer = 97
+position = Vector2(189, 109)
+shape = SubResource("CircleShape2D_5vrxl")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Caballero" to="." method="_on_caballero_body_entered"]
+[connection signal="body_exited" from="Caballero" to="." method="_on_caballero_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

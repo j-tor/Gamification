@@ -41,6 +41,7 @@ var ResponseColor = "" #Es el color en donde colocamos el personaje y lo compara
 var hearts = 3 # el numero de corazones que tenemos al inicio
 var regresarInicio=false
 func _ready():
+	$Background_Music.play()
 	#Todo esto se ejecuta al inicio, reiniciamos el tiempo
 	#establecemos el primer momento (que es Inicio {0})
 	# iniciamos la animacion del link que habla y decimos que aun no se muestra el cheque
@@ -305,6 +306,8 @@ innovaciones entre las que mencionamos:"
 		#change_scene2.instantiate()
 		return "111"
 	elif decimal == -1:
+		$Background_Music.stop()
+		$You_Lose.play()
 		$Button/Label.text = "PERDISTE!"
 		equis.hide()
 		$Button.show()
@@ -327,6 +330,8 @@ innovaciones entre las que mencionamos:"
 	pass
 
 func _Ganastes():
+	$Background_Music.pause()
+	$You_Win.play()
 	$Button/Label.text = "GANASTE!"
 	$PointLight2D/Sprite2D.hide()
 	Main.Vida_base+=20

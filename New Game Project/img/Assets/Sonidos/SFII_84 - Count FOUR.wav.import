@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmn5lvvnl1x31"
+path="res://.godot/imported/SFII_84 - Count FOUR.wav-c500d46e373d75826aff5f41bd478e5b.sample"
+
+[deps]
+
+source_file="res://img/Assets/Sonidos/SFII_84 - Count FOUR.wav"
+dest_files=["res://.godot/imported/SFII_84 - Count FOUR.wav-c500d46e373d75826aff5f41bd478e5b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

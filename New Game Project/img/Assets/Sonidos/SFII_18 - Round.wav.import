@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ldgpikr3lidt"
+path="res://.godot/imported/SFII_18 - Round.wav-edc7334b26b8722f2ead5342c03acf3a.sample"
+
+[deps]
+
+source_file="res://img/Assets/Sonidos/SFII_18 - Round.wav"
+dest_files=["res://.godot/imported/SFII_18 - Round.wav-edc7334b26b8722f2ead5342c03acf3a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
