@@ -47,8 +47,19 @@ func _on_area_2d_area_entered(area):
 	#ED)
 	
 func _ready():
+	Intruciones()
 	ManagerGame()
 	pass
+
+func Intruciones():
+	$"../Informacion".hide()
+	$"../InfoStart".show()
+	get_tree().paused = true
+	await get_tree().create_timer(30).timeout
+	get_tree().paused = false
+	$"../InfoStart".hide()
+	$"../Informacion".show()
+
 func ManagerGame():
 	if position.y < 600:
 		position.y += 5
@@ -56,6 +67,8 @@ func ManagerGame():
 		$AnimatedSprite2D.play("run")
 		velocity.x = direction * SPEED
 		move_and_slide()
+	else:
+		$AnimatedSprite2D.play("idle")
 	_Correrstop()
 	
 	if Round==1 || Round==2 || Round==3 || Round==4|| Round==5:
@@ -68,11 +81,27 @@ func ManagerGame():
 			$"../Questions".show()
 			Respondio=true
 		elif Gano=="Enemy" && RespondioEnemy==false:
-			EleccionEnemy()
+			$AnimatedSprite2D.play("idle")
+			$"../Informacion/Inforound".text="Eligiendo..."
+			$"../Informacion/Segundos".text=" "
+			$"../Informacion/Round".text=" "
+			get_tree().paused = true
+			await get_tree().create_timer(3).timeout
+			
 			if Elecionenemy==true:
+				$"../Informacion/Inforound".text="Enemy acerto"
 				print("Repondio bien")
 			elif Elecionenemy==false:
+				$"../Informacion/Inforound".text="Enemy se equivoco"
 				print ("Respondio mal")
+			await get_tree().create_timer(2).timeout
+			
+			get_tree().paused = false
+			$"../Informacion/Inforound".text="Round"
+			$"../Informacion/Round".text= str(Round)
+			countdown_timer=3
+			EleccionEnemy()
+			
 			RespondioEnemy=true
 			reiniciar()
 		
@@ -89,6 +118,7 @@ func _on_timer_timeout():
 func _Correrstop():
 	if position.x<613:
 		estadoCorrer=false
+		$AnimatedSprite2D.play("idle")
 
 func QuestionDo():
 	numero = randi() % 7
@@ -236,13 +266,40 @@ func ValiarEleccion():
 	if RepuestaUser==RespuestaCorrecta:
 		repondioPLayerBien=true
 		puntoPLayer+=1
+		
+		$"../Informacion/Inforound".text="Corecto!"
+		$"../Informacion/Segundos".text=" "
+		$"../Informacion/Round".text=" "
+		$"../Questions".hide()
+		$"../Informacion".show()
+		get_tree().paused = true
+		await get_tree().create_timer(2).timeout
+		get_tree().paused = false
+		$"../Informacion/Inforound".text="Round"
+		$"../Informacion/Round".text= str(Round)
+		countdown_timer=3
+		
 	else:
 		repondioPLayerBien=false
 		puntosEnemy+=1
+		$"../Informacion/Inforound".text="Incorrecto!"
+		$"../Informacion/Segundos".text=" "
+		$"../Informacion/Round".text=" "
+		$"../Questions".hide()
+		$"../Informacion".show()
+		get_tree().paused = true
+		await get_tree().create_timer(2).timeout
+		get_tree().paused = false
+		$"../Informacion/Inforound".text="Round"
+		$"../Informacion/Round".text= str(Round)
+		countdown_timer=3
 	$"../Questions".hide()
 	$"../Informacion".show()
 	reiniciar()
+
 func reiniciar():
+	estadoCorrer=false
+	$AnimatedSprite2D.play("idle")
 	$".".position= Vector2(1122,601)
 	$"../player".position= Vector2(26,568.499)
 	$"../StaticBody2D/CollisionStopPlayer".position=Vector2(80,505)
@@ -252,8 +309,8 @@ func reiniciar():
 	ManagerGame()
 	Respondio=false
 	RespondioEnemy=false
-	estadoCorrer=false
 	siguienteRound()
+
 func siguienteRound():
 	if puntoPLayer>=2:
 		RoundsPlayer+=1
