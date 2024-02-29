@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://sdadifpjtvtj"]
 
 [ext_resource type="Texture2D" uid="uid://cv1ahdjdtmdca" path="res://img/battle state.png" id="1_etwyb"]
-[ext_resource type="PackedScene" uid="uid://ouimmxk6v0sb" path="res://Scene/skeletron_boss.tscn" id="1_wo2nc"]
-[ext_resource type="PackedScene" uid="uid://cgfkkqymf40ci" path="res://Scene/player.tscn" id="2_jq1tv"]
+[ext_resource type="PackedScene" path="res://Scene/skeletron_boss.tscn" id="1_wo2nc"]
+[ext_resource type="PackedScene" path="res://Scene/player.tscn" id="2_jq1tv"]
 [ext_resource type="PackedScene" path="res://LibroObj.tscn" id="4_p80jk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8gtg"]

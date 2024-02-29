@@ -18,7 +18,9 @@ func _on_animated_sprite_2d_animation_finished():
 	$AnimatedSprite2D.play("idle")
 
 func _damage():
+	$"../../Damage".play()
 	$AnimatedSprite2D.play("damage")
 
 func dead():
+	$"../../Dead".play()
 	$AnimatedSprite2D.play("dead")

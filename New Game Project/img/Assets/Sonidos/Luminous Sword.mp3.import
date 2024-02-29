@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bapudwajunhls"
+path="res://.godot/imported/Luminous Sword.mp3-6572edf045b47291c81f4a94250cf095.mp3str"
+
+[deps]
+
+source_file="res://img/Assets/Sonidos/Luminous Sword.mp3"
+dest_files=["res://.godot/imported/Luminous Sword.mp3-6572edf045b47291c81f4a94250cf095.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

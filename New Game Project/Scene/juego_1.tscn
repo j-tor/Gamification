@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ci52kwgcfim4f"]
+[gd_scene load_steps=42 format=3 uid="uid://ci52kwgcfim4f"]
 
 [ext_resource type="Script" path="res://Scene/juego_1.gd" id="1_5qrih"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="1_awy5i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cropt6etvquek" path="res://img/PC Computer - Resin - Surrounding Lights.png" id="2_vhyh0"]
 [ext_resource type="AudioStream" uid="uid://b7jp82o5ai5ek" path="res://img/Assets/Sonidos/Sonidos de Ultratumba.mp3" id="2_xx20y"]
 [ext_resource type="Texture2D" uid="uid://db0efchrnil72" path="res://img/Point1.png" id="3_mnn65"]
+[ext_resource type="AudioStream" uid="uid://cflmq0o224enm" path="res://img/Assets/Sonidos/nrt_youwin.wav" id="4_2deeu"]
 [ext_resource type="Texture2D" uid="uid://dgt88ufbouhj1" path="res://img/Point2.png" id="4_dyqyy"]
 [ext_resource type="Texture2D" uid="uid://b4rjaojxoh8ej" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Royal Valley - copia.png" id="4_ioyjn"]
 [ext_resource type="Texture2D" uid="uid://tjoa2ddr3skp" path="res://img/Point3.png" id="5_3n4ml"]
@@ -7408,6 +7409,7 @@ pitch_scale = 0.47
 attenuation = 0.105113
 
 [node name="You_Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2deeu")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(73, -3)

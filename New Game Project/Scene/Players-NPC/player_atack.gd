@@ -31,6 +31,8 @@ func update_progressbar():
 		if $ProgressBar.value <= 0:
 				print("Barra llena")
 				$"../DeathScreen".show()
+				$"../You_Lose".play()
+				get_tree().paused=true
 		
 
 
@@ -44,4 +46,5 @@ func _on_button_pressed():
 
 func _on_animation_player_animation_finished(anim_name):
 	$"../r_b/Skull"._ready()
+	$"../r_c/Skull"._ready()
 	pass # Replace with function body.

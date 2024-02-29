@@ -7,6 +7,7 @@ var damage = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Background_Music.play()
 	randomize()
 	preguntar()
 	$Node2D.position=Vector2(536,316)
@@ -29,7 +30,11 @@ func _process(delta):
 func preguntar():
 	if $Node2D2/ProgressBar.value >= 100:
 				print("Barra llena")
+				get_tree().paused=true
+				$You_Win.play()
 				$WinScreen.show()
+	if $Resultado.text == "incorecto":
+		$Damage_Link.play()
 	$r_a/AnimatedSprite2D.play("idle")
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")
@@ -223,6 +228,8 @@ func _on_r_a_focus_entered():
 
 func _on_damage_animation_finished():
 	$r_a/AnimatedSprite2D.play("idle")
+	$r_b/AnimatedSprite2D.play("idle")
+	$r_c/AnimatedSprite2D.play("idle")
 	
 
 

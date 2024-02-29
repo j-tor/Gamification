@@ -33,7 +33,7 @@ func _game():
 	
 
 func _dialogo():
-	if bando == "Racionalista" || bando == "Empirista":
+	if bando == "Racionalista" || Main.bando == "Empirista":
 
 		seleccionado = true
 	else:

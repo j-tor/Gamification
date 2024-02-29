@@ -176,7 +176,6 @@ func _on_detec_obj_area_exited(area):
 		
 	if area.is_in_group("Bruja"):
 		objeto = true
-
 		bando=true
 		Main.nombre_objeto = area.name
 		print("Afuera ",area.name)
