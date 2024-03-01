@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-#var elecionPLayer=Main.bando
-var elecionPLayer="Empirista"
+var elecionPLayer=Main.bando
+#var elecionPLayer="Empirista"
 var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var countdown_timer = 3
