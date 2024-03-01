@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://cmkned37qgibg"]
+[gd_scene load_steps=16 format=3 uid="uid://cmkned37qgibg"]
 
 [ext_resource type="Script" path="res://Scene/Players-NPC/malo.gd" id="1_4wjp3"]
 [ext_resource type="Texture2D" uid="uid://0awpu1yra0cw" path="res://img/NPCS.png" id="1_ynu1g"]
-[ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="2_vfpje"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjhnd"]
 
@@ -127,8 +126,6 @@ shape = SubResource("CircleShape2D_un2pe")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="playerlink" parent="." instance=ExtResource("2_vfpje")]
 
 [connection signal="area_entered" from="Caballo" to="." method="_on_caballo_area_entered"]
 [connection signal="body_entered" from="Caballo" to="." method="_on_caballo_body_entered"]

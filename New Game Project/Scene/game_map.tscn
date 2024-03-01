@@ -1664,7 +1664,6 @@ energy = 3.5
 
 [node name="Bruja" type="Sprite2D" parent="PointLight2D3"]
 material = SubResource("CanvasItemMaterial_4ncy8")
-scale = Vector2(1, 1)
 texture = ExtResource("5_ev77q")
 hframes = 5
 

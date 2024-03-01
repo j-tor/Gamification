@@ -62,8 +62,10 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_pressed("Map"):
 			$"Camera2D2/Game Map".show()
-		if  Input.is_action_just_pressed("ui_cancel"):
-			$"Cawmera2D2/Game Map".hide()
+		if  Input.is_action_just_pressed("Close_Map"):
+				$"Camera2D2/Game Map".hide()
+				
+			
 
 				
 				
