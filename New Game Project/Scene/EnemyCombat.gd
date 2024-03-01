@@ -1,7 +1,8 @@
 extends CharacterBody2D
 #empiristas con vestimenta roja y racionalistas con vestimenta blanca
 #var elecionPLayer=Main.bando
-var elecionPLayer=Main.bando
+#var elecionPLayer=Main.bando
+var elecionPLayer="Empirista"
 
 #rango 260-350 
 var SPEED = randi_range(205,310)
@@ -36,9 +37,7 @@ func _physics_process(delta):
 			position.y += 5
 		if estadoCorrer==true:
 		#if elecionPLayer=="Racionalista":
-			print(correctplayer)
 			if correctplayer=="Empirista":
-				print("debe de")
 				$AnimatedSprite2D.play("runempi")
 			elif correctplayer=="Racionalista":
 				$AnimatedSprite2D.play("runracion")
@@ -176,22 +175,21 @@ func _Correrstop():
 		estadoCorrer=false
 	if correctplayer=="Empirista" && estadoCorrer==false:
 		$AnimatedSprite2D.play("idle")
-	elif correctplayer=="Racionalista":
+	elif correctplayer=="Racionalista"&& estadoCorrer==false:
 		$AnimatedSprite2D.play("idleracio")
 
 func QuestionDo():
 	numero = randi() % 7
 	print(numero)
 	if numero==0:
-		$"../Questions/DoQuestion".text="Para algunos de los siguientes filósofos, el criterio de verdad es la evidencia sensible:
+		$"../Questions/DoQuestion".text="Para algunos de los siguientes filósofos, el criterio de verdad es la \nevidencia sensible:
 A) Empiristas. B) Criticistas. C) Racionalistas. D) Dogmáticos"
 		RespuestaCorrecta="Empiristas"
 	elif numero==1:
-		$"../Questions/DoQuestion".text="De las siguientes, una de ellas es la corriente filosófica que en general tiende a negar la
-posibilidad de la metafísica y a sostener que hay conocimiento únicamente de los fenómenos"
+		$"../Questions/DoQuestion".text="De las siguientes, una de ellas es la corriente filosófica que en general \ntiende a negar la posibilidad de la metafísica y a sostener que hay \nconocimiento únicamente de los fenómenos \n A) Racionalistas. B) Empiristas. C) Escolásticos. D) Escépticos"
 		RespuestaCorrecta="Empiristas"
 	elif numero==2:
-		$"../Questions/DoQuestion".text="Para unos de los siguientes filósofos, la experiencia como única fuente del conocimiento.
+		$"../Questions/DoQuestion".text="Para unos de los siguientes filósofos, la experiencia como única fuente \ndel conocimiento.
 A) Epistemólogos. B) Racionalistas. C) Empiristas. D) Escépticos"
 		RespuestaCorrecta="Empiristas"
 	elif numero==3:
@@ -203,11 +201,11 @@ A) Epistemólogos. B) Racionalistas. C) Empiristas. D) Escépticos"
 A) Empiristas. B) Idealistas. C) Racionalistas. D) Innatistas"
 		RespuestaCorrecta="Racionalistas"
 	elif numero==5:
-		$"../Questions/DoQuestion".text="De los siguientes filósofos selecciones el que no se considera Racionalista:
+		$"../Questions/DoQuestion".text="De los siguientes filósofos selecciones el que no se considera \nRacionalista:\n
 A) David Hume. B) John Locke. C) Nicolas Malebranch. D) Francis Bacon"
 		RespuestaCorrecta="Nicolas Malebranch"
 	elif numero==6:
-		$"../Questions/DoQuestion".text="Es la doctrina que establece que todos nuestros conocimientos provienen de la razón.
+		$"../Questions/DoQuestion".text="Es la doctrina que establece que todos nuestros conocimientos \nprovienen de la razón.
 A) Empirismo. B) Criticismo. C) Racionalismo. D) Epistemología"
 		RespuestaCorrecta="Racionalismo"
 	elif numero==7:
@@ -502,6 +500,11 @@ func siguienteRound():
 				$"../Empirista".play()
 			$"../Back".show()
 			await get_tree().create_timer(30).timeout
+			
+			celebrar=true
+			SPEED=0
+			$"../Informacion/Segundos".hide()
+			$"../Informacion/Round".hide()
 		if RoundsEnemy>RoundsPlayer:
 			$"../Informacion/Inforound".text="Perdiste!"
 			$"../Informacion/Round".text=" "

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var elecionPLayer=Main.bando
+#var elecionPLayer=Main.bando
+var elecionPLayer="Empirista"
 var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var countdown_timer = 3
@@ -67,7 +68,7 @@ func _Questions():
 func enviarataqueblanco():
 	$AnimatedSprite2D.play("attack")
 func enviarataqueRojo():
-	$AnimatedSprite2D.play("attackRojo")
+	$AnimatedSprite2D.play("AttackRojo")
 func murio():
 	$AnimatedSprite2D.play("death")
 func murioempi():

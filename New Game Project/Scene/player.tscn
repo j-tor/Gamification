@@ -316,9 +316,8 @@ script = ExtResource("1_dveb0")
 position = Vector2(28.75, 36.75)
 scale = Vector2(2.85484, 2.44118)
 sprite_frames = SubResource("SpriteFrames_7jc2p")
-animation = &"perdioEmpi"
+animation = &"AttackRojo"
 autoplay = "normal"
-frame_progress = 0.366751
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(35.5, 44.25)
