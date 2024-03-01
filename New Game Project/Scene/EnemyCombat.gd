@@ -55,7 +55,7 @@ func _physics_process(delta):
 	else:
 		estadoCorrer=false
 		$"../Informacion/Timer".stop()
-		siguienteRound()
+		#siguienteRound()
 	#ManagerGame()
 
 func _on_area_2d_area_entered(area):
