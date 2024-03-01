@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw1p7560p8a6y"]
+[gd_scene load_steps=6 format=3 uid="uid://cw1p7560p8a6y"]
 
 [ext_resource type="Script" path="res://saver.gd" id="1_qy5mt"]
 [ext_resource type="Texture2D" uid="uid://cpw8mubcrkws4" path="res://SI_GBA_TheLegendOfZeldaTheMinishCap_image1600w.jpg" id="1_t3j2i"]
 [ext_resource type="Script" path="res://Button.gd" id="3_o1puc"]
 [ext_resource type="Script" path="res://Button_Login.gd" id="3_wnkll"]
+[ext_resource type="PackedScene" uid="uid://1yc8xe782tpe" path="res://Scene/VideoIntroduccionGame.tscn" id="5_bmane"]
 
 [node name="Login" type="Control" groups=["Login"]]
 layout_mode = 3
@@ -103,6 +104,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Accept"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VideoStreamPlayer" parent="CanvasLayer" instance=ExtResource("5_bmane")]
+
+[node name="Omitir" type="Button" parent="CanvasLayer"]
+offset_left = 987.0
+offset_top = 569.0
+offset_right = 1103.0
+offset_bottom = 615.0
+text = "Omitir"
+
 [connection signal="pressed" from="Button_Login" to="." method="_on_button_login_pressed"]
 [connection signal="pressed" from="Button_CreateUser" to="Button_CreateUser" method="_on_pressed"]
 [connection signal="pressed" from="Window/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Omitir" to="." method="_on_omitir_pressed"]

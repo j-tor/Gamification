@@ -9,11 +9,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
+func ver():
+	$".".play()
+func parar():
+	$".".stop()
+func eliminar():
+	queue_free()
 func _on_finished():
 	pass
-	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
-	get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
-	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-	get_tree().get_nodes_in_group("VideoIntro")[0].queue_free()
+	

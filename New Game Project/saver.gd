@@ -2,7 +2,7 @@ extends Control
 
 var username = ""
 const SAVEFILE = "user://SAVEFILE.save"
-
+var mirovideo=false
 var game_data=[{
 	"user":"admin",
 	"pass":"admin"
@@ -12,6 +12,7 @@ var game_data=[{
 
 
 func _ready():
+	$CanvasLayer/VideoStreamPlayer.parar()
 	_loaddata()
 	POPUP.hide()
 	return true
@@ -55,10 +56,11 @@ func _on_button_login_pressed():
 				#var change_scene2 = load("res://mundo.tscn")
 				#get_tree().change_scene_to_packed(change_scene2)
 				#change_scene2.instantiate()
-				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
-				get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
-				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-				get_tree().get_nodes_in_group("Login")[0].queue_free()
+				verVideo()
+				#get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
+				#get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
+				#get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+				#get_tree().get_nodes_in_group("Login")[0].queue_free()
 				break;
 				
 	POPUP.show()
@@ -69,10 +71,40 @@ func _on_button_login_pressed():
 
 
 func _on_button_pressed():
-	if $Window/RichTextLabel.text=="Login Exitoso":
+	$NinePatchRect.hide()
+	$MarginContainer.hide()
+	$Button_Login.hide()
+	$Button_CreateUser.hide()
+	$TextEdit.hide()
+	$TextEdit2.hide()
+	$Window.hide()
+	
+	$CanvasLayer.show()
+	$CanvasLayer/VideoStreamPlayer.ver()
+	
+	if $Window/RichTextLabel.text=="Login Exitoso" && mirovideo==true:
 		var change_scene2 = load("res://mundo.tscn")
 		get_tree().change_scene_to_packed(change_scene2)
 		change_scene2.instantiate()
 	POPUP.hide()
 		
 	pass # Replace with function body.
+func verVideo():
+	$NinePatchRect.hide()
+	$MarginContainer.hide()
+	$Button_Login.hide()
+	$Button_CreateUser.hide()
+	$TextEdit.hide()
+	$TextEdit2.hide()
+	$Window.hide()
+	
+	$CanvasLayer.show()
+	$CanvasLayer/VideoStreamPlayer.ver()
+
+func _on_omitir_pressed():
+	$CanvasLayer/VideoStreamPlayer.stop()
+	$CanvasLayer/VideoStreamPlayer.eliminar()
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
+	get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("Login")[0].queue_free()
