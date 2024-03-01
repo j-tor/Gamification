@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var elecionPLayer="Empirista"
-const SPEED = 300.0
+var elecionPLayer="Racionalista"
+var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var countdown_timer = 3
 
@@ -9,14 +9,19 @@ var countdown_timer = 3
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	if Main.Velocidad>10:
+		SPEED+=20
 	if elecionPLayer=="Racionalista":
 		$AnimatedSprite2D.play("normal")
 	elif elecionPLayer=="Empirista":
 		$AnimatedSprite2D.play("normalempi")
 func _physics_process(delta):
 	# Add the gravity.
+	#$SpawnerFlecha._NuevoDisparo()
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		#$SpawnerFlecha._NuevoDisparo()
+		print("este juan")
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -59,3 +64,19 @@ func _on_area_2d_area_entered(area):
 	pass
 func _Questions():
 	pass
+func enviarataqueblanco():
+	$AnimatedSprite2D.play("attack")
+func enviarataqueRojo():
+	$AnimatedSprite2D.play("attackRojo")
+func murio():
+	$AnimatedSprite2D.play("death")
+func murioempi():
+	$AnimatedSprite2D.play("deathempi")
+func ganoEmpi():
+	$AnimatedSprite2D.play("winEmpi")
+func ganoRacio():
+	$AnimatedSprite2D.play("winRacio")
+func perdioempi():
+	$AnimatedSprite2D.play("perdioEmpi")
+func perdioRacio():
+	$AnimatedSprite2D.play("perdioRacio")
