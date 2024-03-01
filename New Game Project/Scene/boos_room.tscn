@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://sdadifpjtvtj"]
+[gd_scene load_steps=24 format=3 uid="uid://sdadifpjtvtj"]
 
 [ext_resource type="Texture2D" uid="uid://cv1ahdjdtmdca" path="res://img/battle state.png" id="1_etwyb"]
-[ext_resource type="PackedScene" path="res://Scene/skeletron_boss.tscn" id="1_wo2nc"]
-[ext_resource type="PackedScene" path="res://Scene/player.tscn" id="2_jq1tv"]
-[ext_resource type="PackedScene" path="res://LibroObj.tscn" id="4_p80jk"]
+[ext_resource type="PackedScene" uid="uid://ouimmxk6v0sb" path="res://Scene/skeletron_boss.tscn" id="1_wo2nc"]
+[ext_resource type="PackedScene" uid="uid://cgfkkqymf40ci" path="res://Scene/player.tscn" id="2_jq1tv"]
+[ext_resource type="PackedScene" uid="uid://dqn85g2jwxw2k" path="res://LibroObj.tscn" id="4_p80jk"]
+[ext_resource type="Texture2D" uid="uid://bae5ydseu57nc" path="res://img/89995e33-6c29-4d08-821f-8629e021d6d2.png" id="5_ksn5v"]
+[ext_resource type="AudioStream" uid="uid://djbsk10fgj36e" path="res://img/Assets/Sonidos/Hallowed Be Thy Name (2015 Remaster).mp3" id="6_jt846"]
+[ext_resource type="AudioStream" uid="uid://c7517d3vai6j6" path="res://img/Assets/Sonidos/Carl Orff - O Fortuna  Carmina Burana.mp3" id="7_2aw8h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8gtg"]
 texture = ExtResource("1_etwyb")
@@ -7642,6 +7645,33 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_hw01u"]
 font_size = 32
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0hu7"]
+atlas = ExtResource("5_ksn5v")
+region = Rect2(247, 0, 243, 433)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81xtk"]
+atlas = ExtResource("5_ksn5v")
+region = Rect2(243, 433, 243, 433)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suatx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hu7")
+}],
+"loop": true,
+"name": &"PocionRoja",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81xtk")
+}],
+"loop": true,
+"name": &"PosicionBlanca",
+"speed": 5.0
+}]
+
 [node name="BoosRoom" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -7799,17 +7829,68 @@ text = "C)"
 visible = false
 
 [node name="Label" type="Label" parent="InfoStart"]
-offset_left = 57.0
-offset_top = 136.0
-offset_right = 1132.0
-offset_bottom = 516.0
-text = "En este mini juego deberas de correr hasta el pergamino que esta en el
- centro, si llegas antes que el enemy deberas responder una pregunta.
- Recuerda si te equivocas pierdes un punto y si aciertasganas un punto, 
-son dos puntos por Round para conseguir ganar un round. Deberas 
-demostrar tus habilidades dentro de los 4 Rounds.
-Mucha Suerte!!!, a luchar...."
+offset_left = 42.0
+offset_top = 137.0
+offset_right = 1177.0
+offset_bottom = 517.0
+text = "En este mini juego deberas correr hasta el pergamino que esta en el
+ centro, si llegas antes que el enemigo, deberas responder una pregunta.
+ Recuerda, si te equivocas, pierdes un punto y si aciertas, ganas un punto. 
+Son dos puntos para conseguir ganar un round. Deberas demostrar tus 
+habilidades dentro de los 4 rounds.
+Mucha suerte... A luchar!"
 label_settings = SubResource("LabelSettings_hw01u")
+
+[node name="PosicionSprite1" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(454, 65)
+scale = Vector2(0.219136, 0.0972864)
+sprite_frames = SubResource("SpriteFrames_suatx")
+animation = &"PosicionBlanca"
+
+[node name="PosicionSprite2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(517, 64)
+scale = Vector2(0.188272, 0.0969977)
+sprite_frames = SubResource("SpriteFrames_suatx")
+animation = &"PosicionBlanca"
+
+[node name="PosicionSprite3" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(575, 65)
+scale = Vector2(0.177469, 0.0995959)
+sprite_frames = SubResource("SpriteFrames_suatx")
+animation = &"PosicionBlanca"
+
+[node name="PosicionSprite4" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(633, 64)
+scale = Vector2(0.171811, 0.0978638)
+sprite_frames = SubResource("SpriteFrames_suatx")
+animation = &"PosicionBlanca"
+
+[node name="PosicionSprite5" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(684, 65)
+scale = Vector2(0.159979, 0.0932448)
+sprite_frames = SubResource("SpriteFrames_suatx")
+animation = &"PocionRoja"
+
+[node name="Back" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Salir" type="Button" parent="Back"]
+offset_left = 507.0
+offset_top = 404.0
+offset_right = 644.0
+offset_bottom = 452.0
+text = "Salir"
+
+[node name="Empirista" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jt846")
+
+[node name="Racionalista" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_2aw8h")
 
 [connection signal="area_entered" from="Area2D" to="SkeletronBoss" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="SkeletronBoss" method="_on_area_2d_body_entered"]

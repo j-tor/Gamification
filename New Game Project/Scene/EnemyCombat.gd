@@ -1,9 +1,10 @@
 extends CharacterBody2D
 #empiristas con vestimenta roja y racionalistas con vestimenta blanca
-var elecionPLayer="Empirista"
+#var elecionPLayer=Main.bando
+var elecionPLayer="Racionalista"
 
 #rango 260-350 
-var SPEED = randi_range(180,320)
+var SPEED = randi_range(205,310)
 const JUMP_VELOCITY = -400.0
 const direction =-1
 var countdown_timer=3
@@ -22,6 +23,7 @@ var puntosEnemy=0
 var RoundsPlayer=0
 var RoundsEnemy=0
 var correctplayer
+var celebrar=false
 # Get the gravity from the project settings to be synced with RigidBody nodes.d
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -29,24 +31,31 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	# Add the gravity.
 	#print(SPEED)
-	if position.y < 600:
-		position.y += 5
-	if estadoCorrer==true:
+	if celebrar==false:
+		if position.y < 600:
+			position.y += 5
+		if estadoCorrer==true:
 		#if elecionPLayer=="Racionalista":
-		if correctplayer=="Empirista":
-			$AnimatedSprite2D.play("run")
-		elif correctplayer=="Racionalista":
-			$AnimatedSprite2D.play("runracio")
+			print(correctplayer)
+			if correctplayer=="Empirista":
+				print("debe de")
+				$AnimatedSprite2D.play("runempi")
+			elif correctplayer=="Racionalista":
+				$AnimatedSprite2D.play("runracion")
 		#elif elecionPLayer=="Empirista":
 		#	pass
-		velocity.x = direction * SPEED
-		move_and_slide()
-	_Correrstop()
-	$"../Informacion/Round".text= str(Round)
-	$"../Informacion/PlayerPuntos".text = str(puntoPLayer)
-	$"../Informacion/EnemyPuntos2".text = str(puntosEnemy)
-	if Gano=="Player"||Gano=="Enemy" && Respondio==false:
-		ManagerGame()
+			velocity.x = direction * SPEED
+			move_and_slide()
+		_Correrstop()
+		$"../Informacion/Round".text= str(Round)
+		$"../Informacion/PlayerPuntos".text = str(puntoPLayer)
+		$"../Informacion/EnemyPuntos2".text = str(puntosEnemy)
+		if Gano=="Player"||Gano=="Enemy" && Respondio==false:
+			ManagerGame()
+	else:
+		estadoCorrer=false
+		$"../Informacion/Timer".stop()
+		#siguienteRound()
 	#ManagerGame()
 
 func _on_area_2d_area_entered(area):
@@ -56,15 +65,17 @@ func _on_area_2d_area_entered(area):
 	#ED)
 	
 func _ready():
+	
 	if elecionPLayer=="Racionalista":
 		correctplayer="Empirista"
 	elif elecionPLayer=="Empirista":
 		correctplayer="Racionalista"
+		print(correctplayer)
 	if correctplayer=="Empirista":
 		$AnimatedSprite2D.play("idle")
 	elif correctplayer=="Racionalista":
 		$AnimatedSprite2D.play("idleracio")
-	Intruciones()
+	#Intruciones()
 	ManagerGame()
 	pass
 
@@ -80,18 +91,18 @@ func Intruciones():
 func ManagerGame():
 	if position.y < 600:
 		position.y += 5
-	if estadoCorrer==true:
-		if correctplayer=="Empirista":
-			$AnimatedSprite2D.play("run")
-		elif correctplayer=="Racionalista":
-			$AnimatedSprite2D.play("runracio")
-		velocity.x = direction * SPEED
-		move_and_slide()
-	else:
-		if correctplayer=="Empirista":
-			$AnimatedSprite2D.play("idle")
-		elif correctplayer=="Racionalista":
-			$AnimatedSprite2D.play("idleracio")
+	#if estadoCorrer==true:
+		#if correctplayer=="Empirista":
+			#$AnimatedSprite2D.play("run")
+		#elif correctplayer=="Racionalista":
+			#$AnimatedSprite2D.play("runracio")
+		#velocity.x = direction * SPEED
+		#move_and_slide()
+	#else:
+		#if correctplayer=="Empirista":
+			#$AnimatedSprite2D.play("idle")
+		#elif correctplayer=="Racionalista":
+			#$AnimatedSprite2D.play("idleracio")
 	_Correrstop()
 	
 	if Round==1 || Round==2 || Round==3 || Round==4|| Round==5:
@@ -116,12 +127,29 @@ func ManagerGame():
 			
 			if Elecionenemy==true:
 				$"../Informacion/Inforound".text="Enemy acerto"
+				
+				if elecionPLayer=="Empirista":
+					$"../player".murioempi()
+					$AnimatedSprite2D.play("ataqueracio")
+				elif elecionPLayer=="Racionalista":
+					$"../player".murio()
+					$AnimatedSprite2D.play("ataque")
+				
+				
 				print("Repondio bien")
 			elif Elecionenemy==false:
 				$"../Informacion/Inforound".text="Enemy se equivoco"
 				print ("Respondio mal")
+				
+				if elecionPLayer=="Empirista":
+					$"../player".enviarataqueRojo()
+					$AnimatedSprite2D.play("deathracio")
+				elif elecionPLayer=="Racionalista":
+					$"../player".enviarataqueblanco()
+					$AnimatedSprite2D.play("death")
+				
 			await get_tree().create_timer(2).timeout
-			
+			$"../CharacterBody2D".show()
 			get_tree().paused = false
 			$"../Informacion/Inforound".text="Round"
 			$"../Informacion/Round".text= str(Round)
@@ -139,12 +167,13 @@ func _on_timer_timeout():
 	else:
 		$"../Informacion/Segundos".text = "¡Ya!"
 		$"../Informacion/Timer".stop()
-		estadoCorrer=true
+		if celebrar==false:
+			estadoCorrer=true
 		$"../StaticBody2D/CollisionStopPlayer".position=Vector2(5000,5000)
 func _Correrstop():
 	if position.x<613:
 		estadoCorrer=false
-	if correctplayer=="Empirista":
+	if correctplayer=="Empirista" && estadoCorrer==false:
 		$AnimatedSprite2D.play("idle")
 	elif correctplayer=="Racionalista":
 		$AnimatedSprite2D.play("idleracio")
@@ -199,15 +228,19 @@ func _on_area_2d_body_entered(body):
 		Gano = "Enemy"
 
 func EleccionEnemy():
+	var posibilidad
+	if correctplayer=="Empirista":
+		posibilidad=4
+	elif correctplayer=="Racionalista":
+		posibilidad=3
+	
 	var posibility= randi() % 9
-	print(posibility)
-	if posibility<4:
+	if posibility<posibilidad:
 		Elecionenemy=false
 		puntoPLayer+=1
 	else:
 		Elecionenemy=true
 		puntosEnemy+=1
-	
 
 
 func _on_respuesta_a_pressed():
@@ -302,7 +335,17 @@ func ValiarEleccion():
 		$"../Questions".hide()
 		$"../Informacion".show()
 		get_tree().paused = true
+		
+		if elecionPLayer=="Empirista":
+			$"../player".enviarataqueRojo()
+			$AnimatedSprite2D.play("deathracio")
+		elif elecionPLayer=="Racionalista":
+			$"../player".enviarataqueblanco()
+			$AnimatedSprite2D.play("death")
+		$"../CharacterBody2D".hide()
+		
 		await get_tree().create_timer(2).timeout
+		$"../CharacterBody2D".show()
 		get_tree().paused = false
 		$"../Informacion/Inforound".text="Round"
 		$"../Informacion/Round".text= str(Round)
@@ -317,7 +360,17 @@ func ValiarEleccion():
 		$"../Questions".hide()
 		$"../Informacion".show()
 		get_tree().paused = true
+		
+		if elecionPLayer=="Empirista":
+			$"../player".murioempi()
+			$AnimatedSprite2D.play("ataqueracio")
+		elif elecionPLayer=="Racionalista":
+			$"../player".murio()
+			$AnimatedSprite2D.play("ataque")
+		$"../CharacterBody2D".hide()
+		
 		await get_tree().create_timer(2).timeout
+		$"../CharacterBody2D".show()
 		get_tree().paused = false
 		$"../Informacion/Inforound".text="Round"
 		$"../Informacion/Round".text= str(Round)
@@ -344,16 +397,80 @@ func reiniciar():
 	siguienteRound()
 
 func siguienteRound():
+	print("Enemy puntos:")
+	print(RoundsEnemy)
+	print("Player puntos:")
+	print(RoundsPlayer)
 	if puntoPLayer>=2:
 		RoundsPlayer+=1
 		puntoPLayer=0
 		puntosEnemy=0
 		Round+=1
+		if Round==1:
+			$"../PosicionSprite1".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite1".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite1".play("PocionBlanca")
+		elif Round==2:
+			$"../PosicionSprite2".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite2".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite2".play("PocionBlanca")
+		elif Round==3:
+			$"../PosicionSprite3".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite3".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite3".play("PocionBlanca")
+		if Round==4:
+			$"../PosicionSprite4".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite4".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite4".play("PocionBlanca")
+		if Round==5:
+			$"../PosicionSprite5".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite5".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite5".play("PocionBlanca")
 	elif puntosEnemy>=2:
 		RoundsEnemy+=1
 		puntoPLayer=0
 		puntosEnemy=0
 		Round+=1
+		if Round==1:
+			$"../PosicionSprite1".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite1".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite1".play("PocionBlanca")
+		elif Round==2:
+			$"../PosicionSprite2".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite2".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite2".play("PocionBlanca")
+		elif Round==3:
+			$"../PosicionSprite3".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite3".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite3".play("PocionBlanca")
+		if Round==4:
+			$"../PosicionSprite4".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite4".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite4".play("PocionBlanca")
+		if Round==5:
+			$"../PosicionSprite5".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite5".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite5".play("PocionBlanca")
 	if Round==5 || Round==6:
 		if RoundsPlayer>RoundsEnemy:
 			print("ganastes")
@@ -364,16 +481,53 @@ func siguienteRound():
 			$"../Informacion/Label2".text= " "
 			$"../Informacion/EnemyPuntos2".text=" "
 			$"../Informacion/PlayerPuntos".text=" "
-			get_tree().paused = true
+			
+			$"../CharacterBody2D".hide()
+			if elecionPLayer=="Racionalista":
+				$AnimatedSprite2D.play("perdioRacio")
+				$"../player".ganoRacio()
+				#get_tree().paused = true
+				$"../Racionalista".play()
+			elif elecionPLayer=="Empirista":
+				$AnimatedSprite2D.play("perdioEmpi")
+				$"../player".ganoEmpi()
+				#get_tree().paused = true
+				$"../Empirista".play()
+			$"../Back".show()
+			await get_tree().create_timer(30).timeout
 		if RoundsEnemy>RoundsPlayer:
-			$"../Informacion/Inforound".text="Perdistes!"
+			$"../Informacion/Inforound".text="Perdiste!"
 			$"../Informacion/Round".text=" "
 			$"../Informacion/Segundos".text=" "
 			$"../Informacion/Label".text=" "
 			$"../Informacion/Label2".text= " "
 			$"../Informacion/EnemyPuntos2".text=" "
 			$"../Informacion/PlayerPuntos".text=" "
-			get_tree().paused = true
+			
+			$"../CharacterBody2D".hide()
+			if elecionPLayer=="Racionalista":
+				$AnimatedSprite2D.play("winRacio")
+				$"../player".perdioRacio()
+				#get_tree().paused = true
+				$"../Back".show()
+				$"../Racionalista".play()
+			elif elecionPLayer=="Empirista":
+				$AnimatedSprite2D.play("winEmpi")
+				$"../player".perdioempi()
+				$"../Back".show()
+				#get_tree().paused = true
+				$"../Racionalista".play()
+				
+			celebrar=true
+			SPEED=0
+			$"../Informacion/Segundos".hide()
+			$"../Informacion/Round".hide()
+			
+			Gano="sepa"
+			await get_tree().create_timer(30).timeout
+			estadoCorrer=false
+			$"../Informacion/Timer".stop()
+			
 
 #if correctplayer=="Empirista":
 #	elif correctplayer=="Racionalista":
