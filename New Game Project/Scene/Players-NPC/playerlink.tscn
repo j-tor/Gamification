@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dxtcub1fb3p5u"]
+[gd_scene load_steps=22 format=3 uid="uid://dxtcub1fb3p5u"]
 
 [ext_resource type="Script" path="res://Scrips/playerlink.gd" id="1_0bc7g"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_rh17t"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cvbc64sgeai08" path="res://img/Fantasma.png" id="4_fddct"]
 [ext_resource type="Texture2D" uid="uid://bc167k07yvyyt" path="res://img/kindpng_6689283.png" id="4_yvtkk"]
 [ext_resource type="Texture2D" uid="uid://bnvrb1gyrlthk" path="res://img/image.psd.png" id="6_fb5hd"]
+[ext_resource type="Texture2D" uid="uid://bp7fc0dswm154" path="res://img/Malo.psd.png" id="7_0cccd"]
+[ext_resource type="Texture2D" uid="uid://b0rdtxo8gtndi" path="res://img/Caballo.psd.png" id="8_sn6om"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03gse"]
 size = Vector2(12, 10)
@@ -213,6 +215,18 @@ visible = false
 position = Vector2(625.5, 306)
 scale = Vector2(0.736054, 0.684366)
 texture = ExtResource("6_fb5hd")
+
+[node name="Malo" type="Sprite2D" parent="Macro/Control"]
+visible = false
+position = Vector2(607.875, 290)
+scale = Vector2(0.564844, 0.564286)
+texture = ExtResource("7_0cccd")
+
+[node name="Caballo" type="Sprite2D" parent="Macro/Control"]
+visible = false
+position = Vector2(611.563, 322.875)
+scale = Vector2(1.30891, 1.35781)
+texture = ExtResource("8_sn6om")
 
 [node name="Sprite2D" type="Sprite2D" parent="Macro/Control"]
 position = Vector2(608, 554)

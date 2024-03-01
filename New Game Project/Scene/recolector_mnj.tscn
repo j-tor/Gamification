@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://dc8cr6r6vn4hw"]
 
-[ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
+[ext_resource type="PackedScene" uid="uid://b1nar1rwb850" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
 [ext_resource type="Script" path="res://Scrips/recolector_mnj.gd" id="1_vaqgv"]
-[ext_resource type="PackedScene" uid="uid://b3unkp8stha00" path="res://Scene/spawner.tscn" id="3_vcnif"]
+[ext_resource type="PackedScene" uid="uid://bcfo22irc4gkq" path="res://Scene/spawner.tscn" id="3_vcnif"]
 [ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
 [ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
 [ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]

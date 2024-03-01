@@ -13,8 +13,9 @@ var GreeGame=false
 var pinkGame=false
 var BlueGame=false
 var yellowGame=false
-var Vida_base=80
+var Vida_base=0
 var Velocidad=0
+var Recistencia=5
 
 
 var nombre_objeto
@@ -110,6 +111,19 @@ func _dialogo():
 			dialogo_objeto = [
 					"Hola Soy la Princesa....",#0
 					"Has compltado Todos los niveles de la Ruleta!",#1
-					"Ve donde la Bruja para tomar tu pocion de conocimiento!",#1
-					"Abre tu mapa para ver donde esta la bruja...tecla(M) ",#1
+					"Ve donde la Bruja para tomar tu pocion de conocimiento!",#2
+					"Abre tu mapa para ver donde esta la bruja...tecla(M) ",#3
 					]
+		"Vendedora":
+			dialogo_objeto = [
+					"Hola Soy Malo....",#0
+					"Vendo leche Freca!",#1
+					"Tomar leche hace fuerte tu huesos y da vitamina!",#2
+					"Comprame un frasco de leche!!",#3
+					]
+		"Caballo":
+			dialogo_objeto = [
+					"Brr....",#0
+					"Brrr..brr..",#1
+					]
+		

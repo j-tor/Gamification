@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=3 uid="uid://cmkned37qgibg"]
+
+[ext_resource type="Script" path="res://Scene/Players-NPC/malo.gd" id="1_4wjp3"]
+[ext_resource type="Texture2D" uid="uid://0awpu1yra0cw" path="res://img/NPCS.png" id="1_ynu1g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjhnd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3l6j"]
+radius = 13.0
+height = 52.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgud0"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(162, 1215, 54, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rd3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgud0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a08m"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(28, 1221, 22, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv578"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(50, 1221, 22, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g007"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(72, 1221, 22, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owl60"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(94, 1221, 22, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woy1h"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(116, 1221, 22, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvaub"]
+atlas = ExtResource("1_ynu1g")
+region = Rect2(138, 1221, 22, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odfoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a08m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv578")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g007")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owl60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woy1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvaub")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1l2ru"]
+radius = 17.0
+height = 78.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_un2pe"]
+radius = 40.0
+
+[node name="Malo" type="CharacterBody2D"]
+position = Vector2(25, 11)
+script = ExtResource("1_4wjp3")
+
+[node name="Malo" type="CollisionShape2D" parent="."]
+position = Vector2(22, 27)
+shape = SubResource("CapsuleShape2D_cjhnd")
+
+[node name="Animal" type="CollisionShape2D" parent="."]
+position = Vector2(61, 27)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o3l6j")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(61, 30)
+sprite_frames = SubResource("SpriteFrames_6rd3c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 25)
+scale = Vector2(1.22727, 1.13636)
+sprite_frames = SubResource("SpriteFrames_odfoc")
+animation = &"idle"
+frame_progress = 0.0697215
+
+[node name="Caballo" type="Area2D" parent="." groups=["objeto"]]
+position = Vector2(-1, 0)
+collision_layer = 184
+collision_mask = 184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caballo"]
+position = Vector2(72, 27)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_1l2ru")
+
+[node name="Vendedora" type="Area2D" parent="." groups=["objeto"]]
+position = Vector2(-1, 0)
+collision_layer = 184
+collision_mask = 184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vendedora"]
+position = Vector2(23, 27)
+shape = SubResource("CircleShape2D_un2pe")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Caballo" to="." method="_on_caballo_body_entered"]
+[connection signal="body_entered" from="Vendedora" to="." method="_on_vendedora_body_entered"]
+[connection signal="body_exited" from="Vendedora" to="." method="_on_vendedora_body_exited"]

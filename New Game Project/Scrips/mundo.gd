@@ -14,6 +14,11 @@ func _ready():
 	else:
 		$playerlink/Camera2D2/Velocidad_aumentada.hide()
 	
+	if Main.Recistencia>=10:
+		$playerlink/Camera2D2/Leche.show()
+	else:
+		$playerlink/Camera2D2/Leche.hide()
+	
 	if Main.Vida_base >= 19 && Main.Vida_base < 40 :
 		$playerlink/Camera2D2/Heart1.frame=0
 	elif Main.Vida_base >= 40 && Main.Vida_base < 60:
@@ -90,7 +95,7 @@ func _on_element_area_entered(area):
 	if area.is_in_group("player"):
 		if Main.pinkGame==true:
 			$"Elemental Santuary/Entrada a Satuary".show()
-			get_tree().aget_nodes_in_group("GAME")[0].siguiente_nivel = "element"
+			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "element"
 			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 			get_tree().get_nodes_in_group("mundo")[0].queue_free()
 		else :

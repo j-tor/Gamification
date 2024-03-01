@@ -37,8 +37,15 @@ func ingresar_dialogo():
 				$Caballero.show()
 			"Princesa":
 				$Princesa.show()
+			"Vendedora":
+				$Malo.show()
+			"Caballo":
+				$Caballo.show()
+				
 			
 	else:
+		$Malo.hide()
+		$Caballo.hide()
 		$Princesa.hide()
 		$Caballero.hide()
 		$ghost.hide()

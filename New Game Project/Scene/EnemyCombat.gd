@@ -111,6 +111,7 @@ func ManagerGame():
 			_on_timer_timeout()
 		elif Gano=="Player" && Respondio==false:
 			QuestionDo()
+			$"../DirectionalLight2D".hide()
 			$"../Informacion".hide()
 			$"../Questions".show()
 			Respondio=true
@@ -380,6 +381,7 @@ func ValiarEleccion():
 	reiniciar()
 
 func reiniciar():
+	$"../DirectionalLight2D".show()
 	estadoCorrer=false
 	if correctplayer=="Empirista":
 		$AnimatedSprite2D.play("idle")
@@ -406,6 +408,7 @@ func siguienteRound():
 		puntoPLayer=0
 		puntosEnemy=0
 		Round+=1
+		$"../DirectionalLight2D".show()
 		if Round==1:
 			$"../PosicionSprite1".show()
 			if elecionPLayer=="Empirista":
@@ -424,23 +427,27 @@ func siguienteRound():
 				$"../PosicionSprite3".play("PocionRoja")
 			elif elecionPLayer=="Racionalista":
 				$"../PosicionSprite3".play("PocionBlanca")
+		
 		if Round==4:
 			$"../PosicionSprite4".show()
 			if elecionPLayer=="Empirista":
 				$"../PosicionSprite4".play("PocionRoja")
 			elif elecionPLayer=="Racionalista":
 				$"../PosicionSprite4".play("PocionBlanca")
+		
 		if Round==5:
 			$"../PosicionSprite5".show()
 			if elecionPLayer=="Empirista":
 				$"../PosicionSprite5".play("PocionRoja")
 			elif elecionPLayer=="Racionalista":
 				$"../PosicionSprite5".play("PocionBlanca")
+		
 	elif puntosEnemy>=2:
 		RoundsEnemy+=1
 		puntoPLayer=0
 		puntosEnemy=0
 		Round+=1
+		$"../DirectionalLight2D".show()
 		if Round==1:
 			$"../PosicionSprite1".show()
 			if correctplayer=="Empirista":
