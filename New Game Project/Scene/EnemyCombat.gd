@@ -538,3 +538,9 @@ func siguienteRound():
 
 #if correctplayer=="Empirista":
 #	elif correctplayer=="Racionalista":
+
+
+func _on_salir_pressed():
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("WarGame")[0].queue_free()

@@ -142,3 +142,10 @@ func _on_entrar_wicth_area_entered(area):
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("mundo")[0].queue_free()
 	
+
+
+func _on_entrada_a_game_combat_area_entered(area):
+	if area.is_in_group("player"):
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "WarGame"
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("mundo")[0].queue_free()
