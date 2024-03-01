@@ -8,6 +8,9 @@ func _ready():
 	else:
 		$Bruja.hide()
 	pass # Replace with function body.
+	
+	if !Main.bando=="":
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

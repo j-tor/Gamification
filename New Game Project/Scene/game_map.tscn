@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dr7p1i3n3mrmp"]
+[gd_scene load_steps=26 format=3 uid="uid://dr7p1i3n3mrmp"]
 
 [ext_resource type="Texture2D" uid="uid://bm0gpx5akr5t2" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Overworld Map.png" id="1_n1xdq"]
 [ext_resource type="Script" path="res://Mapa.gd" id="2_7g38f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6jovsr7frnu6" path="res://img/pixilart-sprite.png" id="4_yaqwp"]
 [ext_resource type="Texture2D" uid="uid://bem4q36oflnvp" path="res://img/Zelda3Sheet1_scaled_5x_minified.png" id="5_ev77q"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="6_8jf5c"]
+[ext_resource type="Texture2D" uid="uid://b51hiuprk1ypn" path="res://img/Zeldalogo.psd.png" id="6_relcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nwls"]
 texture = ExtResource("1_n1xdq")
@@ -1533,6 +1534,15 @@ margins = Vector2i(1, 6)
 sources/1 = SubResource("TileSetAtlasSource_8nwls")
 sources/2 = SubResource("TileSetAtlasSource_cebcn")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rkne0"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4ncy8"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_apx2c"]
+blend_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vckm8"]
 atlas = ExtResource("1_n1xdq")
 region = Rect2(655, 23, 93, 23)
@@ -1637,24 +1647,37 @@ position = Vector2(110, 99)
 scale = Vector2(0.197829, 0.197612)
 texture = ExtResource("3_lneab")
 
-[node name="Ruleta" type="Sprite2D" parent="."]
+[node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(111, 92)
 scale = Vector2(0.0192493, 0.0186938)
+energy = 3.36
+
+[node name="Ruleta" type="Sprite2D" parent="PointLight2D2"]
+material = SubResource("CanvasItemMaterial_rkne0")
 texture = ExtResource("4_yaqwp")
 hframes = 4
 
-[node name="Bruja" type="Sprite2D" parent="."]
+[node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(109, 55)
 scale = Vector2(0.0543339, 0.0398179)
+energy = 3.5
+
+[node name="Bruja" type="Sprite2D" parent="PointLight2D3"]
+material = SubResource("CanvasItemMaterial_4ncy8")
+scale = Vector2(1, 1)
 texture = ExtResource("5_ev77q")
 hframes = 5
 
-[node name="Link" type="Sprite2D" parent="."]
-position = Vector2(115, 122)
-scale = Vector2(0.028624, 0.0189977)
-texture = ExtResource("6_8jf5c")
-hframes = 10
-vframes = 7
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(109, 55)
+scale = Vector2(0.0543339, 0.0398179)
+energy = 8.72
+
+[node name="Sprite2D" type="Sprite2D" parent="PointLight2D"]
+material = SubResource("CanvasItemMaterial_apx2c")
+position = Vector2(0, -527.402)
+scale = Vector2(0.313475, 0.473309)
+texture = ExtResource("6_relcq")
 
 [node name="Element" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -1686,3 +1709,16 @@ sprite_frames = SubResource("SpriteFrames_gb4xl")
 position = Vector2(56, 88)
 scale = Vector2(0.538705, 0.646177)
 sprite_frames = SubResource("SpriteFrames_0cwyo")
+
+[node name="Link" type="Sprite2D" parent="."]
+position = Vector2(115, 122)
+scale = Vector2(0.028624, 0.0189977)
+texture = ExtResource("6_8jf5c")
+hframes = 10
+vframes = 7
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="CanvasModulate"]
+energy = 0.5

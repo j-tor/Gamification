@@ -152,10 +152,7 @@ func _on_detec_obj_area_entered(area):
 			Main.bando="Racionalista"
 		print(Main.bando)
 		print("Adentro ",area.name)
-	print(Main.bando)
-	print(bruja)
 	print(Main.bruja)
-	print("bruja")
 	print(Main.bando)
 	print("bando")
 	print(Main.Velocidad)
