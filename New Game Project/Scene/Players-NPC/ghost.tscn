@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b2h2unstnnldd"]
+[gd_scene load_steps=30 format=3 uid="uid://b2h2unstnnldd"]
 
 [ext_resource type="Script" path="res://Scrips/Ghost.gd" id="1_14s3u"]
 [ext_resource type="Texture2D" uid="uid://cwkbba0sx32lo" path="res://img/Royal Valley NPCsleft.png" id="2_gjc8c"]
@@ -190,12 +190,6 @@ height = 42.3533
 [sub_resource type="CircleShape2D" id="CircleShape2D_8q15b"]
 radius = 24.0832
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_puk5a"]
-size = Vector2(23, 101.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2bab"]
-size = Vector2(235, 20)
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 platform_wall_layers = 51
 script = ExtResource("1_14s3u")
@@ -217,34 +211,11 @@ collision_layer = 48
 collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ghost"]
-position = Vector2(155, 60)
+position = Vector2(158, 60)
 shape = SubResource("CircleShape2D_8q15b")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-top_level = true
-light_mask = 99
-visibility_layer = 99
-collision_layer = 4607
-collision_mask = 4607
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-light_mask = 33
-visibility_layer = 33
-position = Vector2(222.5, 47.625)
-shape = SubResource("RectangleShape2D_puk5a")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(117, 108)
-shape = SubResource("RectangleShape2D_f2bab")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-light_mask = 33
-visibility_layer = 33
-position = Vector2(11, 52)
-shape = SubResource("RectangleShape2D_puk5a")
 
 [connection signal="body_entered" from="ghost" to="." method="_on_chat_detection_body_entered"]
 [connection signal="body_exited" from="ghost" to="." method="_on_chat_detection_body_exited"]

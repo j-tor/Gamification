@@ -50,6 +50,7 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("ui_accept"):
 		print("chatting")
+		
 		print(current_state)
 
 	move_and_slide()

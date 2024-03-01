@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dxtcub1fb3p5u"]
+[gd_scene load_steps=20 format=3 uid="uid://dxtcub1fb3p5u"]
 
 [ext_resource type="Script" path="res://Scrips/playerlink.gd" id="1_0bc7g"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_rh17t"]
 [ext_resource type="Script" path="res://Scrips/Control.gd" id="3_a4qfy"]
+[ext_resource type="Texture2D" uid="uid://bbq4qg23g8sp6" path="res://img/Caballero.png" id="4_av7gy"]
 [ext_resource type="Texture2D" uid="uid://cvbc64sgeai08" path="res://img/Fantasma.png" id="4_fddct"]
 [ext_resource type="Texture2D" uid="uid://bc167k07yvyyt" path="res://img/kindpng_6689283.png" id="4_yvtkk"]
+[ext_resource type="Texture2D" uid="uid://bnvrb1gyrlthk" path="res://img/image.psd.png" id="6_fb5hd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03gse"]
 size = Vector2(12, 10)
@@ -194,11 +196,23 @@ offset_bottom = 40.0
 script = ExtResource("3_a4qfy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="Macro/Control"]
+[node name="Caballero" type="Sprite2D" parent="Macro/Control"]
+visible = false
+position = Vector2(621.313, 262.313)
+scale = Vector2(2.66902, 2.55821)
+texture = ExtResource("4_av7gy")
+
+[node name="ghost" type="Sprite2D" parent="Macro/Control"]
 visible = false
 position = Vector2(571, 312)
 scale = Vector2(0.586217, 0.535021)
 texture = ExtResource("4_fddct")
+
+[node name="Princesa" type="Sprite2D" parent="Macro/Control"]
+visible = false
+position = Vector2(625.5, 306)
+scale = Vector2(0.736054, 0.684366)
+texture = ExtResource("6_fb5hd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Macro/Control"]
 position = Vector2(608, 554)

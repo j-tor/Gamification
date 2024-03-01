@@ -6442,11 +6442,10 @@ grow_vertical = 2
 text = "Regresar"
 
 [node name="You_Win" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("11_ei7nh")
+max_distance = 500000.0
 
 [node name="You_Lose" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("12_gkpbo")
 
 [node name="Damage" type="AudioStreamPlayer2D" parent="."]
@@ -6461,14 +6460,13 @@ max_distance = 10000.0
 attenuation = 1.23114e-05
 
 [node name="Damage_Link" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("15_btnoy")
 attenuation = 0.594605
 
 [node name="Background_Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_a5q2d")
 max_distance = 750.0
-attenuation = 2.54912
+attenuation = 0.297302
 
 [connection signal="button_up" from="r_a" to="." method="_on_r_a_button_up"]
 [connection signal="focus_entered" from="r_a" to="." method="_on_r_a_focus_entered"]
@@ -6481,4 +6479,6 @@ attenuation = 2.54912
 [connection signal="pressed" from="r_c" to="." method="_on_r_c_pressed"]
 [connection signal="pressed" from="DeathScreen/ReiniciarButton" to="DeathScreen" method="_on_reiniciar_button_pressed"]
 [connection signal="pressed" from="DeathScreen/SalirButton2" to="." method="_on_salir_button_2_pressed"]
+[connection signal="visibility_changed" from="WinScreen" to="." method="_on_win_screen_visibility_changed"]
 [connection signal="pressed" from="WinScreen/regresar" to="." method="_on_regresar_pressed"]
+[connection signal="finished" from="Background_Music" to="." method="_on_background_music_finished"]

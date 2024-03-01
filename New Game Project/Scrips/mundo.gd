@@ -28,6 +28,7 @@ func _ready():
 		$playerlink/Camera2D2/Heart2.frame=0
 		$playerlink/Camera2D2/Heart3.frame=0
 		$playerlink/Camera2D2/Heart4.frame=0
+		$Princesa.show()
 	else:
 		print("nose")
 	#$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
@@ -89,7 +90,7 @@ func _on_element_area_entered(area):
 	if area.is_in_group("player"):
 		if Main.pinkGame==true:
 			$"Elemental Santuary/Entrada a Satuary".show()
-			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "element"
+			get_tree().aget_nodes_in_group("GAME")[0].siguiente_nivel = "element"
 			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 			get_tree().get_nodes_in_group("mundo")[0].queue_free()
 		else :

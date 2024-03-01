@@ -13,7 +13,7 @@ var GreeGame=false
 var pinkGame=false
 var BlueGame=false
 var yellowGame=false
-var Vida_base=0
+var Vida_base=80
 var Velocidad=0
 
 
@@ -100,4 +100,16 @@ func _dialogo():
 			dialogo_objeto = [
 					"Te encuentras en el Royal valey.",#0
 					"Por tu valentia ahora tienes mas Velocidad.",#1
+					]
+		"Caballero":
+			dialogo_objeto = [
+					"Bienvenido al castillo....",#0
+					"Espero tengas un buen dia!",#1
+					]
+		"Princesa":
+			dialogo_objeto = [
+					"Hola Soy la Princesa....",#0
+					"Has compltado Todos los niveles de la Ruleta!",#1
+					"Ve donde la Bruja para tomar tu pocion de conocimiento!",#1
+					"Abre tu mapa para ver donde esta la bruja...tecla(M) ",#1
 					]

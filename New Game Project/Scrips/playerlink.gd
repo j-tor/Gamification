@@ -60,12 +60,17 @@ func _physics_process(delta):
 				if Main.seleccionado==true:
 					Main.color = true
 			
+		if Input.is_action_just_pressed("Map"):
+			$"Camera2D2/Game Map".show()
+		if  Input.is_action_just_pressed("ui_cancel"):
+			$"Camera2D2/Game Map".hide()
 
 				
 				
 		if ruleta == true:
 				if Input.is_action_just_pressed("interact"):
 						if ruleta == true:
+							$"Camera2D2/Game Map".hide()
 							$"../Entrada a ruleta/Ruelta"._reproducir()
 							print("Rueleta corriendo ")
 							$"../Entrada a ruleta/Node2D".playing()
@@ -79,6 +84,7 @@ func _physics_process(delta):
 							#$Macro.visible = true
 							#Main._game()
 							#Main._dialogo()	
+							$"Camera2D2/Game Map".hide()
 							$"../Entrada a ruleta/Node2D".hide()
 							
 
@@ -133,7 +139,7 @@ func _on_detec_obj_area_entered(area):
 	if area.is_in_group("Empirista"):
 		objeto =true
 		Main.nombre_objeto = area.name
-		if bruja ==true:
+		if bruja ==true :
 			Main.bando="Empirista"
 		print(Main.bando)
 		
@@ -150,7 +156,7 @@ func _on_detec_obj_area_entered(area):
 	print(bruja)
 	print(Main.bruja)
 	print("bruja")
-	print(bando)
+	print(Main.bando)
 	print("bando")
 	print(Main.Velocidad)
 	

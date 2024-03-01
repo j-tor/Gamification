@@ -31,11 +31,17 @@ func ingresar_dialogo():
 		tween.tween_callback(_final)
 		match Main.nombre_objeto:
 			"ghost":
-				$Sprite2D2.show()
+				$ghost.show()
 				Main.Velocidad=20
+			"Caballero":
+				$Caballero.show()
+			"Princesa":
+				$Princesa.show()
 			
 	else:
-		$Sprite2D2.hide()
+		$Princesa.hide()
+		$Caballero.hide()
+		$ghost.hide()
 		print("entro a mover")
 		control = false
 		$"../..".mover = true

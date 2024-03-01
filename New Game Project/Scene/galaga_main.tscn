@@ -2689,6 +2689,7 @@ position = Vector2(1086, 314)
 shape = SubResource("RectangleShape2D_qr7yj")
 
 [node name="FinalGame" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Label" type="Label" parent="FinalGame"]
 offset_left = 381.0

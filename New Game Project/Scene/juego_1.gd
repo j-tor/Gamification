@@ -33,7 +33,7 @@ extends Node2D
 @onready var Heart2 = $Heart2
 @onready var Heart3 = $Heart3
 
-var RespuestasCorrectas=8
+var RespuestasCorrectas=0
 var RespuestasIncorrectas=0
 var AnswerColor = "" #Color de respuesta, puede ser r g b o p
 var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
@@ -331,6 +331,7 @@ innovaciones entre las que mencionamos:"
 	pass
 
 func _Ganastes():
+	$Background_Music.stop()
 	$You_Win.play()
 	$Button/Label.text = "GANASTE!"
 	$PointLight2D/Sprite2D.hide()

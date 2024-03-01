@@ -30,9 +30,10 @@ func update_progressbar():
 		$ProgressBar.value = vida * 100/ Vida_maxima
 		if $ProgressBar.value <= 0:
 				print("Barra llena")
+				$"../Background_Music".stop()
 				$"../DeathScreen".show()
 				$"../You_Lose".play()
-				get_tree().paused=true
+
 		
 
 

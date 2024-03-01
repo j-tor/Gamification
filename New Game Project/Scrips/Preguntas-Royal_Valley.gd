@@ -17,20 +17,29 @@ func _ready():
 	if $Node2D.position==Vector2(536,316):
 		#$r_a/AnimatedSprite2D.stop("damage")
 		$r_a/AnimatedSprite2D.play("idle")
-
+	if $Node2D2/ProgressBar.value >= 99:
+				print("Barra llena")
+				$You_Win.play()
+				$WinScreen.show()
+				$Background_Music.stop()
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if $Node2D2/ProgressBar.value >= 99:
+				print("Barra llena")
+				$You_Win.play()
+				$WinScreen.show()
+				$Background_Music.stop()
+				
 	
 	
 
 func preguntar():
 	if $Node2D2/ProgressBar.value >= 100:
 				print("Barra llena")
-				get_tree().paused=true
+				
 				$You_Win.play()
 				$WinScreen.show()
 	if $Resultado.text == "incorecto":
@@ -247,3 +256,15 @@ func _on_salir_button_2_pressed():
 				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
 				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()
+
+
+func _on_background_music_finished():
+	if $Node2D2/ProgressBar.value >= 100:
+				print("Barra llena")
+				$You_Win.play()
+				
+	
+
+
+func _on_win_screen_visibility_changed():
+				$You_Win.play()
