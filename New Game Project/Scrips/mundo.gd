@@ -42,6 +42,11 @@ func _ready():
 	
 
 func _process(delta):
+	if Main.Recistencia>=10:
+		$playerlink/Camera2D2/Leche.show()
+	else:
+		$playerlink/Camera2D2/Leche.hide()
+	
 	if Main.Velocidad >= 20:
 		$playerlink/Camera2D2/Velocidad_aumentada.play()
 		$playerlink/Camera2D2/Velocidad_aumentada.show()

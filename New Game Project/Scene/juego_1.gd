@@ -296,11 +296,11 @@ innovaciones entre las que mencionamos:"
 		
 		return "111"
 	elif decimal == 11:
-		
+		_Ganastes()
 		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
 		return "111"
 	elif decimal == 11:
-		
+		_Ganastes()
 		bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
 		#var change_scene2 = load("res://mundo.tscn")
 		#get_tree().change_scene_to_packed(change_scene2)
@@ -312,13 +312,14 @@ innovaciones entre las que mencionamos:"
 		$Button/Label.text = "PERDISTE!"
 		equis.hide()
 		$Button.show()
-		$PointLight2D/Sprite2D.hide()
+		#$PointLight2D/Sprite2D.hide()
 		bubbleText.text = "te quedaste sin vidas, vuelves a la Ruleta"
 	
 		
 		return "111"
 	elif decimal == -2:
 		equis.hide()
+		_Ganastes()
 		#var change_scene2 = load("res://mundo.tscn")
 		#get_tree().change_scene_to_packed(change_scene2)
 		#change_scene2.instantiate()
@@ -340,6 +341,7 @@ func _Ganastes():
 	$Button.show()
 	$Button.show()
 func _on_button_pressed():
+	Main.Vida_base+=20
 	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="royal"
 	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 	get_tree().get_nodes_in_group("EleccionGame")[0].queue_free()

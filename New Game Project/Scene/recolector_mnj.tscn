@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dc8cr6r6vn4hw"]
+[gd_scene load_steps=24 format=3 uid="uid://dc8cr6r6vn4hw"]
 
 [ext_resource type="PackedScene" uid="uid://b1nar1rwb850" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcfo22irc4gkq" path="res://Scene/spawner.tscn" id="3_vcnif"]
 [ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
 [ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
+[ext_resource type="Texture2D" uid="uid://bm0gpx5akr5t2" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Overworld Map.png" id="7_6jvlk"]
 [ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]
 [ext_resource type="Texture2D" uid="uid://0aymlpe7vpd8" path="res://img/PC Computer - Paper Lily - Lights - Prologue.png" id="8_rpeth"]
 
@@ -25,11 +26,26 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_emwtt"]
 font_size = 64
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7kce"]
+atlas = ExtResource("7_6jvlk")
+region = Rect2(26, 183, 144, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38ci0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7kce")
+}],
+"loop": true,
+"name": &"Libro",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_3hxmg"]
-font_size = 18
+font_size = 21
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ih0u"]
-font_size = 20
+font_size = 15
 font_color = Color(0.976471, 1, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_us7n5"]
@@ -182,7 +198,13 @@ autoplay = true
 
 [node name="Questionario" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Questionario"]
+position = Vector2(551.5, 164.5)
+scale = Vector2(7.46528, 1.82812)
+sprite_frames = SubResource("SpriteFrames_38ci0")
+animation = &"Libro"
+autoplay = "Libro"
 
 [node name="ColorRect2" type="ColorRect" parent="Questionario"]
 visible = false
@@ -200,10 +222,10 @@ offset_bottom = 128.0
 color = Color(0, 0, 0, 0.513726)
 
 [node name="Questionario" type="Label" parent="Questionario"]
-offset_left = 8.0
-offset_top = 125.0
-offset_right = 1113.0
-offset_bottom = 336.0
+offset_left = 18.0
+offset_top = 109.0
+offset_right = 1123.0
+offset_bottom = 237.0
 label_settings = SubResource("LabelSettings_3hxmg")
 
 [node name="Aviso" type="Label" parent="Questionario"]
@@ -217,42 +239,42 @@ Mucha suerte!. "
 label_settings = SubResource("LabelSettings_4ih0u")
 
 [node name="RespuestaA" type="Button" parent="Questionario"]
-offset_left = 273.0
-offset_top = 418.0
-offset_right = 318.0
-offset_bottom = 457.0
-scale = Vector2(2, 2)
+offset_left = 27.0
+offset_top = 330.0
+offset_right = 279.0
+offset_bottom = 379.0
+scale = Vector2(1.5, 1.5)
 text = "A)"
 
 [node name="RespuestaB" type="Button" parent="Questionario"]
-offset_left = 393.0
-offset_top = 418.0
-offset_right = 437.0
-offset_bottom = 458.0
-scale = Vector2(2, 2)
+offset_left = 166.0
+offset_top = 423.0
+offset_right = 417.0
+offset_bottom = 467.0
+scale = Vector2(1.5, 1.5)
 text = "B)"
 
 [node name="RespuestaC" type="Button" parent="Questionario"]
-offset_left = 651.0
-offset_top = 415.0
-offset_right = 696.0
-offset_bottom = 455.0
-scale = Vector2(2, 2)
+offset_left = 462.0
+offset_top = 335.0
+offset_right = 717.0
+offset_bottom = 379.0
+scale = Vector2(1.5, 1.5)
 text = "C)"
 
 [node name="RespuestaD" type="Button" parent="Questionario"]
-offset_left = 774.0
-offset_top = 414.0
-offset_right = 819.0
-offset_bottom = 454.0
-scale = Vector2(2, 2)
+offset_left = 592.0
+offset_top = 417.0
+offset_right = 887.0
+offset_bottom = 461.0
+scale = Vector2(1.5, 1.5)
 text = "D)"
 
 [node name="Label" type="Label" parent="Questionario"]
-offset_left = 17.0
-offset_top = 370.0
-offset_right = 506.0
-offset_bottom = 424.0
+offset_left = 12.0
+offset_top = 236.0
+offset_right = 632.0
+offset_bottom = 272.0
 text = "Toque uno de lo siguientes botones con la opcion que piensa que es la correcta:"
 
 [node name="WinScreen" type="CanvasLayer" parent="."]
@@ -306,6 +328,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_k5fwq")
 
 [node name="Marker2D" type="Marker2D" parent="."]
+visible = false
 position = Vector2(1468, 346)
 
 [node name="Label" type="Label" parent="."]
@@ -317,7 +340,8 @@ text = "Puntos:"
 label_settings = SubResource("LabelSettings_8qfc2")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-1145, 2290)
+visible = false
+position = Vector2(-1096, 2252)
 scale = Vector2(7.68753, 6.92802)
 color = Color(1, 1, 1, 0.403922)
 texture = ExtResource("8_rpeth")

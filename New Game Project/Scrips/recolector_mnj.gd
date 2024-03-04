@@ -33,28 +33,43 @@ func _on_player_played_died():
 		numero =randi() %5
 		print(numero)
 		if numero==0:
-			$Questionario/Questionario.text = "Uno de los siguientes personajes fue el encargado de pintar la capilla Sixtina:
-A) Miguel Ángel. B) Donatello. C) Leonardo Da Vinci. D) Francis Bacon"
+			$Questionario/Questionario.text = "Uno de los siguientes personajes fue el encargado de pintar la capilla Sixtina:"
 			RespuestaCorecta= "Miguel Ángel"
+			$Questionario/RespuestaA.text="A)Miguel Ángel"
+			$Questionario/RespuestaB.text="B)Donatello"
+			$Questionario/RespuestaC.text="C)Leonardo Da Vinci"
+			$Questionario/RespuestaD.text="D)Francis Bacon"
 		if numero==1:
-			$Questionario/Questionario.text="Genio del renacimiento que esculpió el Moisés, el David y la Pietá:
-A) Miguel Ángel Buonarroti. B) Leonardo Da Vinci. C) Rafael Sanzio. D) Galileo Galilei"
+			$Questionario/Questionario.text="Genio del renacimiento que esculpió el Moisés, el David y la Pietá:"
 			RespuestaCorecta= "Miguel Ángel Buonarroti"
+			$Questionario/RespuestaA.text="A)Miguel Ángel Buonarroti"
+			$Questionario/RespuestaB.text="B)Leonardo Da Vinci"
+			$Questionario/RespuestaC.text="C)Rafael Sanzio"
+			$Questionario/RespuestaD.text="D)Galileo Galilei"
 		if numero==2:
-			$Questionario/Questionario.text = "Durante el renacimiento el estilo artístico que impregnó el arte, la filosofía, la pintura escritura fue el:
-A) El Gótico. B) El barroco. C) el clasicismo. D) Romanticismo"
+			$Questionario/Questionario.text = "Durante el renacimiento el estilo artístico que impregnó el arte, la filosofía, la pintura escritura fue el:"
 			RespuestaCorecta= "El barroco"
+			$Questionario/RespuestaA.text="A)El Gótico"
+			$Questionario/RespuestaB.text="B)El barroco"
+			$Questionario/RespuestaC.text="C)el clasicismo"
+			$Questionario/RespuestaD.text="D)Romanticismo"
 		if numero==3:
 			$Questionario/Questionario.text = "Durante el renacimiento surge una nueva visión del hombre, que se vio reflejada en el arte, en la política
-y en las ciencias sociales y humanas, a lo que se denomina:
-A) Antropocentrismo. B) Humanismo. C) Paradigma antropológico. D) Teocentrismo."
+y en las ciencias sociales y humanas, a lo que se denomina:"
 			RespuestaCorecta= "Humanismo"
+			$Questionario/RespuestaA.text="A)Antropocentrismo"
+			$Questionario/RespuestaB.text="B)Humanismo"
+			$Questionario/RespuestaC.text="C)Paradigma antropológico"
+			$Questionario/RespuestaD.text="D)Teocentrismo"
 		if numero==4: 
 			$Questionario/Questionario.text = "Cuatro genios del renacimiento (Leonardo, Donatello, Rafael y Michelangelo) han sido llevados a la
-pantalla en los comics de:
-A) Las tortugas ninjas. B) Los caballeros del Zodiaco. C) Los cuatro fantásticos. D) Los antagonistas de
-Attack Titan"
+pantalla en los comics de:"
 			RespuestaCorecta= "Las tortugas ninjas"
+			$Questionario/RespuestaA.text="A)Las tortugas ninjas"
+			$Questionario/RespuestaB.text="B)Los caballeros del Zodiaco"
+			$Questionario/RespuestaC.text="C)Los cuatro fantásticos"
+			$Questionario/RespuestaD.text="D)Los antagonistas de Los antagonistas 
+			de Attack Titan"
 		$Questionario.show()
 		get_tree().paused = true 
 		

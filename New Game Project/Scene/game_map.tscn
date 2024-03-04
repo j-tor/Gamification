@@ -1716,6 +1716,14 @@ texture = ExtResource("6_8jf5c")
 hframes = 10
 vframes = 7
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 29.0
+offset_top = 14.0
+offset_right = 212.0
+offset_bottom = 148.0
+color = Color(0.27451, 0.27451, 0.27451, 0.431373)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.27451, 0.27451, 0.27451, 1)
 
