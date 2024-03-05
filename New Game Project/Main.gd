@@ -126,4 +126,6 @@ func _dialogo():
 					"Brr....",#0
 					"Brrr..brr..",#1
 					]
+					
+
 		
