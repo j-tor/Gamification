@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var elecionPLayer=Main.bando
-#var elecionPLayer="Empirista"
+#var elecionPLayer=Main.bando
+var elecionPLayer="Racionalista"
 var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var countdown_timer = 3
@@ -57,7 +57,6 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play("normalempi")
 			$AnimatedSprite2D.flip_h=false
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 
 
@@ -74,10 +73,16 @@ func murio():
 func murioempi():
 	$AnimatedSprite2D.play("deathempi")
 func ganoEmpi():
+	print("supuestamente estoy bailando")
 	$AnimatedSprite2D.play("winEmpi")
 func ganoRacio():
+	print("supuestamente entre")
 	$AnimatedSprite2D.play("winRacio")
 func perdioempi():
 	$AnimatedSprite2D.play("perdioEmpi")
 func perdioRacio():
 	$AnimatedSprite2D.play("perdioRacio")
+func fatalitiRacio():
+	$AnimatedSprite2D.play("fatalRacio")
+func fatalitiempi():
+	$AnimatedSprite2D.play("fatalempi")

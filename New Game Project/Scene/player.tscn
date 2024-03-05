@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cgfkkqymf40ci"]
+[gd_scene load_steps=42 format=3 uid="uid://cgfkkqymf40ci"]
 
 [ext_resource type="Script" path="res://Scene/playerwargame.gd" id="1_dveb0"]
 [ext_resource type="Texture2D" uid="uid://dgp2lpkcdjvfk" path="res://img/white player.png" id="1_vwki1"]
@@ -40,6 +40,14 @@ region = Rect2(155, 151, 34, 56)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s3fn"]
 atlas = ExtResource("3_uvsef")
 region = Rect2(154, 150, 34, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3vna"]
+atlas = ExtResource("1_vwki1")
+region = Rect2(513, 129, 91, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvqlp"]
+atlas = ExtResource("3_uvsef")
+region = Rect2(509, 127, 95, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dppp"]
 atlas = ExtResource("1_vwki1")
@@ -193,6 +201,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_v3vna")
+}],
+"loop": true,
+"name": &"fatalRacio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvqlp")
+}],
+"loop": true,
+"name": &"fatalempi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0dppp")
 }],
 "loop": true,
@@ -278,7 +302,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"winEmpi",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -301,7 +325,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"winRacio",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5sb5"]
@@ -316,8 +340,7 @@ script = ExtResource("1_dveb0")
 position = Vector2(28.75, 36.75)
 scale = Vector2(2.85484, 2.44118)
 sprite_frames = SubResource("SpriteFrames_7jc2p")
-animation = &"AttackRojo"
-autoplay = "normal"
+animation = &"winEmpi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(35.5, 44.25)
