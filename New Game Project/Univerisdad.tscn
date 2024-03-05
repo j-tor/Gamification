@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmd6nakqrtopj"]
+[gd_scene load_steps=42 format=3 uid="uid://cffdwkxhm88jp"]
 
 [ext_resource type="Texture2D" uid="uid://c1ejngidsynl0" path="res://img/aula2.png" id="1_1ppka"]
 [ext_resource type="Script" path="res://Univerisdad.gd" id="1_pfue3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://xustf7i2pxhx" path="res://img/lab.png" id="6_aduoh"]
 [ext_resource type="Texture2D" uid="uid://bq4qgk6cq2mgo" path="res://img/lab2.png" id="7_1w8xj"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="8_fbi0q"]
+[ext_resource type="Texture2D" uid="uid://nwuqqffgr44a" path="res://img/libros.png" id="10_nrjdd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0oltm"]
 texture = ExtResource("1_1ppka")
@@ -24184,6 +24185,9 @@ sources/4 = SubResource("TileSetAtlasSource_84afm")
 sources/5 = SubResource("TileSetAtlasSource_wadsc")
 sources/6 = SubResource("TileSetAtlasSource_0bkpv")
 
+[sub_resource type="LabelSettings" id="LabelSettings_wsw8q"]
+font_size = 90
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt8b7"]
 size = Vector2(68, 10)
 
@@ -24204,6 +24208,57 @@ size = Vector2(33.75, 8.87549)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0coi"]
 size = Vector2(31.5, 10.75)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it2fc"]
+radius = 11.0
+height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjbl"]
+size = Vector2(217, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg5mr"]
+size = Vector2(35, 349)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii7v1"]
+size = Vector2(106, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glhgo"]
+size = Vector2(20, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur2cl"]
+size = Vector2(20, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbkyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h10gx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv6qa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24bic"]
+size = Vector2(20, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhgnd"]
+size = Vector2(34, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7nfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m1sn"]
+size = Vector2(20, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj34o"]
+atlas = ExtResource("10_nrjdd")
+region = Rect2(243, 292, 231, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnopw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj34o")
+}],
+"loop": true,
+"name": &"Book",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pfue3")
@@ -24229,6 +24284,49 @@ position = Vector2(250, 560)
 
 [node name="Camera2D" type="Camera2D" parent="playerlink"]
 zoom = Vector2(4, 4)
+
+[node name="ParaPreguntasAula" type="CanvasLayer" parent="playerlink/Camera2D"]
+visible = false
+
+[node name="PreguntaAula" type="Label" parent="playerlink/Camera2D/ParaPreguntasAula"]
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 893.0
+offset_bottom = 266.0
+text = "jeff"
+label_settings = SubResource("LabelSettings_wsw8q")
+
+[node name="RespuestaA" type="Button" parent="playerlink/Camera2D/ParaPreguntasAula"]
+offset_left = 158.0
+offset_top = 346.0
+offset_right = 291.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 32
+text = "A)"
+
+[node name="RespuestaB" type="Button" parent="playerlink/Camera2D/ParaPreguntasAula"]
+offset_left = 378.0
+offset_top = 346.0
+offset_right = 511.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 32
+text = "B)"
+
+[node name="RespuestaC" type="Button" parent="playerlink/Camera2D/ParaPreguntasAula"]
+offset_left = 663.0
+offset_top = 347.0
+offset_right = 796.0
+offset_bottom = 449.0
+theme_override_font_sizes/font_size = 32
+text = "C)"
+
+[node name="RespuestaD" type="Button" parent="playerlink/Camera2D/ParaPreguntasAula"]
+offset_left = 868.0
+offset_top = 340.0
+offset_right = 1001.0
+offset_bottom = 442.0
+theme_override_font_sizes/font_size = 32
+text = "D)"
 
 [node name="Salidas a Lobby" type="Area2D" parent="."]
 collision_layer = 49
@@ -24277,7 +24375,7 @@ position = Vector2(232, 635.438)
 shape = SubResource("RectangleShape2D_oh4oe")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1134, 924)
+position = Vector2(460, 1033)
 
 [node name="Salida del lab" type="Area2D" parent="."]
 collision_layer = 184
@@ -24287,9 +24385,254 @@ collision_mask = 184
 position = Vector2(1131.25, 984.375)
 shape = SubResource("RectangleShape2D_h0coi")
 
+[node name="HechoPorKenny" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HechoPorKenny"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(534, 521)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(535, 679)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(506, 600)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(534, 600)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(634, 680)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(634, 600)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(663, 680)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(662, 600)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(506, 522)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(506, 679)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(634, 521)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(662, 520)
+shape = SubResource("CapsuleShape2D_it2fc")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(590, 413)
+shape = SubResource("RectangleShape2D_yqjbl")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(585, 777)
+shape = SubResource("RectangleShape2D_yqjbl")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(698, 593.5)
+shape = SubResource("RectangleShape2D_lg5mr")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(477, 596)
+shape = SubResource("RectangleShape2D_lg5mr")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="HechoPorKenny/StaticBody2D"]
+position = Vector2(617, 480)
+shape = SubResource("RectangleShape2D_ii7v1")
+
+[node name="BoxContainer" type="BoxContainer" parent="HechoPorKenny"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EntroAAula" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/EntroAAula"]
+position = Vector2(291, 1000)
+shape = SubResource("RectangleShape2D_glhgo")
+
+[node name="CerrarEntrada" type="StaticBody2D" parent="HechoPorKenny/BoxContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/CerrarEntrada"]
+position = Vector2(641, 1136)
+shape = SubResource("RectangleShape2D_ur2cl")
+
+[node name="HaciaBiblio" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/HaciaBiblio"]
+position = Vector2(462, 1059)
+shape = SubResource("RectangleShape2D_lbkyp")
+
+[node name="HaciaAula" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/HaciaAula"]
+position = Vector2(586, 763)
+shape = SubResource("RectangleShape2D_h10gx")
+
+[node name="Pergamino" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Pergamino"]
+position = Vector2(493, 995)
+shape = SubResource("RectangleShape2D_gv6qa")
+
+[node name="Pizarra" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Pizarra"]
+position = Vector2(548, 1001)
+shape = SubResource("RectangleShape2D_24bic")
+
+[node name="Libro" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Libro"]
+position = Vector2(641, 477)
+shape = SubResource("RectangleShape2D_fhgnd")
+
+[node name="PLanta" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/PLanta"]
+position = Vector2(502, 469)
+shape = SubResource("RectangleShape2D_v7nfh")
+
+[node name="Estante" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Estante"]
+position = Vector2(533, 682.5)
+shape = SubResource("RectangleShape2D_7m1sn")
+
+[node name="Estante2" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Estante2"]
+position = Vector2(633, 601)
+shape = SubResource("RectangleShape2D_7m1sn")
+
+[node name="Estante3" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Estante3"]
+position = Vector2(534, 521)
+shape = SubResource("RectangleShape2D_7m1sn")
+
+[node name="Pergamino2" type="Area2D" parent="HechoPorKenny/BoxContainer"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/BoxContainer/Pergamino2"]
+position = Vector2(379, 969)
+shape = SubResource("RectangleShape2D_gv6qa")
+
+[node name="pergaminos" type="Area2D" parent="."]
+
+[node name="pergamino1" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(379, 972)
+rotation = 1.53764
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="pergamino4" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(426, 1020)
+rotation = 1.53764
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="pergamino5" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(378, 1020)
+rotation = 1.53764
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="pergamino7" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(330, 1021)
+rotation = 1.53764
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="pergamino6" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(331, 972)
+rotation = 1.53764
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="pergamino2" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(493, 995)
+rotation = -1.57429
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="pergamino3" type="AnimatedSprite2D" parent="pergaminos"]
+position = Vector2(427, 971)
+rotation = 1.53764
+scale = Vector2(0.0858439, 0.122235)
+sprite_frames = SubResource("SpriteFrames_gnopw")
+animation = &"Book"
+autoplay = "Book"
+
+[node name="QuestionsAULA" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaA" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaB" to="." method="_on_respuesta_b_pressed"]
+[connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaC" to="." method="_on_respuesta_c_pressed"]
+[connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaD" to="." method="_on_respuesta_d_pressed"]
 [connection signal="area_entered" from="Salidas a Lobby" to="." method="_on_salidas_a_lobby_area_entered"]
 [connection signal="area_entered" from="Entrada a lab" to="." method="_on_entrada_a_lab_area_entered"]
 [connection signal="area_entered" from="Entradas aula" to="." method="_on_entradas_area_entered"]
 [connection signal="area_entered" from="Salida a pasillo" to="." method="_on_salida_a_pasillo_area_entered"]
 [connection signal="area_entered" from="Entrada a pasillo" to="." method="_on_entrada_a_pasillo_area_entered"]
 [connection signal="area_entered" from="Salida del lab" to="." method="_on_salida_del_lab_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/EntroAAula" to="." method="_on_entro_a_aula_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/HaciaBiblio" to="." method="_on_hacia_biblio_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/HaciaAula" to="." method="_on_hacia_aula_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Pergamino" to="." method="_on_pergamino_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Pizarra" to="." method="_on_pizarra_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Libro" to="." method="_on_libro_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/PLanta" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Estante" to="." method="_on_estante_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Estante2" to="." method="_on_estante_2_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Estante3" to="." method="_on_estante_3_area_entered"]
+[connection signal="area_entered" from="HechoPorKenny/BoxContainer/Pergamino2" to="." method="_on_pergamino_area_entered"]
