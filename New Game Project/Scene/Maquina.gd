@@ -12,6 +12,8 @@ func _process(delta):
 	if maquina==true:
 		if Input.is_action_just_pressed("interact"):
 			$Expendedora.frame=0
+			$".".hide()
+			$"../playerlink/Camera2D/Tesla".show()
 
 
 func _on_maquina_2_area_entered(area):
@@ -22,3 +24,5 @@ func _on_maquina_2_area_entered(area):
 
 func _on_maquina_2_area_exited(area):
 	$Expendedora.frame=2
+	$".".show()
+	$"../playerlink/Camera2D/Tesla".hide()

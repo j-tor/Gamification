@@ -7,6 +7,7 @@ var puntos=0
 var unavez=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$playerlink/Camera2D/CanvasLayer/ProgressBar.value = 0
 
 
