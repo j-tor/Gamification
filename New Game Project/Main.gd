@@ -16,7 +16,7 @@ var yellowGame=false
 var Vida_base=0
 var Velocidad=0
 var Recistencia=5
-
+var Emanuelstatus="Introduccion"
 
 
 var nombre_objeto
@@ -127,7 +127,19 @@ func _dialogo():
 					"Brr....",#0
 					"Brrr..brr..",#1
 					]
-		
-					
+		"Emanuel":
+			if Emanuelstatus=="Introduccion":
+				dialogo_objeto = [
+						"Bienvenido, soy Emanuel Kant. Me han hablado mucho de ti, quiero saber si lo que dicen es cierto.",#0
+						"Por eso e preparado un examen para ti, vez la barra de arriba? esta amuentara segun respondas bien.",#1
+						"Debes de buscar en esta aula y en la biblioteca que esta al final del pasillo, las preguntas que e preparado para ti",#2
+						"Recuerda para demostrame que mereces salir deberas sacar mas del 70%.",#3
+						"Te dare una pista, debes de leer mucho... ven hablar conmigo cuando termines y mucha suerte.",#4
+						]
+			elif Emanuelstatus=="Biblioteca":
+				dialogo_objeto = [
+						"Bienvenido, esta es la biblioteca aqui encontraras nuevos desafios. ",#1
+						"Pista: debes de leer hasta el cancancio, por cierto recuerda tus conocimientos en ecologia",#2
+						]
 
 		

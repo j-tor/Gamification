@@ -4,6 +4,7 @@ var RespuestaCorrectaAula
 var RespuestaUserAula
 var num
 var puntos=0
+var unavez=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$playerlink/Camera2D/CanvasLayer/ProgressBar.value = 0
@@ -46,11 +47,15 @@ func _on_entro_a_aula_area_entered(area):
 func _on_hacia_biblio_area_entered(area):
 	$playerlink.position=Vector2(584,746)
 	$EmanuelKant.position=Vector2(520,744)
+	if unavez==false:
+		Main.Emanuelstatus="Biblioteca"
+		unavez==true
 
 
 func _on_hacia_aula_area_entered(area):
 	$playerlink.position=Vector2(460,1033)
 	$EmanuelKant.position=Vector2(287,937)
+	
 
 
 func _on_pergamino_area_entered(area):
