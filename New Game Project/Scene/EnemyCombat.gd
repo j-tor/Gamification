@@ -1,8 +1,8 @@
 extends CharacterBody2D
 #empiristas con vestimenta roja y racionalistas con vestimenta blanca
 #var elecionPLayer=Main.bando
-#var elecionPLayer=Main.bando
-var elecionPLayer="Racionalista"
+var elecionPLayer=Main.bando
+#var elecionPLayer="Racionalista"
 
 #rango 260-350 
 var SPEED = randi_range(205,310)
@@ -595,6 +595,7 @@ func Fin():
 	await get_tree().create_timer(2).timeout
 
 func _on_salir_pressed():
-	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo"
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
+	get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(1207,-529)
 	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 	get_tree().get_nodes_in_group("WarGame")[0].queue_free()

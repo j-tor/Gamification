@@ -7674,7 +7674,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BoosRoom" type="Node2D"]
+[node name="BoosRoom" type="Node2D" groups=["WarGame"]]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(533, 90)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dc8cr6r6vn4hw"]
+[gd_scene load_steps=27 format=3 uid="uid://dc8cr6r6vn4hw"]
 
-[ext_resource type="PackedScene" uid="uid://b1nar1rwb850" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
+[ext_resource type="PackedScene" uid="uid://bfqwnca0i1w3n" path="res://Scene/Jugardor_Recolector.tscn" id="1_jk5hu"]
 [ext_resource type="Texture2D" uid="uid://gm3dvfrkhsge" path="res://img/Assets/bosque.png" id="1_lamyc"]
 [ext_resource type="Script" path="res://Scrips/recolector_mnj.gd" id="1_vaqgv"]
 [ext_resource type="PackedScene" uid="uid://bcfo22irc4gkq" path="res://Scene/spawner.tscn" id="3_vcnif"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bm0gpx5akr5t2" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Overworld Map.png" id="7_6jvlk"]
 [ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]
 [ext_resource type="Texture2D" uid="uid://0aymlpe7vpd8" path="res://img/PC Computer - Paper Lily - Lights - Prologue.png" id="8_rpeth"]
+[ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="10_sccaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gcob"]
 size = Vector2(1140.5, 62)
@@ -25,6 +26,21 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_emwtt"]
 font_size = 64
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4hkr"]
+atlas = ExtResource("10_sccaf")
+region = Rect2(227, 554, 51, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvum7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4hkr")
+}],
+"loop": true,
+"name": &"Hoja",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7kce"]
 atlas = ExtResource("7_6jvlk")
@@ -199,6 +215,34 @@ autoplay = true
 [node name="Questionario" type="CanvasLayer" parent="."]
 process_mode = 3
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Questionario"]
+position = Vector2(239, 429)
+scale = Vector2(8.0098, 4.04286)
+sprite_frames = SubResource("SpriteFrames_uvum7")
+animation = &"Hoja"
+autoplay = "Hoja"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Questionario"]
+position = Vector2(801, 578)
+scale = Vector2(8.0098, 4.04286)
+sprite_frames = SubResource("SpriteFrames_uvum7")
+animation = &"Hoja"
+autoplay = "Hoja"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Questionario"]
+position = Vector2(640, 434)
+scale = Vector2(8.0098, 4.04286)
+sprite_frames = SubResource("SpriteFrames_uvum7")
+animation = &"Hoja"
+autoplay = "Hoja"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Questionario"]
+position = Vector2(388, 557)
+scale = Vector2(8.0098, 4.04286)
+sprite_frames = SubResource("SpriteFrames_uvum7")
+animation = &"Hoja"
+autoplay = "Hoja"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Questionario"]
 position = Vector2(551.5, 164.5)
 scale = Vector2(7.46528, 1.82812)
@@ -247,10 +291,10 @@ scale = Vector2(1.5, 1.5)
 text = "A)"
 
 [node name="RespuestaB" type="Button" parent="Questionario"]
-offset_left = 166.0
-offset_top = 423.0
-offset_right = 417.0
-offset_bottom = 467.0
+offset_left = 187.0
+offset_top = 468.0
+offset_right = 438.0
+offset_bottom = 512.0
 scale = Vector2(1.5, 1.5)
 text = "B)"
 
@@ -263,10 +307,10 @@ scale = Vector2(1.5, 1.5)
 text = "C)"
 
 [node name="RespuestaD" type="Button" parent="Questionario"]
-offset_left = 592.0
-offset_top = 417.0
-offset_right = 887.0
-offset_bottom = 461.0
+offset_left = 598.0
+offset_top = 476.0
+offset_right = 893.0
+offset_bottom = 520.0
 scale = Vector2(1.5, 1.5)
 text = "D)"
 
