@@ -18,6 +18,7 @@ var Velocidad=0
 var Recistencia=5
 
 
+
 var nombre_objeto
 
 var dialogo_objeto = []
@@ -126,6 +127,7 @@ func _dialogo():
 					"Brr....",#0
 					"Brrr..brr..",#1
 					]
+		
 					
 
 		

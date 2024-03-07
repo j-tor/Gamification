@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4gim4nmhb48y"]
+
+[ext_resource type="Texture2D" uid="uid://dleekybc8w1ro" path="res://img/pixil-frame-0 (2).png" id="1_a38r0"]
+[ext_resource type="Script" path="res://Scene/Maquina.gd" id="1_owqdf"]
+[ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="2_4ga86"]
+[ext_resource type="Texture2D" uid="uid://ducnu8o0fmidt" path="res://img/lab4.png" id="2_5fesi"]
+[ext_resource type="Texture2D" uid="uid://caoy1ccyjp2ne" path="res://img/Captura de pa.png" id="3_1njkt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pvsv"]
+radius = 75.0
+height = 210.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdc27"]
+size = Vector2(59.7046, 56.8149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn4x6"]
+atlas = ExtResource("1_a38r0")
+region = Rect2(826, 479, 58, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52wvh"]
+atlas = ExtResource("1_a38r0")
+region = Rect2(884, 479, 58, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rj1w"]
+atlas = ExtResource("1_a38r0")
+region = Rect2(942, 479, 58, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klo4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn4x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52wvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rj1w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi5bo"]
+atlas = ExtResource("2_5fesi")
+region = Rect2(989, 560, 23, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vo4in"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi5bo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+script = ExtResource("1_owqdf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(110, 117)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_0pvsv")
+
+[node name="Maquina2" type="Area2D" parent="."]
+position = Vector2(107, 85)
+scale = Vector2(4.04902, 3.30899)
+collision_layer = 184
+collision_mask = 184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maquina2"]
+position = Vector2(0.740919, 9.06621)
+shape = SubResource("RectangleShape2D_wdc27")
+
+[node name="playerlink" parent="." instance=ExtResource("2_4ga86")]
+position = Vector2(-40, 250)
+scale = Vector2(4.04902, 3.30899)
+
+[node name="Expendedora" type="Sprite2D" parent="."]
+position = Vector2(77, 139)
+scale = Vector2(0.776316, 0.711735)
+texture = ExtResource("3_1njkt")
+hframes = 3
+frame = 1
+
+[node name="Maquina" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(96.7892, 94.066)
+scale = Vector2(3.80037, 3.48245)
+sprite_frames = SubResource("SpriteFrames_klo4s")
+
+[node name="palanca" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(28, 202)
+scale = Vector2(4.04902, 3.30899)
+sprite_frames = SubResource("SpriteFrames_vo4in")
+
+[connection signal="area_entered" from="Maquina2" to="." method="_on_maquina_2_area_entered"]
+[connection signal="area_exited" from="Maquina2" to="." method="_on_maquina_2_area_exited"]

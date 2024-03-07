@@ -165,15 +165,19 @@ func _on_respuesta_d_pressed():
 
 func validarRespuestasAula():
 	if RespuestaCorrectaAula==RespuestaUserAula:
-		$playerlink/Camera2D/CanvasLayer/ProgressBar.value = 10 * 100/ 100
+		$playerlink/Camera2D/CanvasLayer/ProgressBar.value += 10 * 100/ 100
 		if $playerlink/Camera2D/CanvasLayer/ProgressBar.value <= 0:
 				print("Barra llena")
 	else:
 		print("Fallastes")
 	$playerlink/Camera2D/ParaPreguntasAula.hide()
-
+	Win()
 func Win():
-	if puntos<70:
+	if $playerlink/Camera2D/CanvasLayer/ProgressBar.value == 70:
+		
+		
+		print("gano")
+		
 		$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position=Vector2(5000,5000)
 	else:
 		print("No has gando")

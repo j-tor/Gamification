@@ -155,6 +155,7 @@ animation = &"Left"
 frame_progress = 0.229526
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(229, 145)
 shape = SubResource("CapsuleShape2D_w4t43")
 

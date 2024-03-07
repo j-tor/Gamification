@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dmwskxvrdamvn"]
+[gd_scene load_steps=21 format=3 uid="uid://cwd3tikwrk7f2"]
 
 [ext_resource type="Script" path="res://Scene/emanuel_kant.gd" id="1_6xpts"]
 [ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="1_pqxu8"]
@@ -151,11 +151,11 @@ animation = &"Regalo"
 autoplay = "normal"
 frame_progress = 0.69403
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 48
-collision_mask = 48
+[node name="Emanuel" type="Area2D" parent="." groups=["objeto"]]
+collision_layer = 184
+collision_mask = 184
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Emanuel"]
 shape = SubResource("CapsuleShape2D_xfr1b")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -172,4 +172,4 @@ offset_bottom = -7.0
 text = "Emanuel Kant"
 label_settings = SubResource("LabelSettings_4m0ky")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Emanuel" to="." method="_on_area_2d_area_entered"]
