@@ -24285,8 +24285,8 @@ animations = [{
 script = ExtResource("1_pfue3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -231.0
-offset_top = 35.0
+offset_left = -254.0
+offset_top = -69.0
 offset_right = 1459.0
 offset_bottom = 1416.0
 color = Color(0.878431, 0.941176, 0.878431, 1)
