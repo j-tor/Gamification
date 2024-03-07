@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://pdguw1yxc717"]
+
+[ext_resource type="Texture2D" uid="uid://7v68dwikoe52" path="res://img/Egg.png" id="1_oipvb"]
+[ext_resource type="Script" path="res://Scene/eggcluster.gd" id="1_y7sxl"]
+[ext_resource type="Texture2D" uid="uid://smfm7onvk1aj" path="res://img/OGA_preview_0.png" id="3_356vr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovcus"]
+font_size = 27
+
+[node name="Eggcluster" type="Node2D"]
+script = ExtResource("1_y7sxl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1146.0
+offset_bottom = 648.0
+color = Color(0.403922, 0.254902, 0.0352941, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(558, 369)
+scale = Vector2(0.755167, 0.732571)
+texture = ExtResource("1_oipvb")
+hframes = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Preguntas" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 187.0
+text = "Son los pasos o razones de la duda metódica: 
+A) Los sentidos nos engañan, B) la existencia del genio maligno, C) imposibilidad para 
+diferenciar la vigilia del sueño. D) Todas son correctas"
+label_settings = SubResource("LabelSettings_ovcus")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+modulate = Color(0.105882, 0.901961, 0.0627451, 1)
+self_modulate = Color(1, 1, 1, 0.47451)
+layout_mode = 0
+offset_left = 1086.0
+offset_top = -9.0
+offset_right = 1148.0
+offset_bottom = 642.0
+fill_mode = 3
+
+[node name="A" type="Button" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 499.0
+offset_top = 255.0
+offset_right = 518.0
+offset_bottom = 286.0
+scale = Vector2(2, 2)
+text = "A"
+flat = true
+
+[node name="B" type="Button" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 607.0
+offset_top = 274.0
+offset_right = 626.0
+offset_bottom = 305.0
+scale = Vector2(2, 2)
+text = "B
+"
+flat = true
+
+[node name="C" type="Button" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 468.0
+offset_top = 417.0
+offset_right = 487.0
+offset_bottom = 448.0
+scale = Vector2(2, 2)
+text = "C"
+flat = true
+
+[node name="D" type="Button" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 619.0
+offset_top = 415.0
+offset_right = 639.0
+offset_bottom = 446.0
+scale = Vector2(2, 2)
+text = "D"
+flat = true
+
+[node name="Regresar" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 568.0
+offset_right = 115.0
+offset_bottom = 646.0
+text = "Regresar
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="Regresar"]
+position = Vector2(55, 39)
+scale = Vector2(0.90625, 0.578125)
+texture = ExtResource("3_356vr")
+hframes = 4
+vframes = 4
+frame = 6
+
+[connection signal="pressed" from="Control/A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="Control/B" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="Control/C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="Control/D" to="." method="_on_d_pressed"]
+[connection signal="pressed" from="Regresar" to="." method="_on_regresar_pressed"]
