@@ -40,7 +40,7 @@ func _ready():
 	_statues()
 	showposima= Main.posimaAulaReco
 	if showposima==true:
-		$playerlink/Camera2D2/AnimatedSprite2D.show()
+		$playerlink/Camera2D2/PosimaAula.show()
 
 func _process(delta):
 	if Main.Recistencia>=10:
@@ -158,6 +158,13 @@ func _on_entrada_a_game_combat_area_entered(area):
 
 
 func _on_entrada_a_university_area_entered(area):
+	if area.is_in_group("player"):
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Universidad"
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("mundo")[0].queue_free()
+
+
+func _on_entrada_a_aula_area_entered(area):
 	if area.is_in_group("player"):
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Universidad"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()

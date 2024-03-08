@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cffdwkxhm88jp"]
+[gd_scene load_steps=72 format=3 uid="uid://cffdwkxhm88jp"]
 
 [ext_resource type="Texture2D" uid="uid://c1ejngidsynl0" path="res://img/aula2.png" id="1_1ppka"]
 [ext_resource type="Script" path="res://Univerisdad.gd" id="1_pfue3"]
@@ -16,14 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://dr7p1i3n3mrmp" path="res://Scene/game_map.tscn" id="12_2l5ri"]
 [ext_resource type="PackedScene" uid="uid://pdguw1yxc717" path="res://Scene/eggcluster.tscn" id="12_ubohx"]
 [ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="13_jmt3v"]
-[ext_resource type="PackedScene" uid="uid://d4gim4nmhb48y" path="res://Scene/Maquina.tscn" id="13_synwv"]
+[ext_resource type="PackedScene" path="res://Scene/Maquina.tscn" id="13_synwv"]
 [ext_resource type="PackedScene" uid="uid://bb5xussmgd4bw" path="res://Scene/eggvolution.tscn" id="13_viuyw"]
-[ext_resource type="PackedScene" path="res://Scene/anciano_game_aula.tscn" id="15_ttad7"]
-[ext_resource type="PackedScene" path="res://Scene/obj_game_aula.tscn" id="16_2s242"]
-[ext_resource type="PackedScene" path="res://genesis_character.tscn" id="18_nfrwr"]
+[ext_resource type="PackedScene" uid="uid://6hxesmv1rl8n" path="res://Scene/anciano_game_aula.tscn" id="15_ttad7"]
+[ext_resource type="PackedScene" uid="uid://d1is2bc2e6rko" path="res://Scene/obj_game_aula.tscn" id="16_2s242"]
+[ext_resource type="PackedScene" uid="uid://bh58d65sml4pw" path="res://genesis_character.tscn" id="18_nfrwr"]
 [ext_resource type="PackedScene" uid="uid://7igxysvq1gsw" path="res://Scene/Players-NPC/cientifico.tscn" id="19_qcb0u"]
 [ext_resource type="Texture2D" uid="uid://7v68dwikoe52" path="res://img/Egg.png" id="19_qtxth"]
 [ext_resource type="Texture2D" uid="uid://mn6r4ldtancl" path="res://img/descarga2.png" id="20_8frlp"]
+[ext_resource type="PackedScene" uid="uid://qcjquq0b3a65" path="res://Scene/bayron_character.tscn" id="25_3qsdl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0oltm"]
 texture = ExtResource("1_1ppka")
@@ -27440,6 +27441,9 @@ position = Vector2(-119, 1203)
 
 [node name="GenesisCharacter" parent="." instance=ExtResource("18_nfrwr")]
 position = Vector2(186, 543)
+
+[node name="BayronCharacter" parent="." instance=ExtResource("25_3qsdl")]
+position = Vector2(284, 544)
 
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaA" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaB" to="." method="_on_respuesta_b_pressed"]
