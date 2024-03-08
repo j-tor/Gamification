@@ -19,7 +19,8 @@ var Recistencia=5
 var Emanuelstatus="Introduccion"
 var Ancianostatus
 var habloWin=false
-
+var RecogerPosima=false
+var posimaAulaReco=false
 var habloaula=false
 var hablobiblio=false
 var hablo=false
@@ -158,6 +159,7 @@ func _dialogo():
 						]
 			elif Ancianostatus=="Gano":
 				habloWin=true
+				RecogerPosima=true
 				dialogo_objeto = [
 						"Has ganado ten tu regalo. Ya puedes salir... E escuchado que tu siguiente desafio no sera tan facil, mucha suerte y sigue asi.",#1
 						]

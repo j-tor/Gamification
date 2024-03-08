@@ -163,7 +163,7 @@ scale = Vector2(0.790323, 0.517857)
 sprite_frames = SubResource("SpriteFrames_qslo8")
 animation = &"Regalo"
 autoplay = "normal"
-frame_progress = 0.447238
+frame_progress = 0.0109351
 
 [node name="Emanuel" type="Area2D" parent="." groups=["objeto"]]
 collision_layer = 184

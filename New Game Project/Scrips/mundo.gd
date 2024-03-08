@@ -1,5 +1,5 @@
 extends Node2D
-
+var showposima
 func _ready():
 	if Main.bando=="Empirista":
 		$playerlink/Camera2D2/Empirista.show()
@@ -38,8 +38,9 @@ func _ready():
 		print("nose")
 	#$playerlink.position = get_tree().get_nodes_in_group("GAME")[0].ubicacion
 	_statues()
-	
-	
+	showposima= Main.posimaAulaReco
+	if showposima==true:
+		$playerlink/Camera2D2/AnimatedSprite2D.show()
 
 func _process(delta):
 	if Main.Recistencia>=10:

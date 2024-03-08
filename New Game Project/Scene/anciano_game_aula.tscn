@@ -32,7 +32,7 @@ position = Vector2(-1.78814e-07, 0)
 scale = Vector2(1.65385, 1.31818)
 sprite_frames = SubResource("SpriteFrames_xrv1n")
 animation = &"normal"
-frame_progress = 0.563071
+frame_progress = 0.227295
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

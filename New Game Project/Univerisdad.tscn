@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cffdwkxhm88jp"]
+[gd_scene load_steps=56 format=3 uid="uid://cffdwkxhm88jp"]
 
 [ext_resource type="Texture2D" uid="uid://c1ejngidsynl0" path="res://img/aula2.png" id="1_1ppka"]
 [ext_resource type="Script" path="res://Univerisdad.gd" id="1_pfue3"]
@@ -13,8 +13,10 @@
 [ext_resource type="PackedScene" path="res://Scene/tesla.tscn" id="11_ttc1g"]
 [ext_resource type="PackedScene" uid="uid://cwd3tikwrk7f2" path="res://Scene/emanuel_kant.tscn" id="11_uvhyu"]
 [ext_resource type="PackedScene" uid="uid://dr7p1i3n3mrmp" path="res://Scene/game_map.tscn" id="12_2l5ri"]
+[ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="13_jmt3v"]
 [ext_resource type="PackedScene" path="res://Scene/Maquina.tscn" id="13_synwv"]
 [ext_resource type="PackedScene" uid="uid://6hxesmv1rl8n" path="res://Scene/anciano_game_aula.tscn" id="15_ttad7"]
+[ext_resource type="PackedScene" uid="uid://d1is2bc2e6rko" path="res://Scene/obj_game_aula.tscn" id="16_2s242"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0oltm"]
 texture = ExtResource("1_1ppka")
@@ -24209,6 +24211,21 @@ animations = [{
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj7lu"]
+atlas = ExtResource("13_jmt3v")
+region = Rect2(598, 549, 19, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v47ob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj7lu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt8b7"]
 size = Vector2(68, 10)
 
@@ -24381,6 +24398,14 @@ visible = false
 offset_right = 1151.0
 offset_bottom = 96.0
 
+[node name="ObjWin" type="CanvasLayer" parent="playerlink/Camera2D"]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="playerlink/Camera2D/ObjWin"]
+position = Vector2(66.1406, 68.1562)
+scale = Vector2(4.8273, 6.35547)
+sprite_frames = SubResource("SpriteFrames_v47ob")
+
 [node name="Salidas a Lobby" type="Area2D" parent="."]
 collision_layer = 49
 collision_mask = 49
@@ -24428,7 +24453,7 @@ position = Vector2(232, 635.438)
 shape = SubResource("RectangleShape2D_oh4oe")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(805, 825)
+position = Vector2(487, 946)
 
 [node name="Salida del lab" type="Area2D" parent="."]
 collision_layer = 184
@@ -24849,6 +24874,9 @@ shape = SubResource("RectangleShape2D_872w6")
 
 [node name="ancianoGameAula" parent="." instance=ExtResource("15_ttad7")]
 position = Vector2(517, 945)
+
+[node name="ObjGameAula" parent="." instance=ExtResource("16_2s242")]
+position = Vector2(-119, 1203)
 
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaA" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaB" to="." method="_on_respuesta_b_pressed"]

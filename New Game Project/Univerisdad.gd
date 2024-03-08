@@ -13,6 +13,8 @@ var perdio=false
 var pergamino=0;
 var termino=false
 var cerro1=false
+var recogerposima
+var showposima
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -26,6 +28,14 @@ func _process(delta):
 		Win()
 	else :
 		$playerlink/Camera2D/ParaPreguntasAula.hide()
+	recogerposima=Main.RecogerPosima
+	showposima= Main.posimaAulaReco
+	if recogerposima==true && showposima==false:
+		print( "cambiada")
+		$ObjGameAula.position=Vector2(497,946)
+	if showposima==true:
+		$playerlink/Camera2D/CanvasLayer/ProgressBar.hide()
+		$playerlink/Camera2D/ObjWin.show()
 
 
 func _on_entradas_area_entered(area):
