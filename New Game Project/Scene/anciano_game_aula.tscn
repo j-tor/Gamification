@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://6hxesmv1rl8n"]
+
+[ext_resource type="Texture2D" uid="uid://0awpu1yra0cw" path="res://img/NPCS.png" id="1_d143t"]
+[ext_resource type="Script" path="res://Scene/anciano_game_aula.gd" id="1_w7dwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymf7b"]
+atlas = ExtResource("1_d143t")
+region = Rect2(80, 1791, 26, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrv1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymf7b")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mec2h"]
+size = Vector2(43, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o3qr"]
+size = Vector2(108, 81)
+
+[node name="ancianoGameAula" type="CharacterBody2D"]
+script = ExtResource("1_w7dwe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.78814e-07, 0)
+scale = Vector2(1.65385, 1.31818)
+sprite_frames = SubResource("SpriteFrames_xrv1n")
+animation = &"normal"
+frame_progress = 0.563071
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, 1)
+shape = SubResource("RectangleShape2D_mec2h")
+
+[node name="Anciano" type="Area2D" parent="." groups=["objeto"]]
+collision_layer = 184
+collision_mask = 184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anciano"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_1o3qr")
+
+[connection signal="area_entered" from="Anciano" to="." method="_on_anciano_area_entered"]

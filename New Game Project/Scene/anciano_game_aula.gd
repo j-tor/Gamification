@@ -6,13 +6,11 @@ extends CharacterBody2D
 #
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+#
 
 func _physics_process(delta):
 	pass
-
-
-	## Add the gravity.
+	# Add the gravity.
 	#if not is_on_floor():
 		#velocity.y += gravity * delta
 #
@@ -30,9 +28,6 @@ func _physics_process(delta):
 #
 	#move_and_slide()
 
-func Gano():
-	$AnimatedSprite2D.play("Regalo")
-func parar():
-	$AnimatedSprite2D.stop()
-func _on_area_2d_area_entered(area):
-	pass
+
+func _on_anciano_area_entered(area):
+	pass # Replace with function body.

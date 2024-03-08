@@ -17,9 +17,13 @@ var Vida_base=0
 var Velocidad=0
 var Recistencia=5
 var Emanuelstatus="Introduccion"
+var Ancianostatus
+var habloWin=false
 
-
-var nombre_objeto
+var habloaula=false
+var hablobiblio=false
+var hablo=false
+var nombre_objeto = false
 
 var dialogo_objeto = []
 var rulet=false
@@ -129,6 +133,9 @@ func _dialogo():
 					]
 		"Emanuel":
 			if Emanuelstatus=="Introduccion":
+				habloaula=true
+				if habloaula==true && hablobiblio==true:
+					hablo=true
 				dialogo_objeto = [
 						"Bienvenido, soy Emanuel Kant. Me han hablado mucho de ti, quiero saber si lo que dicen es cierto.",#0
 						"Por eso e preparado un examen para ti, vez la barra de arriba? esta amuentara segun respondas bien.",#1
@@ -137,9 +144,24 @@ func _dialogo():
 						"Te dare una pista, debes de leer mucho... ven hablar conmigo cuando termines y mucha suerte.",#4
 						]
 			elif Emanuelstatus=="Biblioteca":
+				hablobiblio=true
+				if habloaula==true && hablobiblio==true:
+					hablo=true
 				dialogo_objeto = [
 						"Bienvenido, esta es la biblioteca aqui encontraras nuevos desafios. ",#1
-						"Pista: debes de leer hasta el cancancio, por cierto recuerda tus conocimientos en ecologia",#2
+						"Pista: debes de leer hasta el cansancio, por cierto recuerda tus conocimientos en ecologia.",#2
 						]
-
-		
+		"Anciano":
+			if Ancianostatus=="No gano":
+				dialogo_objeto = [
+						"No has ganado todavia.",#1
+						]
+			elif Ancianostatus=="Gano":
+				habloWin=true
+				dialogo_objeto = [
+						"Has ganado ten tu regalo. Ya puedes salir... E escuchado que tu siguiente desafio no sera tan facil, mucha suerte y sigue asi.",#1
+						]
+			elif Ancianostatus=="Perdio":
+				dialogo_objeto = [
+						"Has perdido, regresa al mundo y entrena un poco para que lo vuelves a intentar.",#1
+						]

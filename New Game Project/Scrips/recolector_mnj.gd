@@ -47,23 +47,22 @@ func _on_player_played_died():
 			$Questionario/RespuestaC.text="C)Rafael Sanzio"
 			$Questionario/RespuestaD.text="D)Galileo Galilei"
 		if numero==2:
-			$Questionario/Questionario.text = "Durante el renacimiento el estilo artístico que impregnó el arte, la filosofía, la pintura escritura fue el:"
+			$Questionario/Questionario.text = "Durante el renacimiento el estilo artístico que impregnó el arte, la filosofía, la pintura \nescritura fue el:"
 			RespuestaCorecta= "El barroco"
 			$Questionario/RespuestaA.text="A)El Gótico"
 			$Questionario/RespuestaB.text="B)El barroco"
 			$Questionario/RespuestaC.text="C)el clasicismo"
 			$Questionario/RespuestaD.text="D)Romanticismo"
 		if numero==3:
-			$Questionario/Questionario.text = "Durante el renacimiento surge una nueva visión del hombre, que se vio reflejada en el arte, en la política
-y en las ciencias sociales y humanas, a lo que se denomina:"
+			$Questionario/Questionario.text = "Durante el renacimiento surge una nueva visión del hombre, que se vio reflejada en el arte, 
+			en la política y en las ciencias sociales y humanas, a lo que se denomina:"
 			RespuestaCorecta= "Humanismo"
 			$Questionario/RespuestaA.text="A)Antropocentrismo"
 			$Questionario/RespuestaB.text="B)Humanismo"
 			$Questionario/RespuestaC.text="C)Paradigma antropológico"
 			$Questionario/RespuestaD.text="D)Teocentrismo"
 		if numero==4: 
-			$Questionario/Questionario.text = "Cuatro genios del renacimiento (Leonardo, Donatello, Rafael y Michelangelo) han sido llevados a la
-pantalla en los comics de:"
+			$Questionario/Questionario.text = "Cuatro genios del renacimiento (Leonardo, Donatello, Rafael y Michelangelo) han sido \nllevados a la pantalla en los comics de:"
 			RespuestaCorecta= "Las tortugas ninjas"
 			$Questionario/RespuestaA.text="A)Las tortugas ninjas"
 			$Questionario/RespuestaB.text="B)Los caballeros del Zodiaco"

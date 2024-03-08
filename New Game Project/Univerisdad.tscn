@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cffdwkxhm88jp"]
+[gd_scene load_steps=52 format=3 uid="uid://cffdwkxhm88jp"]
 
 [ext_resource type="Texture2D" uid="uid://c1ejngidsynl0" path="res://img/aula2.png" id="1_1ppka"]
 [ext_resource type="Script" path="res://Univerisdad.gd" id="1_pfue3"]
@@ -10,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://bq4qgk6cq2mgo" path="res://img/lab2.png" id="7_1w8xj"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="8_fbi0q"]
 [ext_resource type="Texture2D" uid="uid://nwuqqffgr44a" path="res://img/libros.png" id="10_nrjdd"]
-[ext_resource type="PackedScene" uid="uid://v570pdai0rsr" path="res://Scene/tesla.tscn" id="11_ttc1g"]
+[ext_resource type="PackedScene" path="res://Scene/tesla.tscn" id="11_ttc1g"]
 [ext_resource type="PackedScene" uid="uid://cwd3tikwrk7f2" path="res://Scene/emanuel_kant.tscn" id="11_uvhyu"]
 [ext_resource type="PackedScene" uid="uid://dr7p1i3n3mrmp" path="res://Scene/game_map.tscn" id="12_2l5ri"]
-[ext_resource type="PackedScene" uid="uid://d4gim4nmhb48y" path="res://Scene/Maquina.tscn" id="13_synwv"]
+[ext_resource type="PackedScene" path="res://Scene/Maquina.tscn" id="13_synwv"]
+[ext_resource type="PackedScene" uid="uid://6hxesmv1rl8n" path="res://Scene/anciano_game_aula.tscn" id="15_ttad7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0oltm"]
 texture = ExtResource("1_1ppka")
@@ -24269,6 +24270,9 @@ size = Vector2(20, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyrol"]
 size = Vector2(25, 24.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeciu"]
+size = Vector2(19, 45)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tj34o"]
 atlas = ExtResource("10_nrjdd")
 region = Rect2(243, 292, 231, 90)
@@ -24283,6 +24287,8 @@ animations = [{
 "name": &"Book",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_872w6"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pfue3")
@@ -24369,6 +24375,7 @@ theme_override_font_sizes/font_size = 32
 text = "D)"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="playerlink/Camera2D"]
+visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="playerlink/Camera2D/CanvasLayer"]
 offset_right = 1151.0
@@ -24751,6 +24758,20 @@ collision_mask = 48
 position = Vector2(609, 433)
 shape = SubResource("RectangleShape2D_jyrol")
 
+[node name="cambio" type="StaticBody2D" parent="HechoPorKenny"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/cambio"]
+position = Vector2(682.5, 1136.5)
+shape = SubResource("RectangleShape2D_xeciu")
+
+[node name="SalioAAula" type="Area2D" parent="HechoPorKenny"]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HechoPorKenny/SalioAAula"]
+position = Vector2(198, 997)
+shape = SubResource("RectangleShape2D_glhgo")
+
 [node name="pergaminos" type="Area2D" parent="."]
 
 [node name="pergamino1" type="AnimatedSprite2D" parent="pergaminos"]
@@ -24814,8 +24835,20 @@ autoplay = "Book"
 [node name="Game Map" parent="." instance=ExtResource("12_2l5ri")]
 
 [node name="AnimatableBody2D" parent="." instance=ExtResource("13_synwv")]
+visible = false
 position = Vector2(911, 849)
 scale = Vector2(0.3, 0.3)
+
+[node name="CerrarAulaFinish" type="Area2D" parent="."]
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CerrarAulaFinish"]
+position = Vector2(197, 998)
+shape = SubResource("RectangleShape2D_872w6")
+
+[node name="ancianoGameAula" parent="." instance=ExtResource("15_ttad7")]
+position = Vector2(517, 945)
 
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaA" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaB" to="." method="_on_respuesta_b_pressed"]
@@ -24874,3 +24907,5 @@ scale = Vector2(0.3, 0.3)
 [connection signal="area_exited" from="HechoPorKenny/contendorDeObj/ObjLibro17" to="." method="_on_obj_libro_17_area_exited"]
 [connection signal="area_entered" from="HechoPorKenny/contendorDeObj/ObjLibro18" to="." method="_on_obj_libro_area_entered"]
 [connection signal="area_exited" from="HechoPorKenny/contendorDeObj/ObjLibro18" to="." method="_on_obj_libro_18_area_exited"]
+[connection signal="area_entered" from="HechoPorKenny/SalioAAula" to="." method="_on_salio_a_aula_area_entered"]
+[connection signal="area_entered" from="CerrarAulaFinish" to="." method="_on_cerrar_aula_finish_area_entered"]

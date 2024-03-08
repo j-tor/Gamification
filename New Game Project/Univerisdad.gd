@@ -5,6 +5,14 @@ var RespuestaUserAula
 var num
 var puntos=0
 var unavez=false
+var hablo=Main.habloWin
+var onlyone=false
+var startAula=false
+var habloInicial=Main.hablo 
+var perdio=false
+var pergamino=0;
+var termino=false
+var cerro1=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -13,7 +21,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	habloInicial=Main.hablo
+	if startAula==true:
+		Win()
+	else :
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
 
 
 func _on_entradas_area_entered(area):
@@ -42,6 +54,9 @@ func _on_entrada_a_lab_area_entered(area):
 
 func _on_entro_a_aula_area_entered(area):
 	print("entre")
+	startAula=true
+	cerro1=true
+	$playerlink/Camera2D/CanvasLayer.show()
 	$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(246,998)
 
 
@@ -51,33 +66,96 @@ func _on_hacia_biblio_area_entered(area):
 	if unavez==false:
 		Main.Emanuelstatus="Biblioteca"
 		unavez==true
+	elif unavez==true:
+		Win()
 
 
 func _on_hacia_aula_area_entered(area):
 	$playerlink.position=Vector2(460,1033)
 	$EmanuelKant.position=Vector2(287,937)
-	
+	if unavez==true:
+		Win()
 
 
 func _on_pergamino_area_entered(area):
-	print("Entre a pergamino normal")
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 
 func _on_libro_area_entered(area):
 	print("Entro a libro")
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 
 func _on_area_2d_area_entered(area):
 	print("Entraste a planta")
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 func QuestionsAula():
 	num =randi()%6
+	$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
 	if num==0:
 		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.text="Seleccione el mandato cuya obligación\nviene del miedo al castigo o la \nbúsqueda de un premio:
 A) Imperativo Hipotético. \nB) Imperativo categórico. \nC) Ambos. D) Ninguno"
@@ -178,38 +256,135 @@ func validarRespuestasAula():
 		print("Fallastes")
 	$playerlink/Camera2D/ParaPreguntasAula.hide()
 	Win()
+
 func Win():
-	if $playerlink/Camera2D/CanvasLayer/ProgressBar.value == 70:
-		
-		
-		print("gano")
-		
-		$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position=Vector2(5000,5000)
-	else:
-		print("No has gando")
+	if $playerlink/Camera2D/CanvasLayer/ProgressBar.value >= 60 && perdio==false:
+		Main.Ancianostatus="Gano"
+		if onlyone==false:
+			pass
+		else:
+			onlyone=true
+		if onlyone==false:
+			$EmanuelKant.Gano()
+			$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(5000,5000)
+			onlyone==true;
+			await get_tree().create_timer(3).timeout
+			$EmanuelKant.parar()
+		termino=true
+	elif $playerlink/Camera2D/CanvasLayer/ProgressBar.value <60 && perdio==false:
+		termino=true
+		Main.Ancianostatus="No gano"
+	elif perdio==true:
+		termino=true
+		Main.Ancianostatus="Perdio"
+		$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(5000,5000)
+
+func finish():
+	$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(246,998)
+	$HechoPorKenny/cambio/CollisionShape2D.position= Vector2(246,998)
+
 func _on_pizarra_area_entered(area):
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 
 func _on_estante_area_entered(area):
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 
 func _on_estante_2_area_entered(area):
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 
 func _on_estante_3_area_entered(area):
-	QuestionsAula()
-	$playerlink/Camera2D/ParaPreguntasAula.show()
+	if pergamino<15:
+		QuestionsAula()
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		pergamino+=1
+	else:
+		perdio=true
+		$playerlink/Camera2D/ParaPreguntasAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
+		await get_tree().create_timer(5).timeout
+		$playerlink/Camera2D/ParaPreguntasAula.hide()
+		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
+		$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
+		$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
 
 
 func _on_obj_libro_area_entered(area):
 	print("viendo")
 	$playerlink/Camera2D/ParaPreguntasAula.show()
+	$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
 	$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.hide()
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.hide()
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.hide()
@@ -217,6 +392,7 @@ func _on_obj_libro_area_entered(area):
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.hide()
 	await get_tree().create_timer(5).timeout
 	$playerlink/Camera2D/ParaPreguntasAula.hide()
+	$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
 	$playerlink/Camera2D/ParaPreguntasAula/PreguntaAula.show()
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaA.show()
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
@@ -384,3 +560,15 @@ func _on_obj_libro_18_area_exited(area):
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaB.show()
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaC.show()
 	$playerlink/Camera2D/ParaPreguntasAula/RespuestaD.show()
+
+
+func _on_cerrar_aula_finish_area_entered(area):
+	print(termino)
+	if termino==true:
+		$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(246,998)
+
+
+func _on_salio_a_aula_area_entered(area):
+	if termino==true || cerro1==true:
+		$playerlink/Camera2D/CanvasLayer.hide()
+		$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(246,998)

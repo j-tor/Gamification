@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bcfo22irc4gkq" path="res://Scene/spawner.tscn" id="3_vcnif"]
 [ext_resource type="Script" path="res://Scrips/DeathScreen.gd" id="5_vffmg"]
 [ext_resource type="AudioStream" uid="uid://bkphtc7hxrc4m" path="res://img/Assets/Sonidos/Daydream Anatomy - 8-Bit Heroes - 03 Nin10day.mp3" id="6_yry4o"]
-[ext_resource type="Texture2D" uid="uid://bm0gpx5akr5t2" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Overworld Map.png" id="7_6jvlk"]
 [ext_resource type="Script" path="res://Scrips/WinScreen.gd" id="7_llotk"]
+[ext_resource type="Texture2D" uid="uid://8lexx2h32n8f" path="res://img/cppu_85ms_220629.png" id="8_ennbu"]
 [ext_resource type="Texture2D" uid="uid://0aymlpe7vpd8" path="res://img/PC Computer - Paper Lily - Lights - Prologue.png" id="8_rpeth"]
 [ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="10_sccaf"]
 
@@ -42,15 +42,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7kce"]
-atlas = ExtResource("7_6jvlk")
-region = Rect2(26, 183, 144, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_51rxu"]
+atlas = ExtResource("8_ennbu")
+region = Rect2(0, 0, 1920, 1887)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_38ci0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w7kce")
+"texture": SubResource("AtlasTexture_51rxu")
 }],
 "loop": true,
 "name": &"Libro",
@@ -92,8 +92,8 @@ position = Vector2(1, 0)
 energy = 0.43
 
 [node name="Bosque" type="Sprite2D" parent="."]
-position = Vector2(574, 328)
-scale = Vector2(0.8895, 0.890278)
+position = Vector2(577.36, 324.25)
+scale = Vector2(0.902563, 0.904861)
 texture = ExtResource("1_lamyc")
 
 [node name="Player" parent="." instance=ExtResource("1_jk5hu")]
@@ -244,8 +244,8 @@ animation = &"Hoja"
 autoplay = "Hoja"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Questionario"]
-position = Vector2(551.5, 164.5)
-scale = Vector2(7.46528, 1.82812)
+position = Vector2(561.5, 153.5)
+scale = Vector2(0.615104, 0.0927398)
 sprite_frames = SubResource("SpriteFrames_38ci0")
 animation = &"Libro"
 autoplay = "Libro"
@@ -266,10 +266,10 @@ offset_bottom = 128.0
 color = Color(0, 0, 0, 0.513726)
 
 [node name="Questionario" type="Label" parent="Questionario"]
-offset_left = 18.0
-offset_top = 109.0
-offset_right = 1123.0
-offset_bottom = 237.0
+offset_left = 91.0
+offset_top = 93.0
+offset_right = 998.0
+offset_bottom = 221.0
 label_settings = SubResource("LabelSettings_3hxmg")
 
 [node name="Aviso" type="Label" parent="Questionario"]

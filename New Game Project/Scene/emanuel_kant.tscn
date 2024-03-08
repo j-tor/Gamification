@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwd3tikwrk7f2"]
+[gd_scene load_steps=23 format=3 uid="uid://cwd3tikwrk7f2"]
 
 [ext_resource type="Script" path="res://Scene/emanuel_kant.gd" id="1_6xpts"]
 [ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="1_pqxu8"]
@@ -6,6 +6,14 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe1kp"]
 atlas = ExtResource("1_pqxu8")
 region = Rect2(319, 522, 31, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0jne"]
+atlas = ExtResource("1_pqxu8")
+region = Rect2(349, 523, 39, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdqwh"]
+atlas = ExtResource("1_pqxu8")
+region = Rect2(391, 523, 43, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ld2v"]
 atlas = ExtResource("1_pqxu8")
@@ -64,10 +72,16 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pe1kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0jne")
+}, {
+"duration": 4.2,
+"texture": SubResource("AtlasTexture_hdqwh")
 }],
 "loop": true,
 "name": &"Regalo",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -130,8 +144,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xfr1b"]
-radius = 12.0
-height = 34.0
+radius = 46.0
+height = 92.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrao6"]
 size = Vector2(20, 17)
@@ -149,7 +163,7 @@ scale = Vector2(0.790323, 0.517857)
 sprite_frames = SubResource("SpriteFrames_qslo8")
 animation = &"Regalo"
 autoplay = "normal"
-frame_progress = 0.69403
+frame_progress = 0.447238
 
 [node name="Emanuel" type="Area2D" parent="." groups=["objeto"]]
 collision_layer = 184
