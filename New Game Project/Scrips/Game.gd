@@ -20,7 +20,7 @@ var GalagaGame = preload("res://Scene/galaga_main.tscn")
 var EleccionGame = preload("res://Scene/juego_1.tscn")
 var EleccionBando = preload("res://Scene/Witchcave.tscn") 
 var WarRunGame = preload("res://Scene/boos_room.tscn")
-
+var Universidad = preload("res://Univerisdad.tscn")
 var VideoIntro = preload("res://Scene/nodo_base_video_introduccion.tscn")
 var CreateaUser = preload("res://CREATEUSER.tscn")
 func _ready():
@@ -60,6 +60,8 @@ func _verficar_nivel():
 			nuevo_nivel = EleccionBando
 		"WarGame":
 			nuevo_nivel= WarRunGame
+		"Universidad":
+			nuevo_nivel = Universidad
 	animacion.play("saliendo")
 
 func _siguiente_nivel():

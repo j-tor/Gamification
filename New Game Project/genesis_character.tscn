@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh58d65sml4pw"]
+
+[ext_resource type="Texture2D" uid="uid://0awpu1yra0cw" path="res://img/NPCS.png" id="1_2hxa7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvmyr"]
+atlas = ExtResource("1_2hxa7")
+region = Rect2(241, 1333, 28, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8yg5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvmyr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whuan"]
+size = Vector2(79, 77.75)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0evy"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="GenesisCharacter" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 4.76837e-07)
+scale = Vector2(1, 0.858974)
+sprite_frames = SubResource("SpriteFrames_o8yg5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, 8.125)
+shape = SubResource("RectangleShape2D_whuan")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -22.0
+offset_right = 44.0
+offset_bottom = 1.0
+text = "Genesis"
+label_settings = SubResource("LabelSettings_d0evy")

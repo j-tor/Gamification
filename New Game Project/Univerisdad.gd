@@ -582,3 +582,10 @@ func _on_salio_a_aula_area_entered(area):
 	if termino==true || cerro1==true:
 		$playerlink/Camera2D/CanvasLayer.hide()
 		$HechoPorKenny/BoxContainer/CerrarEntrada/CollisionShape2D.position= Vector2(246,998)
+
+
+func _on_salida_a_mundo_area_entered(area):
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
+	get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(-1218,440)
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("Universidad")[0].queue_free()
