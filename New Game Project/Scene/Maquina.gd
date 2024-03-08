@@ -10,6 +10,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if maquina==true:
+		if Input.is_action_just_pressed("ui_accept"):
+			pass
 		if Input.is_action_just_pressed("interact"):
 			$Expendedora.frame=0
 			$".".hide()
@@ -23,6 +25,7 @@ func _on_maquina_2_area_entered(area):
 
 
 func _on_maquina_2_area_exited(area):
+	maquina = false
 	$Expendedora.frame=2
 	$".".show()
 	$"../playerlink/Camera2D/Tesla".hide()

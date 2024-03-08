@@ -163,3 +163,4 @@ diferenciar la vigilia del sueño"
 func _on_regresar_pressed():
 	$".".hide()
 	$"../../../AnimatableBody2D".show()
+	Main.lab+=1

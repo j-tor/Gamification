@@ -20318,6 +20318,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Preguntas" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 67.0
 offset_top = 29.0
 offset_right = 1055.0
@@ -20408,6 +20409,7 @@ texture = ExtResource("8_iwxw3")
 centered = false
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.27451, 0.27451, 0.27451, 1)
 
 [node name="Label" type="Label" parent="CanvasModulate2"]

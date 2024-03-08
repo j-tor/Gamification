@@ -29,7 +29,7 @@ var nombre_objeto = false
 var dialogo_objeto = []
 var rulet=false
 var seleccionado
-
+var lab=0
 # Called when the node enters the scene tree for the first time.
 
 func _game():
@@ -149,8 +149,8 @@ func _dialogo():
 				if habloaula==true && hablobiblio==true:
 					hablo=true
 				dialogo_objeto = [
-						"Bienvenido, esta es la biblioteca aqui encontraras nuevos desafios. ",#1
-						"Pista: debes de leer hasta el cansancio, por cierto recuerda tus conocimientos en ecologia.",#2
+						"Bienvenido, esta es la biblioteca aqui encontraras nuevos desafios. ",#0
+						"Pista: debes de leer hasta el cansancio, por cierto recuerda tus conocimientos en ecologia.",#1
 						]
 		"Anciano":
 			if Ancianostatus=="No gano":
@@ -167,3 +167,43 @@ func _dialogo():
 				dialogo_objeto = [
 						"Has perdido, regresa al mundo y entrena un poco para que lo vuelves a intentar.",#1
 						]
+		"Cientifico":
+			if lab>=4:
+				dialogo_objeto = [
+						"Has completado todo el laboratorio",#0
+						"Te graduste ya de un cientifico explorador.",#1
+						"Felicidadess...!!",#2
+						]
+			else:
+				dialogo_objeto = [
+						"Biennbenido al Lab de Unitec",#0
+						"Esete laboratorio esta qeuipado para que hagas toda la practica  .",#1
+						"Empieza llendo a la maquina de la EVIDENCIA que se encuentra en la izquierda",#2
+						"Para interactuar con ella presiona (F)",#3
+						]
+		"Maquina2":
+			dialogo_objeto = [
+					"La maquina creadora de EVIDENCIA",#0
+					"La maquina ocupa que coloques los tubos correctamente para poder alimentarse  .",#1
+					"Una ves alimentada recojes EVIDENCIA",#2
+					"Dirigete a la mesa del ANALISIS",#3
+					]
+		"ANALISIS":
+			dialogo_objeto = [
+					"La mesa del ANALISIS",#0
+					"En esta mesa veras el proceso de eclosion de un huevo de Spiked Beetle .",#1
+					"una ves completes el proceso dirigete a la mesa de la SINTESIS",#2
+					]
+		"SINTESIS":
+			dialogo_objeto = [
+					"La mesa del SINTESIS",#0
+					"En esta mesa veras los tipos de Spiked Beetle y sus colores segun sus huevos.",#1
+					"una ves completes de verlos todos dirigete a la mesa de la ENUMERACIÓN",#2
+					]
+		"ENUMERACIÓN":
+			dialogo_objeto = [
+					"La mesa de la ENUMERACIÓN",#0
+					"En esta mesa veras el proceso y ciclo de Spiked Beetle desde que pone los huevos hasta cuando nace la cria.",#1
+					"una ves completes de verlos todos dirigete a hablar con el Cientifico",#2
+					]
+			lab=4

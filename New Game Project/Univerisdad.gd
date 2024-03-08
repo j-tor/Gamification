@@ -15,6 +15,10 @@ var termino=false
 var cerro1=false
 var recogerposima
 var showposima
+var Mesa=false
+var MesaA=false
+var MesaS=false
+var MesaE=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -36,6 +40,25 @@ func _process(delta):
 	if showposima==true:
 		$playerlink/Camera2D/CanvasLayer/ProgressBar.hide()
 		$playerlink/Camera2D/ObjWin.show()
+	if MesaA== true:
+		if Input.is_action_just_pressed("interact"):
+			$playerlink/Camera2D/eggdata.hide()
+			$playerlink/Camera2D/Tesla.hide()
+			$playerlink/Camera2D/Eggcluster.show()
+			print("entro")
+	if MesaS== true:
+		if Input.is_action_just_pressed("interact"):
+			$playerlink/Camera2D/Eggcluster.hide()
+			$playerlink/Camera2D/Tesla.hide()
+			$playerlink/Camera2D/eggdata.show()
+			print("entro")
+	if MesaE== true:
+		if Input.is_action_just_pressed("interact"):
+			$playerlink/Camera2D/Eggcluster.hide()
+			$playerlink/Camera2D/Tesla.hide()
+			$playerlink/Camera2D/eggdata.hide()
+			$playerlink/Camera2D/eggvolution.show()
+			print("entro")
 
 
 func _on_entradas_area_entered(area):
@@ -589,3 +612,24 @@ func _on_salida_a_mundo_area_entered(area):
 	get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(-1218,440)
 	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 	get_tree().get_nodes_in_group("Universidad")[0].queue_free()
+
+
+func _on_analisis_area_entered(area):
+	MesaA=true
+	MesaE=false
+	MesaS=false
+	pass # Replace with function body.
+
+
+func _on_sintesis_area_entered(area):
+	MesaA=false
+	MesaE=false
+	MesaS=true
+	pass # Replace with function body.
+
+
+func _on_enumeración_area_entered(area):
+	MesaA=false
+	MesaS=false
+	MesaE=true
+	pass # Replace with function body.

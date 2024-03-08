@@ -125,4 +125,5 @@ func _on_d_pressed():
 
 
 func _on_regresar_pressed():
-	pass # Replace with function body.
+	$".".hide()
+	Main.lab+=1
