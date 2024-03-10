@@ -9,7 +9,14 @@ var game_data=[{
 }]
 
 @onready var POPUP = $Window
-
+func _physics_process(delta):
+	if Main.terminovideoIntro==true:
+		$CanvasLayer/VideoStreamPlayer.stop()
+		$CanvasLayer/VideoStreamPlayer.eliminar()
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
+		get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("Login")[0].queue_free()
 
 func _ready():
 	$CanvasLayer/VideoStreamPlayer.parar()
@@ -56,7 +63,7 @@ func _on_button_login_pressed():
 				#var change_scene2 = load("res://mundo.tscn")
 				#get_tree().change_scene_to_packed(change_scene2)
 				#change_scene2.instantiate()
-				verVideo()
+				#verVideo()
 				#get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
 				#get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
 				#get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()

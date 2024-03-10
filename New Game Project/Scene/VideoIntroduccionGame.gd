@@ -16,5 +16,5 @@ func parar():
 func eliminar():
 	queue_free()
 func _on_finished():
-	pass
+	Main.terminovideoIntro=true;
 	

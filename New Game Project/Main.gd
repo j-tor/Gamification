@@ -25,6 +25,7 @@ var habloaula=false
 var hablobiblio=false
 var hablo=false
 var nombre_objeto = false
+var terminovideoIntro=false
 
 var dialogo_objeto = []
 var rulet=false
