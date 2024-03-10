@@ -64,7 +64,7 @@ position = Vector2(110, 117)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_0pvsv")
 
-[node name="Maquina2" type="Area2D" parent="."]
+[node name="Maquina2" type="Area2D" parent="." groups=["objeto"]]
 position = Vector2(107, 85)
 scale = Vector2(4.04902, 3.30899)
 collision_layer = 184

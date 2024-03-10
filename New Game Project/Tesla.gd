@@ -74,6 +74,7 @@ func respuesta():
 					$CanvasModulate/Label.text="Ganaste!!"
 					$CanvasModulate.show()
 					$Regresar.show()
+					
 					print("Barra llena")
 		else:
 			if fallo==2:
@@ -161,6 +162,9 @@ diferenciar la vigilia del sueño"
 
 
 func _on_regresar_pressed():
+	$Regresar.hide()
+	$Control/ProgressBar.value = 0
+	$CanvasModulate.hide()
 	$".".hide()
 	$"../../../AnimatableBody2D".show()
 	Main.lab+=1

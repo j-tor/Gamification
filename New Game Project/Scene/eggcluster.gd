@@ -125,5 +125,8 @@ func _on_d_pressed():
 
 
 func _on_regresar_pressed():
+	$Control/ProgressBar.value=0
+	$Regresar.hide()
+	$CanvasModulate2.hide()
 	$".".hide()
 	Main.lab+=1

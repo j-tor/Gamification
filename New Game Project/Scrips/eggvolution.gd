@@ -136,5 +136,8 @@ func _on_button_pressed():
 
 
 func _on_regresar_pressed():
+	$CanvasModulate2.hide()
+	$Regresar.hide()
+	$Control/ProgressBar.value=0
 	$".".hide()
 	Main.lab+=1

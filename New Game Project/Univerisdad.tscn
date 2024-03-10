@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dr7p1i3n3mrmp" path="res://Scene/game_map.tscn" id="12_2l5ri"]
 [ext_resource type="PackedScene" uid="uid://pdguw1yxc717" path="res://Scene/eggcluster.tscn" id="12_ubohx"]
 [ext_resource type="Texture2D" uid="uid://cqxve8wxsnnxh" path="res://img/white.png" id="13_jmt3v"]
-[ext_resource type="PackedScene" path="res://Scene/Maquina.tscn" id="13_synwv"]
+[ext_resource type="PackedScene" uid="uid://d4gim4nmhb48y" path="res://Scene/Maquina.tscn" id="13_synwv"]
 [ext_resource type="PackedScene" uid="uid://bb5xussmgd4bw" path="res://Scene/eggvolution.tscn" id="13_viuyw"]
 [ext_resource type="PackedScene" uid="uid://6hxesmv1rl8n" path="res://Scene/anciano_game_aula.tscn" id="15_ttad7"]
 [ext_resource type="PackedScene" uid="uid://d1is2bc2e6rko" path="res://Scene/obj_game_aula.tscn" id="16_2s242"]
@@ -27373,8 +27373,8 @@ scale = Vector2(0.3, 0.3)
 [node name="ANALISIS" type="Area2D" parent="." groups=["objeto"]]
 position = Vector2(911, 849)
 scale = Vector2(0.3, 0.3)
-collision_layer = 184
-collision_mask = 184
+collision_layer = 185
+collision_mask = 185
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ANALISIS"]
 position = Vector2(510, -553.333)
@@ -27394,8 +27394,8 @@ texture = ExtResource("20_8frlp")
 [node name="SINTESIS" type="Area2D" parent="." groups=["objeto"]]
 position = Vector2(911, 849)
 scale = Vector2(0.3, 0.3)
-collision_layer = 184
-collision_mask = 184
+collision_layer = 185
+collision_mask = 185
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SINTESIS"]
 position = Vector2(536.667, -343.333)
@@ -27409,8 +27409,8 @@ sprite_frames = SubResource("SpriteFrames_jiygq")
 [node name="ENUMERACIÓN" type="Area2D" parent="." groups=["objeto"]]
 position = Vector2(911, 849)
 scale = Vector2(0.3, 0.3)
-collision_layer = 184
-collision_mask = 184
+collision_layer = 185
+collision_mask = 185
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENUMERACIÓN"]
 position = Vector2(860.833, -343.333)

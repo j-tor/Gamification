@@ -19,6 +19,8 @@ func _process(delta):
 
 
 func _on_maquina_2_area_entered(area):
+	
+
 	maquina = true
 	$Expendedora.frame=1
 	
