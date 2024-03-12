@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1qsnt")
 }],
-"loop": true,
+"loop": false,
 "name": &"Atack",
 "speed": 5.0
 }, {
@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pdrps")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 5.0
 }]
@@ -188,7 +188,7 @@ script = ExtResource("1_vmcxh")
 position = Vector2(-8, 3)
 scale = Vector2(1.94559, 1.96833)
 sprite_frames = SubResource("SpriteFrames_negyb")
-animation = &"Atack"
+animation = &"Idle"
 flip_h = true
 
 [node name="atacando" type="Sprite2D" parent="."]

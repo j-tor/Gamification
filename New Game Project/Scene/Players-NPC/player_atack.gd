@@ -10,6 +10,7 @@ var vida = 20
 var Vida_maxima = 20
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite2D.play("Idle")
 	#$AnimationPlayer.play("parado")
 	$ProgressBar.value = Vida_maxima
 
@@ -19,9 +20,12 @@ func _process(_delta):
 		if Main.ataque_jugador == true:
 			_animacion_ataque()
 
+func _damage():
+	$AnimatedSprite2D.play("damage")
 
 func _animacion_ataque():
-	$AnimatedSprite2D.play("atack")
+	
+	$AnimatedSprite2D.play("Atack")
 	#$AnimationPlayer.play("batalla")
 	update_progressbar()
 	
@@ -29,6 +33,7 @@ func _animacion_ataque():
 	#self.global_position.y = seleccion_objetivo.global_position.y + 100
 func update_progressbar():
 		$ProgressBar.value = vida * 100/ Vida_maxima
+		$AnimatedSprite2D.play("Idle")
 		if $ProgressBar.value <= 0:
 				print("Barra llena")
 				$"../Background_Music".stop()

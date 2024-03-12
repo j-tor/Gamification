@@ -7814,10 +7814,10 @@ label_settings = SubResource("LabelSettings_61117")
 
 [node name="Label" type="Label" parent="Informacion"]
 material = SubResource("CanvasItemMaterial_lysgm")
-offset_left = 5.0
-offset_top = 53.0
-offset_right = 166.0
-offset_bottom = 121.0
+offset_left = 17.0
+offset_top = -4.0
+offset_right = 178.0
+offset_bottom = 64.0
 text = "Tus puntos:"
 label_settings = SubResource("LabelSettings_t53bv")
 
@@ -7832,10 +7832,10 @@ label_settings = SubResource("LabelSettings_yelkl")
 
 [node name="Label2" type="Label" parent="Informacion"]
 material = SubResource("CanvasItemMaterial_1m7j1")
-offset_left = 909.0
-offset_top = 103.0
-offset_right = 1117.0
-offset_bottom = 171.0
+offset_left = 916.0
+offset_top = -10.0
+offset_right = 1124.0
+offset_bottom = 58.0
 text = "Enemy puntos:"
 label_settings = SubResource("LabelSettings_t53bv")
 

@@ -16,6 +16,7 @@ func _ready():
 	$r_c/AnimatedSprite2D.play("idle")
 	if $Node2D.position==Vector2(536,316):
 		#$r_a/AnimatedSprite2D.stop("damage")
+		
 		$r_a/AnimatedSprite2D.play("idle")
 	if $Node2D2/ProgressBar.value >= 99:
 				print("Barra llena")
@@ -211,6 +212,8 @@ func _on_r_c_pressed():
 	$r_c/Skull._damage()
 	if pregunta_numero==1 && respuesta == 3:
 			$r_c/Skull.dead()
+	else :
+		$Node2D._damage()
 	
 
 func _on_r_c_button_up():
