@@ -1,8 +1,8 @@
 extends CharacterBody2D
 #empiristas con vestimenta roja y racionalistas con vestimenta blanca
 #var elecionPLayer=Main.bando
-var elecionPLayer=Main.bando
-#var elecionPLayer="Racionalista"
+#var elecionPLayer=Main.bando
+var elecionPLayer="Racionalista"
 
 #rango 260-350 
 var SPEED = randi_range(205,310)
@@ -493,6 +493,7 @@ func siguienteRound():
 			#await get_tree().create_timer(30).timeout
 			estadoCorrer=false
 			$"../Informacion/Timer".stop()
+	siguienteRound()
 	
 	if puntoPLayer>=2:
 		RoundsPlayer+=1
