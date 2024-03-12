@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://difcwu8gt56yf"]
+[gd_scene load_steps=17 format=3 uid="uid://difcwu8gt56yf"]
 
 [ext_resource type="Texture2D" uid="uid://cwpmfk3jp23ot" path="res://img/2 Link - Copy.png" id="1_vcta1"]
 [ext_resource type="Script" path="res://Scene/Players-NPC/player_atack.gd" id="1_vmcxh"]
 [ext_resource type="Script" path="res://Scrips/atacandoplayer.gd" id="2_he5xf"]
 [ext_resource type="AudioStream" uid="uid://clnh514tjfxex" path="res://Music/Attack3.ogg" id="3_fq661"]
+[ext_resource type="Texture2D" uid="uid://2lk625d15e2g" path="res://img/2 Link.png" id="3_pdwbh"]
 [ext_resource type="Texture2D" uid="uid://df3yj63gh1527" path="res://img/cursor.png" id="4_j180d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6o8jb"]
@@ -18,9 +19,9 @@ region = Rect2(339, 150, 113, 75)
 atlas = ExtResource("1_vcta1")
 region = Rect2(414, 0, 46, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ncxiv"]
-atlas = ExtResource("1_vcta1")
-region = Rect2(129, 0, 43, 51)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdrps"]
+atlas = ExtResource("3_pdwbh")
+region = Rect2(133, 0, 42, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_negyb"]
 animations = [{
@@ -45,7 +46,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ncxiv")
+"texture": SubResource("AtlasTexture_pdrps")
 }],
 "loop": true,
 "name": &"damage",
@@ -180,14 +181,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ic1lf"]
 size = Vector2(34.5, 46)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_vmcxh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, 3)
 scale = Vector2(1.94559, 1.96833)
 sprite_frames = SubResource("SpriteFrames_negyb")
-animation = &"damage"
+animation = &"Atack"
 flip_h = true
 
 [node name="atacando" type="Sprite2D" parent="."]
