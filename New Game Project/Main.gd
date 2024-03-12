@@ -36,6 +36,12 @@ var lab=0
 var ganoElementJuegoDeJeffrey=false
 var JuegoDeKennyRecolector=false
 var SegundoGameKennyGalaga=false
+#Para regreso de lugares
+var VieneRuleta=false
+var VineBruja=false
+var vieneGameWar=false
+var vieneEleccionBando=false 
+var vieneUni=false
 # Called when the node enters the scene tree for the first time.
 
 func _game():

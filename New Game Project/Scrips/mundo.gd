@@ -54,7 +54,19 @@ func _process(delta):
 	else:
 		$playerlink/Camera2D2/Velocidad_aumentada.hide()
 	_statues()
-	pass
+	#print($playerlink.position)
+	if Main.VieneRuleta==true:
+		$playerlink.position=Vector2(39.33334,583)
+		Main.VieneRuleta=false
+	elif Main.VineBruja==true:
+		$playerlink.position=Vector2(103.6361,-220.4839)
+		Main.VineBruja=false
+	elif Main.vieneUni==true:
+		$playerlink.position=Vector2(231.3764,1027.212)
+		Main.vieneUni=false
+	elif Main.vieneGameWar==true:
+		$playerlink.position=Vector2(101.5747,-946.8241)
+		Main.vieneGameWar=false
 
 func _statues():
 	if Main.GreeGame==false||Main.pinkGame==false||Main.BlueGame==false||Main.yellowGame==false:
@@ -75,6 +87,7 @@ func _statues():
 func _on_portal_1_area_entered(area):
 	if area.is_in_group("player") && Main.ganoElementJuegoDeJeffrey==false:
 		if Main.yellowGame==true:
+			Main.VieneRuleta=true
 			$"Element/Salida hacia Element".show()
 			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "castillo"
 			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
@@ -87,6 +100,7 @@ func _on_portal_1_area_entered(area):
 func _on_royal_area_entered(area):
 	if area.is_in_group("player"):
 		if Main.GreeGame==true :
+			Main.VieneRuleta=true
 			$"Royal/Entrada a Royal".show()
 			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "royal"
 			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
@@ -104,6 +118,7 @@ func _on_element_area_entered(area):
 			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "element"
 			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 			get_tree().get_nodes_in_group("mundo1")[0].queue_free()
+			Main.VieneRuleta=true
 		else :
 			
 			$"Elemental Santuary/Entrada a Satuary".hide()
@@ -131,6 +146,7 @@ func _on_area_2d_area_entered(area):
 			get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Icezone"
 			get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 			get_tree().get_nodes_in_group("mundo1")[0].queue_free()
+			Main.VieneRuleta=true
 		else :
 			$"Ice zone/Entrada a Ice zone".hide()
 			
@@ -143,8 +159,11 @@ func _on_entrada_them_ruleta_area_entered(area):
 		get_tree().get_nodes_in_group("mundo1")[0].queue_free()
 
 
-func _on_entrar_wicth_area_entered(area):
+func _on_entrar_wicth_area_enteared(area):
+	print("uis mas comida")
 	if Main.Vida_base >= 80:
+		print("entre")
+		#Main.VineBruja=true
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "EleccionBando"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("mundo1")[0].queue_free()
@@ -152,7 +171,8 @@ func _on_entrar_wicth_area_entered(area):
 
 
 func _on_entrada_a_game_combat_area_entered(area):
-	if area.is_in_group("player"):
+	if area.is_in_group("player") && Main.bando!="":
+		Main.vieneGameWar=true
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "WarGame"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("mundo1")[0].queue_free()
@@ -167,6 +187,17 @@ func _on_entrada_a_university_area_entered(area):
 
 func _on_entrada_a_aula_area_entered(area):
 	if area.is_in_group("player"):
+		Main.vieneUni=true
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "Universidad"
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("mundo1")[0].queue_free()
+
+
+func _on_entrar_wicth_area_entered(area):
+	print("uis mas comida")
+	if Main.Vida_base >= 80:
+		print("entre")
+		Main.VineBruja=true
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "EleccionBando"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("mundo1")[0].queue_free()
