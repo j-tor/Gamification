@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://bfqwnca0i1w3n"]
+[gd_scene load_steps=32 format=3 uid="uid://bfqwnca0i1w3n"]
 
 [ext_resource type="Script" path="res://Scrips/Jugardor_Recolector.gd" id="1_45xq2"]
+[ext_resource type="Texture2D" uid="uid://c7at5feeqcvei" path="res://img/Corazones.png" id="5_l24r8"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="5_mu2s5"]
 [ext_resource type="AudioStream" uid="uid://bfxyvwlq50kbm" path="res://img/Assets/Sonidos/Collect_Point_01.mp3" id="5_tsuhv"]
 [ext_resource type="AudioStream" uid="uid://br55ug50rt33e" path="res://img/Assets/Sonidos/Explosion_00.mp3" id="6_cpefq"]
@@ -178,6 +179,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tenn3"]
+atlas = ExtResource("5_l24r8")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1b47r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tenn3")
+}],
+"loop": true,
+"name": &"corazon",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js6u6"]
 size = Vector2(90.5, 87)
 
@@ -195,8 +211,16 @@ texture_filter = 1
 position = Vector2(5, -13)
 scale = Vector2(0.783333, 0.736486)
 sprite_frames = SubResource("SpriteFrames_w47kr")
-animation = &"hurt"
+animation = &"win"
 autoplay = "idle"
+frame_progress = 0.111422
+
+[node name="corazon" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, -78)
+scale = Vector2(0.243333, 0.193333)
+sprite_frames = SubResource("SpriteFrames_1b47r")
+animation = &"corazon"
 
 [node name="SubirSonido" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_tsuhv")

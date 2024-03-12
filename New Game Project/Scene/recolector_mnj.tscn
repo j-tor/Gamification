@@ -214,6 +214,7 @@ autoplay = true
 
 [node name="Questionario" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Questionario"]
 position = Vector2(239, 429)

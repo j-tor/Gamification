@@ -170,8 +170,9 @@ func _Validar_Estado():
 		get_tree().paused = true 
 		$Player.gano()
 		$WinScreen/Label3.text = str(scoreJugador)
-		$Player.position = Vector2(1490,333)
+		#$Player.position = Vector2(1490,333)
 		win= 1
+		Main.JuegoDeKennyRecolector=true
 		Main.Vida_base+=20
 
 

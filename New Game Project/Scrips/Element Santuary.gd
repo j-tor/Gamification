@@ -14,13 +14,14 @@ func _process(delta):
 func _on_regreso_area_entered(area):
 	if area.is_in_group("player"):
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
-		get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(-1218,440)
+		get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(-18,675)
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("element")[0].queue_free()
+		
 
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("player"):
+	if area.is_in_group("player") &&  Main.JuegoDeKennyRecolector==false:
 		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel = "MiniRecolector"
 		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 		get_tree().get_nodes_in_group("element")[0].queue_free()

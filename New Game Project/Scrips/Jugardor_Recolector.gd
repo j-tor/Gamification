@@ -57,3 +57,7 @@ func morirse():
 
 func gano():
 	animated_sprite_2d.play("win")
+	$corazon.show()
+	await get_tree().create_timer(3).timeout
+	$corazon.hide()
+	Main.JuegoDeKennyRecolector=true

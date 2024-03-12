@@ -3,8 +3,8 @@ extends Node2D
 var pregunta_numero
 var respuesta
 var damage = 5
-
-
+var verunavez=false
+var win=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Background_Music.play()
@@ -22,6 +22,8 @@ func _ready():
 				$You_Win.play()
 				$WinScreen.show()
 				$Background_Music.stop()
+				
+				
 
 
 
@@ -32,7 +34,13 @@ func _process(delta):
 				$You_Win.play()
 				$WinScreen.show()
 				$Background_Music.stop()
-				
+				if verunavez==false:
+					$corazon.show()
+					await get_tree().create_timer(5).timeout
+					$corazon.hide()
+					verunavez==true
+					Main.ganoElementJuegoDeJeffrey=true
+					win=true
 	
 	
 
@@ -246,6 +254,7 @@ func _on_damage_animation_finished():
 func _on_regresar_pressed():
 				#get_tree().paused = false
 				Main.Vida_base+=20
+				Main.ganoElementJuegoDeJeffrey=true
 				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
 				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 				get_tree().get_nodes_in_group("MiniGameCastillo")[0].queue_free()

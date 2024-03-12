@@ -14,6 +14,9 @@ func _Lose():
 func _Win():
 	$AnimatedSprite2D.play("win")
 	SPEED=0
+	$AnimatedSprite2D2.show()
+	await get_tree().create_timer(4).timeout
+	$AnimatedSprite2D2.hide()
 func _physics_process(delta):
 	# Add the gravity.
 	var inputVel = Input.get_axis("ui_left","ui_right")

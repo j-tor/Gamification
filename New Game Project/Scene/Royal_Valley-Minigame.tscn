@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cryqc1yuabkca"]
+[gd_scene load_steps=48 format=3 uid="uid://cryqc1yuabkca"]
 
 [ext_resource type="Script" path="res://Scrips/Preguntas-Royal_Valley.gd" id="1_jol31"]
 [ext_resource type="Texture2D" uid="uid://b4csl2byla2rd" path="res://img/Mobile - Fire Emblem Heroes - Dragons Gate.png" id="2_y7w4b"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://73p0p8okt4u0" path="res://img/Assets/Sonidos/hit_kick_m.wav" id="13_vwv03"]
 [ext_resource type="AudioStream" uid="uid://bapudwajunhls" path="res://img/Assets/Sonidos/Luminous Sword.mp3" id="14_a5q2d"]
 [ext_resource type="AudioStream" uid="uid://cpbajskk68gk" path="res://img/Assets/Sonidos/WARC_SE_286.wav" id="15_btnoy"]
+[ext_resource type="Texture2D" uid="uid://c7at5feeqcvei" path="res://img/Corazones.png" id="17_86435"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4te55"]
 texture = ExtResource("2_y7w4b")
@@ -6168,6 +6169,21 @@ font_size = 34
 [sub_resource type="LabelSettings" id="LabelSettings_cwxh7"]
 font_size = 34
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r04f"]
+atlas = ExtResource("17_86435")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ub4mx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r04f")
+}],
+"loop": true,
+"name": &"corazon",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D" groups=["MiniGameCastillo"]]
 scale = Vector2(1.64, 1.45)
 script = ExtResource("1_jol31")
@@ -6406,7 +6422,7 @@ offset_left = 419.0
 offset_top = 222.0
 offset_right = 722.0
 offset_bottom = 310.0
-text = "Ganastes!"
+text = "Ganaste!"
 label_settings = SubResource("LabelSettings_3f1ci")
 
 [node name="Label2" type="Label" parent="WinScreen"]
@@ -6467,6 +6483,13 @@ attenuation = 0.594605
 stream = ExtResource("14_a5q2d")
 max_distance = 750.0
 attenuation = 0.297302
+
+[node name="corazon" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(513.415, 240.69)
+scale = Vector2(0.213415, 0.203448)
+sprite_frames = SubResource("SpriteFrames_ub4mx")
+animation = &"corazon"
 
 [connection signal="button_up" from="r_a" to="." method="_on_r_a_button_up"]
 [connection signal="focus_entered" from="r_a" to="." method="_on_r_a_focus_entered"]

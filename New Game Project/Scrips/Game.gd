@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var GAME = $"."
 @onready var animacion =  $AnimationPlayer
-var ubicacion = Vector2(172,1533)
+var ubicacion #= Vector2(172,1533)
 
 var siguiente_nivel
 var nuevo_nivel

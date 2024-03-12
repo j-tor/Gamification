@@ -31,6 +31,11 @@ var dialogo_objeto = []
 var rulet=false
 var seleccionado
 var lab=0
+
+# para almacenar que juegos gano
+var ganoElementJuegoDeJeffrey=false
+var JuegoDeKennyRecolector=false
+var SegundoGameKennyGalaga=false
 # Called when the node enters the scene tree for the first time.
 
 func _game():

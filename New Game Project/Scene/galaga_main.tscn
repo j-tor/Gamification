@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2qxmiq1t2xme" path="res://img/diana-bomerang.png" id="4_f62it"]
 [ext_resource type="Texture2D" uid="uid://sp7ofmoo0yqj" path="res://img/Explocion.png" id="5_su34v"]
 [ext_resource type="AudioStream" uid="uid://br55ug50rt33e" path="res://img/Assets/Sonidos/Explosion_00.mp3" id="6_d1yjt"]
-[ext_resource type="AudioStream" uid="uid://bfxyvwlq50kbm" path="res://img/Assets/Sonidos/Collect_Point_01.mp3" id="7_chqmw"]
+[ext_resource type="AudioStream" uid="uid://b1qbqr5payjps" path="res://img/Assets/Sonidos/nrt_youlose.wav" id="7_0bob3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4lhf"]
 texture = ExtResource("3_dx18c")
@@ -2722,7 +2722,7 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("6_d1yjt")
 
 [node name="AudioLosePoints" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_chqmw")
+stream = ExtResource("7_0bob3")
 
 [connection signal="area_entered" from="PreguntasGame/Entered1" to="." method="_on_entered_1_area_entered"]
 [connection signal="child_entered_tree" from="PreguntasGame/Entered1/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
