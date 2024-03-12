@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://sdadifpjtvtj"]
+[gd_scene load_steps=30 format=3 uid="uid://sdadifpjtvtj"]
 
 [ext_resource type="Texture2D" uid="uid://dc2tgk03f2ovb" path="res://img/PC Computer - Paper Lily - Lights - Prologue 2 .png" id="1_5kmry"]
 [ext_resource type="Texture2D" uid="uid://3hxu5gcdbqr4" path="res://img/PC Computer - Resin - Surrounding Lights - Copy.png" id="1_82vrj"]
@@ -7632,11 +7632,27 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_61117"]
 font_size = 64
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lysgm"]
+blend_mode = 1
+light_mode = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_t53bv"]
-font_size = 28
+font_size = 29
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fq44h"]
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_yelkl"]
 font_size = 28
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1m7j1"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c2arw"]
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_id6m2"]
 font_size = 64
@@ -7797,34 +7813,38 @@ label_settings = SubResource("LabelSettings_61117")
 [node name="Timer" type="Timer" parent="Informacion"]
 
 [node name="Label" type="Label" parent="Informacion"]
-offset_left = 21.0
-offset_top = 102.0
-offset_right = 179.0
-offset_bottom = 170.0
+material = SubResource("CanvasItemMaterial_lysgm")
+offset_left = 2.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 60.0
 text = "Tus puntos:"
 label_settings = SubResource("LabelSettings_t53bv")
 
 [node name="PlayerPuntos" type="Label" parent="Informacion"]
-offset_left = 183.0
-offset_top = 104.0
-offset_right = 251.0
-offset_bottom = 159.0
+material = SubResource("CanvasItemMaterial_fq44h")
+offset_left = 164.0
+offset_top = -6.0
+offset_right = 232.0
+offset_bottom = 49.0
 text = "0"
 label_settings = SubResource("LabelSettings_yelkl")
 
 [node name="Label2" type="Label" parent="Informacion"]
-offset_left = 888.0
-offset_top = 107.0
-offset_right = 1090.0
-offset_bottom = 175.0
+material = SubResource("CanvasItemMaterial_1m7j1")
+offset_left = 912.0
+offset_top = -8.0
+offset_right = 1114.0
+offset_bottom = 60.0
 text = "Enemy puntos:"
 label_settings = SubResource("LabelSettings_t53bv")
 
 [node name="EnemyPuntos2" type="Label" parent="Informacion"]
-offset_left = 1098.0
-offset_top = 107.0
-offset_right = 1166.0
-offset_bottom = 162.0
+material = SubResource("CanvasItemMaterial_c2arw")
+offset_left = 1122.0
+offset_top = -8.0
+offset_right = 1190.0
+offset_bottom = 47.0
 text = "0"
 label_settings = SubResource("LabelSettings_yelkl")
 

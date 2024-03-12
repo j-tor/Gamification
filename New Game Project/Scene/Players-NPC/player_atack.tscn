@@ -1,10 +1,56 @@
-[gd_scene load_steps=11 format=3 uid="uid://difcwu8gt56yf"]
+[gd_scene load_steps=16 format=3 uid="uid://difcwu8gt56yf"]
 
 [ext_resource type="Texture2D" uid="uid://cwpmfk3jp23ot" path="res://img/2 Link - Copy.png" id="1_vcta1"]
 [ext_resource type="Script" path="res://Scene/Players-NPC/player_atack.gd" id="1_vmcxh"]
 [ext_resource type="Script" path="res://Scrips/atacandoplayer.gd" id="2_he5xf"]
 [ext_resource type="AudioStream" uid="uid://clnh514tjfxex" path="res://Music/Attack3.ogg" id="3_fq661"]
 [ext_resource type="Texture2D" uid="uid://df3yj63gh1527" path="res://img/cursor.png" id="4_j180d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o8jb"]
+atlas = ExtResource("1_vcta1")
+region = Rect2(452, 150, 113, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qsnt"]
+atlas = ExtResource("1_vcta1")
+region = Rect2(339, 150, 113, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aotgv"]
+atlas = ExtResource("1_vcta1")
+region = Rect2(414, 0, 46, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncxiv"]
+atlas = ExtResource("1_vcta1")
+region = Rect2(129, 0, 43, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_negyb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o8jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qsnt")
+}],
+"loop": true,
+"name": &"Atack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aotgv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncxiv")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_2vkse"]
 length = 0.001
@@ -94,6 +140,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_2lys6"]
 resource_name = "parado"
@@ -125,7 +183,15 @@ size = Vector2(34.5, 46)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vmcxh")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 3)
+scale = Vector2(1.94559, 1.96833)
+sprite_frames = SubResource("SpriteFrames_negyb")
+animation = &"damage"
+flip_h = true
+
 [node name="atacando" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-24.3124, 9.81244)
 scale = Vector2(1.94559, 1.96833)
 texture = ExtResource("1_vcta1")

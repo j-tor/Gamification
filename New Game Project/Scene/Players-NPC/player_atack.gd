@@ -21,7 +21,8 @@ func _process(_delta):
 
 
 func _animacion_ataque():
-	$AnimationPlayer.play("batalla")
+	$AnimatedSprite2D.play("atack")
+	#$AnimationPlayer.play("batalla")
 	update_progressbar()
 	
 	#self.global_position.x = seleccion_objetivo.global_position.x + 200
