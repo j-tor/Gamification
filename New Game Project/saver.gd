@@ -1,5 +1,5 @@
 extends Control
-
+var loginExitoso=false
 var username = ""
 const SAVEFILE = "user://SAVEFILE.save"
 var mirovideo=false
@@ -60,6 +60,7 @@ func _on_button_login_pressed():
 				$Window/RichTextLabel.text="Login Exitoso"
 				print("Login Exitoso")
 				
+				loginExitoso=true
 				#var change_scene2 = load("res://mundo.tscn")
 				#get_tree().change_scene_to_packed(change_scene2)
 				#change_scene2.instantiate()
@@ -78,21 +79,23 @@ func _on_button_login_pressed():
 
 
 func _on_button_pressed():
-	$NinePatchRect.hide()
-	$MarginContainer.hide()
-	$Button_Login.hide()
-	$Button_CreateUser.hide()
-	$TextEdit.hide()
-	$TextEdit2.hide()
-	$Window.hide()
-	
-	$CanvasLayer.show()
-	$CanvasLayer/VideoStreamPlayer.ver()
+	if loginExitoso == true:
+		$NinePatchRect.hide()
+		$MarginContainer.hide()
+		$Button_Login.hide()
+		$Button_CreateUser.hide()
+		$TextEdit.hide()
+		$TextEdit2.hide()
+		$Window.hide()
+		$CanvasLayer.show()
+		$CanvasLayer/VideoStreamPlayer.ver()
 	
 	if $Window/RichTextLabel.text=="Login Exitoso" && mirovideo==true:
-		var change_scene2 = load("res://mundo.tscn")
-		get_tree().change_scene_to_packed(change_scene2)
-		change_scene2.instantiate()
+		
+		pass
+		#var change_scene2 = load("res://mundo.tscn")
+		#get_tree().change_scene_to_packed(change_scene2)
+		#change_scene2.instantiate()
 	POPUP.hide()
 		
 	pass # Replace with function body.

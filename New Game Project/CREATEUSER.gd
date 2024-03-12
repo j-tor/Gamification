@@ -1,7 +1,7 @@
 
 extends Control
 
-var change_scene = load("res://LOGIN.tscn")
+#var change_scene = load("res://LOGIN.tscn")
 # Called when the node enters the scene tree for the first time.
 
 
@@ -70,8 +70,10 @@ func _on_button_2_pressed()-> void :
 func _on_button_pressed():
 	
 	if $Window/RichTextLabel.text == "Usuario Creado":
-		get_tree().change_scene_to_packed(change_scene)
-	POPUP.hide()
+		get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="Login"
+		get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+		get_tree().get_nodes_in_group("crearUsuario")[0].queue_free()
+	#POPUP.hide()
 	
 	pass # Replace with function body.
 func _Salir():

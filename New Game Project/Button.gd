@@ -5,4 +5,6 @@ var change_scene = load("res://CREATEUSER.tscn")
 
 
 func _on_pressed()-> void :
-	get_tree().change_scene_to_packed(change_scene)
+	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="crearUsuario"
+	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
+	get_tree().get_nodes_in_group("Login")[0].queue_free()
