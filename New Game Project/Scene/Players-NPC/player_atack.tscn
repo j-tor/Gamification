@@ -184,11 +184,13 @@ size = Vector2(34.5, 46)
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_vmcxh")
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, 3)
 scale = Vector2(1.94559, 1.96833)
 sprite_frames = SubResource("SpriteFrames_negyb")
-animation = &"Idle"
+animation = &"Atack"
 flip_h = true
 
 [node name="atacando" type="Sprite2D" parent="."]

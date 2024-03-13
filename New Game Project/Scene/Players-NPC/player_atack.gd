@@ -22,18 +22,20 @@ func _process(_delta):
 
 func _damage():
 	$AnimatedSprite2D.play("damage")
+	await get_tree().create_timer(2).timeout
+	$AnimatedSprite2D.play("Idle")
 
 func _animacion_ataque():
-	
 	$AnimatedSprite2D.play("Atack")
-	#$AnimationPlayer.play("batalla")
+	$AnimationPlayer.play("batalla")
 	update_progressbar()
-	
+	#await get_tree().create_timer(2).timeout
+	#$AnimatedSprite2D.play("Idle")
 	#self.global_position.x = seleccion_objetivo.global_position.x + 200
 	#self.global_position.y = seleccion_objetivo.global_position.y + 100
 func update_progressbar():
 		$ProgressBar.value = vida * 100/ Vida_maxima
-		$AnimatedSprite2D.play("Idle")
+		#$AnimatedSprite2D.play("Idle")
 		if $ProgressBar.value <= 0:
 				print("Barra llena")
 				$"../Background_Music".stop()

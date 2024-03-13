@@ -10,14 +10,17 @@ func _ready():
 	$Background_Music.play()
 	randomize()
 	preguntar()
+	$Node2D._ready()
 	$Node2D.position=Vector2(536,316)
 	$r_a/AnimatedSprite2D.play("idle")
 	$r_b/AnimatedSprite2D.play("idle")
 	$r_c/AnimatedSprite2D.play("idle")
 	if $Node2D.position==Vector2(536,316):
 		#$r_a/AnimatedSprite2D.stop("damage")
-		
+		#$r_b/AnimatedSprite2D.stop("damage")
+		$You_Win.play()
 		$r_a/AnimatedSprite2D.play("idle")
+		$r_b/AnimatedSprite2D.play("idle")
 	if $Node2D2/ProgressBar.value >= 99:
 				print("Barra llena")
 				$You_Win.play()
@@ -48,10 +51,10 @@ func _process(delta):
 func preguntar():
 	if $Node2D2/ProgressBar.value >= 100:
 				print("Barra llena")
-				
 				$You_Win.play()
 				$WinScreen.show()
 	if $Resultado.text == "incorecto":
+		$Node2D._damage()
 		$Damage_Link.play()
 	$r_a/AnimatedSprite2D.play("idle")
 	$r_b/AnimatedSprite2D.play("idle")
@@ -182,7 +185,7 @@ func _on_r_a_pressed():
 	$cursor_A.visible = true
 	$Node2D.position=Vector2(313.415,288.276)
 	$r_a/Skull._damage()
-		
+	$Node2D._damage()	
 	
 	
 
@@ -200,7 +203,9 @@ func _on_r_b_pressed():
 	
 	if pregunta_numero==0 && respuesta == 2|| pregunta_numero==2 && respuesta == 2 ||pregunta_numero==3 && respuesta == 2||pregunta_numero==4 && respuesta == 2:
 			$r_b/Skull.dead()
-	
+			$Node2D._animacion_ataque()
+	else:
+		$Node2D._damage()
 
 func _on_r_c_pressed():
 	$Node2D._animacion_ataque()
@@ -211,7 +216,9 @@ func _on_r_c_pressed():
 	$Node2D.position=Vector2(536,316)
 	$r_c/Skull._damage()
 	if pregunta_numero==1 && respuesta == 3:
+			$Node2D._animacion_ataque()
 			$r_c/Skull.dead()
+			
 	else :
 		$Node2D._damage()
 	
