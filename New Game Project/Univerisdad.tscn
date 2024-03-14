@@ -26830,6 +26830,8 @@ zoom = Vector2(4, 4)
 
 [node name="eggdata" parent="playerlink/Camera2D" instance=ExtResource("11_duo2v")]
 visible = false
+light_mask = 3
+visibility_layer = 2
 position = Vector2(-142, -77)
 scale = Vector2(0.242827, 0.226084)
 
@@ -27381,6 +27383,7 @@ position = Vector2(510, -553.333)
 shape = SubResource("RectangleShape2D_10ptq")
 
 [node name="Sprite2D" type="Sprite2D" parent="ANALISIS"]
+visibility_layer = 2
 position = Vector2(536.25, -351.063)
 scale = Vector2(0.114167, 0.102797)
 texture = ExtResource("19_qtxth")
@@ -27402,6 +27405,7 @@ position = Vector2(536.667, -343.333)
 shape = SubResource("RectangleShape2D_uni8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SINTESIS"]
+visibility_layer = 2
 position = Vector2(510, -550)
 scale = Vector2(2.58533, 1.96079)
 sprite_frames = SubResource("SpriteFrames_jiygq")

@@ -32976,10 +32976,11 @@ offset_right = -75.0
 offset_bottom = 92.0
 
 [node name="playerlink" parent="." instance=ExtResource("3_f8rub")]
-position = Vector2(600, 1924)
-scale = Vector2(29.0285, 1.09189)
+position = Vector2(602, 1872)
+scale = Vector2(1.21271, 1.21041)
 
 [node name="Camera2D2" type="Camera2D" parent="playerlink"]
+position = Vector2(-17.3165, 1.65234)
 zoom = Vector2(3, 3)
 
 [node name="Regreso" type="Area2D" parent="."]

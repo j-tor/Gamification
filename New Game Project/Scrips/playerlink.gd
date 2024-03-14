@@ -61,10 +61,19 @@ func _physics_process(delta):
 					Main.color = true
 			
 		if Input.is_action_just_pressed("Map"):
-			$"Camera2D2/Game Map".show()
+			if $"Camera2D2/Game Map".visible==false:
+				$"Camera2D2/Game Map".show()
+			else:
+				$"Camera2D2/Game Map".hide()
+			
 		if  Input.is_action_just_pressed("Close_Map"):
 				$"Camera2D2/Game Map".hide()
 				
+		if Input.is_action_just_pressed("ui_text_indent"):
+			if $CanvasLayer.visible==false:
+				$CanvasLayer.show()
+			else:
+				$CanvasLayer.hide()
 			
 
 				

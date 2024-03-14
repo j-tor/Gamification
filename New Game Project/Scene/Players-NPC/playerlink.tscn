@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dxtcub1fb3p5u"]
+[gd_scene load_steps=23 format=3 uid="uid://dxtcub1fb3p5u"]
 
 [ext_resource type="Script" path="res://Scrips/playerlink.gd" id="1_0bc7g"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="1_rh17t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnvrb1gyrlthk" path="res://img/image.psd.png" id="6_fb5hd"]
 [ext_resource type="Texture2D" uid="uid://bp7fc0dswm154" path="res://img/Malo.psd.png" id="7_0cccd"]
 [ext_resource type="Texture2D" uid="uid://b0rdtxo8gtndi" path="res://img/Caballo.psd.png" id="8_sn6om"]
+[ext_resource type="PackedScene" uid="uid://67vcltqp2s31" path="res://Scene/more_somethings.tscn" id="10_de2gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03gse"]
 size = Vector2(12, 10)
@@ -263,6 +264,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MoreSomethings" parent="CanvasLayer" instance=ExtResource("10_de2gq")]
 
 [connection signal="area_entered" from="Detec_obj" to="." method="_on_detec_obj_area_entered"]
 [connection signal="area_exited" from="Detec_obj" to="." method="_on_detec_obj_area_exited"]
