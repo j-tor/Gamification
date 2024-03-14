@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed =280
+var speed =280+Main.Velocidad
 @onready var animations = $AnimationPlayer
 var mover = true
 var objeto = false
@@ -73,6 +73,7 @@ func _physics_process(delta):
 			if $CanvasLayer.visible==false:
 				$CanvasLayer.show()
 			else:
+				$CanvasLayer/MoreSomethings.ocultarTodo()
 				$CanvasLayer.hide()
 			
 

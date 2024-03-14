@@ -181,6 +181,7 @@ func _validacion():
 		$FinalGame.show()
 		$FinalGame/ganastespoints.text="Points: "+str(points)
 		Main.Vida_base+=20
+		Main.puntosPlayer+=200
 		Main.SegundoGameKennyGalaga=true
 	elif points<0:
 		#get_tree().paused = true

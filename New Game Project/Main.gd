@@ -39,7 +39,7 @@ var SegundoGameKennyGalaga=false
 var GanoGameMaria=false
 var HabloconBruja=false
 var GanoCombat=false
-var puntosPlayer=0
+var puntosPlayer=5000
 var GanoAula=false
 var GanoLab= false
 
@@ -189,6 +189,7 @@ func _dialogo():
 						]
 		"Cientifico":
 			if lab>=4:
+				GanoLab==true
 				dialogo_objeto = [
 						"Has completado todo el laboratorio",#0
 						"Te graduste ya de un cientifico explorador.",#1

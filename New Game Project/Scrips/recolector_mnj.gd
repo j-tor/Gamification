@@ -174,6 +174,7 @@ func _Validar_Estado():
 		win= 1
 		Main.JuegoDeKennyRecolector=true
 		Main.Vida_base+=20
+		Main.puntosPlayer+=200
 
 
 

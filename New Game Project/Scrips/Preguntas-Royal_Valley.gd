@@ -263,6 +263,7 @@ func _on_damage_animation_finished():
 func _on_regresar_pressed():
 				#get_tree().paused = false
 				Main.Vida_base+=20
+				Main.puntosPlayer+=200
 				Main.ganoElementJuegoDeJeffrey=true
 				get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="castillo"
 				get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()

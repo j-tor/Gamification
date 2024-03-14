@@ -68,7 +68,6 @@ animation = &"normal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
 position = Vector2(1.26923, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ad82v")
 
 [node name="Comerciante" type="Area2D" parent="."]

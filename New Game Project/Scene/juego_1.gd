@@ -289,6 +289,8 @@ func _Ganastes():
 	$Button/Label.text = "GANASTE!"
 	$PointLight2D/Sprite2D.hide()
 	Main.Vida_base+=20
+	Main.puntosPlayer+=200
+	Main.GanoGameMaria=true
 	bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
 	$Button.show()
 	$Button.show()

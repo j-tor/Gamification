@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dgufxed4tv5jp" path="res://img/Elemental Sanctuary.png" id="1_abs3t"]
 [ext_resource type="Texture2D" uid="uid://ooox1v73o2di" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Elemental Sanctuary.png" id="2_w7uqg"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="3_f8rub"]
-[ext_resource type="PackedScene" uid="uid://byqrk5obmm8r8" path="res://Scene/leche.tscn" id="5_3humj"]
+[ext_resource type="PackedScene" path="res://Scene/leche.tscn" id="5_3humj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0w3h"]
 texture = ExtResource("1_abs3t")
