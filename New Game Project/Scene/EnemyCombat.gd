@@ -578,6 +578,7 @@ func siguienteRound():
 #	elif correctplayer=="Racionalista":
 func Fin():
 	if win=="Tu":
+		Main.GanoCombat=true
 		if elecionPLayer=="Racionalista":
 			$AnimatedSprite2D.play("perdioRacio")
 			$"../player".fatalitiempi()

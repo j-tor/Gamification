@@ -293,6 +293,7 @@ func validarRespuestasAula():
 func Win():
 	if $playerlink/Camera2D/CanvasLayer/ProgressBar.value >= 60 && perdio==false:
 		Main.Ancianostatus="Gano"
+		Main.GanoAula=true
 		if onlyone==false:
 			pass
 		else:

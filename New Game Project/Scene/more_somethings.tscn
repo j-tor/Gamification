@@ -106,6 +106,7 @@ text = "Regresar
 "
 
 [node name="ButtonStatus2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 297.0
 offset_top = 1.0
 offset_right = 435.0
@@ -421,6 +422,8 @@ offset_right = 1153.0
 offset_bottom = 634.0
 text = "Incompleto"
 
+[connection signal="pressed" from="ButtonTienda" to="." method="_on_button_tienda_pressed"]
+[connection signal="pressed" from="ButtonStatus2" to="." method="_on_button_status_2_pressed"]
 [connection signal="pressed" from="Tienda/BuyVelocity" to="." method="_on_buy_velocity_pressed"]
 [connection signal="pressed" from="Tienda/BuyPoints" to="." method="_on_buy_points_pressed"]
 [connection signal="pressed" from="Tienda/Buyheart" to="." method="_on_buyheart_pressed"]

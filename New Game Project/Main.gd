@@ -36,13 +36,19 @@ var lab=0
 var ganoElementJuegoDeJeffrey=false
 var JuegoDeKennyRecolector=false
 var SegundoGameKennyGalaga=false
+var GanoGameMaria=false
+var HabloconBruja=false
+var GanoCombat=false
+var puntosPlayer=0
+var GanoAula=false
+var GanoLab= false
+
 #Para regreso de lugares
 var VieneRuleta=false
 var VineBruja=false
 var vieneGameWar=false
 var vieneEleccionBando=false 
 var vieneUni=false
-# Called when the node enters the scene tree for the first time.
 
 func _game():
 	randomize()
@@ -75,6 +81,7 @@ func _dialogo():
 			rulet=false
 		"Empirista":
 			if bando=="Empirista":
+				HabloconBruja=true
 				dialogo_objeto = [
 					"Has elejido el camino Empirista. . . . . . . . . .",#0
 					"Dirigete al castillo para el combate por el conocimiento",#1
@@ -91,6 +98,7 @@ func _dialogo():
 						]
 		"Racionalista":
 			if bando=="Racionalista":
+				HabloconBruja=true
 				dialogo_objeto = [
 					"Has elejido el camino Racionalista. . . . . . . . . .",#0
 					"Dirigete al castillo para el combate por el conocimiento",#1
