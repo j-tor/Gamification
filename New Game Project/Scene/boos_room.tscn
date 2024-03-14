@@ -7797,50 +7797,34 @@ label_settings = SubResource("LabelSettings_61117")
 [node name="Timer" type="Timer" parent="Informacion"]
 
 [node name="Label" type="Label" parent="Informacion"]
-<<<<<<< Updated upstream
-material = SubResource("CanvasItemMaterial_lysgm")
-offset_left = 17.0
+offset_left = 23.0
 offset_top = -4.0
-offset_right = 178.0
+offset_right = 181.0
 offset_bottom = 64.0
-=======
-offset_left = 13.0
-offset_top = -6.0
-offset_right = 171.0
-offset_bottom = 62.0
->>>>>>> Stashed changes
-text = "Tus puntos:"
+text = "Tus puntos::"
 label_settings = SubResource("LabelSettings_t53bv")
 
 [node name="PlayerPuntos" type="Label" parent="Informacion"]
-offset_left = 172.0
-offset_top = -7.0
-offset_right = 240.0
-offset_bottom = 48.0
+offset_left = 185.0
+offset_top = -2.0
+offset_right = 253.0
+offset_bottom = 53.0
 text = "0"
 label_settings = SubResource("LabelSettings_yelkl")
 
 [node name="Label2" type="Label" parent="Informacion"]
-<<<<<<< Updated upstream
-material = SubResource("CanvasItemMaterial_1m7j1")
-offset_left = 916.0
-offset_top = -10.0
-offset_right = 1124.0
-offset_bottom = 58.0
-=======
-offset_left = 920.0
+offset_left = 897.0
 offset_top = -6.0
-offset_right = 1122.0
+offset_right = 1099.0
 offset_bottom = 62.0
->>>>>>> Stashed changes
-text = "Enemy puntos:"
+text = "Enemy puntos::"
 label_settings = SubResource("LabelSettings_t53bv")
 
 [node name="EnemyPuntos2" type="Label" parent="Informacion"]
-offset_left = 1124.0
-offset_top = -4.0
-offset_right = 1192.0
-offset_bottom = 51.0
+offset_left = 1107.0
+offset_top = -6.0
+offset_right = 1175.0
+offset_bottom = 49.0
 text = "0"
 label_settings = SubResource("LabelSettings_yelkl")
 

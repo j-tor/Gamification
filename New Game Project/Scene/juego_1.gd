@@ -283,6 +283,7 @@ func QuestionsLab():
 #Momento respuestas(2,4,6,8,10) - Tiempo donde se dice si la respuesta es correcta o incorrecta
 
 func _Ganastes():
+	ResetChecker()
 	Main.Vida_base+=20
 	$Background_Music.stop()
 	$You_Win.play()
@@ -296,6 +297,7 @@ func _Ganastes():
 	$Button.show()
 	
 func _lose():
+	ResetChecker()
 	$Background_Music.stop()
 	$You_Lose.play()
 	$Button/Label.text = "PERDISTE!"
