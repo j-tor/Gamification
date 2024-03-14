@@ -410,6 +410,81 @@ func siguienteRound():
 	print(RoundsEnemy)
 	print("Player puntos:")
 	print(RoundsPlayer)
+	if puntoPLayer>=2:
+		RoundsPlayer+=1
+		puntoPLayer=0
+		puntosEnemy=0
+		Round+=1
+		$"../DirectionalLight2D".show()
+		if Round==1:
+			$"../PosicionSprite1".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite1".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite1".play("PocionBlanca")
+		elif Round==2:
+			$"../PosicionSprite2".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite2".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite2".play("PocionBlanca")
+		elif Round==3:
+			$"../PosicionSprite3".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite3".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite3".play("PocionBlanca")
+		
+		if Round==4:
+			$"../PosicionSprite4".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite4".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite4".play("PocionBlanca")
+		
+		if Round==5:
+			$"../PosicionSprite5".show()
+			if elecionPLayer=="Empirista":
+				$"../PosicionSprite5".play("PocionRoja")
+			elif elecionPLayer=="Racionalista":
+				$"../PosicionSprite5".play("PocionBlanca")
+		
+	elif puntosEnemy>=2:
+		RoundsEnemy+=1
+		puntoPLayer=0
+		puntosEnemy=0
+		Round+=1
+		$"../DirectionalLight2D".show()
+		if Round==1:
+			$"../PosicionSprite1".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite1".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite1".play("PocionBlanca")
+		elif Round==2:
+			$"../PosicionSprite2".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite2".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite2".play("PocionBlanca")
+		elif Round==3:
+			$"../PosicionSprite3".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite3".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite3".play("PocionBlanca")
+		if Round==4:
+			$"../PosicionSprite4".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite4".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite4".play("PocionBlanca")
+		if Round==5:
+			$"../PosicionSprite5".show()
+			if correctplayer=="Empirista":
+				$"../PosicionSprite5".play("PocionRoja")
+			elif correctplayer=="Racionalista":
+				$"../PosicionSprite5".play("PocionBlanca")
 	if Round==4 && RoundsEnemy>RoundsPlayer && puntosEnemy==2|| Round==4 && RoundsPlayer>RoundsEnemy && puntoPLayer==2 ||Round==5 || Round==6:
 		if RoundsPlayer>RoundsEnemy:
 			print("ganastes")
@@ -493,83 +568,9 @@ func siguienteRound():
 			#await get_tree().create_timer(30).timeout
 			estadoCorrer=false
 			$"../Informacion/Timer".stop()
-	siguienteRound()
+	#siguienteRound()
 	
-	if puntoPLayer>=2:
-		RoundsPlayer+=1
-		puntoPLayer=0
-		puntosEnemy=0
-		Round+=1
-		$"../DirectionalLight2D".show()
-		if Round==1:
-			$"../PosicionSprite1".show()
-			if elecionPLayer=="Empirista":
-				$"../PosicionSprite1".play("PocionRoja")
-			elif elecionPLayer=="Racionalista":
-				$"../PosicionSprite1".play("PocionBlanca")
-		elif Round==2:
-			$"../PosicionSprite2".show()
-			if elecionPLayer=="Empirista":
-				$"../PosicionSprite2".play("PocionRoja")
-			elif elecionPLayer=="Racionalista":
-				$"../PosicionSprite2".play("PocionBlanca")
-		elif Round==3:
-			$"../PosicionSprite3".show()
-			if elecionPLayer=="Empirista":
-				$"../PosicionSprite3".play("PocionRoja")
-			elif elecionPLayer=="Racionalista":
-				$"../PosicionSprite3".play("PocionBlanca")
-		
-		if Round==4:
-			$"../PosicionSprite4".show()
-			if elecionPLayer=="Empirista":
-				$"../PosicionSprite4".play("PocionRoja")
-			elif elecionPLayer=="Racionalista":
-				$"../PosicionSprite4".play("PocionBlanca")
-		
-		if Round==5:
-			$"../PosicionSprite5".show()
-			if elecionPLayer=="Empirista":
-				$"../PosicionSprite5".play("PocionRoja")
-			elif elecionPLayer=="Racionalista":
-				$"../PosicionSprite5".play("PocionBlanca")
-		
-	elif puntosEnemy>=2:
-		RoundsEnemy+=1
-		puntoPLayer=0
-		puntosEnemy=0
-		Round+=1
-		$"../DirectionalLight2D".show()
-		if Round==1:
-			$"../PosicionSprite1".show()
-			if correctplayer=="Empirista":
-				$"../PosicionSprite1".play("PocionRoja")
-			elif correctplayer=="Racionalista":
-				$"../PosicionSprite1".play("PocionBlanca")
-		elif Round==2:
-			$"../PosicionSprite2".show()
-			if correctplayer=="Empirista":
-				$"../PosicionSprite2".play("PocionRoja")
-			elif correctplayer=="Racionalista":
-				$"../PosicionSprite2".play("PocionBlanca")
-		elif Round==3:
-			$"../PosicionSprite3".show()
-			if correctplayer=="Empirista":
-				$"../PosicionSprite3".play("PocionRoja")
-			elif correctplayer=="Racionalista":
-				$"../PosicionSprite3".play("PocionBlanca")
-		if Round==4:
-			$"../PosicionSprite4".show()
-			if correctplayer=="Empirista":
-				$"../PosicionSprite4".play("PocionRoja")
-			elif correctplayer=="Racionalista":
-				$"../PosicionSprite4".play("PocionBlanca")
-		if Round==5:
-			$"../PosicionSprite5".show()
-			if correctplayer=="Empirista":
-				$"../PosicionSprite5".play("PocionRoja")
-			elif correctplayer=="Racionalista":
-				$"../PosicionSprite5".play("PocionBlanca")
+	
 	
 			
 

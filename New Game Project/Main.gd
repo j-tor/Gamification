@@ -219,3 +219,7 @@ func _dialogo():
 					"una ves completes de verlos todos dirigete a hablar con el Cientifico",#2
 					]
 			lab=4
+		"Comerciante":
+			dialogo_objeto = [
+								"Hola soy el comerciante, dentro de mi caja tengo unos objetos que puedes ganar. quieres jugar? solo son 100 minishtaf",#0
+					]

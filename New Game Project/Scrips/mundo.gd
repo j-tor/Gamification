@@ -1,6 +1,18 @@
 extends Node2D
 var showposima
+var numeroComerciante=0
 func _ready():
+	numeroComerciante= randi() % 4
+	if numeroComerciante==0:
+		$CharacterComerciante.position=Vector2(-322,-407)
+	elif numeroComerciante==1:
+		$CharacterComerciante.position=Vector2(-1516,-286)
+	elif numeroComerciante==2:
+		$CharacterComerciante.position=Vector2(1217,-507)
+	elif numeroComerciante==3:
+		$CharacterComerciante.position=Vector2(81,1353)
+	elif numeroComerciante==4:
+		$CharacterComerciante.position=Vector2(575,148)
 	if Main.bando=="Empirista":
 		$playerlink/Camera2D2/Empirista.show()
 	elif Main.bando=="Racionalista":

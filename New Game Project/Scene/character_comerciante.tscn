@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgrbphuclg5ec"]
+
+[ext_resource type="Texture2D" uid="uid://0awpu1yra0cw" path="res://img/NPCS.png" id="1_5obqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7ek4"]
+atlas = ExtResource("1_5obqk")
+region = Rect2(74, 1624, 22, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5djwm"]
+atlas = ExtResource("1_5obqk")
+region = Rect2(105, 1624, 21, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78gqy"]
+atlas = ExtResource("1_5obqk")
+region = Rect2(137, 1624, 22, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpbvt"]
+atlas = ExtResource("1_5obqk")
+region = Rect2(169, 1625, 21, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7vat"]
+atlas = ExtResource("1_5obqk")
+region = Rect2(73, 1625, 22, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pol2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7ek4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5djwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78gqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpbvt")
+}],
+"loop": true,
+"name": &"buscar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7vat")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad82v"]
+size = Vector2(17.1923, 31.3333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cx52"]
+radius = 122.037
+
+[node name="CharacterComerciante" type="CharacterBody2D"]
+collision_layer = 184
+collision_mask = 184
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 1)
+scale = Vector2(2.36364, 1.5)
+sprite_frames = SubResource("SpriteFrames_pol2i")
+animation = &"normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(1.26923, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ad82v")
+
+[node name="Comerciante" type="Area2D" parent="."]
+collision_layer = 184
+collision_mask = 184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Comerciante"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_2cx52")

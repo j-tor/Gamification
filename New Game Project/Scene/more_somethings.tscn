@@ -1,0 +1,426 @@
+[gd_scene load_steps=12 format=3 uid="uid://wi8djhsdlkmd"]
+
+[ext_resource type="Script" path="res://Scene/more_somethings.gd" id="1_4dfyi"]
+[ext_resource type="Texture2D" uid="uid://djf47oipfdob2" path="res://img/PuntosNormal.png" id="1_kpf0m"]
+[ext_resource type="Texture2D" uid="uid://cvnh71tmmvwi0" path="res://img/VelocidadCorrect.png" id="3_ldmta"]
+[ext_resource type="Texture2D" uid="uid://c7at5feeqcvei" path="res://img/Corazones.png" id="4_aem2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74y7g"]
+atlas = ExtResource("1_kpf0m")
+region = Rect2(0, 0, 298, 169)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nxo6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74y7g")
+}],
+"loop": true,
+"name": &"puntos",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_601wi"]
+font_size = 36
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no2gm"]
+atlas = ExtResource("3_ldmta")
+region = Rect2(0, 0, 360, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhww7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no2gm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrwmw"]
+atlas = ExtResource("4_aem2j")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_doauh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrwmw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MoreSomethings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4dfyi")
+
+[node name="ButtonAjustes" type="Button" parent="."]
+layout_mode = 0
+offset_right = 143.0
+offset_bottom = 49.0
+text = "Ajustes
+"
+
+[node name="ButtonTienda" type="Button" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 1.0
+offset_right = 293.0
+offset_bottom = 49.0
+text = "Tienda
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1129.56, 24.5)
+scale = Vector2(0.225251, 0.230769)
+sprite_frames = SubResource("SpriteFrames_3nxo6")
+animation = &"puntos"
+
+[node name="puntos" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = -1.0
+offset_right = 1188.0
+offset_bottom = 91.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_601wi")
+
+[node name="ButtonBack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 2.0
+offset_right = 579.0
+offset_bottom = 50.0
+text = "Regresar
+"
+
+[node name="ButtonStatus2" type="Button" parent="."]
+offset_left = 297.0
+offset_top = 1.0
+offset_right = 435.0
+offset_bottom = 49.0
+text = "Status
+"
+
+[node name="Tienda" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="BuyVelocity" type="Button" parent="Tienda"]
+offset_left = 18.0
+offset_top = 91.0
+offset_right = 336.0
+offset_bottom = 440.0
+
+[node name="AnimatedSpriteMoreSpeed" type="AnimatedSprite2D" parent="Tienda"]
+position = Vector2(175, 215)
+scale = Vector2(1, 0.991667)
+sprite_frames = SubResource("SpriteFrames_mhww7")
+
+[node name="Label" type="Label" parent="Tienda"]
+offset_left = 35.0
+offset_top = 334.0
+offset_right = 191.0
+offset_bottom = 423.0
+text = "Velocidad x10.
+
+Precio: 500"
+
+[node name="AnimatedSpritepoints" type="AnimatedSprite2D" parent="Tienda"]
+position = Vector2(141, 398)
+scale = Vector2(0.188759, 0.196006)
+sprite_frames = SubResource("SpriteFrames_3nxo6")
+animation = &"puntos"
+
+[node name="BuyPoints" type="Button" parent="Tienda"]
+offset_left = 384.0
+offset_top = 93.0
+offset_right = 731.0
+offset_bottom = 439.0
+
+[node name="AnimatedSpritepoints2" type="AnimatedSprite2D" parent="Tienda"]
+position = Vector2(556, 214)
+scale = Vector2(1.29719, 1.31694)
+sprite_frames = SubResource("SpriteFrames_3nxo6")
+animation = &"puntos"
+
+[node name="precio" type="Label" parent="Tienda"]
+offset_left = 415.0
+offset_top = 328.0
+offset_right = 771.0
+offset_bottom = 428.0
+text = "Obtener puntos? puedes ganar 
+o perder tu decides.
+
+Precio: 250"
+
+[node name="AnimatedSpritepoints3" type="AnimatedSprite2D" parent="Tienda"]
+position = Vector2(520, 419)
+scale = Vector2(0.188759, 0.196006)
+sprite_frames = SubResource("SpriteFrames_3nxo6")
+animation = &"puntos"
+
+[node name="Buyheart" type="Button" parent="Tienda"]
+offset_left = 754.0
+offset_top = 95.0
+offset_right = 1101.0
+offset_bottom = 441.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tienda"]
+position = Vector2(911, 212)
+scale = Vector2(1, 0.92)
+sprite_frames = SubResource("SpriteFrames_doauh")
+
+[node name="Label2" type="Label" parent="Tienda"]
+offset_left = 776.0
+offset_top = 333.0
+offset_right = 1032.0
+offset_bottom = 474.0
+text = "Obten 20 puntos de vida.
+
+Precio: 500"
+
+[node name="AnimatedSpritepoints4" type="AnimatedSprite2D" parent="Tienda"]
+position = Vector2(893, 398)
+scale = Vector2(0.188759, 0.196006)
+sprite_frames = SubResource("SpriteFrames_3nxo6")
+animation = &"puntos"
+
+[node name="Status" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 136.0
+offset_right = 1125.0
+offset_bottom = 166.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="Label" type="Label" parent="Status"]
+offset_left = 22.0
+offset_top = 138.0
+offset_right = 477.0
+offset_bottom = 192.0
+text = "Ganar juego de politica:"
+
+[node name="ColorRect2" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 189.0
+offset_right = 1125.0
+offset_bottom = 219.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 243.0
+offset_right = 1125.0
+offset_bottom = 273.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 296.0
+offset_right = 1126.0
+offset_bottom = 326.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 350.0
+offset_right = 1126.0
+offset_bottom = 380.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 403.0
+offset_right = 1126.0
+offset_bottom = 433.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 451.0
+offset_right = 1126.0
+offset_bottom = 481.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 504.0
+offset_right = 1126.0
+offset_bottom = 534.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 556.0
+offset_right = 1126.0
+offset_bottom = 586.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Status"]
+offset_left = 14.0
+offset_top = 608.0
+offset_right = 1126.0
+offset_bottom = 638.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="Label2" type="Label" parent="Status"]
+offset_left = 19.0
+offset_top = 192.0
+offset_right = 474.0
+offset_bottom = 246.0
+text = "Ganar juego de arte:"
+
+[node name="Label3" type="Label" parent="Status"]
+offset_left = 20.0
+offset_top = 245.0
+offset_right = 475.0
+offset_bottom = 299.0
+text = "Ganar juego de historia:"
+
+[node name="Label4" type="Label" parent="Status"]
+offset_left = 18.0
+offset_top = 300.0
+offset_right = 473.0
+offset_bottom = 354.0
+text = "Ganar juego de Ciencia:"
+
+[node name="Label5" type="Label" parent="Status"]
+offset_left = 19.0
+offset_top = 351.0
+offset_right = 474.0
+offset_bottom = 405.0
+text = "Completar la ruleta del saber:"
+
+[node name="Label6" type="Label" parent="Status"]
+offset_left = 18.0
+offset_top = 403.0
+offset_right = 473.0
+offset_bottom = 457.0
+text = "Elegir bando empirista o racionalista donde la bruja:"
+
+[node name="Label7" type="Label" parent="Status"]
+offset_left = 19.0
+offset_top = 453.0
+offset_right = 474.0
+offset_bottom = 507.0
+text = "Ganar el combate empiristas contra racionalistas en el castillo:"
+
+[node name="Label9" type="Label" parent="Status"]
+offset_left = 20.0
+offset_top = 507.0
+offset_right = 475.0
+offset_bottom = 561.0
+text = "Ganar el juego del aula:"
+
+[node name="Label8" type="Label" parent="Status"]
+offset_left = 23.0
+offset_top = 559.0
+offset_right = 478.0
+offset_bottom = 613.0
+text = "Ganar Juego del laboratorio:"
+
+[node name="Label10" type="Label" parent="Status"]
+offset_left = 18.0
+offset_top = 612.0
+offset_right = 473.0
+offset_bottom = 666.0
+text = "Completar el juego:"
+
+[node name="ProgressBar" type="ProgressBar" parent="Status"]
+offset_left = 13.0
+offset_top = 80.0
+offset_right = 1127.0
+offset_bottom = 127.0
+
+[node name="Label11" type="Label" parent="Status"]
+offset_left = 15.0
+offset_top = 49.0
+offset_right = 470.0
+offset_bottom = 103.0
+text = "Progreso:"
+
+[node name="JuegoPolitica" type="Label" parent="Status"]
+offset_left = 1019.0
+offset_top = 140.0
+offset_right = 1154.0
+offset_bottom = 163.0
+text = "Incompleto"
+
+[node name="JuegoArte" type="Label" parent="Status"]
+offset_left = 1021.0
+offset_top = 192.0
+offset_right = 1156.0
+offset_bottom = 215.0
+text = "Incompleto"
+
+[node name="JuegoHistoria" type="Label" parent="Status"]
+offset_left = 1019.0
+offset_top = 246.0
+offset_right = 1154.0
+offset_bottom = 269.0
+text = "Incompleto"
+
+[node name="JuegoCiencia" type="Label" parent="Status"]
+offset_left = 1016.0
+offset_top = 299.0
+offset_right = 1151.0
+offset_bottom = 322.0
+text = "Incompleto"
+
+[node name="CompletarRuleta" type="Label" parent="Status"]
+offset_left = 1017.0
+offset_top = 350.0
+offset_right = 1152.0
+offset_bottom = 373.0
+text = "Incompleto"
+
+[node name="ElegirBando" type="Label" parent="Status"]
+offset_left = 1017.0
+offset_top = 406.0
+offset_right = 1152.0
+offset_bottom = 429.0
+text = "Incompleto"
+
+[node name="CombateEmpiristas" type="Label" parent="Status"]
+offset_left = 1017.0
+offset_top = 454.0
+offset_right = 1152.0
+offset_bottom = 477.0
+text = "Incompleto"
+
+[node name="JuegoAula" type="Label" parent="Status"]
+offset_left = 1018.0
+offset_top = 508.0
+offset_right = 1153.0
+offset_bottom = 531.0
+text = "Incompleto"
+
+[node name="JuegoLaboratorio" type="Label" parent="Status"]
+offset_left = 1018.0
+offset_top = 559.0
+offset_right = 1153.0
+offset_bottom = 582.0
+text = "Incompleto"
+
+[node name="CompletarJuego" type="Label" parent="Status"]
+offset_left = 1018.0
+offset_top = 611.0
+offset_right = 1153.0
+offset_bottom = 634.0
+text = "Incompleto"
+
+[connection signal="pressed" from="Tienda/BuyVelocity" to="." method="_on_buy_velocity_pressed"]
+[connection signal="pressed" from="Tienda/BuyPoints" to="." method="_on_buy_points_pressed"]
+[connection signal="pressed" from="Tienda/Buyheart" to="." method="_on_buyheart_pressed"]
