@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxa44n81806h5"]
+[gd_scene load_steps=11 format=3 uid="uid://bxa44n81806h5"]
 
 [ext_resource type="Script" path="res://Scrips/Element Santuary.gd" id="1_8ula4"]
 [ext_resource type="Texture2D" uid="uid://dgufxed4tv5jp" path="res://img/Elemental Sanctuary.png" id="1_abs3t"]
 [ext_resource type="Texture2D" uid="uid://ooox1v73o2di" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Elemental Sanctuary.png" id="2_w7uqg"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="3_f8rub"]
+[ext_resource type="PackedScene" uid="uid://byqrk5obmm8r8" path="res://Scene/leche.tscn" id="5_3humj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0w3h"]
 texture = ExtResource("1_abs3t")
@@ -32976,6 +32977,7 @@ offset_bottom = 92.0
 
 [node name="playerlink" parent="." instance=ExtResource("3_f8rub")]
 position = Vector2(600, 1924)
+scale = Vector2(29.0285, 1.09189)
 
 [node name="Camera2D2" type="Camera2D" parent="playerlink"]
 zoom = Vector2(3, 3)
@@ -32995,6 +32997,14 @@ collision_mask = 132
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(584, 701)
 shape = SubResource("CircleShape2D_u0p24")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Leche" parent="Node" instance=ExtResource("5_3humj")]
+position = Vector2(508, 1668)
+scale = Vector2(0.05, 0.05)
+
+[node name="Leche2" parent="Node" instance=ExtResource("5_3humj")]
 
 [connection signal="area_entered" from="Regreso" to="." method="_on_regreso_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

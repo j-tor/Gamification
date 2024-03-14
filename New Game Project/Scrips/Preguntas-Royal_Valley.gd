@@ -18,7 +18,6 @@ func _ready():
 	if $Node2D.position==Vector2(536,316):
 		#$r_a/AnimatedSprite2D.stop("damage")
 		#$r_b/AnimatedSprite2D.stop("damage")
-		$You_Win.play()
 		$r_a/AnimatedSprite2D.play("idle")
 		$r_b/AnimatedSprite2D.play("idle")
 	if $Node2D2/ProgressBar.value >= 99:

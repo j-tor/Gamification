@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsvh0qr70i4b4"]
+
+[ext_resource type="Script" path="res://Scrips/Inventario.gd" id="1_k8c31"]
+[ext_resource type="Texture2D" uid="uid://bnjpah6r4gqnu" path="res://img/inventario.png" id="2_pmpgc"]
+[ext_resource type="Texture2D" uid="uid://dcv4epvmpr5up" path="res://img/Items.png" id="3_6744s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ml5be"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2hul"]
+atlas = ExtResource("3_6744s")
+region = Rect2(215, 56, 35, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfeds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2hul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Inventario" type="Node2D"]
+script = ExtResource("1_k8c31")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1148.0
+offset_bottom = 646.0
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 52.0
+offset_right = 649.0
+offset_bottom = 97.0
+text = "Innventario"
+label_settings = SubResource("LabelSettings_ml5be")
+
+[node name="Panel" type="Panel" parent="."]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(114.183, 92.5938)
+scale = Vector2(6.33243, 6.38616)
+sprite_frames = SubResource("SpriteFrames_kfeds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(593, 370)
+scale = Vector2(3.53575, 3.53822)
+texture = ExtResource("2_pmpgc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -7.0
+offset_right = 1059.0
+offset_bottom = 1120.0

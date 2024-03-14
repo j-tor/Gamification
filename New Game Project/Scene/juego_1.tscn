@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ci52kwgcfim4f"]
+[gd_scene load_steps=47 format=3 uid="uid://ci52kwgcfim4f"]
 
 [ext_resource type="Script" path="res://Scene/juego_1.gd" id="1_5qrih"]
 [ext_resource type="PackedScene" uid="uid://dxtcub1fb3p5u" path="res://Scene/Players-NPC/playerlink.tscn" id="1_awy5i"]
@@ -7312,6 +7312,29 @@ sources/3 = SubResource("TileSetAtlasSource_apqbt")
 sources/2 = SubResource("TileSetAtlasSource_wcu4m")
 sources/6 = SubResource("TileSetAtlasSource_hq0le")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bbpv3"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_psweg"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_61w3s"]
+blend_mode = 1
+light_mode = 2
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e1a1d"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uqaxp"]
+blend_mode = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_35wwn"]
 font_size = 11
 font_color = Color(1, 0.85098, 1, 1)
@@ -7426,10 +7449,10 @@ energy = 0.84
 texture = ExtResource("2_vhyh0")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.43
+energy = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.45098, 0.45098, 0.45098, 1)
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7q3oo")
@@ -7439,27 +7462,32 @@ layer_0/tile_data = PackedInt32Array(-196618, 2, 0, -131082, 2, 1, -65546, 2, 2,
 layer_1/name = "object"
 layer_1/tile_data = PackedInt32Array(262151, 2424838, 60, 327687, 2424838, 61, 393223, 2424838, 62, 262152, 2490374, 60, 327688, 2490374, 61, 393224, 2490374, 62, 262153, 2555910, 60, 327689, 2555910, 61, 393225, 2555910, 62, 7, 2424838, 57, 65543, 2424838, 58, 131079, 2424838, 59, 8, 2490374, 57, 65544, 2490374, 58, 131080, 2490374, 59, 9, 2555910, 57, 65545, 2555910, 58, 131081, 2555910, 59, 327671, 2424838, 63, 393207, 2424838, 64, 458743, 2424838, 65, 327672, 2490374, 63, 393208, 2490374, 64, 458744, 2490374, 65, 327673, 2555910, 63, 393209, 2555910, 64, 458745, 2555910, 65, 65527, 2424838, 54, 131063, 2424838, 55, 196599, 2424838, 56, 65528, 2490374, 54, 131064, 2490374, 55, 196600, 2490374, 56, 65529, 2555910, 54, 131065, 2555910, 55, 196601, 2555910, 56, 262145, 2228230, 57, 327681, 2228230, 58, 393217, 2228230, 59, 262146, 2293766, 57, 327682, 2293766, 58, 393218, 2293766, 59, 262147, 2359302, 57, 327683, 2359302, 58, 393219, 2359302, 59, 327677, 2228230, 54, 393213, 2228230, 55, 458749, 2228230, 56, 327678, 2293766, 54, 393214, 2293766, 55, 458750, 2293766, 56, 327679, 2359302, 54, 393215, 2359302, 55, 458751, 2359302, 56, 524285, 2818054, 66, 589821, 2228230, 63, 655357, 2228230, 64, 524286, 2752518, 66, 589822, 2293766, 63, 655358, 2293766, 64, 524287, 2818054, 66, 589823, 2359302, 63, 655359, 2359302, 64, 458753, 2818054, 66, 524289, 2228230, 60, 589825, 2228230, 61, 458754, 2752518, 66, 524290, 2293766, 60, 589826, 2293766, 61, 458755, 2818054, 66, 524291, 2359302, 60, 589827, 2359302, 61, 655361, 2228230, 62, 655362, 2293766, 62, 655363, 2359302, 62, 720893, 2228230, 65, 720894, 2293766, 65, 720895, 2359302, 65, 524284, 2752518, 66, 458752, 2752518, 66)
 
-[node name="Point4" type="Sprite2D" parent="."]
+[node name="Morado" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(35, 140)
+material = SubResource("CanvasItemMaterial_bbpv3")
+position = Vector2(43, 150)
 texture = ExtResource("3_mnn65")
 
-[node name="Point3" type="Sprite2D" parent="."]
+[node name="Azul" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(35, 92)
+material = SubResource("CanvasItemMaterial_psweg")
+position = Vector2(43, 85)
 texture = ExtResource("4_dyqyy")
 
-[node name="Point2" type="Sprite2D" parent="."]
+[node name="Yellow" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-16, 140)
+material = SubResource("CanvasItemMaterial_61w3s")
+position = Vector2(-21, 152)
 texture = ExtResource("5_3n4ml")
 
-[node name="Point1" type="Sprite2D" parent="."]
+[node name="Red" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-13, 91)
+material = SubResource("CanvasItemMaterial_e1a1d")
+position = Vector2(-21, 84)
 texture = ExtResource("6_uuxa1")
 
 [node name="playerlink" parent="." instance=ExtResource("1_awy5i")]
+material = SubResource("CanvasItemMaterial_uqaxp")
 position = Vector2(28, 93)
 
 [node name="Timer" type="Timer" parent="."]
@@ -7625,13 +7653,15 @@ offset_bottom = 136.0
 text = "Regresar"
 
 [node name="Label" type="Label" parent="Button"]
-visible = false
 layout_mode = 0
 offset_left = -1.0
 offset_top = -49.0
 offset_right = 76.0
 offset_bottom = -26.0
 text = "GANASTE!"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(23, 100)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

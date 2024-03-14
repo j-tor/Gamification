@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://lj8tbdul4k14"]
+
+[ext_resource type="Texture2D" uid="uid://dcv4epvmpr5up" path="res://img/Items.png" id="1_nl16n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2hul"]
+atlas = ExtResource("1_nl16n")
+region = Rect2(215, 56, 35, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpeqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2hul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Panel" type="Panel"]
+offset_right = 92.0
+offset_bottom = 89.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(43.25, 44.25)
+scale = Vector2(2.9, 2.69643)
+sprite_frames = SubResource("SpriteFrames_tpeqn")

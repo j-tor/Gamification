@@ -154,11 +154,14 @@ func _on_detec_obj_area_entered(area):
 			Main.bando="Racionalista"
 		print(Main.bando)
 		print("Adentro ",area.name)
-	print(Main.bruja)
-	print(Main.bando)
-	print("bando")
-	print(Main.Velocidad)
-	
+	if area.is_in_group("item"):
+		
+		
+		print(area.item_id)
+		area.queue_free()
+		
+	 
+	print("Adentro ",area.name)
 	
 
 func _on_detec_obj_area_exited(area):
