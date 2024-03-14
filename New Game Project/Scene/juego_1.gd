@@ -41,7 +41,7 @@ var RespuestasIncorrectas=0
 var AnswerColor = "" #Color de respuesta, puede ser r g b o p
 var actualMoment = 0  # el momento actual, determina si estamos en el inicio, una pregunta, cuando se dice si es correcta o no
 var ResponseColor = "" #Es el color en donde colocamos el personaje y lo comparamos con la respuesta real
-var hearts = 3 # el numero de corazones que tenemos al inicio
+var hearts = 4 # el numero de corazones que tenemos al inicio
 var regresarInicio=false
 
 func _ready():
@@ -50,7 +50,7 @@ func _ready():
 	Option_2.text = ""
 	Option_3.text = ""
 	Option_4.text = ""
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	QuestionsLab()
 	$Background_Music.play()
 	#changeMoment(actualMoment)
@@ -235,7 +235,7 @@ func QuestionsLab():
 		Option_2.text = "El mercantilismo"
 		Option_3.text = "La burguesía"
 		Option_4.text = "El proletariado"
-		
+		ResetChecker()
 		
 	elif num==1:
 		AnswerColor = "g"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wi8djhsdlkmd"]
+[gd_scene load_steps=12 format=3 uid="uid://67vcltqp2s31"]
 
 [ext_resource type="Script" path="res://Scene/more_somethings.gd" id="1_4dfyi"]
 [ext_resource type="Texture2D" uid="uid://djf47oipfdob2" path="res://img/PuntosNormal.png" id="1_kpf0m"]
@@ -64,6 +64,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4dfyi")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 657.0
+color = Color(0.243137, 0.243137, 0.243137, 0.560784)
+
 [node name="ButtonAjustes" type="Button" parent="."]
 layout_mode = 0
 offset_right = 143.0
@@ -127,6 +133,7 @@ offset_bottom = 440.0
 position = Vector2(175, 215)
 scale = Vector2(1, 0.991667)
 sprite_frames = SubResource("SpriteFrames_mhww7")
+frame_progress = 0.729156
 
 [node name="Label" type="Label" parent="Tienda"]
 offset_left = 35.0

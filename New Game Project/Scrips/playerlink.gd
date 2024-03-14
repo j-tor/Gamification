@@ -64,7 +64,7 @@ func _physics_process(delta):
 			if $"Camera2D2/Game Map".visible==false:
 				$"Camera2D2/Game Map".show()
 			else:
-				$"Camera2D2/Game Map".hide()
+				$"Camera2D2/Game Map".hide() 
 			
 		if  Input.is_action_just_pressed("Close_Map"):
 				$"Camera2D2/Game Map".hide()

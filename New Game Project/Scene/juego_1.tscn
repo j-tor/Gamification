@@ -7538,10 +7538,11 @@ grow_vertical = 2
 scale = Vector2(7, 7)
 theme = SubResource("Theme_1m3nh")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Base"
 fit_content = true
+autowrap_mode = 2
 
 [node name="Option1" type="RichTextLabel" parent="."]
 offset_left = -144.0
@@ -7614,7 +7615,7 @@ shape = SubResource("SegmentShape2D_wh4rb")
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2" groups=["Player1"]]
-position = Vector2(-19, 148)
+position = Vector2(-27, 146)
 shape = SubResource("CircleShape2D_pat7a")
 
 [node name="Area2D3" type="Area2D" parent="."]
