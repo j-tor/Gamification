@@ -33,7 +33,8 @@ var seleccionado
 var lab=0
 
 var User
-
+var Data
+var progreso
 # para almacenar que juegos gano
 var ganoElementJuegoDeJeffrey=false
 var JuegoDeKennyRecolector=false
@@ -121,7 +122,7 @@ func _dialogo():
 			dialogo_objeto = [
 					"He preparado dos caldos con el conocimiento Epistemefigther.",#0
 					"Estos caldos te van ayudar en tu siguiente combate.",#1
-					"El caldo azul de brindará todo el conocimiento Racionalizta.",#2
+					"El caldo azul de brindará todo el conocimiento Racionalista.",#2
 					"El caldo Rojo de brindará todo el conocimiento Empirista.",#3
 					"Elige sabiamente cuál tomar...",#4
 					]

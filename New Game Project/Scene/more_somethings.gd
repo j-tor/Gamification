@@ -33,6 +33,8 @@ func _ready():
 	GanoCombat = Main.GanoCombat
 	GanoAula = Main.GanoAula
 	GanoLab= Main.GanoLab
+	if Main.lab>=4:
+		GanoLab=true
 	$puntos.text= str(puntosPlayer)
 	
 	if SegundoGameKennyGalaga==true:

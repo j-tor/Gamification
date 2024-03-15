@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ioj0bieenm36"]
+
+[ext_resource type="Texture2D" uid="uid://d3pmeoibrdtnu" path="res://img/01-1920x1080-044176b85f89bd70aaf69796fc3a7f1e.png" id="1_0x2lk"]
+[ext_resource type="Script" path="res://Scrips/ranking.gd" id="1_5xyl6"]
+
+[node name="Ranking" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xyl6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 651.0
+color = Color(0.0156863, 0.0156863, 0.0156863, 0.592157)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+position = Vector2(200, 220)
+scale = Vector2(2.75859, 2.22963)
+texture = ExtResource("1_0x2lk")
+hframes = 2
+vframes = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 336.0
+offset_right = 429.0
+offset_bottom = 435.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 123.0
+offset_right = 910.0
+offset_bottom = 586.0
+theme_override_font_sizes/normal_font_size = 37
+text = "Ranking"

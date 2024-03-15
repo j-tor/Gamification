@@ -74,7 +74,7 @@ color = Color(0.243137, 0.243137, 0.243137, 0.560784)
 layout_mode = 0
 offset_right = 143.0
 offset_bottom = 49.0
-text = "Ajustes
+text = "Cerrar
 "
 
 [node name="ButtonTienda" type="Button" parent="."]
@@ -430,7 +430,9 @@ offset_right = 1153.0
 offset_bottom = 634.0
 text = "Incompleto"
 
+[connection signal="pressed" from="ButtonAjustes" to="." method="_on_button_ajustes_pressed"]
 [connection signal="pressed" from="ButtonTienda" to="." method="_on_button_tienda_pressed"]
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="ButtonStatus2" to="." method="_on_button_status_2_pressed"]
 [connection signal="pressed" from="Tienda/BuyVelocity" to="." method="_on_buy_velocity_pressed"]
 [connection signal="pressed" from="Tienda/BuyPoints" to="." method="_on_buy_points_pressed"]

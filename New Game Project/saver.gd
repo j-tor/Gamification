@@ -47,7 +47,6 @@ func _savedate():
 
 func _on_button_login_pressed():
 	
-	
 	print($TextEdit.text)
 	print($TextEdit2.text)
 
@@ -59,7 +58,7 @@ func _on_button_login_pressed():
 			if(game_data[n].pass == $TextEdit.text):
 				$Window/RichTextLabel.text="Login Exitoso"
 				Main.User=$TextEdit.text
-				GameSave.load_juego()
+				
 				print("Login Exitoso")
 				
 				loginExitoso=true
@@ -116,7 +115,5 @@ func verVideo():
 func _on_omitir_pressed():
 	$CanvasLayer/VideoStreamPlayer.stop()
 	$CanvasLayer/VideoStreamPlayer.eliminar()
-	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="mundo1"
-	get_tree().get_nodes_in_group("GAME")[0].ubicacion = Vector2(193,1530)
-	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
-	get_tree().get_nodes_in_group("Login")[0].queue_free()
+	
+	

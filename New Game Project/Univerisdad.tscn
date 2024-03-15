@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cffdwkxhm88jp"]
+[gd_scene load_steps=76 format=3 uid="uid://cffdwkxhm88jp"]
 
 [ext_resource type="Texture2D" uid="uid://c1ejngidsynl0" path="res://img/aula2.png" id="1_1ppka"]
 [ext_resource type="Script" path="res://Univerisdad.gd" id="1_pfue3"]
@@ -26798,14 +26798,20 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_872w6"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ceuyx"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibrhk"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_piher"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp7i7"]
+font_size = 10
+
 [node name="Node2D" type="Node2D" groups=["Universidad"]]
 script = ExtResource("1_pfue3")
-
-[node name="Node" type="Node" parent="."]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="Node"]
-
-[node name="mostrar" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -27455,6 +27461,48 @@ position = Vector2(186, 543)
 [node name="BayronCharacter" parent="." instance=ExtResource("25_3qsdl")]
 position = Vector2(284, 544)
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1044.0
+offset_top = 685.0
+offset_right = 1116.0
+offset_bottom = 700.0
+text = "Mesa Analisis"
+label_settings = SubResource("LabelSettings_ceuyx")
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 749.0
+offset_right = 1150.0
+offset_bottom = 772.0
+text = "Mesa Sintesis"
+label_settings = SubResource("LabelSettings_ibrhk")
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1127.0
+offset_top = 749.0
+offset_right = 1220.0
+offset_bottom = 766.0
+text = "Mesa Enumeracion"
+label_settings = SubResource("LabelSettings_piher")
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 891.0
+offset_top = 845.0
+offset_right = 997.0
+offset_bottom = 864.0
+text = "Maquina de Evidencia"
+label_settings = SubResource("LabelSettings_jp7i7")
+
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaA" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaB" to="." method="_on_respuesta_b_pressed"]
 [connection signal="pressed" from="playerlink/Camera2D/ParaPreguntasAula/RespuestaC" to="." method="_on_respuesta_c_pressed"]
@@ -27515,6 +27563,9 @@ position = Vector2(284, 544)
 [connection signal="area_exited" from="HechoPorKenny/contendorDeObj/ObjLibro18" to="." method="_on_obj_libro_18_area_exited"]
 [connection signal="area_entered" from="HechoPorKenny/SalioAAula" to="." method="_on_salio_a_aula_area_entered"]
 [connection signal="area_entered" from="ANALISIS" to="." method="_on_analisis_area_entered"]
+[connection signal="area_exited" from="ANALISIS" to="." method="_on_analisis_area_exited"]
 [connection signal="area_entered" from="SINTESIS" to="." method="_on_sintesis_area_entered"]
+[connection signal="area_exited" from="SINTESIS" to="." method="_on_sintesis_area_exited"]
 [connection signal="area_entered" from="ENUMERACIÓN" to="." method="_on_enumeración_area_entered"]
+[connection signal="area_exited" from="ENUMERACIÓN" to="." method="_on_enumeración_area_exited"]
 [connection signal="area_entered" from="CerrarAulaFinish" to="." method="_on_cerrar_aula_finish_area_entered"]

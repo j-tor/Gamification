@@ -21,12 +21,13 @@ var MesaS=false
 var MesaE=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	$Control.show()
 	$playerlink/Camera2D/CanvasLayer/ProgressBar.value = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	habloInicial=Main.hablo
 	if startAula==true:
 		Win()
@@ -45,12 +46,20 @@ func _process(delta):
 			$playerlink/Camera2D/eggdata.hide()
 			$playerlink/Camera2D/Tesla.hide()
 			$playerlink/Camera2D/Eggcluster.show()
+			$ANALISIS/Sprite2D.hide()
+			$SINTESIS/AnimatedSprite2D.hide()
+			$"ENUMERACIÓN/AnimatedSprite2D".hide()
+			$Control.hide()
 			print("entro")
 	if MesaS== true:
 		if Input.is_action_just_pressed("interact"):
 			$playerlink/Camera2D/Eggcluster.hide()
 			$playerlink/Camera2D/Tesla.hide()
 			$playerlink/Camera2D/eggdata.show()
+			$ANALISIS/Sprite2D.hide()
+			$SINTESIS/AnimatedSprite2D.hide()
+			$"ENUMERACIÓN/AnimatedSprite2D".hide()
+			$Control.hide()
 			print("entro")
 	if MesaE== true:
 		if Input.is_action_just_pressed("interact"):
@@ -58,6 +67,10 @@ func _process(delta):
 			$playerlink/Camera2D/Tesla.hide()
 			$playerlink/Camera2D/eggdata.hide()
 			$playerlink/Camera2D/eggvolution.show()
+			$ANALISIS/Sprite2D.hide()
+			$SINTESIS/AnimatedSprite2D.hide()
+			$"ENUMERACIÓN/AnimatedSprite2D".hide()
+			$Control.hide()
 			print("entro")
 
 
@@ -619,6 +632,7 @@ func _on_analisis_area_entered(area):
 	MesaA=true
 	MesaE=false
 	MesaS=false
+	
 	pass # Replace with function body.
 
 
@@ -634,3 +648,24 @@ func _on_enumeración_area_entered(area):
 	MesaS=false
 	MesaE=true
 	pass # Replace with function body.
+
+
+func _on_enumeración_area_exited(area):
+	$ANALISIS/Sprite2D.show()
+	$SINTESIS/AnimatedSprite2D.show()
+	$"ENUMERACIÓN/AnimatedSprite2D".show()
+	$Control.show()
+
+
+func _on_sintesis_area_exited(area):
+	$ANALISIS/Sprite2D.show()
+	$SINTESIS/AnimatedSprite2D.show()
+	$"ENUMERACIÓN/AnimatedSprite2D".show()# Replace with function body.
+	$Control.show()
+
+
+func _on_analisis_area_exited(area):
+	$ANALISIS/Sprite2D.show()
+	$SINTESIS/AnimatedSprite2D.show()
+	$"ENUMERACIÓN/AnimatedSprite2D".show()
+	$Control.show()
