@@ -14,6 +14,10 @@ func _ready():
 	else:
 		$PointLight2D/Sprite2D.hide()
 		
+	if Main.GanoCombat==true:
+		$PointLight2D4/Sprite2D.show()
+	else:
+		$PointLight2D4/Sprite2D.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dr7p1i3n3mrmp"]
+[gd_scene load_steps=28 format=3 uid="uid://dr7p1i3n3mrmp"]
 
 [ext_resource type="Texture2D" uid="uid://bm0gpx5akr5t2" path="res://img/Game Boy Advance - The Legend of Zelda The Minish Cap - Overworld Map.png" id="1_n1xdq"]
 [ext_resource type="Script" path="res://Mapa.gd" id="2_7g38f"]
 [ext_resource type="Texture2D" uid="uid://dpnyu7cbpnbjd" path="res://img/MAPAS.png" id="3_lneab"]
+[ext_resource type="Texture2D" uid="uid://chrgq8ythf3tw" path="res://img/Logo.png" id="4_xwluj"]
 [ext_resource type="Texture2D" uid="uid://6jovsr7frnu6" path="res://img/pixilart-sprite.png" id="4_yaqwp"]
 [ext_resource type="Texture2D" uid="uid://bem4q36oflnvp" path="res://img/Zelda3Sheet1_scaled_5x_minified.png" id="5_ev77q"]
 [ext_resource type="Texture2D" uid="uid://dd4kmt6jhee6q" path="res://img/pngegg.png" id="6_8jf5c"]
@@ -1534,6 +1535,9 @@ margins = Vector2i(1, 6)
 sources/1 = SubResource("TileSetAtlasSource_8nwls")
 sources/2 = SubResource("TileSetAtlasSource_cebcn")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jj0j1"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rkne0"]
 light_mode = 1
 
@@ -1646,6 +1650,14 @@ script = ExtResource("2_7g38f")
 position = Vector2(110, 99)
 scale = Vector2(0.197829, 0.197612)
 texture = ExtResource("3_lneab")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="PointLight2D4"]
+material = SubResource("CanvasItemMaterial_jj0j1")
+position = Vector2(116.43, 103.348)
+scale = Vector2(0.00568447, 0.00533969)
+texture = ExtResource("4_xwluj")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(111, 92)
