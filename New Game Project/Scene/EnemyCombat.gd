@@ -2,8 +2,8 @@ extends CharacterBody2D
 #empiristas con vestimenta roja y racionalistas con vestimenta blanca
 #var elecionPLayer=Main.bando
 #var elecionPLayer=Main.bando
-var elecionPLayer="Racionalista"
-
+#var elecionPLayer="Racionalista"
+var elecionPLayer="Empirista"
 #rango 260-350 
 var SPEED = randi_range(205,310)
 const JUMP_VELOCITY = -400.0
@@ -75,7 +75,7 @@ func _ready():
 		$AnimatedSprite2D.play("idle")
 	elif correctplayer=="Racionalista":
 		$AnimatedSprite2D.play("idleracio")
-	#Intruciones()
+	Intruciones()
 	ManagerGame()
 
 func Intruciones():
@@ -488,9 +488,11 @@ func siguienteRound():
 	if Round==4 && RoundsEnemy>RoundsPlayer && puntosEnemy==2|| Round==4 && RoundsPlayer>RoundsEnemy && puntoPLayer==2 ||Round==5 || Round==6:
 		if RoundsPlayer>RoundsEnemy:
 			print("ganastes")
+			
 			$"../Informacion/Inforound".text="Ganastes!"
 			win="Tu"
 			celebrar=true
+			
 			$"../Informacion/Round".text=" "
 			$"../Informacion/Segundos".text=" "
 			$"../Informacion/Label".text=" "
@@ -498,34 +500,57 @@ func siguienteRound():
 			$"../Informacion/EnemyPuntos2".text=" "
 			$"../Informacion/PlayerPuntos".text=" "
 			$"../CharacterBody2D".hide()
+			
+			$"../player".hide()
+			$".".hide()
+			
+			
 			if elecionPLayer=="Racionalista":
 				celebrar=true
-				$AnimatedSprite2D.play("perdioRacio")
-				print("ajajjajajajjajajjajajjajajajjaja")
-				$"../player".ganoEmpi()
-				#get_tree().paused = true
-				$"../Racionalista".play()
-				print("a w 1")
-				await get_tree().create_timer(5).timeout
+				#$AnimatedSprite2D.play("perdioRacio")
+				#$"../player".ganoEmpi()
+				##get_tree().paused = true
+				#$"../Racionalista".play()
+				#print("a w 1")
+				$"../CanvasLayer/TuPlayer".play("winRacio")
+				$"../CanvasLayer/Enemigo".play("idle")
+				$"../CanvasLayer".show()
+				await get_tree().create_timer(0.2).timeout
+				$"../CanvasLayer/Enemigo".play("perdioRacio")
+				$"../fatality".play()
+				await get_tree().create_timer(2).timeout
+				
+				$"../CanvasLayer/TuPlayer".play("ganoRacio")
+				$"../CanvasLayer/Enemigo".play("murioRacio")
 				print("W 1")
+			
 			elif elecionPLayer=="Empirista":
 				print("jejejjejejejje")
-				celebrar=true
-				$AnimatedSprite2D.play("perdioEmpi")
-				$"../player".ganoRacio()
-				#get_tree().paused = true
-				$"../Empirista".play()
+				#celebrar=true
+				#$AnimatedSprite2D.play("perdioEmpi")
+				#$"../player".ganoRacio()
+				##get_tree().paused = true
+				#$"../Empirista".play()
+				
+				$"../CanvasLayer/TuPlayer".play("winEmpi")
+				$"../CanvasLayer/Enemigo".play("idleracio")
+				$"../CanvasLayer".show()
+				await get_tree().create_timer(0.2).timeout
+				$"../CanvasLayer/Enemigo".play("perdioEmpi")
+				$"../fatality".play()
+				await get_tree().create_timer(2).timeout
+				
+				$"../CanvasLayer/TuPlayer".play("ganoEmpi")
+				$"../CanvasLayer/Enemigo".play("murioEmpi")
 				print("a w 2")
 				
-				await get_tree().create_timer(5).timeout
+				#await get_tree().create_timer(5).timeout
 				print("W 2")
 			$"../Back".show()
 			await get_tree().create_timer(30).timeout
-			
-			
-			SPEED=0
 			$"../Informacion/Segundos".hide()
 			$"../Informacion/Round".hide()
+		
 		if RoundsEnemy>RoundsPlayer:
 			$"../Informacion/Inforound".text="Perdiste!"
 			win="Enemigo"
@@ -535,29 +560,52 @@ func siguienteRound():
 			$"../Informacion/Label2".text= " "
 			$"../Informacion/EnemyPuntos2".text=" "
 			$"../Informacion/PlayerPuntos".text=" "
+			$"../player".hide()
+			$".".hide()
 			celebrar=true
 			$"../CharacterBody2D".hide()
 			if elecionPLayer=="Racionalista":
 				print("a p 1")
 				celebrar=true
-				$AnimatedSprite2D.play("winRacio")
-				$"../player".perdioRacio()
-				#get_tree().paused = true
-				$"../Back".show()
-				$"../Racionalista".play()
-				await get_tree().create_timer(5).timeout
+				#$AnimatedSprite2D.play("winRacio")
+				#$"../player".perdioRacio()
+				##get_tree().paused = true
+				#$"../Back".show()
+				#$"../Racionalista".play()
+				#await get_tree().create_timer(5).timeout
+				
+				$"../CanvasLayer/TuPlayer".play("idleotro")
+				$"../CanvasLayer/Enemigo".play("winRacio")
+				$"../CanvasLayer".show()
+				await get_tree().create_timer(0.2).timeout
+				$"../CanvasLayer/TuPlayer".play("perdioRacio")
+				$"../fatality".play()
+				await get_tree().create_timer(2).timeout
+				
+				$"../CanvasLayer/TuPlayer".play("loseRacio")
+				$"../CanvasLayer/Enemigo".play("winRacioememy")
 				print("p 1")
 			elif elecionPLayer=="Empirista":
 				print("a p 2")
 				celebrar=true
-				$AnimatedSprite2D.play("winEmpi")
-				$"../player".perdioempi()
-				$"../Back".show()
-				#get_tree().paused = true
-				$"../Racionalista".play()
-				$"../Informacion/Segundos".hide()
-				$"../Informacion/Round".hide()
-				await get_tree().create_timer(5).timeout
+				#$AnimatedSprite2D.play("winEmpi")
+				#$"../player".perdioempi()
+				#$"../Back".show()
+				##get_tree().paused = true
+				#$"../Racionalista".play()
+				#$"../Informacion/Segundos".hide()
+				#$"../Informacion/Round".hide()
+				#await get_tree().create_timer(5).timeout
+				$"../CanvasLayer/TuPlayer".play("idle")
+				$"../CanvasLayer/Enemigo".play("winEmpi")
+				$"../CanvasLayer".show()
+				await get_tree().create_timer(0.2).timeout
+				$"../CanvasLayer/TuPlayer".play("perdioEmpi")
+				$"../fatality".play()
+				await get_tree().create_timer(2).timeout
+				
+				$"../CanvasLayer/TuPlayer".play("LoseTu")
+				$"../CanvasLayer/Enemigo".play("winEl")
 				print("p 2 ")
 			
 			SPEED=0
@@ -580,21 +628,27 @@ func Fin():
 	if win=="Tu":
 		Main.GanoCombat=true
 		if elecionPLayer=="Racionalista":
-			$AnimatedSprite2D.play("perdioRacio")
-			$"../player".fatalitiempi()
-		#$"../Racionalista".play()
+			
+			#$"../CanvasLayer/TuPlayer".play("ganoRacio")
+			#$"../CanvasLayer/Enemigo".play("murioRacio")
+			
+			#$AnimatedSprite2D.play("perdioRacio")
+			#$"../player".fatalitiempi()
+			$"../Racionalista".play()
 		elif elecionPLayer=="Empirista":
-			$AnimatedSprite2D.play("perdioEmpi")
-			$"../player".fatalitiRacio()
+			$"../Empirista".play()
+			#$AnimatedSprite2D.play("perdioEmpi")
+			#$"../player".fatalitiRacio()
 	elif win=="Enmigo":
 		if elecionPLayer=="Racionalista":
-			$AnimatedSprite2D.play("winRacio")
-			$"../player".perdioRacio()
-		#$"../Racionalista".play()
+			#$AnimatedSprite2D.play("winRacio")
+			#$"../player".perdioRacio()
+			$"../Racionalista".play()
 			print("p 1")
 		elif elecionPLayer=="Empirista":
-			$AnimatedSprite2D.play("winEmpi")
-			$"../player".perdioempi()
+			#$AnimatedSprite2D.play("winEmpi")
+			#$"../player".perdioempi()
+			$"../Empirista".play()
 	await get_tree().create_timer(2).timeout
 
 func _on_salir_pressed():

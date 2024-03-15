@@ -7,6 +7,7 @@ var RespuestaCorecta= " "
 var RespuestaJugador= " "
 var numero=10
 var win=0
+var gano=false
 func _ready():
 	$JuegoSonido.play()
 	Player.connect("scoreUp",subirScore)
@@ -172,14 +173,16 @@ func _Validar_Estado():
 		$WinScreen/Label3.text = str(scoreJugador)
 		#$Player.position = Vector2(1490,333)
 		win= 1
-		Main.JuegoDeKennyRecolector=true
-		Main.Vida_base+=20
-		Main.puntosPlayer+=200
+		gano=true
 
 
 
 func _on_regresar_pressed():
 	get_tree().paused = false
+	if gano==true:
+		Main.JuegoDeKennyRecolector=true
+		Main.Vida_base+=20
+		Main.puntosPlayer+=200
 	get_tree().get_nodes_in_group("GAME")[0].siguiente_nivel="element"
 	get_tree().get_nodes_in_group("GAME")[0]._verficar_nivel()
 	get_tree().get_nodes_in_group("MiniRecolector")[0].queue_free()
