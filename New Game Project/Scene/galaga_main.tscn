@@ -2696,7 +2696,7 @@ offset_left = 381.0
 offset_top = 29.0
 offset_right = 721.0
 offset_bottom = 129.0
-text = "GANASTES!"
+text = "GANASTE!"
 label_settings = SubResource("LabelSettings_depv0")
 metadata/_edit_use_anchors_ = true
 

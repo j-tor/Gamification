@@ -188,7 +188,7 @@ func _validacion():
 		$CharacterGalaga._Lose()
 		$PreguntasGame.hide()
 		$FinalGame.show()
-		$FinalGame/Label.text="Perdistes!"
+		$FinalGame/Label.text="Perdiste!"
 		$FinalGame/ganastespoints.text="Points: "+str(points)
 	if cantidadchoques1==0:
 		$PreguntasGame/Tiro1.play("normal")

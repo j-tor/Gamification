@@ -110,7 +110,7 @@ func _on_portal_1_area_entered(area):
 
 
 func _on_royal_area_entered(area):
-	if area.is_in_group("player"):
+	if area.is_in_group("player")&& Main.GanoGameMaria==false:
 		if Main.GreeGame==true :
 			Main.VieneRuleta=true
 			$"Royal/Entrada a Royal".show()

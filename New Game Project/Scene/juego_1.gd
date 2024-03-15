@@ -34,7 +34,7 @@ extends Node2D
 @onready var Heart3 = $Heart3
 
 var num=6
-
+var unavez=false
 
 var RespuestasCorrectas=0
 var RespuestasIncorrectas=0
@@ -274,7 +274,7 @@ func QuestionsLab():
 		
 		Option_1.text = "La imprenta y la brújula"
 		Option_2.text = "La rueda y la escritura"
-		Option_3.text = "Las máquinas y la producción"
+		Option_3.text = "Las máquinas y \nla producción"
 		Option_4.text = "La pólvora y La rueda"
 		ResetChecker()
 
@@ -284,13 +284,14 @@ func QuestionsLab():
 
 func _Ganastes():
 	ResetChecker()
-	Main.Vida_base+=20
 	$Background_Music.stop()
 	$You_Win.play()
 	$Button/Label.text = "GANASTE!"
 	$PointLight2D/Sprite2D.hide()
-	Main.Vida_base+=20
-	Main.puntosPlayer+=200
+	if unavez==false:
+		Main.Vida_base+=20
+		Main.puntosPlayer+=200
+		unavez=true
 	Main.GanoGameMaria=true
 	bubbleText.text = "Ganaste, lograste responder correctamente las suficientes preguntas, vuelves a la Ruleta"
 	$Button.show()
@@ -302,7 +303,6 @@ func _lose():
 	$You_Lose.play()
 	$Button/Label.text = "PERDISTE!"
 	$PointLight2D/Sprite2D.hide()
-	Main.Vida_base+=20
 	bubbleText.text = "te quedaste sin vidas, vuelves a la Ruleta"
 	$Button.show()
 	$Button.show()
