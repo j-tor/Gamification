@@ -54,13 +54,13 @@ func _process(delta):
 		print("guardado")
 		_savedate()
 	else:
-		
+		pass
 
-		for n in range (len(game_data)):
-			if(game_data[n].user == User):
-				print("Datos con el for")
-				print(game_data)
-				break
+		#for n in range (len(game_data)):
+			#if(game_data[n].user == User):
+				#print("Datos con el for")
+				#print(game_data)
+				#break
 		
 		
 

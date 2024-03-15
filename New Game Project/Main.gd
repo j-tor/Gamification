@@ -32,6 +32,8 @@ var rulet=false
 var seleccionado
 var lab=0
 
+var User
+
 # para almacenar que juegos gano
 var ganoElementJuegoDeJeffrey=false
 var JuegoDeKennyRecolector=false
