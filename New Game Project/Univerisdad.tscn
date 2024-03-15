@@ -26801,6 +26801,12 @@ animations = [{
 [node name="Node2D" type="Node2D" groups=["Universidad"]]
 script = ExtResource("1_pfue3")
 
+[node name="Node" type="Node" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Node"]
+
+[node name="mostrar" type="CanvasLayer" parent="."]
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 offset_left = -295.0

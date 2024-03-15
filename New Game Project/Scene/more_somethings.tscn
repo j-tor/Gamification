@@ -244,6 +244,7 @@ text = "Status
 "
 
 [node name="Tienda" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="BuyVelocity" type="Button" parent="Tienda"]
 offset_left = 18.0

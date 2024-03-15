@@ -20,7 +20,7 @@ var unavez8=false
 var unavez9=false
 var unavez0=false
 var cantidad=0
-var segundacantidad
+var segundacantidad=0
 func _ready():
 	ocultarTodo()
 	$Status/ProgressBar.value = 0
@@ -32,6 +32,7 @@ func _ready():
 	HabloconBruja = Main.HabloconBruja
 	GanoCombat = Main.GanoCombat
 	GanoAula = Main.GanoAula
+	GanoLab= Main.GanoLab
 	$puntos.text= str(puntosPlayer)
 	
 	if SegundoGameKennyGalaga==true:
@@ -108,6 +109,7 @@ func _process(delta):
 	HabloconBruja = Main.HabloconBruja
 	GanoCombat = Main.GanoCombat
 	GanoAula = Main.GanoAula
+	GanoLab= Main.GanoLab
 	$puntos.text= str(puntosPlayer)
 	
 	if SegundoGameKennyGalaga==true:
