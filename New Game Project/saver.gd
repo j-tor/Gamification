@@ -58,6 +58,8 @@ func _on_button_login_pressed():
 			$Window/RichTextLabel.text="Contrasena Incorrecta"
 			if(game_data[n].pass == $TextEdit.text):
 				$Window/RichTextLabel.text="Login Exitoso"
+				Main.User=$TextEdit.text
+				GameSave.load_juego()
 				print("Login Exitoso")
 				
 				loginExitoso=true

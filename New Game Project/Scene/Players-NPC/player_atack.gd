@@ -12,7 +12,7 @@ var Vida_maxima = 20
 func _ready():
 	$AnimatedSprite2D.play("Idle")
 	#$AnimationPlayer.play("parado")
-	$ProgressBar.value = Vida_maxima
+	$ProgressBar.value = 100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

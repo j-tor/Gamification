@@ -1,12 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://67vcltqp2s31"]
+[gd_scene load_steps=12 format=3 uid="uid://67vcltqp2s31"]
 
 [ext_resource type="Script" path="res://Scene/more_somethings.gd" id="1_4dfyi"]
 [ext_resource type="Texture2D" uid="uid://djf47oipfdob2" path="res://img/PuntosNormal.png" id="1_kpf0m"]
 [ext_resource type="Texture2D" uid="uid://cvnh71tmmvwi0" path="res://img/VelocidadCorrect.png" id="3_ldmta"]
 [ext_resource type="Texture2D" uid="uid://c7at5feeqcvei" path="res://img/Corazones.png" id="4_aem2j"]
-[ext_resource type="AudioStream" uid="uid://bfxyvwlq50kbm" path="res://img/Assets/Sonidos/Collect_Point_01.mp3" id="5_c2ifr"]
-[ext_resource type="AudioStream" uid="uid://bajyeswhla753" path="res://img/Assets/Sonidos/mk2-100.wav" id="6_tjv4t"]
-[ext_resource type="Texture2D" uid="uid://bcr6ge3xyqg" path="res://img/Figurines.png" id="7_6me8n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_74y7g"]
 atlas = ExtResource("1_kpf0m")
@@ -56,127 +53,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7xs2"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(1, 1205, 19, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8kvhv"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(23, 1204, 22, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8clx"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(49, 1205, 26, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pjhx"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(75, 1205, 26, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwman"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(101, 1205, 26, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvyu7"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(158, 1200, 26, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1b17"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(184, 1200, 26, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_txb2s"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(210, 1200, 26, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_88ijd"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(237, 1191, 33, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddexl"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(270, 1191, 33, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjx2f"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(303, 1191, 33, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umko5"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(336, 1191, 33, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57ax3"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(369, 1191, 33, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_djkm1"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(402, 1191, 33, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_esc04"]
-atlas = ExtResource("7_6me8n")
-region = Rect2(435, 1191, 33, 35)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_a0f5n"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t7xs2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8kvhv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f8clx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8pjhx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwman")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvyu7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1b17")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_txb2s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_88ijd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ddexl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hjx2f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_umko5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_57ax3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_djkm1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_esc04")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"normal",
-"speed": 5.0
-}]
-
-[sub_resource type="LabelSettings" id="LabelSettings_b5pb4"]
-font_size = 128
-
 [node name="MoreSomethings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -218,9 +94,10 @@ animation = &"puntos"
 
 [node name="puntos" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1013.0
-offset_right = 1166.0
-offset_bottom = 92.0
+offset_left = 1035.0
+offset_top = -1.0
+offset_right = 1188.0
+offset_bottom = 91.0
 text = "0
 "
 label_settings = SubResource("LabelSettings_601wi")
@@ -327,29 +204,6 @@ scale = Vector2(0.188759, 0.196006)
 sprite_frames = SubResource("SpriteFrames_3nxo6")
 animation = &"puntos"
 
-[node name="FinishBuy" type="AudioStreamPlayer2D" parent="Tienda"]
-stream = ExtResource("5_c2ifr")
-
-[node name="NoBuy" type="AudioStreamPlayer2D" parent="Tienda"]
-stream = ExtResource("6_tjv4t")
-
-[node name="RevenderHuevo" type="AnimatedSprite2D" parent="Tienda"]
-visible = false
-position = Vector2(539, 212)
-scale = Vector2(18.0789, 15.8125)
-sprite_frames = SubResource("SpriteFrames_a0f5n")
-autoplay = "default"
-frame_progress = 0.472926
-
-[node name="Label3" type="Label" parent="Tienda"]
-visible = false
-offset_left = 421.0
-offset_top = 157.0
-offset_right = 699.0
-offset_bottom = 332.0
-text = "100"
-label_settings = SubResource("LabelSettings_b5pb4")
-
 [node name="Status" type="CanvasLayer" parent="."]
 visible = false
 
@@ -358,7 +212,7 @@ offset_left = 14.0
 offset_top = 136.0
 offset_right = 1125.0
 offset_bottom = 166.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="Label" type="Label" parent="Status"]
 offset_left = 22.0
@@ -372,63 +226,63 @@ offset_left = 14.0
 offset_top = 189.0
 offset_right = 1125.0
 offset_bottom = 219.0
-color = Color(0.333333, 0.333333, 0.333333, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 243.0
 offset_right = 1125.0
 offset_bottom = 273.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 296.0
 offset_right = 1126.0
 offset_bottom = 326.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 350.0
 offset_right = 1126.0
 offset_bottom = 380.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 403.0
 offset_right = 1126.0
 offset_bottom = 433.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 451.0
 offset_right = 1126.0
 offset_bottom = 481.0
-color = Color(0.333333, 0.333333, 0.333333, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 504.0
 offset_right = 1126.0
 offset_bottom = 534.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 556.0
 offset_right = 1126.0
 offset_bottom = 586.0
-color = Color(0.329412, 0.329412, 0.329412, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="Status"]
 offset_left = 14.0
 offset_top = 608.0
 offset_right = 1126.0
 offset_bottom = 638.0
-color = Color(0.32549, 0.32549, 0.32549, 1)
+color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="Label2" type="Label" parent="Status"]
 offset_left = 19.0
@@ -577,7 +431,6 @@ offset_bottom = 634.0
 text = "Incompleto"
 
 [connection signal="pressed" from="ButtonTienda" to="." method="_on_button_tienda_pressed"]
-[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="ButtonStatus2" to="." method="_on_button_status_2_pressed"]
 [connection signal="pressed" from="Tienda/BuyVelocity" to="." method="_on_buy_velocity_pressed"]
 [connection signal="pressed" from="Tienda/BuyPoints" to="." method="_on_buy_points_pressed"]

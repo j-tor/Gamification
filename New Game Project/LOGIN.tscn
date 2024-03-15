@@ -34,21 +34,31 @@ layout_mode = 2
 [node name="Button_Login" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 0
-offset_left = 368.0
-offset_top = 464.0
-offset_right = 861.0
-offset_bottom = 523.0
+offset_left = 364.0
+offset_top = 393.0
+offset_right = 865.0
+offset_bottom = 455.0
 theme_override_font_sizes/font_size = 37
 text = "LOGIN"
 script = ExtResource("3_wnkll")
 
+[node name="Button_Ranking" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
+offset_left = 364.0
+offset_top = 538.0
+offset_right = 859.0
+offset_bottom = 598.0
+theme_override_font_sizes/font_size = 37
+text = "RANKING"
+
 [node name="Button_CreateUser" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 0
-offset_left = 357.0
-offset_top = 526.0
-offset_right = 858.0
-offset_bottom = 595.0
+offset_left = 365.0
+offset_top = 459.0
+offset_right = 862.0
+offset_bottom = 527.0
 theme_override_font_sizes/font_size = 37
 text = "CREATE USER"
 script = ExtResource("3_o1puc")
@@ -56,20 +66,20 @@ script = ExtResource("3_o1puc")
 [node name="TextEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
-offset_left = 296.0
-offset_top = 402.0
-offset_right = 946.0
-offset_bottom = 462.0
+offset_left = 299.0
+offset_top = 323.0
+offset_right = 949.0
+offset_bottom = 383.0
 theme_override_font_sizes/font_size = 17
 placeholder_text = "PASSWORD"
 
 [node name="TextEdit2" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
-offset_left = 296.0
-offset_top = 338.0
-offset_right = 946.0
-offset_bottom = 398.0
+offset_left = 299.0
+offset_top = 259.0
+offset_right = 949.0
+offset_bottom = 319.0
 theme_override_font_sizes/font_size = 17
 placeholder_text = "USERNAME"
 
@@ -77,6 +87,7 @@ placeholder_text = "USERNAME"
 title = "Information"
 position = Vector2i(450, 162)
 size = Vector2i(300, 250)
+visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Window"]
 anchors_preset = 15

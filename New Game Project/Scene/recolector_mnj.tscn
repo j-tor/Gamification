@@ -385,7 +385,6 @@ text = "Puntos:"
 label_settings = SubResource("LabelSettings_8qfc2")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 position = Vector2(-1096, 2252)
 scale = Vector2(7.68753, 6.92802)
 color = Color(1, 1, 1, 0.403922)
