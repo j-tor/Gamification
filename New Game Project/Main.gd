@@ -42,7 +42,7 @@ var SegundoGameKennyGalaga=false
 var GanoGameMaria=false
 var HabloconBruja=false
 var GanoCombat=false
-var puntosPlayer=5000
+var puntosPlayer=250
 var GanoAula=false
 var GanoLab= false
 

@@ -1,9 +1,9 @@
 extends CharacterBody2D
 #empiristas con vestimenta roja y racionalistas con vestimenta blanca
 #var elecionPLayer=Main.bando
-#var elecionPLayer=Main.bando
+var elecionPLayer=Main.bando
 #var elecionPLayer="Racionalista"
-var elecionPLayer="Empirista"
+#var elecionPLayer="Empirista"
 #rango 260-350 
 var SPEED = randi_range(205,310)
 const JUMP_VELOCITY = -400.0

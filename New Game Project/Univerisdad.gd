@@ -124,7 +124,7 @@ func _on_hacia_aula_area_entered(area):
 
 
 func _on_pergamino_area_entered(area):
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
@@ -150,7 +150,7 @@ func _on_pergamino_area_entered(area):
 
 func _on_libro_area_entered(area):
 	print("Entro a libro")
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
@@ -176,7 +176,7 @@ func _on_libro_area_entered(area):
 
 func _on_area_2d_area_entered(area):
 	print("Entraste a planta")
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
@@ -331,7 +331,7 @@ func finish():
 	$HechoPorKenny/cambio/CollisionShape2D.position= Vector2(246,998)
 
 func _on_pizarra_area_entered(area):
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
@@ -356,7 +356,7 @@ func _on_pizarra_area_entered(area):
 
 
 func _on_estante_area_entered(area):
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		$playerlink/Camera2D/ParaPreguntasAula/AnimatedSprite2D.show()
@@ -381,7 +381,7 @@ func _on_estante_area_entered(area):
 
 
 func _on_estante_2_area_entered(area):
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		pergamino+=1
@@ -405,7 +405,7 @@ func _on_estante_2_area_entered(area):
 
 
 func _on_estante_3_area_entered(area):
-	if pergamino<15:
+	if pergamino<25:
 		QuestionsAula()
 		$playerlink/Camera2D/ParaPreguntasAula.show()
 		pergamino+=1
